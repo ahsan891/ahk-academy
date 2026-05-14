@@ -1,0 +1,313 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+model User {
+  id            String    @id @default(cuid())
+  name          String
+  email         String    @unique
+  password      String
+  role          String    @default("STUDENT")
+  phone         String?
+  avatar        String?
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  departmentHead  Department[]    @relation("DepartmentHead")
+  teacherClasses  Class[]         @relation("ClassTeacher")
+  enrollments     Enrollment[]
+  attendances     Attendance[]
+  payments        Payment[]
+  submissions     Submission[]
+  notifications   Notification[]
+  markedAttendance Attendance[]   @relation("MarkedBy")
+
+  // Marketplace relations
+  tutorProfile       TutorProfile?
+  studentMarketProfile StudentMarketProfile?
+  bookingsAsStudent  MktBooking[]     @relation("BookingStudent")
+  bookingsAsTutor    MktBooking[]     @relation("BookingTutor")
+  reviewsGiven       Review[]         @relation("ReviewStudent")
+  reviewsReceived    Review[]         @relation("ReviewTutor")
+  transactions       Transaction[]
+  sentMessages       MarketMessage[]  @relation("MessageSender")
+  receivedMessages   MarketMessage[]  @relation("MessageReceiver")
+}
+
+model Department {
+  id        String   @id @default(cuid())
+  name      String   @unique
+  headId    String
+  head      User     @relation("DepartmentHead", fields: [headId], references: [id])
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Course {
+  id          String   @id @default(cuid())
+  title       String
+  description String?
+  level       String   @default("Beginner")
+  language    String   @default("English")
+  price       Float    @default(0)
+  isActive    Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  classes Class[]
+}
+
+model Class {
+  id           String   @id @default(cuid())
+  name         String
+  courseId      String
+  course       Course   @relation(fields: [courseId], references: [id])
+  teacherId    String
+  teacher      User     @relation("ClassTeacher", fields: [teacherId], references: [id])
+  schedule     String?
+  maxStudents  Int      @default(30)
+  meetingLink  String?
+  isActive     Boolean  @default(true)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  enrollments  Enrollment[]
+  lessons      Lesson[]
+  assignments  Assignment[]
+}
+
+model Enrollment {
+  id         String   @id @default(cuid())
+  studentId  String
+  student    User     @relation(fields: [studentId], references: [id])
+  classId    String
+  class      Class    @relation(fields: [classId], references: [id])
+  status     String   @default("ACTIVE")
+  enrolledAt DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  @@unique([studentId, classId])
+}
+
+model Lesson {
+  id          String   @id @default(cuid())
+  classId     String
+  class       Class    @relation(fields: [classId], references: [id])
+  title       String
+  content     String?
+  videoUrl    String?
+  topics      String?
+  order       Int      @default(0)
+  date        DateTime?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  attendances Attendance[]
+}
+
+model Attendance {
+  id         String   @id @default(cuid())
+  studentId  String
+  student    User     @relation(fields: [studentId], references: [id])
+  lessonId   String
+  lesson     Lesson   @relation(fields: [lessonId], references: [id])
+  status     String   @default("PRESENT")
+  markedById String?
+  markedBy   User?    @relation("MarkedBy", fields: [markedById], references: [id])
+  createdAt  DateTime @default(now())
+
+  @@unique([studentId, lessonId])
+}
+
+model Payment {
+  id          String   @id @default(cuid())
+  studentId   String
+  student     User     @relation(fields: [studentId], references: [id])
+  amount      Float
+  paidAmount  Float    @default(0)
+  dueDate     DateTime?
+  status      String   @default("UNPAID")
+  method      String?
+  description String?
+  stripeId    String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Assignment {
+  id          String   @id @default(cuid())
+  classId     String
+  class       Class    @relation(fields: [classId], references: [id])
+  title       String
+  description String?
+  dueDate     DateTime?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  submissions Submission[]
+}
+
+model Submission {
+  id           String     @id @default(cuid())
+  assignmentId String
+  assignment   Assignment @relation(fields: [assignmentId], references: [id])
+  studentId    String
+  student      User       @relation(fields: [studentId], references: [id])
+  content      String?
+  grade        Float?
+  feedback     String?
+  submittedAt  DateTime   @default(now())
+  gradedAt     DateTime?
+  updatedAt    DateTime   @updatedAt
+
+  @@unique([assignmentId, studentId])
+}
+
+model Notification {
+  id        String   @id @default(cuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id])
+  title     String
+  message   String
+  read      Boolean  @default(false)
+  type      String   @default("info")
+  createdAt DateTime @default(now())
+}
+
+// ==========================================
+// MARKETPLACE MODELS (Cambly-like platform)
+// ==========================================
+
+model TutorProfile {
+  id                  String   @id @default(cuid())
+  userId              String   @unique
+  user                User     @relation(fields: [userId], references: [id])
+  introVideoUrl       String?
+  hourlyRate          Float    @default(15)
+  teachingLanguages   String   @default("English")
+  specialties         String?
+  accent              String?
+  education           String?
+  certifications      String?
+  yearsExperience     Int      @default(0)
+  totalLessons        Int      @default(0)
+  averageRating       Float    @default(0)
+  isAvailableInstantly Boolean @default(false)
+  isApproved          Boolean  @default(false)
+  approvalStatus      String   @default("pending")
+  stripeAccountId     String?
+  bio                 String?
+  country             String?
+  createdAt           DateTime @default(now())
+  updatedAt           DateTime @updatedAt
+
+  availability TutorAvailability[]
+}
+
+model StudentMarketProfile {
+  id                String   @id @default(cuid())
+  userId            String   @unique
+  user              User     @relation(fields: [userId], references: [id])
+  learningLanguage  String   @default("English")
+  proficiencyLevel  String   @default("beginner")
+  learningGoals     String?
+  totalMinutesLearned Int    @default(0)
+  creditsBalance    Float    @default(0)
+  stripeCustomerId  String?
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+}
+
+model TutorAvailability {
+  id            String   @id @default(cuid())
+  tutorProfileId String
+  tutorProfile  TutorProfile @relation(fields: [tutorProfileId], references: [id])
+  dayOfWeek     Int
+  startTime     String
+  endTime       String
+  isRecurring   Boolean  @default(true)
+  specificDate  String?
+  createdAt     DateTime @default(now())
+}
+
+model MktBooking {
+  id              String   @id @default(cuid())
+  studentId       String
+  student         User     @relation("BookingStudent", fields: [studentId], references: [id])
+  tutorId         String
+  tutor           User     @relation("BookingTutor", fields: [tutorId], references: [id])
+  lessonType      String   @default("scheduled")
+  status          String   @default("pending")
+  scheduledAt     DateTime?
+  durationMinutes Int      @default(30)
+  priceCharged    Float    @default(0)
+  tutorEarnings   Float    @default(0)
+  platformFee     Float    @default(0)
+  videoRoomId     String?
+  videoRoomUrl    String?
+  notes           String?
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  review      Review?
+  lessonNotes LessonNote[]
+  messages    MarketMessage[]
+}
+
+model Review {
+  id        String   @id @default(cuid())
+  bookingId String   @unique
+  booking   MktBooking @relation(fields: [bookingId], references: [id])
+  studentId String
+  student   User     @relation("ReviewStudent", fields: [studentId], references: [id])
+  tutorId   String
+  tutor     User     @relation("ReviewTutor", fields: [tutorId], references: [id])
+  rating    Int      @default(5)
+  comment   String?
+  isPublic  Boolean  @default(true)
+  createdAt DateTime @default(now())
+}
+
+model Transaction {
+  id                    String   @id @default(cuid())
+  userId                String
+  user                  User     @relation(fields: [userId], references: [id])
+  type                  String   @default("credit_purchase")
+  amount                Float
+  currency              String   @default("USD")
+  stripePaymentIntentId String?
+  stripeTransferId      String?
+  status                String   @default("pending")
+  description           String?
+  createdAt             DateTime @default(now())
+}
+
+model MarketMessage {
+  id         String      @id @default(cuid())
+  senderId   String
+  sender     User        @relation("MessageSender", fields: [senderId], references: [id])
+  receiverId String
+  receiver   User        @relation("MessageReceiver", fields: [receiverId], references: [id])
+  bookingId  String?
+  booking    MktBooking? @relation(fields: [bookingId], references: [id])
+  content    String
+  isRead     Boolean     @default(false)
+  createdAt  DateTime    @default(now())
+}
+
+model LessonNote {
+  id         String     @id @default(cuid())
+  bookingId  String
+  booking    MktBooking @relation(fields: [bookingId], references: [id])
+  createdBy  String
+  content    String?
+  vocabulary String?
+  homework   String?
+  createdAt  DateTime   @default(now())
+  updatedAt  DateTime   @updatedAt
+}
