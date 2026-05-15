@@ -49,6 +49,12 @@ model User {
   chemistry2              ChemistryScore[]        @relation("Chemistry2")
   teacherInsightsGiven    TeacherInsight[]        @relation("InsightTeacher")
   teacherInsightsReceived TeacherInsight[]        @relation("InsightStudent")
+
+  // Grammar system relations
+  grammarProgress         StudentGrammarProgress[] @relation("GrammarProgress")
+  exerciseAttempts        ExerciseAttempt[]        @relation("ExerciseAttempts")
+  grammarAssignmentsReceived GrammarAssignment[]   @relation("GrammarAssigned")
+  grammarAssignmentsGiven   GrammarAssignment[]   @relation("GrammarAssigner")
 }
 
 model Department {
@@ -452,4 +458,105 @@ model TeacherInsight {
   priority  String   @default("medium")
   isRead    Boolean  @default(false)
   createdAt DateTime @default(now())
+}
+
+// ==========================================
+// GRAMMAR TEACHING SYSTEM
+// ==========================================
+
+model GrammarCategory {
+  id          String   @id @default(cuid())
+  name        String
+  slug        String   @unique
+  description String
+  icon        String   @default("BookOpen")
+  order       Int
+  topics      GrammarTopic[]
+  createdAt   DateTime @default(now())
+}
+
+model GrammarTopic {
+  id          String   @id @default(cuid())
+  categoryId  String
+  category    GrammarCategory @relation(fields: [categoryId], references: [id])
+  title       String
+  slug        String   @unique
+  description String
+  level       String   @default("beginner")
+  order       Int
+  lesson      GrammarLesson?
+  exercises   GrammarExercise[]
+  progress    StudentGrammarProgress[]
+  assignments GrammarAssignment[]
+  createdAt   DateTime @default(now())
+}
+
+model GrammarLesson {
+  id        String       @id @default(cuid())
+  topicId   String       @unique
+  topic     GrammarTopic @relation(fields: [topicId], references: [id])
+  content   String
+  examples  String
+  tips      String?
+  createdAt DateTime     @default(now())
+}
+
+model GrammarExercise {
+  id            String       @id @default(cuid())
+  topicId       String
+  topic         GrammarTopic @relation(fields: [topicId], references: [id])
+  type          String
+  difficulty    String       @default("beginner")
+  question      String
+  options       String?
+  correctAnswer String
+  explanation   String
+  order         Int
+  attempts      ExerciseAttempt[]
+  createdAt     DateTime     @default(now())
+}
+
+model StudentGrammarProgress {
+  id              String       @id @default(cuid())
+  studentId       String
+  student         User         @relation("GrammarProgress", fields: [studentId], references: [id])
+  topicId         String
+  topic           GrammarTopic @relation(fields: [topicId], references: [id])
+  status          String       @default("not_started")
+  lessonRead      Boolean      @default(false)
+  exerciseScore   Int          @default(0)
+  quizScore       Int          @default(0)
+  attempts        Int          @default(0)
+  lastPracticedAt DateTime?
+  completedAt     DateTime?
+  createdAt       DateTime     @default(now())
+  updatedAt       DateTime     @updatedAt
+
+  @@unique([studentId, topicId])
+}
+
+model ExerciseAttempt {
+  id         String          @id @default(cuid())
+  studentId  String
+  student    User            @relation("ExerciseAttempts", fields: [studentId], references: [id])
+  exerciseId String
+  exercise   GrammarExercise @relation(fields: [exerciseId], references: [id])
+  answer     String
+  isCorrect  Boolean
+  createdAt  DateTime        @default(now())
+}
+
+model GrammarAssignment {
+  id          String       @id @default(cuid())
+  teacherId   String
+  teacher     User         @relation("GrammarAssigner", fields: [teacherId], references: [id])
+  studentId   String
+  student     User         @relation("GrammarAssigned", fields: [studentId], references: [id])
+  topicId     String
+  topic       GrammarTopic @relation(fields: [topicId], references: [id])
+  dueDate     DateTime?
+  isCompleted Boolean      @default(false)
+  createdAt   DateTime     @default(now())
+
+  @@unique([studentId, topicId])
 }
