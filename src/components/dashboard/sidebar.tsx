@@ -18,6 +18,10 @@ import {
   FileText,
   BarChart3,
   Building2,
+  Mic2,
+  MessageSquare,
+  Brain,
+  TrendingUp,
 } from "lucide-react";
 
 interface SidebarItem {
@@ -34,6 +38,9 @@ const adminLinks: SidebarItem[] = [
   { label: "Payments", href: "/admin/payments", icon: <CreditCard size={20} /> },
   { label: "Reports", href: "/admin/reports", icon: <BarChart3 size={20} /> },
   { label: "Departments", href: "/admin/departments", icon: <Building2 size={20} /> },
+  { label: "Speaking Sessions", href: "/admin/speaking", icon: <Mic2 size={20} /> },
+  { label: "Topics", href: "/admin/topics", icon: <BookOpen size={20} /> },
+  { label: "Groups", href: "/admin/groups", icon: <Users size={20} /> },
 ];
 
 const teacherLinks: SidebarItem[] = [
@@ -43,6 +50,9 @@ const teacherLinks: SidebarItem[] = [
   { label: "Assignments", href: "/teacher/assignments", icon: <ClipboardList size={20} /> },
   { label: "Lessons", href: "/teacher/lessons", icon: <FileText size={20} /> },
   { label: "Students", href: "/teacher/students", icon: <Users size={20} /> },
+  { label: "Speaking Sessions", href: "/teacher/speaking", icon: <Mic2 size={20} /> },
+  { label: "AI Insights", href: "/teacher/insights", icon: <Brain size={20} /> },
+  { label: "Topics", href: "/teacher/topics", icon: <MessageSquare size={20} /> },
 ];
 
 const studentLinks: SidebarItem[] = [
@@ -50,6 +60,8 @@ const studentLinks: SidebarItem[] = [
   { label: "My Classes", href: "/student/classes", icon: <BookOpen size={20} /> },
   { label: "Lessons", href: "/student/lessons", icon: <FileText size={20} /> },
   { label: "Homework", href: "/student/homework", icon: <ClipboardList size={20} /> },
+  { label: "Speaking Sessions", href: "/student/speaking", icon: <Mic2 size={20} /> },
+  { label: "My Progress", href: "/student/progress", icon: <TrendingUp size={20} /> },
   { label: "Attendance", href: "/student/attendance", icon: <Calendar size={20} /> },
   { label: "Payments", href: "/student/payments", icon: <CreditCard size={20} /> },
 ];

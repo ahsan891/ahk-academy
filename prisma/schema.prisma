@@ -37,6 +37,18 @@ model User {
   transactions       Transaction[]
   sentMessages       MarketMessage[]  @relation("MessageSender")
   receivedMessages   MarketMessage[]  @relation("MessageReceiver")
+
+  // Speaking session relations
+  createdSessions         SpeakingSession[]      @relation("SessionCreator")
+  sessionParticipations   SessionParticipant[]    @relation("SessionStudent")
+  uploadedTranscripts     SessionTranscript[]     @relation("TranscriptUploader")
+  sessionAnalyses         SessionAnalysis[]       @relation("AnalysisStudent")
+  createdTopics           Topic[]                 @relation("TopicCreator")
+  speakingProfile         StudentSpeakingProfile?
+  chemistry1              ChemistryScore[]        @relation("Chemistry1")
+  chemistry2              ChemistryScore[]        @relation("Chemistry2")
+  teacherInsightsGiven    TeacherInsight[]        @relation("InsightTeacher")
+  teacherInsightsReceived TeacherInsight[]        @relation("InsightStudent")
 }
 
 model Department {
@@ -107,7 +119,8 @@ model Lesson {
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
 
-  attendances Attendance[]
+  attendances      Attendance[]
+  speakingSessions SpeakingSession[]
 }
 
 model Attendance {
@@ -310,4 +323,133 @@ model LessonNote {
   homework   String?
   createdAt  DateTime   @default(now())
   updatedAt  DateTime   @updatedAt
+}
+
+// ==========================================
+// SPEAKING SESSION SYSTEM
+// ==========================================
+
+model SpeakingSession {
+  id             String   @id @default(cuid())
+  topic          String
+  topicDetails   String?
+  date           DateTime
+  duration       Int      @default(90)
+  status         String   @default("scheduled")
+  meetingLink    String?
+  maxStudents    Int      @default(5)
+  createdById    String
+  createdBy      User     @relation("SessionCreator", fields: [createdById], references: [id])
+  sourceType     String   @default("system")
+  sourceLessonId String?
+  sourceLesson   Lesson?  @relation(fields: [sourceLessonId], references: [id])
+  topicId        String?
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  participants SessionParticipant[]
+  transcript   SessionTranscript?
+  analyses     SessionAnalysis[]
+}
+
+model SessionParticipant {
+  id        String          @id @default(cuid())
+  sessionId String
+  session   SpeakingSession @relation(fields: [sessionId], references: [id], onDelete: Cascade)
+  studentId String
+  student   User            @relation("SessionStudent", fields: [studentId], references: [id])
+  attended  Boolean         @default(false)
+  rating    Int?
+  feedback  String?
+  createdAt DateTime        @default(now())
+
+  @@unique([sessionId, studentId])
+}
+
+model SessionTranscript {
+  id           String          @id @default(cuid())
+  sessionId    String          @unique
+  session      SpeakingSession @relation(fields: [sessionId], references: [id], onDelete: Cascade)
+  content      String
+  fileUrl      String?
+  uploadedById String
+  uploadedBy   User            @relation("TranscriptUploader", fields: [uploadedById], references: [id])
+  analyzedAt   DateTime?
+  createdAt    DateTime        @default(now())
+
+  analyses SessionAnalysis[]
+}
+
+model SessionAnalysis {
+  id                 String            @id @default(cuid())
+  transcriptId       String
+  transcript         SessionTranscript @relation(fields: [transcriptId], references: [id], onDelete: Cascade)
+  sessionId          String
+  session            SpeakingSession   @relation(fields: [sessionId], references: [id], onDelete: Cascade)
+  studentId          String
+  student            User              @relation("AnalysisStudent", fields: [studentId], references: [id])
+  summary            String?
+  vocabularyUsed     String?
+  grammarNotes       String?
+  pronunciationNotes String?
+  participationScore Float?
+  strengths          String?
+  areasToImprove     String?
+  homework           String?
+  createdAt          DateTime          @default(now())
+}
+
+model Topic {
+  id                String   @id @default(cuid())
+  title             String
+  description       String?
+  category          String?
+  level             String   @default("intermediate")
+  preparationTips   String?
+  isSystemGenerated Boolean  @default(true)
+  createdById       String?
+  createdBy         User?    @relation("TopicCreator", fields: [createdById], references: [id])
+  createdAt         DateTime @default(now())
+}
+
+model StudentSpeakingProfile {
+  id              String   @id @default(cuid())
+  userId          String   @unique
+  user            User     @relation(fields: [userId], references: [id])
+  track           String   @default("speaking_only")
+  level           String   @default("intermediate")
+  preferredTopics String?
+  availability    String?
+  totalSessions   Int      @default(0)
+  averageRating   Float    @default(0)
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+}
+
+model ChemistryScore {
+  id           String   @id @default(cuid())
+  student1Id   String
+  student1     User     @relation("Chemistry1", fields: [student1Id], references: [id])
+  student2Id   String
+  student2     User     @relation("Chemistry2", fields: [student2Id], references: [id])
+  score        Float    @default(0)
+  sessionCount Int      @default(0)
+  lastSession  DateTime?
+  updatedAt    DateTime @updatedAt
+
+  @@unique([student1Id, student2Id])
+}
+
+model TeacherInsight {
+  id        String   @id @default(cuid())
+  teacherId String
+  teacher   User     @relation("InsightTeacher", fields: [teacherId], references: [id])
+  studentId String
+  student   User     @relation("InsightStudent", fields: [studentId], references: [id])
+  sessionId String?
+  type      String
+  content   String
+  priority  String   @default("medium")
+  isRead    Boolean  @default(false)
+  createdAt DateTime @default(now())
 }
