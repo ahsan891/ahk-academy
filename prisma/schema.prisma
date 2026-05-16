@@ -15,6 +15,10 @@ model User {
   role          String    @default("STUDENT")
   phone         String?
   avatar        String?
+  timezone      String?
+  country       String?
+  language      String?
+  referenceCode String?   @unique
   createdAt     DateTime  @default(now())
   updatedAt     DateTime  @updatedAt
 
@@ -55,6 +59,18 @@ model User {
   exerciseAttempts        ExerciseAttempt[]        @relation("ExerciseAttempts")
   grammarAssignmentsReceived GrammarAssignment[]   @relation("GrammarAssigned")
   grammarAssignmentsGiven   GrammarAssignment[]   @relation("GrammarAssigner")
+
+  // V2 relations
+  studentProfile          StudentProfile?          @relation("StudentProfileUser")
+  teacherProfile2         TeacherProfile2?         @relation("TeacherProfileUser")
+  studentsAssigned        StudentProfile[]         @relation("StudentTeacher")
+  paymentPlans            PaymentPlan[]            @relation("PaymentPlanStudent")
+  paymentTransactions     PaymentTransaction[]     @relation("PaymentTransStudent")
+  blogPosts               BlogPost[]               @relation("BlogAuthor")
+  whatsappConversation    WhatsappConversation?    @relation("WhatsappUser")
+  homeworks               Homework[]               @relation("HomeworkStudent")
+  teacherResources        TeacherResource[]        @relation("ResourceTeacher")
+  grammarLessonLogs       GrammarLessonLog[]       @relation("GrammarLessonTeacher")
 }
 
 model Department {
@@ -356,6 +372,7 @@ model SpeakingSession {
   participants SessionParticipant[]
   transcript   SessionTranscript?
   analyses     SessionAnalysis[]
+  homeworks    Homework[]
 }
 
 model SessionParticipant {
@@ -559,4 +576,168 @@ model GrammarAssignment {
   createdAt   DateTime     @default(now())
 
   @@unique([studentId, topicId])
+}
+
+// ==========================================
+// V2 FEATURES
+// ==========================================
+
+model StudentProfile {
+  id                      String   @id @default(cuid())
+  userId                  String   @unique
+  user                    User     @relation("StudentProfileUser", fields: [userId], references: [id])
+  trackType               String   @default("SPEAKING_ONLY")
+  level                   String   @default("B1")
+  teacherId               String?
+  teacher                 User?    @relation("StudentTeacher", fields: [teacherId], references: [id])
+  internationalPreference Boolean  @default(true)
+  preferredTopics         String?
+  availableSlots          String?
+  isActive                Boolean  @default(true)
+  notes                   String?
+  enrolledAt              DateTime @default(now())
+  createdAt               DateTime @default(now())
+  updatedAt               DateTime @updatedAt
+}
+
+model TeacherProfile2 {
+  id              String   @id @default(cuid())
+  userId          String   @unique
+  user            User     @relation("TeacherProfileUser", fields: [userId], references: [id])
+  specializations String?
+  bio             String?
+  isActive        Boolean  @default(true)
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+}
+
+model PaymentPlan {
+  id               String   @id @default(cuid())
+  studentId        String
+  student          User     @relation("PaymentPlanStudent", fields: [studentId], references: [id])
+  planType         String   @default("MONTHLY")
+  amount           Float
+  currency         String   @default("USD")
+  billingCycleDay  Int?
+  nextDueDate      DateTime?
+  creditsRemaining Int?
+  notes            String?
+  isActive         Boolean  @default(true)
+  transactions     PaymentTransaction[]
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+}
+
+model PaymentTransaction {
+  id                  String       @id @default(cuid())
+  studentId           String
+  student             User         @relation("PaymentTransStudent", fields: [studentId], references: [id])
+  paymentPlanId       String?
+  paymentPlan         PaymentPlan? @relation(fields: [paymentPlanId], references: [id])
+  amount              Float
+  currency            String       @default("USD")
+  method              String       @default("IBAN")
+  status              String       @default("PENDING")
+  referenceCode       String       @unique
+  confirmedBy         String?
+  confirmedAt         DateTime?
+  stripePaymentId     String?
+  paparaTransactionId String?
+  screenshotUrl       String?
+  sessionId           String?
+  description         String?
+  createdAt           DateTime     @default(now())
+}
+
+model BlogPost {
+  id              String    @id @default(cuid())
+  title           String
+  slug            String    @unique
+  content         String
+  excerpt         String?
+  metaTitle       String?
+  metaDescription String?
+  keywords        String?
+  language        String    @default("en")
+  status          String    @default("DRAFT")
+  publishedAt     DateTime?
+  scheduledFor    DateTime?
+  authorId        String
+  author          User      @relation("BlogAuthor", fields: [authorId], references: [id])
+  featuredImage   String?
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+}
+
+model WhatsappConversation {
+  id               String            @id @default(cuid())
+  phoneNumber      String            @unique
+  userId           String?           @unique
+  user             User?             @relation("WhatsappUser", fields: [userId], references: [id])
+  conversationType String            @default("LEAD")
+  lastMessageAt    DateTime          @default(now())
+  isActive         Boolean           @default(true)
+  context          String?
+  messages         WhatsappMessage[]
+  createdAt        DateTime          @default(now())
+}
+
+model WhatsappMessage {
+  id             String               @id @default(cuid())
+  conversationId String
+  conversation   WhatsappConversation @relation(fields: [conversationId], references: [id])
+  direction      String
+  content        String
+  messageType    String               @default("TEXT")
+  templateName   String?
+  sentAt         DateTime             @default(now())
+  deliveredAt    DateTime?
+  readAt         DateTime?
+}
+
+model Homework {
+  id                   String           @id @default(cuid())
+  studentId            String
+  student              User             @relation("HomeworkStudent", fields: [studentId], references: [id])
+  sessionId            String?
+  session              SpeakingSession? @relation(fields: [sessionId], references: [id])
+  analysisId           String?
+  title                String
+  content              String
+  dueDate              DateTime?
+  status               String           @default("PENDING")
+  submissionContent    String?
+  grade                Float?
+  feedback             String?
+  deliveredViaWhatsapp Boolean          @default(false)
+  deliveredViaEmail    Boolean          @default(false)
+  createdAt            DateTime         @default(now())
+  updatedAt            DateTime         @updatedAt
+}
+
+model TeacherResource {
+  id                 String   @id @default(cuid())
+  teacherId          String
+  teacher            User     @relation("ResourceTeacher", fields: [teacherId], references: [id])
+  weekOf             DateTime
+  resourceType       String
+  title              String
+  content            String
+  basedOnStudents    String?
+  targetGrammarPoint String?
+  modelUsed          String?
+  createdAt          DateTime @default(now())
+}
+
+model GrammarLessonLog {
+  id               String   @id @default(cuid())
+  teacherId        String
+  teacher          User     @relation("GrammarLessonTeacher", fields: [teacherId], references: [id])
+  title            String
+  grammarFocus     String
+  description      String?
+  taughtAt         DateTime
+  studentsTargeted String?
+  relatedSessionId String?
+  createdAt        DateTime @default(now())
 }
