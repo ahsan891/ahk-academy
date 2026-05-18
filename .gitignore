@@ -43,3 +43,10 @@ yarn-error.log*
 # TypeScript
 *.tsbuildinfo
 next-env.d.ts
+
+# Large student data files (recordings, archives, media)
+data/students/*/recordings/
+data/archives/
+*.mp4
+*.opus
+*.zip
