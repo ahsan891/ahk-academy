@@ -1,8 +1,14 @@
 import { NextRequest, NextResponse } from "next/server";
 import { db } from "@/lib/db";
-import Anthropic from "@anthropic-ai/sdk";
+import { auth } from "@/lib/auth";
+import { AIService } from "@/lib/ai-service";
 
 export async function POST(req: NextRequest) {
+  const session = await auth();
+  if (!session?.user?.id) {
+    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+  }
+
   const body = await req.json();
   const { lessonId, transcript, classId } = body;
 
@@ -18,7 +24,6 @@ export async function POST(req: NextRequest) {
   const lessonTitle = lesson?.title || "Lesson";
   const lessonTopics = lesson?.topics || "";
 
-  // Build prompt for Claude
   const prompt = `You are an English teacher at AHK Academy. Based on the following lesson information, create a personalized homework assignment.
 
 Course: ${courseName}
@@ -36,52 +41,46 @@ Format the homework clearly with numbered questions. Include an answer key at th
 
 Return ONLY the homework content, no extra commentary.`;
 
-  // Check if API key is available
-  const apiKey = process.env.ANTHROPIC_API_KEY;
-  if (!apiKey) {
-    // Return a template homework if no API key
-    const templateHomework = generateTemplateHomework(lessonTitle, lessonTopics);
+  try {
+    const aiResponse = await AIService.generate(prompt,
+      "You are an expert English teacher creating homework assignments. Be clear and structured."
+    );
+
+    const homework = aiResponse.text;
 
     if (classId) {
       const assignment = await db.assignment.create({
         data: {
           classId,
           title: `Homework: ${lessonTitle}`,
-          description: templateHomework,
-          dueDate: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000), // Due in 1 week
+          description: homework,
+          dueDate: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000),
         },
       });
-      return NextResponse.json({ assignment, homework: templateHomework });
+      return NextResponse.json({ assignment, homework });
     }
 
-    return NextResponse.json({ homework: templateHomework });
+    return NextResponse.json({ homework });
+  } catch (error) {
+    console.error("AI homework generation failed, using template:", error);
+
+    // Template fallback when all AI providers are unavailable
+    const homework = generateTemplateHomework(lessonTitle, lessonTopics);
+
+    if (classId) {
+      const assignment = await db.assignment.create({
+        data: {
+          classId,
+          title: `Homework: ${lessonTitle}`,
+          description: homework,
+          dueDate: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000),
+        },
+      });
+      return NextResponse.json({ assignment, homework });
+    }
+
+    return NextResponse.json({ homework });
   }
-
-  // Call Claude API
-  const client = new Anthropic({ apiKey });
-  const message = await client.messages.create({
-    model: "claude-sonnet-4-20250514",
-    max_tokens: 2000,
-    messages: [{ role: "user", content: prompt }],
-  });
-
-  const homework =
-    message.content[0].type === "text" ? message.content[0].text : "";
-
-  // Create assignment in database if classId provided
-  if (classId) {
-    const assignment = await db.assignment.create({
-      data: {
-        classId,
-        title: `Homework: ${lessonTitle}`,
-        description: homework,
-        dueDate: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000),
-      },
-    });
-    return NextResponse.json({ assignment, homework });
-  }
-
-  return NextResponse.json({ homework });
 }
 
 function generateTemplateHomework(title: string, topics: string): string {
@@ -112,5 +111,5 @@ Part 4: Listening & Speaking Practice
 Record yourself reading the paragraph you wrote in Part 3. Pay attention to pronunciation.
 
 ---
-Note: This is a template homework. Connect your Anthropic API key for AI-generated personalized homework.`;
+Note: This is a template homework. Configure an AI API key (Gemini/Groq/Anthropic) for personalized homework.`;
 }

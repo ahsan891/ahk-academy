@@ -1,8 +1,17 @@
 import { NextRequest, NextResponse } from "next/server";
 import { db } from "@/lib/db";
+import { auth } from "@/lib/auth";
 import bcrypt from "bcryptjs";
 
 export async function GET() {
+  const session = await auth();
+  if (!session?.user?.id) {
+    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+  }
+  if (session.user.role !== "ADMIN" && session.user.role !== "TEACHER") {
+    return NextResponse.json({ error: "Forbidden" }, { status: 403 });
+  }
+
   const students = await db.user.findMany({
     where: { role: "STUDENT" },
     orderBy: { createdAt: "desc" },
@@ -14,6 +23,11 @@ export async function GET() {
 }
 
 export async function POST(req: NextRequest) {
+  const session = await auth();
+  if (!session?.user?.id || session.user.role !== "ADMIN") {
+    return NextResponse.json({ error: "Admin access required" }, { status: 403 });
+  }
+
   const body = await req.json();
   const { name, email, phone, password } = body;
 
@@ -38,6 +52,11 @@ export async function POST(req: NextRequest) {
 }
 
 export async function DELETE(req: NextRequest) {
+  const session = await auth();
+  if (!session?.user?.id || session.user.role !== "ADMIN") {
+    return NextResponse.json({ error: "Admin access required" }, { status: 403 });
+  }
+
   const { searchParams } = new URL(req.url);
   const id = searchParams.get("id");
 

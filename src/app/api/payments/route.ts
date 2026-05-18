@@ -1,8 +1,15 @@
 import { NextRequest, NextResponse } from "next/server";
 import { db } from "@/lib/db";
+import { auth } from "@/lib/auth";
 
 export async function GET() {
+  const session = await auth();
+  if (!session?.user?.id) {
+    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+  }
+
   const payments = await db.payment.findMany({
+    where: session.user.role === "STUDENT" ? { studentId: session.user.id } : undefined,
     orderBy: { createdAt: "desc" },
     include: { student: true },
   });
@@ -10,6 +17,11 @@ export async function GET() {
 }
 
 export async function POST(req: NextRequest) {
+  const session = await auth();
+  if (!session?.user?.id || session.user.role !== "ADMIN") {
+    return NextResponse.json({ error: "Admin access required" }, { status: 403 });
+  }
+
   const body = await req.json();
   const { studentId, amount, paidAmount, dueDate, method, description } = body;
 
@@ -29,6 +41,11 @@ export async function POST(req: NextRequest) {
 }
 
 export async function PATCH(req: NextRequest) {
+  const session = await auth();
+  if (!session?.user?.id || session.user.role !== "ADMIN") {
+    return NextResponse.json({ error: "Admin access required" }, { status: 403 });
+  }
+
   const body = await req.json();
   const { id, paidAmount, method } = body;
 

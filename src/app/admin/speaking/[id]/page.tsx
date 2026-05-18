@@ -632,9 +632,9 @@ function AnalysisCard({ analysis }: { analysis: Analysis }) {
             <span className="text-sm text-gray-500">Score:</span>
             <span
               className={`text-lg font-bold ${
-                score >= 80
+                score >= 8
                   ? "text-green-600"
-                  : score >= 60
+                  : score >= 6
                     ? "text-yellow-600"
                     : "text-red-600"
               }`}
@@ -649,18 +649,18 @@ function AnalysisCard({ analysis }: { analysis: Analysis }) {
         <div>
           <div className="flex items-center justify-between text-xs mb-1">
             <span className="text-gray-500">Participation</span>
-            <span className="font-medium">{score}/100</span>
+            <span className="font-medium">{score}/10</span>
           </div>
           <div className="h-2 w-full rounded-full bg-gray-200">
             <div
               className={`h-2 rounded-full transition-all ${
-                score >= 80
+                score >= 8
                   ? "bg-green-500"
-                  : score >= 60
+                  : score >= 6
                     ? "bg-yellow-500"
                     : "bg-red-500"
               }`}
-              style={{ width: `${Math.min(score, 100)}%` }}
+              style={{ width: `${Math.min((score / 10) * 100, 100)}%` }}
             />
           </div>
         </div>

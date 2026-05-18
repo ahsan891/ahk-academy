@@ -184,6 +184,7 @@ async function main() {
       trackType: "FULL_STUDENT",
       teacherId: null, // Taught by Ahsan directly
       contractLessons: 100,
+      lessonsPerSession: 2, // Each 1.5hr session = 2 lessons
       preLessons: 0,
       notes: "Civil Engineer at Geopaveco. B2→C2 target. 80,000 TRY 4-installment plan. 2/4 paid (40K). Joint sessions with Yusra Khan.",
       schedule: [
@@ -277,7 +278,7 @@ async function main() {
         amount: s.name === "Ahmet Gürkan" ? 80000 : 0, // Gürkan has 80K TRY plan, others TBD
         currency: s.name === "Ahmet Gürkan" ? "TRY" : "USD",
         billingCycleDay: 1,
-        creditsRemaining: s.contractLessons - s.lessons.filter((l) => l.status === "COMPLETED" && (!("phase" in l) || l.phase !== "PRE")).length,
+        creditsRemaining: s.contractLessons - s.lessons.filter((l) => l.status === "COMPLETED" && (!("phase" in l) || l.phase !== "PRE")).length * (s.lessonsPerSession || 1),
         isActive: true,
         notes: `${s.contractLessons}-lesson contract. ${s.preLessons} pre-contract lessons. ${s.notes}`,
       },
@@ -336,31 +337,38 @@ async function main() {
       });
 
       // Create lesson + attendance for each session
+      const lps = s.lessonsPerSession || 1;
       for (const lesson of s.lessons) {
-        const lessonRecord = await prisma.lesson.create({
-          data: {
-            title: lesson.topic || `Session on ${lesson.date}`,
-            content: `${s.name}'s lesson — ${lesson.topic || "Cancelled"}`,
-            date: new Date(lesson.date),
-            classId: studentClass.id,
-          },
-        });
+        for (let li = 0; li < lps; li++) {
+          const suffix = lps > 1 ? ` (Lesson ${li + 1}/${lps})` : "";
+          const lessonRecord = await prisma.lesson.create({
+            data: {
+              title: (lesson.topic || `Session on ${lesson.date}`) + suffix,
+              content: `${s.name}'s lesson — ${lesson.topic || "Cancelled"}${suffix}`,
+              date: new Date(lesson.date),
+              classId: studentClass.id,
+            },
+          });
 
-        // Mark attendance
-        await prisma.attendance.create({
-          data: {
-            studentId: user.id,
-            lessonId: lessonRecord.id,
-            status: lesson.status === "COMPLETED" ? "PRESENT" : "ABSENT",
-            markedById: teacherForLessons,
-          },
-        });
+          // Mark attendance
+          await prisma.attendance.create({
+            data: {
+              studentId: user.id,
+              lessonId: lessonRecord.id,
+              status: lesson.status === "COMPLETED" ? "PRESENT" : "ABSENT",
+              markedById: teacherForLessons,
+            },
+          });
+        }
       }
     }
 
-    const completedContract = s.lessons.filter((l) => l.status === "COMPLETED" && (!("phase" in l) || l.phase !== "PRE")).length;
-    const completedPre = s.lessons.filter((l) => l.status === "COMPLETED" && "phase" in l && l.phase === "PRE").length;
-    console.log(`   ✅ ${s.name}: ${completedContract} contract + ${completedPre} pre-contract lessons, level ${s.level}`);
+    const lpsLog = s.lessonsPerSession || 1;
+    const completedContractSessions = s.lessons.filter((l) => l.status === "COMPLETED" && (!("phase" in l) || l.phase !== "PRE")).length;
+    const completedPreSessions = s.lessons.filter((l) => l.status === "COMPLETED" && "phase" in l && l.phase === "PRE").length;
+    const contractLessonsDone = completedContractSessions * lpsLog;
+    const remaining = s.contractLessons - contractLessonsDone;
+    console.log(`   ✅ ${s.name}: ${contractLessonsDone} contract lessons (${completedContractSessions} sessions × ${lpsLog}) + ${completedPreSessions} pre sessions, ${remaining} remaining, level ${s.level}`);
   }
 
   console.log("\n🎉 Real student data seeded!");

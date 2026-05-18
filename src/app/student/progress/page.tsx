@@ -166,7 +166,7 @@ export default async function StudentProgressPage() {
   );
 
   // Max participation score for bar chart normalization
-  const maxScore = 100;
+  const maxScore = 10;
 
   return (
     <div>
@@ -190,7 +190,7 @@ export default async function StudentProgressPage() {
           value={avgParticipation > 0 ? `${avgParticipation}` : "N/A"}
           icon={<TrendingUp size={24} />}
           description={
-            avgParticipation > 0 ? `out of 100` : "No scores yet"
+            avgParticipation > 0 ? `out of 10` : "No scores yet"
           }
         />
         <StatsCard
@@ -231,11 +231,11 @@ export default async function StudentProgressPage() {
                       100
                     );
                     const barColor =
-                      entry.score >= 80
+                      entry.score >= 8
                         ? "bg-green-500"
-                        : entry.score >= 60
+                        : entry.score >= 6
                           ? "bg-yellow-500"
-                          : entry.score >= 40
+                          : entry.score >= 4
                             ? "bg-orange-500"
                             : "bg-red-500";
 
@@ -434,9 +434,9 @@ export default async function StudentProgressPage() {
                             <div className="text-right">
                               <span
                                 className={`text-lg font-bold ${
-                                  (analysis.participationScore || 0) >= 80
+                                  (analysis.participationScore || 0) >= 8
                                     ? "text-green-600"
-                                    : (analysis.participationScore || 0) >= 60
+                                    : (analysis.participationScore || 0) >= 6
                                       ? "text-yellow-600"
                                       : "text-red-600"
                                 }`}
@@ -444,7 +444,7 @@ export default async function StudentProgressPage() {
                                 {analysis.participationScore}
                               </span>
                               <span className="text-xs text-gray-400">
-                                /100
+                                /10
                               </span>
                             </div>
                           )}

@@ -402,14 +402,14 @@ export default async function SessionDetailPage({
                         <div className="h-4 w-full rounded-full bg-gray-200 overflow-hidden">
                           <div
                             className={`h-full rounded-full transition-all ${
-                              (myAnalysis.participationScore || 0) >= 80
+                              (myAnalysis.participationScore || 0) >= 8
                                 ? "bg-green-500"
-                                : (myAnalysis.participationScore || 0) >= 60
+                                : (myAnalysis.participationScore || 0) >= 6
                                   ? "bg-yellow-500"
                                   : "bg-red-500"
                             }`}
                             style={{
-                              width: `${Math.min(myAnalysis.participationScore || 0, 100)}%`,
+                              width: `${Math.min(((myAnalysis.participationScore || 0) / 10) * 100, 100)}%`,
                             }}
                           />
                         </div>
@@ -417,7 +417,7 @@ export default async function SessionDetailPage({
                       <span className="text-2xl font-bold text-gray-900">
                         {myAnalysis.participationScore}
                         <span className="text-sm font-normal text-gray-500">
-                          /100
+                          /10
                         </span>
                       </span>
                     </div>
@@ -649,7 +649,7 @@ export default async function SessionDetailPage({
                         Participation
                       </span>
                       <span className="font-medium">
-                        {myAnalysis.participationScore}/100
+                        {myAnalysis.participationScore}/10
                       </span>
                     </div>
                   )}

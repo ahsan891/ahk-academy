@@ -1,60 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 import { db } from "@/lib/db";
 import { auth } from "@/lib/auth";
-
-// Mock AI analysis generator (will be replaced with real AI later)
-function generateMockAnalysis(studentName: string, topic: string) {
-  const participationScore = Math.round((Math.random() * 40 + 60) * 10) / 10; // 60-100
-
-  const vocabularyBank = [
-    "eloquent", "articulate", "persuasive", "coherent", "fluent",
-    "comprehensive", "elaborate", "concise", "analytical", "critical",
-    "innovative", "collaborative", "empathetic", "assertive", "diplomatic",
-    "nuanced", "insightful", "pragmatic", "versatile", "proficient",
-  ];
-
-  const shuffled = vocabularyBank.sort(() => 0.5 - Math.random());
-  const vocabularyUsed = JSON.stringify(shuffled.slice(0, Math.floor(Math.random() * 8) + 3));
-
-  const strengths = [
-    "Good use of topic-specific vocabulary",
-    "Active participation in group discussions",
-    "Clear pronunciation of key terms",
-    "Effective use of transitional phrases",
-    "Confident speaking pace",
-    "Good eye contact and engagement",
-  ];
-
-  const improvements = [
-    "Work on reducing filler words (um, uh)",
-    "Practice more complex sentence structures",
-    "Expand vocabulary related to academic topics",
-    "Focus on intonation patterns for questions",
-    "Improve fluency when expressing complex ideas",
-    "Practice paraphrasing to avoid repetition",
-  ];
-
-  const selectedStrengths = strengths
-    .sort(() => 0.5 - Math.random())
-    .slice(0, 2)
-    .join("; ");
-
-  const selectedImprovements = improvements
-    .sort(() => 0.5 - Math.random())
-    .slice(0, 2)
-    .join("; ");
-
-  return {
-    summary: `${studentName} participated in a speaking session on "${topic}". Overall performance was ${participationScore >= 80 ? "strong" : "satisfactory"} with notable contributions to the group discussion.`,
-    vocabularyUsed,
-    grammarNotes: `${studentName} demonstrated ${participationScore >= 80 ? "good" : "developing"} command of grammar. Occasional errors in verb tense consistency and article usage were noted. Subject-verb agreement was generally accurate.`,
-    pronunciationNotes: `Pronunciation was ${participationScore >= 85 ? "clear and natural" : "mostly clear with some areas for improvement"}. Stress patterns on multi-syllable words could be refined.`,
-    participationScore,
-    strengths: selectedStrengths,
-    areasToImprove: selectedImprovements,
-    homework: `1. Write a 200-word essay on "${topic}" incorporating at least 5 new vocabulary words from today's session.\n2. Record a 2-minute voice memo summarizing your key takeaways.\n3. Practice pronunciation of words discussed during the session.`,
-  };
-}
+import { AIService } from "@/lib/ai-service";
+import { getMemoryForPrompt, processLesson } from "@/lib/student-memory";
 
 export async function POST(
   req: NextRequest,
@@ -112,53 +60,142 @@ export async function POST(
     where: { sessionId: id },
   });
 
-  // Generate analysis for each attended participant
+  const transcriptContent = speakingSession.transcript.content;
   const analyses = [];
   const insights = [];
 
   for (const participant of speakingSession.participants) {
-    const mockData = generateMockAnalysis(
-      participant.student.name || "Student",
-      speakingSession.topic
-    );
+    const studentName = participant.student.name || "Student";
 
-    const analysis = await db.sessionAnalysis.create({
-      data: {
-        transcriptId: speakingSession.transcript.id,
-        sessionId: id,
-        studentId: participant.studentId,
-        summary: mockData.summary,
-        vocabularyUsed: mockData.vocabularyUsed,
-        grammarNotes: mockData.grammarNotes,
-        pronunciationNotes: mockData.pronunciationNotes,
-        participationScore: mockData.participationScore,
-        strengths: mockData.strengths,
-        areasToImprove: mockData.areasToImprove,
-        homework: mockData.homework,
-      },
-      include: {
-        student: {
-          select: { id: true, name: true, email: true },
+    // Fetch student's speaking profile for level context
+    const profile = await db.studentSpeakingProfile.findUnique({
+      where: { userId: participant.studentId },
+    });
+
+    // Get AI memory for context
+    const studentMemory = await getMemoryForPrompt(participant.studentId);
+
+    const prompt = `Analyze this student's performance in an English speaking session.
+
+Student: ${studentName}
+Level: ${profile?.level || "intermediate"}
+Session Topic: "${speakingSession.topic}"
+
+STUDENT HISTORY:
+${studentMemory}
+
+Transcript:
+${transcriptContent}
+
+Analyze ONLY ${studentName}'s contributions. Return a JSON object with these exact keys:
+{
+  "summary": "2-3 sentence summary of the student's performance",
+  "vocabularyUsed": ["word1", "word2", ...],
+  "grammarNotes": "grammar strengths and errors observed",
+  "pronunciationNotes": "pronunciation observations",
+  "participationScore": <number 0-10>,
+  "strengths": ["strength1", "strength2"],
+  "areasToImprove": ["area1", "area2"],
+  "homework_suggestion": "specific homework based on weaknesses"
+}
+
+Return ONLY valid JSON, no other text.`;
+
+    try {
+      const aiResponse = await AIService.generate(prompt,
+        "You are an expert ESL teacher analyzing student speaking performance. Be specific and constructive. Always return valid JSON."
+      );
+
+      const jsonMatch = aiResponse.text.match(/\{[\s\S]*\}/);
+      const parsed = jsonMatch ? JSON.parse(jsonMatch[0]) : null;
+
+      if (parsed) {
+        const analysis = await db.sessionAnalysis.create({
+          data: {
+            transcriptId: speakingSession.transcript.id,
+            sessionId: id,
+            studentId: participant.studentId,
+            summary: parsed.summary || `${studentName} participated in the session.`,
+            vocabularyUsed: JSON.stringify(parsed.vocabularyUsed || []),
+            grammarNotes: parsed.grammarNotes || null,
+            pronunciationNotes: parsed.pronunciationNotes || null,
+            participationScore: Number(parsed.participationScore) || 5,
+            strengths: JSON.stringify(parsed.strengths || []),
+            areasToImprove: JSON.stringify(parsed.areasToImprove || []),
+            homework: parsed.homework_suggestion || null,
+          },
+          include: {
+            student: {
+              select: { id: true, name: true, email: true },
+            },
+          },
+        });
+
+        analyses.push(analysis);
+
+        const score = Number(parsed.participationScore) || 5;
+        const insight = await db.teacherInsight.create({
+          data: {
+            teacherId: speakingSession.createdById,
+            studentId: participant.studentId,
+            sessionId: id,
+            type: "session_analysis",
+            content: `${studentName} scored ${score}/10 in "${speakingSession.topic}". ${score < 4 ? "Needs additional support." : score < 7 ? "Making progress." : "Performing well."}`,
+            priority: score < 4 ? "high" : score < 7 ? "medium" : "low",
+            isRead: false,
+          },
+        });
+
+        insights.push(insight);
+      } else {
+        throw new Error("Failed to parse AI response as JSON");
+      }
+    } catch (error) {
+      console.error(`AI analysis failed for ${studentName}:`, error);
+
+      // Fallback: create a basic analysis record so the flow isn't broken
+      const analysis = await db.sessionAnalysis.create({
+        data: {
+          transcriptId: speakingSession.transcript.id,
+          sessionId: id,
+          studentId: participant.studentId,
+          summary: `${studentName} participated in the "${speakingSession.topic}" session. AI analysis unavailable — please review transcript manually.`,
+          vocabularyUsed: "[]",
+          grammarNotes: null,
+          pronunciationNotes: null,
+          participationScore: 5,
+          strengths: "[]",
+          areasToImprove: "[]",
+          homework: null,
         },
-      },
-    });
+        include: {
+          student: {
+            select: { id: true, name: true, email: true },
+          },
+        },
+      });
 
-    analyses.push(analysis);
+      analyses.push(analysis);
+    }
+  }
 
-    // Create teacher insight for each student
-    const insight = await db.teacherInsight.create({
-      data: {
-        teacherId: speakingSession.createdById,
-        studentId: participant.studentId,
-        sessionId: id,
-        type: "session_analysis",
-        content: `${participant.student.name || "Student"} scored ${mockData.participationScore}/100 in the "${speakingSession.topic}" session. ${mockData.participationScore < 70 ? "Needs additional support." : "Performing well."}`,
-        priority: mockData.participationScore < 70 ? "high" : mockData.participationScore < 85 ? "medium" : "low",
-        isRead: false,
-      },
-    });
-
-    insights.push(insight);
+  // Auto-update student memory for each analyzed participant
+  for (const participant of speakingSession.participants) {
+    const analysis = analyses.find((a: { studentId: string }) => a.studentId === participant.studentId);
+    if (analysis) {
+      try {
+        await processLesson({
+          studentId: participant.studentId,
+          lessonDate: speakingSession.date || new Date(),
+          lessonTopic: speakingSession.topic,
+          transcript: transcriptContent?.slice(0, 10000),
+          analysisData: analysis.summary || undefined,
+          homeworkGiven: analysis.homework || undefined,
+        });
+      } catch (err) {
+        console.error(`Memory update failed for ${participant.student.name}:`, err);
+      }
+    }
   }
 
   // Mark transcript as analyzed

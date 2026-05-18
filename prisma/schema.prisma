@@ -71,6 +71,7 @@ model User {
   homeworks               Homework[]               @relation("HomeworkStudent")
   teacherResources        TeacherResource[]        @relation("ResourceTeacher")
   grammarLessonLogs       GrammarLessonLog[]       @relation("GrammarLessonTeacher")
+  studentMemory           StudentMemory?           @relation("StudentMemoryUser")
 }
 
 model Department {
@@ -740,4 +741,50 @@ model GrammarLessonLog {
   studentsTargeted String?
   relatedSessionId String?
   createdAt        DateTime @default(now())
+}
+
+model StudentMemory {
+  id                    String   @id @default(cuid())
+  studentId             String   @unique
+  student               User     @relation("StudentMemoryUser", fields: [studentId], references: [id])
+
+  // The cumulative AI-built knowledge document — grows after every lesson
+  cumulativeSummary     String   // The big evolving memory file
+
+  // Structured quick-reference (AI extracts these from the summary)
+  currentLevel          String?  // e.g. "A1", "A2", "B1"
+  topicsCovered         String?  // JSON array of topics mastered
+  topicsStruggling      String?  // JSON array of topics needing work
+  strengths             String?  // JSON array
+  weaknesses            String?  // JSON array
+  vocabularyNotes       String?  // Key vocabulary observations
+  grammarNotes          String?  // Key grammar observations
+  personalityNotes      String?  // Learning style, excuses, motivation
+  homeworkPatterns       String?  // Completion rate, quality notes
+  attendancePatterns    String?  // Punctuality, cancellation patterns
+
+  totalLessonsProcessed Int      @default(0)
+  lastLessonDate        DateTime?
+  lastLessonTopic       String?
+  updatedAt             DateTime @updatedAt
+  createdAt             DateTime @default(now())
+
+  entries               StudentMemoryEntry[]
+}
+
+model StudentMemoryEntry {
+  id              String        @id @default(cuid())
+  memoryId        String
+  memory          StudentMemory @relation(fields: [memoryId], references: [id], onDelete: Cascade)
+  lessonDate      DateTime
+  lessonTopic     String
+  transcript      String?       // Raw transcript (if available)
+  aiSummary       String        // AI summary of this lesson
+  newVocabulary   String?       // JSON array of new words learned
+  grammarFocus    String?       // What grammar was taught
+  homeworkGiven   String?       // What homework was assigned
+  studentMood     String?       // AI-detected mood/engagement
+  teacherNotes    String?       // Any teacher observations
+  modelUsed       String?       // Which AI model generated this
+  createdAt       DateTime      @default(now())
 }

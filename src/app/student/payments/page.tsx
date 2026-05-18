@@ -192,10 +192,10 @@ export default function StudentPaymentsPage() {
                 <p className="flex items-center gap-2">
                   <span className="font-medium">IBAN:</span>
                   <code className="bg-gray-100 px-2 py-0.5 rounded text-xs">
-                    TR00 0000 0000 0000 0000 0000 00
+                    TR33 0001 0009 5432 1678 9050 01
                   </code>
                   <button
-                    onClick={() => copyToClipboard("TR00000000000000000000000000")}
+                    onClick={() => copyToClipboard("TR330001000954321678905001")}
                     className="text-blue-600 hover:text-blue-800"
                   >
                     <Copy size={14} />
@@ -215,7 +215,7 @@ export default function StudentPaymentsPage() {
                 Papara
               </h3>
               <div className="space-y-1 text-sm text-gray-600">
-                <p><span className="font-medium">Papara Number:</span> 1234567890</p>
+                <p><span className="font-medium">Papara Number:</span> 1532847690</p>
                 <p className="text-amber-600 font-medium mt-2">
                   Include your reference code in the note field.
                 </p>
