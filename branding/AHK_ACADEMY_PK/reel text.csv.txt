@@ -1,0 +1,99 @@
+Urdu,Roman Urdu,English
+السلام علیکم,Assalam Alaikum,Hello / Peace be upon you
+کیسے ہو؟,Kaise ho?,How are you?
+میں ٹھیک ہوں,Main theek hoon,I am fine
+شکریہ,Shukriya,Thank you
+مہربانی,Meherbani,Kindly / Please
+معاف کیجئے,Maaf kijiye,Excuse me / Sorry
+کیا حال ہے؟,Kya haal hai?,How are you?
+میرا نام … ہے,Mera naam … hai,My name is …
+مجھے نہیں معلوم,Mujhe nahi maloom,I don’t know
+ٹھیک ہے,Theek hai,Okay / Fine
+جلدی کرو,Jaldi karo,Hurry up
+آرام کرو,Aaram karo,Take rest
+مجھے پسند ہے,Mujhe pasand hai,I like it
+مجھے ضرورت ہے,Mujhe zarurat hai,I need it
+میں بھوکا ہوں,Main bhooka hoon,I am hungry
+میں پیاسا ہوں,Main piasa hoon,I am thirsty
+یہ کتنا ہے؟,Ye kitna hai?,How much is this?
+میں سمجھ نہیں پایا,Main samajh nahi paaya,I didn’t understand
+دوبارہ کہو,Dobara kaho,Say it again
+آرام سے,Aaram se,Slowly / Gently
+خوش آمدید,Khush Aamdeed,Welcome
+خدا حافظ,Khuda Hafiz,Goodbye
+صبح بخیر,Subah Bakhair,Good morning
+شام بخیر,Shaam Bakhair,Good evening
+شب بخیر,Shab Bakhair,Good night
+مبارک ہو,Mubarak ho,Congratulations
+یہ اچھا ہے,Ye acha hai,This is good
+مجھے نہیں چاہیے,Mujhe nahi chahiye,I don’t want it
+یہاں,Yahan,Here
+وہاں,Wahan,There
+کیا یہ ممکن ہے؟,Kya ye mumkin hai?,Is it possible?
+مجھے یقین نہیں,Mujhe yaqeen nahi,I don’t believe it
+میں خوش ہوں,Main khush hoon,I am happy
+میں اداس ہوں,Main udaas hoon,I am sad
+تم کہاں جا رہے ہو؟,Tum kahan ja rahe ho?,Where are you going?
+میں گھر جا رہا ہوں,Main ghar ja raha hoon,I am going home
+انتظار کرو,Intizar karo,Wait
+مدد کرو,Madad karo,Help
+تم کہاں ہو؟,Tum kahan ho?,Where are you?
+میں یہاں ہوں,Main yahan hoon,I am here
+تم کیا کر رہے ہو؟,Tum kya kar rahe ho?,What are you doing?
+میں پڑھ رہا ہوں,Main parh raha hoon,I am studying
+کھانا کھا لیا؟,Khana kha liya?,Have you eaten?
+اچھا لگ رہا ہے,Acha lag raha hai,It looks good
+یہ کیسا ہے؟,Ye kaisa hai?,How is this?
+میں بیمار ہوں,Main bemaar hoon,I am sick
+ڈاکٹر کو دیکھیں,Doctor ko dekhein,See a doctor
+مجھے پانی دو,Mujhe pani do,Give me water
+مجھے چائے چاہیے,Mujhe chai chahiye,I want tea
+میں جا رہا ہوں,Main ja raha hoon,I am leaving
+ٹھہرو,Thehro,Wait / Stop
+یہ سچ ہے,Ye sach hai,This is true
+یہ جھوٹ ہے,Ye jhoot hai,This is false
+مجھے یقین ہے,Mujhe yaqeen hai,I am sure
+مجھے افسوس ہے,Mujhe afsos hai,I am sorry
+خوش رہو,Khush raho,Stay happy
+جلدی آؤ,Jaldi aao,Come quickly
+یہ ضروری ہے,Ye zaroori hai,This is important
+میرا خیال ہے,Mera khayal hai,I think
+مجھے نہیں پتہ,Mujhe nahi pata,I don’t know
+کیا تم ٹھیک ہو؟,Kya tum theek ho?,Are you okay?
+میں تھک گیا ہوں,Main thak gaya hoon,I am tired
+مجھے یقین نہیں آتا,Mujhe yaqeen nahi aata,I can’t believe it
+یہ دلچسپ ہے,Ye dilchasp hai,This is interesting
+مجھے پسند نہیں,Mujhe pasand nahi,I don’t like it
+کیا تمہارے پاس وقت ہے؟,Kya tumhare paas waqt hai?,Do you have time?
+مجھے دیر ہو رہی ہے,Mujhe der ho rahi hai,I am late
+مجھے بھول گیا,Mujhe bhool gaya,I forgot
+مجھے یاد ہے,Mujhe yaad hai,I remember
+آپ کی مدد کی ضرورت ہے,Aap ki madad ki zarurat hai,I need your help
+تم خوش ہو؟,Tum khush ho?,Are you happy?
+مجھے سیکھنا ہے,Mujhe seekhna hai,I want to learn
+مجھے کام کرنا ہے,Mujhe kaam karna hai,I have to work
+میں انتظار کر رہا ہوں,Main intizar kar raha hoon,I am waiting
+یہ آسان ہے,Ye aasan hai,This is easy
+یہ مشکل ہے,Ye mushkil hai,This is difficult
+مجھے موقع دو,Mujhe mauqa do,Give me a chance
+یہ سب ٹھیک ہے,Ye sab theek hai,Everything is fine
+میں تیار ہوں,Main tayyar hoon,I am ready
+مجھے پریشانی ہے,Mujhe pareshani hai,I am worried
+مجھے مزہ آیا,Mujhe maza aya,I enjoyed it
+یہ عجیب ہے,Ye ajeeb hai,This is strange
+میں مصروف ہوں,Main masroof hoon,I am busy
+کچھ نہیں,Kuch nahi,Nothing
+کچھ ہو گیا,Kuch ho gaya,Something happened
+مجھے یقین نہیں آتا کہ,Mujhe yaqeen nahi aata ke,I can’t believe that
+یہ ممکن نہیں ہے,Ye mumkin nahi hai,This is not possible
+تم یہ کیسے جانتے ہو؟,Tum ye kaise jaante ho?,How do you know this?
+میں واپس آؤں گا,Main wapas aaunga,I will come back
+یہ میرا ہے,Ye mera hai,This is mine
+یہ تمہارا ہے,Ye tumhara hai,This is yours
+میں بھول گیا ہوں,Main bhool gaya hoon,I have forgotten
+تم سنو,Tum suno,Listen
+مجھے سنو,Mujhe suno,Listen to me
+جلدی کرو ورنہ دیر ہو جائے گی,Jaldi karo warna der ho jayegi,Hurry up or you will be late
+میں تم سے محبت کرتا ہوں,Main tum se mohabbat karta hoon,I love you
+یہ بہت اچھا ہے,Ye bohot acha hai,This is very good
+مجھے یقین ہے یہ کامیاب ہوگا,Mujhe yaqeen hai ye kamyab hoga,I am sure this will succeed

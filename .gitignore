@@ -47,6 +47,7 @@ next-env.d.ts
 # Large student data files (recordings, archives, media)
 data/students/*/recordings/
 data/archives/
+data/other-laptop-env.txt
 *.mp4
 *.opus
 *.zip

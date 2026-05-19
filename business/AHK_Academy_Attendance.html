@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AHK Academy — Attendance</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#07080f;--surface:#0b1020;--card:#0f172a;--card2:#111c30;
+  --border:#1e2d4a;--border2:#253a5e;
+  --accent:#f59e0b;--accent-dim:rgba(245,158,11,.14);--accent-glow:rgba(245,158,11,.28);
+  --text:#e2e8f0;--dim:#8da0bb;--muted:#4a607a;
+  --ok:#22c55e;--bad:#ef4444;--warn:#f97316;
+  --r:12px;--rs:8px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;font-size:15px}
+::-webkit-scrollbar{width:5px;height:5px}
+::-webkit-scrollbar-track{background:transparent}
+::-webkit-scrollbar-thumb{background:var(--border);border-radius:99px}
+a{color:inherit;text-decoration:none}
+button{cursor:pointer;font-family:'DM Sans',sans-serif}
+input,select,textarea{font-family:'DM Sans',sans-serif}
+
+/* ---- HEADER ---- */
+#header{
+  position:sticky;top:0;z-index:200;height:62px;
+  background:linear-gradient(180deg,#0d1628 0%,var(--surface) 100%);
+  border-bottom:1px solid var(--border);
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 28px;gap:16px;backdrop-filter:blur(20px);
+}
+.logo{display:flex;align-items:center;gap:12px;flex-shrink:0}
+.logo-icon{
+  width:36px;height:36px;border-radius:10px;flex-shrink:0;
+  background:linear-gradient(135deg,#f59e0b,#e05d00);
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Syne',sans-serif;font-weight:800;font-size:17px;color:#fff;
+}
+.logo-text{font-family:'Syne',sans-serif;font-weight:800;font-size:15px;letter-spacing:1.5px}
+.logo-sub{font-size:11px;color:var(--muted);margin-top:-2px}
+.hdr-actions{display:flex;gap:9px;align-items:center;flex-shrink:0}
+#back-btn{
+  display:none;align-items:center;gap:5px;padding:6px 12px;
+  border-radius:var(--rs);background:none;border:none;color:var(--dim);
+  font-size:13.5px;transition:color .15s;
+}
+#back-btn:hover{color:var(--text)}
+.breadcrumb{font-size:12px;color:var(--muted);margin-top:-1px}
+
+/* ---- BUTTONS ---- */
+.btn{
+  display:inline-flex;align-items:center;gap:6px;
+  padding:8px 18px;border-radius:var(--rs);font-size:13.5px;font-weight:600;
+  border:none;transition:all .15s;white-space:nowrap;
+}
+.btn:hover{transform:translateY(-1px);opacity:.88}
+.btn-primary{background:var(--accent);color:#000}
+.btn-ghost{background:transparent;border:1px solid var(--border);color:var(--dim)}
+.btn-ghost:hover{border-color:var(--border2);color:var(--text)}
+.btn-danger{background:rgba(239,68,68,.12);color:var(--bad);border:none}
+.btn-sm{padding:6px 13px;font-size:12.5px}
+
+/* ---- MAIN ---- */
+#main{max-width:1180px;margin:0 auto;padding:28px 24px}
+
+/* ---- STAT CARDS ---- */
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:28px}
+.stat-card{
+  background:var(--card);border:1px solid var(--border);border-radius:var(--r);
+  padding:20px 22px;border-left:3px solid var(--accent-clr,var(--accent));
+}
+.stat-icon{font-size:20px;margin-bottom:10px}
+.stat-val{font-family:'Syne',sans-serif;font-weight:800;font-size:28px;color:var(--accent-clr,var(--accent))}
+.stat-lbl{font-size:12.5px;color:var(--dim);margin-top:5px}
+
+/* ---- SEARCH/FILTER BAR ---- */
+.filter-bar{display:flex;gap:12px;margin-bottom:22px;align-items:center}
+.search-wrap{flex:1;position:relative}
+.search-wrap .ico{position:absolute;left:13px;top:50%;transform:translateY(-50%);color:var(--muted);pointer-events:none;font-size:15px}
+.input-base{
+  width:100%;background:var(--card);border:1px solid var(--border);
+  color:var(--text);padding:10px 14px;border-radius:var(--rs);
+  font-size:14px;outline:none;transition:border-color .2s;
+}
+.input-base:focus{border-color:var(--border2)}
+.search-input{padding-left:38px}
+select.input-base{cursor:pointer;min-width:160px;width:auto}
+
+/* ---- STUDENT GRID ---- */
+.students-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(295px,1fr));gap:15px}
+.s-card{
+  background:var(--card);border:1px solid var(--border);border-radius:var(--r);
+  padding:20px;cursor:pointer;position:relative;overflow:hidden;
+  transition:transform .2s,border-color .2s,box-shadow .2s;
+}
+.s-card:hover{transform:translateY(-3px);border-color:var(--hover-clr);box-shadow:0 8px 32px rgba(0,0,0,.4)}
+.s-card-top{position:absolute;top:0;left:0;right:0;height:3px;border-radius:12px 12px 0 0}
+.s-card-head{display:flex;align-items:center;gap:13px;margin-bottom:16px}
+.avatar{
+  width:48px;height:48px;border-radius:12px;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Syne',sans-serif;font-weight:800;font-size:17px;
+}
+.s-name{font-family:'Syne',sans-serif;font-weight:700;font-size:15px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.subject-badge{display:inline-block;padding:2px 9px;border-radius:6px;font-size:11.5px;font-weight:600;margin-top:4px}
+.att-pct{text-align:right;flex-shrink:0}
+.att-pct-val{font-family:'Syne',sans-serif;font-weight:800;font-size:20px}
+.att-pct-lbl{font-size:11px;color:var(--muted)}
+.prog-bar-wrap{margin-bottom:14px}
+.prog-bar-lbl{display:flex;justify-content:space-between;margin-bottom:6px;font-size:12px;color:var(--dim)}
+.prog-bar-lbl span:last-child{color:var(--text);font-weight:600}
+.prog-bar-bg{height:6px;background:#1a2842;border-radius:99px}
+.prog-bar-fill{height:100%;border-radius:99px;transition:width .5s ease}
+.mini-stats{display:flex;gap:8px}
+.mini-stat{flex:1;background:#0c1628;border-radius:8px;padding:8px 6px;text-align:center}
+.mini-stat-val{font-family:'Syne',sans-serif;font-weight:800;font-size:15px}
+.mini-stat-lbl{font-size:10px;color:var(--muted);margin-top:2px}
+
+/* ---- EMPTY STATE ---- */
+.empty{text-align:center;padding:80px 20px;color:var(--muted)}
+.empty-icon{font-size:48px;margin-bottom:16px}
+.empty h3{font-size:18px;font-weight:600;margin-bottom:8px;color:var(--dim)}
+
+/* ---- STUDENT PROFILE ---- */
+.profile-header{
+  background:var(--card);border:1px solid var(--border);border-radius:var(--r);
+  padding:26px;margin-bottom:18px;position:relative;overflow:hidden;
+}
+.profile-glow{position:absolute;top:0;right:0;width:220px;height:220px;border-radius:0 12px 0 0;pointer-events:none}
+.profile-meta{display:flex;gap:22px;align-items:flex-start;flex-wrap:wrap}
+.profile-avatar{
+  width:78px;height:78px;border-radius:18px;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Syne',sans-serif;font-weight:800;font-size:26px;
+}
+.profile-name{font-family:'Syne',sans-serif;font-weight:800;font-size:23px;margin-bottom:6px}
+.profile-chips{display:flex;gap:18px;flex-wrap:wrap;margin-top:10px}
+.chip{display:flex;align-items:center;gap:6px;font-size:13px;color:var(--dim)}
+.profile-actions{display:flex;gap:8px;flex-shrink:0;align-items:flex-start;margin-left:auto}
+
+.detail-stats{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-bottom:18px}
+.detail-stat{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:16px;text-align:center}
+.detail-stat-val{font-family:'Syne',sans-serif;font-weight:800;font-size:24px}
+.detail-stat-lbl{font-size:11.5px;color:var(--muted);margin-top:5px}
+
+.prog-section{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:18px 22px;margin-bottom:18px}
+.prog-section-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+.prog-section-head h4{font-weight:600;font-size:15px}
+.prog-section-sub{font-size:13px;color:var(--dim)}
+.prog-track{height:10px;background:#1a2842;border-radius:99px;overflow:hidden}
+.prog-track-fill{height:100%;border-radius:99px;transition:width .6s ease}
+.prog-labels{display:flex;justify-content:space-between;margin-top:7px;font-size:12px;color:var(--muted)}
+
+.history-section{background:var(--card);border:1px solid var(--border);border-radius:var(--r);overflow:hidden}
+.history-head{padding:16px 22px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center}
+.history-head h3{font-family:'Syne',sans-serif;font-weight:700;font-size:15.5px}
+.history-empty{padding:48px 20px;text-align:center;color:var(--muted);font-size:14px}
+.h-row{
+  display:flex;align-items:center;padding:13px 22px;
+  border-bottom:1px solid var(--border);transition:background .15s;
+}
+.h-row:last-child{border-bottom:none}
+.h-row:hover{background:rgba(255,255,255,.025)}
+.h-date{width:130px;font-size:13.5px;color:var(--dim)}
+.h-status{flex:1}
+.status-pill{
+  display:inline-flex;align-items:center;gap:6px;
+  padding:4px 14px;border-radius:20px;font-size:13px;font-weight:600;
+}
+.h-lesson{font-size:12.5px;color:var(--muted);margin-right:12px}
+.del-btn{
+  background:none;border:none;color:var(--muted);font-size:16px;
+  padding:4px 8px;border-radius:6px;transition:all .15s;
+}
+.del-btn:hover{color:var(--bad)}
+
+/* ---- MODAL ---- */
+.overlay{
+  position:fixed;inset:0;background:rgba(0,0,0,.72);z-index:500;
+  display:flex;align-items:center;justify-content:center;padding:20px;
+  backdrop-filter:blur(4px);
+}
+.modal{
+  background:var(--surface);border:1px solid var(--border);border-radius:16px;
+  padding:26px;width:100%;max-width:540px;max-height:90vh;overflow-y:auto;
+  box-shadow:0 24px 64px rgba(0,0,0,.6);
+}
+.modal-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:22px}
+.modal-head h2{font-family:'Syne',sans-serif;font-weight:800;font-size:19px}
+.close-btn{
+  background:#1e2d4a;border:none;color:var(--dim);
+  width:32px;height:32px;border-radius:8px;font-size:16px;
+  display:flex;align-items:center;justify-content:center;transition:all .15s;
+}
+.close-btn:hover{color:var(--text);background:var(--border2)}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:13px}
+.form-field{display:flex;flex-direction:column;gap:6px}
+.form-field.full{grid-column:1/-1}
+.form-label{font-size:12px;font-weight:600;color:var(--dim);text-transform:uppercase;letter-spacing:.5px}
+.form-actions{display:flex;justify-content:flex-end;gap:9px;margin-top:20px}
+
+/* ---- STATUS PICKER ---- */
+.status-picker{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.status-opt{
+  border:2px solid var(--border);border-radius:10px;padding:13px 8px;cursor:pointer;
+  display:flex;flex-direction:column;align-items:center;gap:5px;
+  background:#0c1628;transition:all .15s;font-weight:600;font-size:13.5px;
+}
+.status-opt span.ico2{font-size:20px}
+.status-opt.active-present{background:rgba(34,197,94,.1);border-color:var(--ok);color:var(--ok)}
+.status-opt.active-absent{background:rgba(239,68,68,.1);border-color:var(--bad);color:var(--bad)}
+.status-opt.active-late{background:rgba(249,115,22,.1);border-color:var(--warn);color:var(--warn)}
+
+/* ---- NOTIFICATIONS ---- */
+.toast{
+  position:fixed;bottom:28px;right:28px;z-index:999;
+  background:var(--card);border:1px solid var(--border);border-radius:10px;
+  padding:12px 18px;font-size:14px;font-weight:500;
+  box-shadow:0 8px 32px rgba(0,0,0,.5);
+  display:flex;align-items:center;gap:8px;
+  animation:slideUp .25s ease;
+}
+@keyframes slideUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+
+/* ---- NOTES ---- */
+.profile-notes{font-size:13px;color:var(--dim);font-style:italic;margin-top:10px}
+
+/* ---- PRINT STYLES ---- */
+@media print{
+  body{background:#fff!important;color:#111!important}
+  #header,.hdr-actions,#back-btn,.no-print{display:none!important}
+  #main{padding:0}
+  .print-page{break-inside:avoid}
+}
+
+/* Responsive */
+@media(max-width:700px){
+  .stats-grid{grid-template-columns:repeat(2,1fr)}
+  .detail-stats{grid-template-columns:repeat(3,1fr)}
+  .form-grid{grid-template-columns:1fr}
+  #header{padding:0 16px}
+  #main{padding:20px 14px}
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div id="header">
+  <div class="logo">
+    <button id="back-btn" onclick="goBack()">← Back</button>
+    <div class="logo-icon">A</div>
+    <div>
+      <div class="logo-text">AHK ACADEMY</div>
+      <div class="logo-sub" id="header-sub">Attendance Management</div>
+    </div>
+  </div>
+  <div class="hdr-actions" id="hdr-actions">
+    <!-- injected by JS -->
+  </div>
+</div>
+
+<!-- MAIN -->
+<div id="main">
+  <div id="app-root"></div>
+</div>
+
+<!-- TOAST -->
+<div id="toast" class="toast" style="display:none"></div>
+
+<script>
+// =============================================
+// DATA MODEL & PERSISTENCE
+// =============================================
+const KEY = 'ahk_v3';
+
+const SUBJECT_COLORS = {
+  'Mathematics':'#6366f1','English':'#10b981','Physics':'#f59e0b',
+  'Chemistry':'#ef4444','Biology':'#06b6d4','History':'#8b5cf6',
+  'Geography':'#f97316','Turkish':'#ec4899','Computer Science':'#3b82f6',
+  'Art':'#d946ef','Music':'#14b8a6','Science':'#84cc16',
+};
+function subColor(s){ return SUBJECT_COLORS[s]||'#64748b'; }
+
+const STATUS = {
+  present:{ label:'Present', icon:'✓', color:'#22c55e', bg:'rgba(34,197,94,.12)' },
+  absent: { label:'Absent',  icon:'✗', color:'#ef4444', bg:'rgba(239,68,68,.12)'  },
+  late:   { label:'Late',    icon:'◷', color:'#f97316', bg:'rgba(249,115,22,.12)' },
+};
+
+const SAMPLE = [
+  {id:1,name:'Ayşe Kaya',subject:'Mathematics',phone:'+90 532 111 2233',email:'ayse@email.com',
+   totalLessons:24,startDate:'2026-01-15',notes:'Focus on advanced calculus',
+   attendance:[
+     {date:'2026-01-20',status:'present'},{date:'2026-01-27',status:'present'},
+     {date:'2026-02-03',status:'absent'},{date:'2026-02-10',status:'present'},
+     {date:'2026-02-17',status:'late'},{date:'2026-02-24',status:'present'},
+     {date:'2026-03-03',status:'present'},{date:'2026-03-10',status:'absent'},
+   ]},
+  {id:2,name:'Mehmet Yıldız',subject:'English',phone:'+90 533 222 3344',email:'mehmet@email.com',
+   totalLessons:20,startDate:'2026-02-01',notes:'',
+   attendance:[
+     {date:'2026-02-03',status:'present'},{date:'2026-02-10',status:'present'},
+     {date:'2026-02-17',status:'present'},{date:'2026-02-24',status:'late'},
+     {date:'2026-03-03',status:'present'},{date:'2026-03-10',status:'present'},
+   ]},
+  {id:3,name:'Zeynep Demir',subject:'Physics',phone:'+90 534 333 4455',email:'zeynep@email.com',
+   totalLessons:16,startDate:'2026-01-20',notes:'Needs extra practice on waves',
+   attendance:[
+     {date:'2026-01-27',status:'present'},{date:'2026-02-03',status:'present'},
+     {date:'2026-02-10',status:'absent'},{date:'2026-02-17',status:'present'},
+     {date:'2026-02-24',status:'present'},{date:'2026-03-03',status:'present'},
+     {date:'2026-03-10',status:'present'},{date:'2026-03-15',status:'present'},
+   ]},
+  {id:4,name:'Burak Şahin',subject:'Chemistry',phone:'+90 535 444 5566',email:'',
+   totalLessons:18,startDate:'2026-02-10',notes:'',
+   attendance:[
+     {date:'2026-02-17',status:'present'},{date:'2026-02-24',status:'absent'},
+     {date:'2026-03-03',status:'present'},{date:'2026-03-10',status:'present'},
+   ]},
+];
+
+let state = {
+  view:'dashboard',
+  selectedId: null,
+  modal: null,       // null | 'addStudent' | 'editStudent' | 'markAttendance'
+  search:'',
+  subjectFilter:'all',
+  editTarget: null,
+  markTarget: null,  // student id or null (all)
+};
+
+let students = [];
+function loadData(){
+  try{ const s=localStorage.getItem(KEY); students = s?JSON.parse(s):[...SAMPLE]; }
+  catch{ students=[...SAMPLE]; }
+}
+function saveData(){ localStorage.setItem(KEY, JSON.stringify(students)); }
+loadData();
+
+// =============================================
+// HELPERS
+// =============================================
+function initials(n){ return n.trim().split(/\s+/).map(w=>w[0]).join('').toUpperCase().slice(0,2); }
+
+function stats(s){
+  const att = s.attendance, n = att.length;
+  const present = att.filter(a=>a.status==='present').length;
+  const late    = att.filter(a=>a.status==='late').length;
+  const absent  = att.filter(a=>a.status==='absent').length;
+  const rate    = n>0? Math.round(((present+late)/n)*100):0;
+  const remaining = Math.max(0, s.totalLessons - n);
+  const progress  = s.totalLessons>0? Math.round((n/s.totalLessons)*100):0;
+  return {n, present, late, absent, rate, remaining, progress};
+}
+
+function fmtDate(d){
+  if(!d) return '';
+  return new Date(d+'T00:00:00').toLocaleDateString('en-GB',{day:'2-digit',month:'short',year:'numeric'});
+}
+
+function rateColor(r){ return r>=80? '#22c55e': r>=60? '#f97316': '#ef4444'; }
+
+function genId(){ return Date.now() + Math.floor(Math.random()*1000); }
+
+function showToast(msg, ok=true){
+  const t=document.getElementById('toast');
+  t.innerHTML = (ok?'<span>✓</span>':'<span style="color:var(--bad)">!</span>') + msg;
+  t.style.display='flex';
+  clearTimeout(showToast._t);
+  showToast._t = setTimeout(()=>t.style.display='none', 2500);
+}
+
+// =============================================
+// RENDER ENGINE
+// =============================================
+function render(){
+  renderHeader();
+  const root = document.getElementById('app-root');
+  if(state.view==='dashboard') root.innerHTML = renderDashboard();
+  else if(state.view==='student') root.innerHTML = renderProfile();
+
+  // Render modal
+  const existing = document.getElementById('modal-overlay');
+  if(existing) existing.remove();
+  if(state.modal) renderModal();
+}
+
+function renderHeader(){
+  const backBtn = document.getElementById('back-btn');
+  const sub     = document.getElementById('header-sub');
+  const actions = document.getElementById('hdr-actions');
+
+  if(state.view==='dashboard'){
+    backBtn.style.display='none';
+    sub.textContent='Attendance Management';
+    actions.innerHTML=`
+      <button class="btn btn-primary" onclick="openModal('addStudent')">+ Add Student</button>
+      <button class="btn btn-ghost" onclick="printReport(null)">📄 Full Report</button>
+    `;
+  } else {
+    const s = students.find(x=>x.id===state.selectedId);
+    backBtn.style.display='flex';
+    sub.textContent = s? `${s.name} · ${s.subject}` : '';
+    actions.innerHTML=`
+      <button class="btn btn-primary" onclick="openModal('markAttendance')">+ Mark Attendance</button>
+      <button class="btn btn-ghost" onclick="printReport(${state.selectedId})">📄 Export PDF</button>
+    `;
+  }
+}
+
+// =============================================
+// DASHBOARD
+// =============================================
+function renderDashboard(){
+  const total = students.length;
+  const totalLessons = students.reduce((s,x)=>s+x.attendance.length,0);
+  const avgAtt = total>0? Math.round(students.reduce((s,x)=>s+stats(x).rate,0)/total):0;
+  const remaining = students.reduce((s,x)=>s+stats(x).remaining,0);
+
+  const q = state.search.toLowerCase();
+  const filtered = students.filter(s=>{
+    const matchQ = s.name.toLowerCase().includes(q)||s.subject.toLowerCase().includes(q);
+    const matchS = state.subjectFilter==='all'||s.subject===state.subjectFilter;
+    return matchQ && matchS;
+  });
+
+  const subjects = ['all',...[...new Set(students.map(s=>s.subject))].sort()];
+
+  return `
+    <div class="stats-grid">
+      ${statCard('👤','Total Students', total, '#6366f1')}
+      ${statCard('📚','Lessons Done', totalLessons, '#f59e0b')}
+      ${statCard('📈','Avg Attendance', avgAtt+'%', '#22c55e')}
+      ${statCard('⏳','Lessons Remaining', remaining, '#f97316')}
+    </div>
+
+    <div class="filter-bar">
+      <div class="search-wrap">
+        <span class="ico">🔍</span>
+        <input class="input-base search-input" placeholder="Search by name or subject…"
+               value="${escHtml(state.search)}"
+               oninput="state.search=this.value;renderGrid()">
+      </div>
+      <select class="input-base" onchange="state.subjectFilter=this.value;renderGrid()">
+        ${subjects.map(s=>`<option value="${s}" ${state.subjectFilter===s?'selected':''}>${s==='all'?'All Subjects':s}</option>`).join('')}
+      </select>
+    </div>
+
+    <div id="students-grid">
+      ${renderGrid_html(filtered)}
+    </div>
+  `;
+}
+
+function statCard(icon, label, val, color){
+  return `<div class="stat-card" style="--accent-clr:${color}">
+    <div class="stat-icon">${icon}</div>
+    <div class="stat-val">${val}</div>
+    <div class="stat-lbl">${label}</div>
+  </div>`;
+}
+
+function renderGrid(){ // called on search/filter change
+  const q = state.search.toLowerCase();
+  const filtered = students.filter(s=>{
+    const matchQ = s.name.toLowerCase().includes(q)||s.subject.toLowerCase().includes(q);
+    const matchS = state.subjectFilter==='all'||s.subject===state.subjectFilter;
+    return matchQ && matchS;
+  });
+  document.getElementById('students-grid').innerHTML = renderGrid_html(filtered);
+}
+
+function renderGrid_html(list){
+  if(list.length===0) return `
+    <div class="empty">
+      <div class="empty-icon">🎓</div>
+      <h3>No students found</h3>
+      <p>Try adjusting your search or add a new student.</p>
+    </div>`;
+  return `<div class="students-grid">${list.map(s=>studentCard(s)).join('')}</div>`;
+}
+
+function studentCard(s){
+  const st = stats(s);
+  const c  = subColor(s.subject);
+  return `
+  <div class="s-card" style="--hover-clr:${c}44" onclick="openStudent(${s.id})">
+    <div class="s-card-top" style="background:${c}"></div>
+    <div class="s-card-head">
+      <div class="avatar" style="background:${c}22;border:2px solid ${c}44;color:${c}">${initials(s.name)}</div>
+      <div style="flex:1;min-width:0">
+        <div class="s-name">${escHtml(s.name)}</div>
+        <div class="subject-badge" style="background:${c}1a;color:${c}">${escHtml(s.subject)}</div>
+      </div>
+      <div class="att-pct">
+        <div class="att-pct-val" style="color:${rateColor(st.rate)}">${st.rate}%</div>
+        <div class="att-pct-lbl">attendance</div>
+      </div>
+    </div>
+    <div class="prog-bar-wrap">
+      <div class="prog-bar-lbl"><span>Progress</span><span>${st.n}/${s.totalLessons}</span></div>
+      <div class="prog-bar-bg"><div class="prog-bar-fill" style="width:${st.progress}%;background:linear-gradient(90deg,${c},${c}88)"></div></div>
+    </div>
+    <div class="mini-stats">
+      <div class="mini-stat"><div class="mini-stat-val" style="color:#22c55e">${st.present}</div><div class="mini-stat-lbl">Present</div></div>
+      <div class="mini-stat"><div class="mini-stat-val" style="color:#ef4444">${st.absent}</div><div class="mini-stat-lbl">Absent</div></div>
+      <div class="mini-stat"><div class="mini-stat-val" style="color:#f97316">${st.late}</div><div class="mini-stat-lbl">Late</div></div>
+      <div class="mini-stat"><div class="mini-stat-val" style="color:#8da0bb">${st.remaining}</div><div class="mini-stat-lbl">Left</div></div>
+    </div>
+  </div>`;
+}
+
+// =============================================
+// STUDENT PROFILE
+// =============================================
+function renderProfile(){
+  const s = students.find(x=>x.id===state.selectedId);
+  if(!s) return '<div class="empty"><p>Student not found.</p></div>';
+  const st = stats(s);
+  const c  = subColor(s.subject);
+  const sorted = [...s.attendance].sort((a,b)=>b.date.localeCompare(a.date));
+
+  return `
+  <div class="profile-header">
+    <div class="profile-glow" style="background:radial-gradient(circle,${c}18 0%,transparent 70%)"></div>
+    <div class="profile-meta">
+      <div class="profile-avatar" style="background:${c}22;border:3px solid ${c}55;color:${c}">${initials(s.name)}</div>
+      <div style="flex:1">
+        <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
+          <div class="profile-name">${escHtml(s.name)}</div>
+          <div class="subject-badge" style="background:${c}22;color:${c};font-size:13px;padding:4px 12px">${escHtml(s.subject)}</div>
+        </div>
+        <div class="profile-chips">
+          ${s.phone?`<div class="chip">📞 ${escHtml(s.phone)}</div>`:''}
+          ${s.email?`<div class="chip">✉️ ${escHtml(s.email)}</div>`:''}
+          ${s.startDate?`<div class="chip">📅 Since ${fmtDate(s.startDate)}</div>`:''}
+        </div>
+        ${s.notes?`<div class="profile-notes">📝 ${escHtml(s.notes)}</div>`:''}
+      </div>
+      <div class="profile-actions">
+        <button class="btn btn-ghost btn-sm" onclick="openModal('editStudent')">✏️ Edit</button>
+        <button class="btn btn-danger btn-sm" onclick="deleteStudent(${s.id})">🗑</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="detail-stats">
+    ${dStat('Attendance', st.rate+'%', rateColor(st.rate))}
+    ${dStat('Completed', st.n, c)}
+    ${dStat('Present', st.present, '#22c55e')}
+    ${dStat('Absent', st.absent, '#ef4444')}
+    ${dStat('Remaining', st.remaining, '#f97316')}
+  </div>
+
+  <div class="prog-section">
+    <div class="prog-section-head">
+      <h4>Lesson Progress</h4>
+      <div class="prog-section-sub">${st.n} done · ${st.remaining} remaining of ${s.totalLessons} total</div>
+    </div>
+    <div class="prog-track">
+      <div class="prog-track-fill" style="width:${st.progress}%;background:linear-gradient(90deg,${c},${c}88);box-shadow:0 0 12px ${c}55"></div>
+    </div>
+    <div class="prog-labels"><span>0</span><span style="color:${c}">${st.progress}% complete</span><span>${s.totalLessons}</span></div>
+  </div>
+
+  <div class="history-section">
+    <div class="history-head">
+      <h3>Attendance History</h3>
+      <button class="btn btn-primary btn-sm" onclick="openModal('markAttendance')">+ Add Record</button>
+    </div>
+    ${sorted.length===0
+      ? `<div class="history-empty">No records yet. Click "+ Add Record" to start tracking.</div>`
+      : sorted.map((r,i)=>{
+          const sc = STATUS[r.status]||STATUS.present;
+          const lessonNum = s.attendance.findIndex(a=>a.date===r.date)+1;
+          return `<div class="h-row">
+            <div class="h-date">${fmtDate(r.date)}</div>
+            <div class="h-status">
+              <span class="status-pill" style="background:${sc.bg};color:${sc.color}">${sc.icon} ${sc.label}</span>
+            </div>
+            <div class="h-lesson">Lesson ${lessonNum}</div>
+            <button class="del-btn" onclick="deleteRecord(${s.id},'${r.date}')" title="Delete">✕</button>
+          </div>`;
+        }).join('')
+    }
+  </div>`;
+}
+
+function dStat(lbl, val, color){
+  return `<div class="detail-stat"><div class="detail-stat-val" style="color:${color}">${val}</div><div class="detail-stat-lbl">${lbl}</div></div>`;
+}
+
+// =============================================
+// NAVIGATION
+// =============================================
+function openStudent(id){
+  state.view='student';
+  state.selectedId=id;
+  render();
+  window.scrollTo(0,0);
+}
+function goBack(){
+  state.view='dashboard';
+  state.selectedId=null;
+  render();
+}
+
+// =============================================
+// MODALS
+// =============================================
+function openModal(type){
+  state.modal=type;
+  if(type==='editStudent') state.editTarget=students.find(x=>x.id===state.selectedId)||null;
+  renderModal();
+}
+
+function closeModal(){
+  state.modal=null;
+  state.editTarget=null;
+  const ov=document.getElementById('modal-overlay');
+  if(ov) ov.remove();
+}
+
+function renderModal(){
+  const div = document.createElement('div');
+  div.id='modal-overlay';
+  div.className='overlay';
+  div.onclick = e=>{ if(e.target===div) closeModal(); };
+
+  if(state.modal==='addStudent'||state.modal==='editStudent'){
+    const s=state.editTarget;
+    const today=new Date().toISOString().slice(0,10);
+    div.innerHTML=`
+    <div class="modal">
+      <div class="modal-head">
+        <h2>${state.modal==='addStudent'?'Add New Student':'Edit Student'}</h2>
+        <button class="close-btn" onclick="closeModal()">✕</button>
+      </div>
+      <form onsubmit="saveStudent(event)">
+        <div class="form-grid">
+          <div class="form-field">
+            <label class="form-label">Full Name *</label>
+            <input class="input-base" id="f-name" required value="${escHtml(s?.name||'')}" placeholder="e.g. Ayşe Kaya">
+          </div>
+          <div class="form-field">
+            <label class="form-label">Subject *</label>
+            <input class="input-base" id="f-subject" required value="${escHtml(s?.subject||'')}" placeholder="e.g. Mathematics" list="subj-list">
+            <datalist id="subj-list">${Object.keys(SUBJECT_COLORS).map(x=>`<option>${x}</option>`).join('')}</datalist>
+          </div>
+          <div class="form-field">
+            <label class="form-label">Phone</label>
+            <input class="input-base" id="f-phone" value="${escHtml(s?.phone||'')}" placeholder="+90 5xx xxx xx xx">
+          </div>
+          <div class="form-field">
+            <label class="form-label">Email</label>
+            <input class="input-base" id="f-email" type="email" value="${escHtml(s?.email||'')}" placeholder="student@email.com">
+          </div>
+          <div class="form-field">
+            <label class="form-label">Total Lessons</label>
+            <input class="input-base" id="f-total" type="number" min="1" max="999" value="${s?.totalLessons||20}">
+          </div>
+          <div class="form-field">
+            <label class="form-label">Start Date</label>
+            <input class="input-base" id="f-start" type="date" value="${s?.startDate||today}">
+          </div>
+          <div class="form-field full">
+            <label class="form-label">Notes</label>
+            <textarea class="input-base" id="f-notes" rows="2" style="resize:vertical" placeholder="Optional notes…">${escHtml(s?.notes||'')}</textarea>
+          </div>
+        </div>
+        <div class="form-actions">
+          <button type="button" class="btn btn-ghost" onclick="closeModal()">Cancel</button>
+          <button type="submit" class="btn btn-primary">${state.modal==='addStudent'?'Add Student':'Save Changes'}</button>
+        </div>
+      </form>
+    </div>`;
+  }
+
+  else if(state.modal==='markAttendance'){
+    const today = new Date().toISOString().slice(0,10);
+    const sId = state.selectedId;
+    div.innerHTML=`
+    <div class="modal">
+      <div class="modal-head">
+        <h2>Mark Attendance</h2>
+        <button class="close-btn" onclick="closeModal()">✕</button>
+      </div>
+      ${!sId?`
+        <div class="form-field" style="margin-bottom:14px">
+          <label class="form-label">Student</label>
+          <select class="input-base" id="m-sid">
+            ${students.map(s=>`<option value="${s.id}">${escHtml(s.name)} — ${escHtml(s.subject)}</option>`).join('')}
+          </select>
+        </div>`
+      :`<div style="display:flex;align-items:center;gap:12px;padding:12px 14px;background:#0c1628;border-radius:10px;margin-bottom:14px">
+          <div class="avatar" style="width:40px;height:40px;background:${subColor(students.find(x=>x.id===sId)?.subject||'')}22;color:${subColor(students.find(x=>x.id===sId)?.subject||'')}">
+            ${initials(students.find(x=>x.id===sId)?.name||'?')}
+          </div>
+          <div>
+            <div style="font-weight:600">${escHtml(students.find(x=>x.id===sId)?.name||'')}</div>
+            <div style="font-size:12px;color:var(--dim)">${escHtml(students.find(x=>x.id===sId)?.subject||'')}</div>
+          </div>
+        </div>`}
+      <div class="form-field" style="margin-bottom:14px">
+        <label class="form-label">Date</label>
+        <input class="input-base" id="m-date" type="date" value="${today}">
+      </div>
+      <div class="form-field" style="margin-bottom:20px">
+        <label class="form-label" style="margin-bottom:10px">Status</label>
+        <div class="status-picker">
+          <div class="status-opt active-present" id="opt-present" onclick="pickStatus('present')"><span class="ico2">✓</span>Present</div>
+          <div class="status-opt" id="opt-absent" onclick="pickStatus('absent')"><span class="ico2">✗</span>Absent</div>
+          <div class="status-opt" id="opt-late" onclick="pickStatus('late')"><span class="ico2">◷</span>Late</div>
+        </div>
+      </div>
+      <div class="form-actions">
+        <button class="btn btn-ghost" onclick="closeModal()">Close</button>
+        <button class="btn btn-primary" id="save-att-btn" onclick="saveAttendance()">Save Record</button>
+      </div>
+    </div>`;
+  }
+
+  document.body.appendChild(div);
+}
+
+let _pickedStatus = 'present';
+function pickStatus(s){
+  _pickedStatus = s;
+  ['present','absent','late'].forEach(k=>{
+    const el=document.getElementById('opt-'+k);
+    if(!el) return;
+    el.className='status-opt'+(s===k?' active-'+k:'');
+  });
+}
+
+// =============================================
+// DATA MUTATIONS
+// =============================================
+function saveStudent(e){
+  e.preventDefault();
+  const name    = document.getElementById('f-name').value.trim();
+  const subject = document.getElementById('f-subject').value.trim();
+  const phone   = document.getElementById('f-phone').value.trim();
+  const email   = document.getElementById('f-email').value.trim();
+  const total   = parseInt(document.getElementById('f-total').value)||20;
+  const start   = document.getElementById('f-start').value;
+  const notes   = document.getElementById('f-notes').value.trim();
+
+  if(state.modal==='addStudent'){
+    students.push({id:genId(),name,subject,phone,email,totalLessons:total,startDate:start,notes,attendance:[]});
+    showToast('Student added!');
+  } else {
+    const idx = students.findIndex(x=>x.id===state.editTarget.id);
+    if(idx>=0) students[idx]={...students[idx],name,subject,phone,email,totalLessons:total,startDate:start,notes};
+    showToast('Changes saved!');
+  }
+  saveData();
+  closeModal();
+  render();
+}
+
+function saveAttendance(){
+  const sid  = state.selectedId || parseInt(document.getElementById('m-sid')?.value);
+  const date = document.getElementById('m-date').value;
+  const status = _pickedStatus;
+  if(!sid||!date) return;
+
+  const idx = students.findIndex(s=>s.id===sid);
+  if(idx<0) return;
+  const s = students[idx];
+  const ai = s.attendance.findIndex(a=>a.date===date);
+  if(ai>=0){
+    students[idx].attendance[ai].status = status;
+  } else {
+    students[idx].attendance = [...s.attendance,{date,status}].sort((a,b)=>a.date.localeCompare(b.date));
+  }
+  saveData();
+  showToast('Attendance saved!');
+  const btn = document.getElementById('save-att-btn');
+  if(btn){btn.textContent='✓ Saved!';btn.style.background='#22c55e';}
+  setTimeout(()=>{ if(state.view==='student') render(); },800);
+}
+
+function deleteStudent(id){
+  if(!confirm('Delete this student and all their records? This cannot be undone.')) return;
+  students = students.filter(s=>s.id!==id);
+  saveData();
+  showToast('Student deleted');
+  goBack();
+}
+
+function deleteRecord(studentId, date){
+  if(!confirm('Delete this attendance record?')) return;
+  const idx = students.findIndex(s=>s.id===studentId);
+  if(idx<0) return;
+  students[idx].attendance = students[idx].attendance.filter(a=>a.date!==date);
+  saveData();
+  showToast('Record deleted');
+  render();
+}
+
+// =============================================
+// PDF / PRINT REPORT
+// =============================================
+function printReport(studentId){
+  const list = studentId? [students.find(x=>x.id===studentId)].filter(Boolean) : students;
+  if(list.length===0) return showToast('No data to export',false);
+  const now = new Date().toLocaleDateString('en-GB',{day:'2-digit',month:'long',year:'numeric'});
+  const w = window.open('','_blank');
+  w.document.write(`<!DOCTYPE html><html><head>
+  <meta charset="UTF-8">
+  <title>AHK Academy — Report</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:'DM Sans',sans-serif;color:#111;background:#fff;padding:32px;max-width:860px;margin:0 auto}
+    .hdr{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:28px;padding-bottom:16px;border-bottom:3px solid #f59e0b}
+    .hdr-name{font-size:26px;font-weight:800;letter-spacing:2px}
+    .hdr-sub{font-size:11px;color:#888;letter-spacing:1.5px;margin-top:3px}
+    .hdr-info{text-align:right;font-size:12px;color:#555}
+    .s-section{margin-bottom:40px;page-break-inside:avoid}
+    .s-header{display:flex;justify-content:space-between;background:#f8f8f8;border-left:4px solid #f59e0b;padding:14px 18px;border-radius:0 8px 8px 0;margin-bottom:14px}
+    .s-name{font-size:17px;font-weight:700}
+    .s-meta{font-size:12px;color:#666;margin-top:3px}
+    .stats{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-bottom:16px}
+    .stat{background:#f9f9f9;padding:12px;border-radius:8px;text-align:center}
+    .stat-v{font-size:22px;font-weight:800}
+    .stat-l{font-size:11px;color:#888;margin-top:3px}
+    .pb-bg{height:8px;background:#e5e7eb;border-radius:99px;margin-bottom:4px}
+    .pb-fill{height:100%;background:#f59e0b;border-radius:99px}
+    .pb-info{display:flex;justify-content:space-between;font-size:11px;color:#999;margin-bottom:16px}
+    table{width:100%;border-collapse:collapse;font-size:13px}
+    th{background:#111;color:#fff;padding:9px 12px;text-align:left;font-size:11.5px;letter-spacing:.4px}
+    td{padding:9px 12px;border-bottom:1px solid #f0f0f0}
+    .badge{display:inline-block;padding:3px 10px;border-radius:20px;font-size:11.5px;font-weight:600}
+    .present{background:#dcfce7;color:#16a34a}
+    .absent{background:#fee2e2;color:#dc2626}
+    .late{background:#ffedd5;color:#ea580c}
+    .notes{font-size:12px;color:#777;font-style:italic;margin-top:10px}
+    .footer{margin-top:40px;padding-top:14px;border-top:1px solid #e5e7eb;text-align:center;font-size:11px;color:#bbb}
+    @media print{body{padding:20px}a{display:none}}
+  </style>
+  </head><body>
+  <div class="hdr">
+    <div><div class="hdr-name">AHK ACADEMY</div><div class="hdr-sub">ATTENDANCE REPORT</div></div>
+    <div class="hdr-info">Generated: ${now}<br>${list.length} student${list.length!==1?'s':''}</div>
+  </div>
+  ${list.map((s,i)=>{
+    const st = stats(s);
+    const sorted=[...s.attendance].sort((a,b)=>b.date.localeCompare(a.date));
+    const rc = st.rate>=80?'#16a34a':st.rate>=60?'#ea580c':'#dc2626';
+    return `<div class="s-section" ${i>0&&!studentId?'style="page-break-before:always"':''}>
+      <div class="s-header">
+        <div>
+          <div class="s-name">${escHtml(s.name)}</div>
+          <div class="s-meta">${escHtml(s.subject)} · Since ${fmtDate(s.startDate)||'N/A'}</div>
+        </div>
+        <div style="text-align:right;font-size:12px;color:#666">
+          ${s.phone?`📞 ${escHtml(s.phone)}`:''}
+          ${s.phone&&s.email?'<br>':''}
+          ${s.email?`✉ ${escHtml(s.email)}`:''}
+        </div>
+      </div>
+      <div class="stats">
+        <div class="stat"><div class="stat-v" style="color:${rc}">${st.rate}%</div><div class="stat-l">Attendance</div></div>
+        <div class="stat"><div class="stat-v">${st.n}</div><div class="stat-l">Completed</div></div>
+        <div class="stat"><div class="stat-v" style="color:#16a34a">${st.present}</div><div class="stat-l">Present</div></div>
+        <div class="stat"><div class="stat-v" style="color:#dc2626">${st.absent}</div><div class="stat-l">Absent</div></div>
+        <div class="stat"><div class="stat-v" style="color:#ea580c">${st.remaining}</div><div class="stat-l">Remaining</div></div>
+      </div>
+      <div class="pb-bg"><div class="pb-fill" style="width:${st.progress}%"></div></div>
+      <div class="pb-info"><span>Lesson progress</span><span>${st.n} of ${s.totalLessons} (${st.progress}%)</span></div>
+      ${sorted.length>0?`
+      <table>
+        <thead><tr><th>#</th><th>Date</th><th>Status</th></tr></thead>
+        <tbody>
+          ${sorted.map((r,ri)=>`<tr>
+            <td style="color:#999">${sorted.length-ri}</td>
+            <td>${fmtDate(r.date)}</td>
+            <td><span class="badge ${r.status}">${STATUS[r.status]?.label||r.status}</span></td>
+          </tr>`).join('')}
+        </tbody>
+      </table>`:'<p style="font-size:13px;color:#999">No attendance records.</p>'}
+      ${s.notes?`<div class="notes">Notes: ${escHtml(s.notes)}</div>`:''}
+    </div>`;
+  }).join('')}
+  <div class="footer">AHK Academy Attendance System · ${now}</div>
+  <script>window.onload=()=>window.print();<\/script>
+  </body></html>`);
+  w.document.close();
+}
+
+// =============================================
+// UTILS
+// =============================================
+function escHtml(s){
+  if(!s) return '';
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+// =============================================
+// INIT
+// =============================================
+_pickedStatus='present';
+render();
+</script>
+</body>
+</html>

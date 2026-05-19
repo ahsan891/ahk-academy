@@ -1,0 +1,1188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AHK Academy</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<style>
+/* ===================== VARIABLES ===================== */
+:root {
+  --bg: #060810;
+  --surface: #0c1021;
+  --card: #101827;
+  --card2: #141f30;
+  --border: #1c2c44;
+  --border2: #243652;
+  --accent: #e8a020;
+  --accent2: #f0c060;
+  --accent-dim: rgba(232,160,32,.12);
+  --text: #dde6f0;
+  --dim: #7a90aa;
+  --muted: #3d526a;
+  --ok: #2dd4a0;
+  --bad: #f06060;
+  --info: #4ca8f0;
+  --warn: #f09040;
+  --free-c: #4ca8f0;
+  --paid-c: #e8a020;
+  --r: 14px; --rs: 9px;
+  --font-display: 'Syne', sans-serif;
+  --font-body: 'Instrument Sans', sans-serif;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { height: 100%; background: var(--bg); color: var(--text); font-family: var(--font-body); font-size: 15px; line-height: 1.6; }
+::-webkit-scrollbar { width: 4px; } ::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 99px; }
+button { cursor: pointer; font-family: var(--font-body); }
+input, select, textarea { font-family: var(--font-body); }
+
+/* ===================== SETUP BANNER ===================== */
+#setup-banner {
+  background: linear-gradient(90deg, #1a2a0a, #0a1a2a);
+  border-bottom: 1px solid var(--border);
+  padding: 10px 20px;
+  font-size: 13px;
+  color: var(--dim);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+#setup-banner strong { color: var(--accent); }
+#setup-banner code {
+  background: rgba(255,255,255,.07);
+  padding: 2px 8px;
+  border-radius: 5px;
+  font-size: 12px;
+  color: var(--ok);
+}
+.setup-dismiss { margin-left: auto; background: none; border: 1px solid var(--border); color: var(--dim); padding: 4px 12px; border-radius: 6px; font-size: 12px; }
+.setup-dismiss:hover { color: var(--text); }
+
+/* ===================== LAYOUT ===================== */
+#app { min-height: 100vh; }
+
+/* ===================== AUTH PAGE ===================== */
+#auth-page {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+@media(max-width: 780px) { #auth-page { grid-template-columns: 1fr; } .auth-hero { display: none !important; } }
+
+.auth-hero {
+  background: var(--surface);
+  border-right: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 60px 50px;
+  position: relative;
+  overflow: hidden;
+}
+.auth-hero::before {
+  content: '';
+  position: absolute;
+  top: -80px; right: -80px;
+  width: 340px; height: 340px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(232,160,32,.08) 0%, transparent 70%);
+}
+.auth-hero::after {
+  content: '';
+  position: absolute;
+  bottom: -60px; left: -60px;
+  width: 260px; height: 260px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(76,168,240,.06) 0%, transparent 70%);
+}
+.hero-logo { display: flex; align-items: center; gap: 14px; margin-bottom: 52px; }
+.hero-logo-icon {
+  width: 46px; height: 46px; border-radius: 13px;
+  background: linear-gradient(135deg, var(--accent), #c06010);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-display); font-weight: 800; font-size: 20px; color: #fff;
+}
+.hero-logo-text { font-family: var(--font-display); font-weight: 800; font-size: 17px; letter-spacing: 1.5px; }
+.hero-headline {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 38px;
+  line-height: 1.15;
+  margin-bottom: 20px;
+  color: #fff;
+}
+.hero-headline span { color: var(--accent); }
+.hero-sub { font-size: 15px; color: var(--dim); line-height: 1.7; max-width: 340px; margin-bottom: 44px; }
+.hero-features { display: flex; flex-direction: column; gap: 14px; }
+.hero-feat { display: flex; align-items: center; gap: 12px; font-size: 14px; color: var(--dim); }
+.feat-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); flex-shrink: 0; }
+
+.auth-form-side {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 60px 50px;
+  max-width: 480px;
+  width: 100%;
+  margin: 0 auto;
+}
+.auth-tabs { display: flex; gap: 0; margin-bottom: 32px; background: var(--card); border-radius: var(--rs); padding: 4px; }
+.auth-tab {
+  flex: 1; padding: 9px; border-radius: 7px; border: none;
+  background: none; color: var(--dim); font-weight: 600; font-size: 14px;
+  transition: all .2s;
+}
+.auth-tab.active { background: var(--accent); color: #000; }
+
+.form-group { display: flex; flex-direction: column; gap: 7px; margin-bottom: 16px; }
+.form-label { font-size: 12px; font-weight: 600; color: var(--dim); text-transform: uppercase; letter-spacing: .6px; }
+.form-input {
+  background: var(--card); border: 1px solid var(--border);
+  color: var(--text); padding: 12px 16px; border-radius: var(--rs);
+  font-size: 14.5px; outline: none; transition: border-color .2s, box-shadow .2s; width: 100%;
+}
+.form-input:focus { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-dim); }
+.form-input::placeholder { color: var(--muted); }
+
+.plan-picker { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 16px; }
+.plan-opt {
+  border: 2px solid var(--border); border-radius: 10px; padding: 14px 12px;
+  cursor: pointer; transition: all .18s; text-align: center;
+  background: var(--card);
+}
+.plan-opt:hover { border-color: var(--border2); }
+.plan-opt.selected-free { border-color: var(--free-c); background: rgba(76,168,240,.08); }
+.plan-opt.selected-paid { border-color: var(--paid-c); background: rgba(232,160,32,.08); }
+.plan-name { font-family: var(--font-display); font-weight: 700; font-size: 15px; margin-bottom: 3px; }
+.plan-price { font-size: 11.5px; color: var(--dim); }
+.plan-badge { font-size: 10.5px; font-weight: 700; padding: 2px 8px; border-radius: 20px; margin-top: 5px; display: inline-block; }
+.plan-free .plan-badge { background: rgba(76,168,240,.15); color: var(--free-c); }
+.plan-paid .plan-badge { background: rgba(232,160,32,.15); color: var(--paid-c); }
+
+.btn-auth {
+  width: 100%; padding: 13px; border: none; border-radius: var(--rs);
+  background: var(--accent); color: #000; font-family: var(--font-display);
+  font-weight: 700; font-size: 15px; letter-spacing: .3px;
+  transition: all .18s; margin-top: 6px;
+}
+.btn-auth:hover { opacity: .88; transform: translateY(-1px); }
+.btn-auth:disabled { opacity: .5; cursor: not-allowed; transform: none; }
+.auth-divider { text-align: center; color: var(--muted); font-size: 13px; margin: 14px 0; }
+.btn-demo {
+  width: 100%; padding: 11px; border: 1px solid var(--border); border-radius: var(--rs);
+  background: none; color: var(--dim); font-size: 13.5px; font-weight: 500;
+  transition: all .18s;
+}
+.btn-demo:hover { border-color: var(--border2); color: var(--text); }
+.auth-error { background: rgba(240,96,96,.1); border: 1px solid rgba(240,96,96,.3); color: var(--bad); padding: 10px 14px; border-radius: 8px; font-size: 13.5px; margin-bottom: 14px; display: none; }
+.auth-success { background: rgba(45,212,160,.1); border: 1px solid rgba(45,212,160,.3); color: var(--ok); padding: 10px 14px; border-radius: 8px; font-size: 13.5px; margin-bottom: 14px; display: none; }
+
+/* ===================== SHARED DASHBOARD ===================== */
+#dashboard { min-height: 100vh; display: none; }
+.topbar {
+  height: 62px; background: var(--surface); border-bottom: 1px solid var(--border);
+  display: flex; align-items: center; padding: 0 24px; gap: 16px;
+  position: sticky; top: 0; z-index: 100;
+}
+.topbar-logo { display: flex; align-items: center; gap: 10px; }
+.topbar-logo-icon {
+  width: 34px; height: 34px; border-radius: 9px;
+  background: linear-gradient(135deg, var(--accent), #c06010);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-display); font-weight: 800; font-size: 15px; color: #fff;
+}
+.topbar-name { font-family: var(--font-display); font-weight: 800; font-size: 14px; letter-spacing: 1.2px; }
+.topbar-right { display: flex; align-items: center; gap: 12px; margin-left: auto; }
+.user-chip {
+  display: flex; align-items: center; gap: 8px;
+  background: var(--card); border: 1px solid var(--border);
+  padding: 6px 12px; border-radius: 99px; font-size: 13px;
+}
+.user-avatar {
+  width: 26px; height: 26px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-display); font-weight: 800; font-size: 11px;
+}
+.role-pill {
+  font-size: 10.5px; font-weight: 700; padding: 2px 8px; border-radius: 20px;
+}
+.role-free { background: rgba(76,168,240,.15); color: var(--free-c); }
+.role-paid { background: rgba(232,160,32,.15); color: var(--paid-c); }
+.role-admin { background: rgba(45,212,160,.15); color: var(--ok); }
+.notif-btn {
+  position: relative; background: var(--card); border: 1px solid var(--border);
+  color: var(--dim); width: 36px; height: 36px; border-radius: 9px;
+  display: flex; align-items: center; justify-content: center; font-size: 16px;
+  transition: all .15s;
+}
+.notif-btn:hover { border-color: var(--border2); color: var(--text); }
+.notif-dot {
+  position: absolute; top: 6px; right: 6px; width: 8px; height: 8px;
+  border-radius: 50%; background: var(--bad); border: 2px solid var(--surface);
+  display: none;
+}
+.btn-logout {
+  background: none; border: 1px solid var(--border); color: var(--dim);
+  padding: 7px 14px; border-radius: var(--rs); font-size: 13px;
+  transition: all .15s;
+}
+.btn-logout:hover { border-color: var(--bad); color: var(--bad); }
+
+/* ===================== DASHBOARD LAYOUT ===================== */
+.dash-body { display: grid; grid-template-columns: 220px 1fr; min-height: calc(100vh - 62px); }
+@media(max-width: 760px) { .dash-body { grid-template-columns: 1fr; } .sidebar { display: none; } }
+.sidebar {
+  background: var(--surface); border-right: 1px solid var(--border);
+  padding: 24px 16px; display: flex; flex-direction: column; gap: 4px;
+}
+.sidebar-section { font-size: 10.5px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: .8px; padding: 16px 10px 8px; }
+.nav-item {
+  display: flex; align-items: center; gap: 10px; padding: 9px 12px;
+  border-radius: 9px; font-size: 14px; color: var(--dim); border: none;
+  background: none; width: 100%; text-align: left; transition: all .15s; cursor: pointer;
+}
+.nav-item:hover { background: var(--card); color: var(--text); }
+.nav-item.active { background: var(--accent-dim); color: var(--accent); font-weight: 600; }
+.nav-item .nav-icon { font-size: 16px; width: 20px; text-align: center; flex-shrink: 0; }
+.nav-lock { margin-left: auto; font-size: 11px; color: var(--muted); }
+
+.dash-content { padding: 28px 28px; overflow-y: auto; }
+@media(max-width: 760px) { .dash-content { padding: 20px 16px; } }
+
+/* ===================== PANELS ===================== */
+.panel { display: none; }
+.panel.active { display: block; }
+.panel-title { font-family: var(--font-display); font-weight: 800; font-size: 22px; margin-bottom: 6px; }
+.panel-sub { font-size: 14px; color: var(--dim); margin-bottom: 26px; }
+
+/* ===================== CARDS ===================== */
+.card {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: var(--r); padding: 22px;
+}
+.card-grid { display: grid; gap: 14px; }
+.grid-2 { grid-template-columns: repeat(2, 1fr); }
+.grid-3 { grid-template-columns: repeat(3, 1fr); }
+.grid-4 { grid-template-columns: repeat(4, 1fr); }
+@media(max-width: 900px) { .grid-4 { grid-template-columns: repeat(2, 1fr); } .grid-3 { grid-template-columns: repeat(2, 1fr); } }
+@media(max-width: 580px) { .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; } }
+
+/* stat card */
+.stat-card {
+  background: var(--card); border: 1px solid var(--border); border-radius: var(--r);
+  padding: 20px; border-top: 3px solid var(--c, var(--accent));
+}
+.stat-val { font-family: var(--font-display); font-weight: 800; font-size: 30px; color: var(--c, var(--accent)); }
+.stat-lbl { font-size: 12.5px; color: var(--dim); margin-top: 4px; }
+
+/* feature card */
+.feat-card {
+  background: var(--card); border: 1px solid var(--border); border-radius: var(--r);
+  padding: 22px; transition: all .2s; cursor: pointer; position: relative; overflow: hidden;
+}
+.feat-card:hover { border-color: var(--hover-c, var(--border2)); transform: translateY(-2px); }
+.feat-card .feat-icon { font-size: 28px; margin-bottom: 12px; }
+.feat-card h3 { font-family: var(--font-display); font-weight: 700; font-size: 16px; margin-bottom: 6px; }
+.feat-card p { font-size: 13px; color: var(--dim); line-height: 1.6; }
+.feat-card .feat-lock {
+  position: absolute; top: 14px; right: 14px;
+  background: rgba(0,0,0,.5); border: 1px solid var(--border);
+  color: var(--muted); font-size: 11px; padding: 3px 9px; border-radius: 20px;
+}
+
+/* ===================== UPGRADE BANNER ===================== */
+.upgrade-banner {
+  background: linear-gradient(135deg, rgba(232,160,32,.12), rgba(232,160,32,.05));
+  border: 1px solid rgba(232,160,32,.3); border-radius: var(--r);
+  padding: 20px 24px; display: flex; align-items: center; gap: 18px;
+  margin-bottom: 22px; flex-wrap: wrap;
+}
+.upgrade-banner-text h3 { font-family: var(--font-display); font-weight: 700; font-size: 16px; margin-bottom: 4px; color: var(--accent2); }
+.upgrade-banner-text p { font-size: 13.5px; color: var(--dim); }
+.btn-upgrade {
+  background: var(--accent); color: #000; border: none;
+  padding: 10px 22px; border-radius: var(--rs); font-family: var(--font-display);
+  font-weight: 700; font-size: 14px; white-space: nowrap; transition: opacity .15s;
+}
+.btn-upgrade:hover { opacity: .85; }
+
+/* ===================== PROGRESS BAR ===================== */
+.prog-wrap { margin: 8px 0; }
+.prog-label { display: flex; justify-content: space-between; font-size: 12.5px; color: var(--dim); margin-bottom: 5px; }
+.prog-bg { height: 6px; background: #1a2840; border-radius: 99px; }
+.prog-fill { height: 100%; border-radius: 99px; transition: width .5s ease; }
+
+/* ===================== ADMIN: STUDENTS TABLE ===================== */
+.students-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+.students-table th { background: var(--card2); color: var(--dim); font-size: 11.5px; font-weight: 700; text-transform: uppercase; letter-spacing: .4px; padding: 10px 14px; text-align: left; border-bottom: 1px solid var(--border); }
+.students-table td { padding: 12px 14px; border-bottom: 1px solid var(--border); }
+.students-table tr:last-child td { border-bottom: none; }
+.students-table tr:hover td { background: rgba(255,255,255,.02); }
+.online-dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; margin-right: 6px; }
+.online-dot.on { background: var(--ok); box-shadow: 0 0 6px var(--ok); }
+.online-dot.off { background: var(--muted); }
+
+/* ===================== NOTIFICATIONS PANEL ===================== */
+.notif-list { display: flex; flex-direction: column; gap: 10px; }
+.notif-item {
+  background: var(--card); border: 1px solid var(--border); border-radius: 10px;
+  padding: 14px 16px; display: flex; align-items: flex-start; gap: 12px;
+}
+.notif-item.unread { border-color: var(--accent); background: rgba(232,160,32,.05); }
+.notif-icon { font-size: 20px; flex-shrink: 0; margin-top: 1px; }
+.notif-body h4 { font-size: 14px; font-weight: 600; margin-bottom: 3px; }
+.notif-body p { font-size: 13px; color: var(--dim); }
+.notif-time { font-size: 11.5px; color: var(--muted); margin-top: 4px; }
+
+/* ===================== BOOKING ===================== */
+.slots-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+@media(max-width: 640px) { .slots-grid { grid-template-columns: repeat(2, 1fr); } }
+.slot-btn {
+  background: var(--card); border: 1px solid var(--border); color: var(--dim);
+  padding: 12px 8px; border-radius: 9px; font-size: 13.5px; font-weight: 600;
+  transition: all .15s; text-align: center;
+}
+.slot-btn:hover:not(:disabled) { border-color: var(--accent); color: var(--accent); background: var(--accent-dim); }
+.slot-btn.booked { background: rgba(45,212,160,.1); border-color: var(--ok); color: var(--ok); }
+.slot-btn:disabled { opacity: .35; cursor: not-allowed; }
+
+/* ===================== TOAST ===================== */
+.toast {
+  position: fixed; bottom: 24px; right: 24px; z-index: 999;
+  background: var(--card2); border: 1px solid var(--border); border-radius: 10px;
+  padding: 12px 18px; font-size: 14px; font-weight: 500;
+  display: flex; align-items: center; gap: 8px;
+  box-shadow: 0 8px 32px rgba(0,0,0,.5);
+  animation: slideUp .22s ease; display: none;
+}
+@keyframes slideUp { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+/* ===================== MISC ===================== */
+.section-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
+.section-head h3 { font-family: var(--font-display); font-weight: 700; font-size: 16px; }
+.btn-sm {
+  background: var(--accent); color: #000; border: none;
+  padding: 7px 16px; border-radius: 7px; font-size: 13px; font-weight: 600;
+  transition: opacity .15s;
+}
+.btn-sm:hover { opacity: .85; }
+.btn-ghost-sm {
+  background: none; border: 1px solid var(--border); color: var(--dim);
+  padding: 7px 14px; border-radius: 7px; font-size: 13px; transition: all .15s;
+}
+.btn-ghost-sm:hover { border-color: var(--border2); color: var(--text); }
+.empty-state { text-align: center; padding: 50px 20px; color: var(--muted); }
+.empty-state .empty-icon { font-size: 40px; margin-bottom: 12px; }
+.empty-state p { font-size: 14px; }
+.tag { display: inline-block; padding: 2px 10px; border-radius: 20px; font-size: 11.5px; font-weight: 600; }
+.tag-free { background: rgba(76,168,240,.12); color: var(--free-c); }
+.tag-paid { background: rgba(232,160,32,.12); color: var(--paid-c); }
+.tag-new { background: rgba(45,212,160,.12); color: var(--ok); }
+
+/* loading spinner */
+.spinner { display: inline-block; width: 18px; height: 18px; border: 2px solid rgba(255,255,255,.2); border-top-color: #fff; border-radius: 50%; animation: spin .6s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+</style>
+</head>
+<body>
+
+
+
+<div id="app">
+
+<!-- ==================== AUTH PAGE ==================== -->
+<div id="auth-page">
+
+  <!-- LEFT: HERO -->
+  <div class="auth-hero">
+    <div class="hero-logo">
+      <div class="hero-logo-icon">A</div>
+      <div>
+        <div class="hero-logo-text">AHK ACADEMY</div>
+        <div style="font-size:11px;color:var(--muted);margin-top:1px">English Learning Platform</div>
+      </div>
+    </div>
+    <div class="hero-headline">Learn English.<br><span>The right way.</span></div>
+    <div class="hero-sub">Courses from A1 to C2, live tutoring, interactive games and quizzes — all in one place.</div>
+    <div class="hero-features">
+      <div class="hero-feat"><div class="feat-dot"></div> Structured courses for every level</div>
+      <div class="hero-feat"><div class="feat-dot"></div> Grammar quizzes & vocabulary games</div>
+      <div class="hero-feat"><div class="feat-dot"></div> Book live sessions with your teacher</div>
+      <div class="hero-feat"><div class="feat-dot"></div> Track your progress & earn certificates</div>
+    </div>
+  </div>
+
+  <!-- RIGHT: FORM -->
+  <div class="auth-form-side">
+    <div style="margin-bottom:32px">
+      <div style="font-family:var(--font-display);font-weight:800;font-size:26px;margin-bottom:6px">Welcome</div>
+      <div style="color:var(--dim);font-size:14px">Sign in to your account or create a new one</div>
+    </div>
+
+    <!-- TABS -->
+    <div class="auth-tabs">
+      <button class="auth-tab active" id="tab-login" onclick="switchAuthTab('login')">Sign In</button>
+      <button class="auth-tab" id="tab-signup" onclick="switchAuthTab('signup')">Create Account</button>
+    </div>
+
+    <div id="auth-error" class="auth-error"></div>
+    <div id="auth-success" class="auth-success"></div>
+
+    <!-- LOGIN FORM -->
+    <div id="login-form">
+      <div class="form-group">
+        <label class="form-label">Email address</label>
+        <input class="form-input" id="login-email" type="email" placeholder="your@email.com">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Password</label>
+        <input class="form-input" id="login-password" type="password" placeholder="••••••••" onkeydown="if(event.key==='Enter')doLogin()">
+      </div>
+      <button class="btn-auth" id="btn-login" onclick="doLogin()">Sign In</button>
+      <div class="auth-divider">— or try a demo —</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+        <button class="btn-demo" onclick="demoLogin('student_free')">👤 Free Student</button>
+        <button class="btn-demo" onclick="demoLogin('student_paid')">⭐ Paid Student</button>
+      </div>
+      <button class="btn-demo" style="width:100%;margin-top:10px" onclick="demoLogin('admin')">🛡 Teacher / Admin</button>
+    </div>
+
+    <!-- SIGNUP FORM -->
+    <div id="signup-form" style="display:none">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+        <div class="form-group">
+          <label class="form-label">First name</label>
+          <input class="form-input" id="signup-first" type="text" placeholder="Ayşe">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Last name</label>
+          <input class="form-input" id="signup-last" type="text" placeholder="Kaya">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Email address</label>
+        <input class="form-input" id="signup-email" type="email" placeholder="your@email.com">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Password</label>
+        <input class="form-input" id="signup-password" type="password" placeholder="Min. 8 characters">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Choose your plan</label>
+      </div>
+      <div class="plan-picker">
+        <div class="plan-opt plan-free selected-free" id="plan-free" onclick="selectPlan('free')">
+          <div class="plan-name" style="color:var(--free-c)">Free</div>
+          <div class="plan-price">Blog & basic access</div>
+          <div class="plan-badge">Free forever</div>
+        </div>
+        <div class="plan-opt plan-paid" id="plan-paid" onclick="selectPlan('paid')">
+          <div class="plan-name" style="color:var(--paid-c)">Premium</div>
+          <div class="plan-price">All courses + live booking</div>
+          <div class="plan-badge">Full access</div>
+        </div>
+      </div>
+      <button class="btn-auth" id="btn-signup" onclick="doSignup()">Create Account</button>
+    </div>
+
+  </div>
+</div><!-- /auth-page -->
+
+<!-- ==================== DASHBOARD ==================== -->
+<div id="dashboard">
+
+  <!-- TOPBAR -->
+  <div class="topbar">
+    <div class="topbar-logo">
+      <div class="topbar-logo-icon">A</div>
+      <div class="topbar-name">AHK ACADEMY</div>
+    </div>
+    <div class="topbar-right">
+      <button class="notif-btn" id="notif-btn" onclick="showPanel('notifications')">
+        🔔
+        <div class="notif-dot" id="notif-dot"></div>
+      </button>
+      <div class="user-chip">
+        <div class="user-avatar" id="user-avatar" style="background:var(--accent);color:#000"></div>
+        <span id="user-name-chip" style="font-size:13px;font-weight:500"></span>
+        <span class="role-pill" id="role-pill"></span>
+      </div>
+      <button class="btn-logout" onclick="doLogout()">Sign out</button>
+    </div>
+  </div>
+
+  <!-- BODY -->
+  <div class="dash-body">
+
+    <!-- SIDEBAR -->
+    <div class="sidebar" id="sidebar">
+      <div class="sidebar-section">Learning</div>
+      <button class="nav-item active" id="nav-home" onclick="showPanel('home')">
+        <span class="nav-icon">🏠</span> Dashboard
+      </button>
+      <button class="nav-item" id="nav-courses" onclick="showPanel('courses')">
+        <span class="nav-icon">📚</span> Courses
+        <span class="nav-lock" id="lock-courses"></span>
+      </button>
+      <button class="nav-item" id="nav-quizzes" onclick="showPanel('quizzes')">
+        <span class="nav-icon">✏️</span> Quizzes
+        <span class="nav-lock" id="lock-quizzes"></span>
+      </button>
+      <button class="nav-item" id="nav-games" onclick="showPanel('games')">
+        <span class="nav-icon">🎮</span> Games
+        <span class="nav-lock" id="lock-games"></span>
+      </button>
+      <div class="sidebar-section">My Account</div>
+      <button class="nav-item" id="nav-progress" onclick="showPanel('progress')">
+        <span class="nav-icon">📈</span> My Progress
+      </button>
+      <button class="nav-item" id="nav-booking" onclick="showPanel('booking')">
+        <span class="nav-icon">📅</span> Book a Lesson
+        <span class="nav-lock" id="lock-booking"></span>
+      </button>
+      <div id="admin-section" style="display:none">
+        <div class="sidebar-section">Admin</div>
+        <button class="nav-item" id="nav-students" onclick="showPanel('students')">
+          <span class="nav-icon">👥</span> Students
+        </button>
+        <button class="nav-item" id="nav-notifications" onclick="showPanel('notifications')">
+          <span class="nav-icon">🔔</span> Notifications
+        </button>
+        <button class="nav-item" id="nav-attendance" onclick="showPanel('attendance')">
+          <span class="nav-icon">📋</span> Attendance
+        </button>
+      </div>
+    </div>
+
+    <!-- CONTENT -->
+    <div class="dash-content">
+
+      <!-- ===== HOME PANEL ===== -->
+      <div class="panel active" id="panel-home">
+        <div class="panel-title" id="home-greeting">Welcome back!</div>
+        <div class="panel-sub">Here's your learning summary for today.</div>
+
+        <!-- FREE upgrade banner -->
+        <div class="upgrade-banner" id="upgrade-banner" style="display:none">
+          <div style="font-size:28px">⭐</div>
+          <div class="upgrade-banner-text">
+            <h3>Unlock the full AHK Academy experience</h3>
+            <p>Get access to all courses, live booking with your teacher, games and certificates.</p>
+          </div>
+          <button class="btn-upgrade" onclick="showToast('Upgrade flow coming soon — contact your teacher!', '⭐')">Upgrade to Premium</button>
+        </div>
+
+        <div class="card-grid grid-4" style="margin-bottom:22px" id="home-stats">
+          <!-- injected by JS -->
+        </div>
+
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px" class="card-grid">
+          <div class="card">
+            <div class="section-head"><h3>Continue learning</h3></div>
+            <div id="continue-list"></div>
+          </div>
+          <div class="card">
+            <div class="section-head"><h3>Upcoming lessons</h3><button class="btn-sm" onclick="showPanel('booking')">Book</button></div>
+            <div id="upcoming-list"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== COURSES PANEL ===== -->
+      <div class="panel" id="panel-courses">
+        <div class="panel-title">Course Library</div>
+        <div class="panel-sub">Structured lessons from A1 to C2. Pick your level and start learning.</div>
+        <div id="courses-lock-banner"></div>
+        <div class="card-grid grid-3" id="courses-grid"></div>
+      </div>
+
+      <!-- ===== QUIZZES PANEL ===== -->
+      <div class="panel" id="panel-quizzes">
+        <div class="panel-title">Grammar Quizzes</div>
+        <div class="panel-sub">Test your knowledge with interactive exercises.</div>
+        <div id="quizzes-lock-banner"></div>
+        <div class="card-grid grid-3" id="quizzes-grid"></div>
+      </div>
+
+      <!-- ===== GAMES PANEL ===== -->
+      <div class="panel" id="panel-games">
+        <div class="panel-title">Learning Games</div>
+        <div class="panel-sub">Make learning fun — vocabulary, spelling and more.</div>
+        <div id="games-lock-banner"></div>
+        <div class="card-grid grid-3" id="games-grid"></div>
+      </div>
+
+      <!-- ===== PROGRESS PANEL ===== -->
+      <div class="panel" id="panel-progress">
+        <div class="panel-title">My Progress</div>
+        <div class="panel-sub">Track your attendance, completed lessons and overall performance.</div>
+        <div class="card-grid grid-4" style="margin-bottom:22px" id="progress-stats"></div>
+        <div class="card">
+          <div class="section-head"><h3>Lesson progress by module</h3></div>
+          <div id="progress-bars"></div>
+        </div>
+      </div>
+
+      <!-- ===== BOOKING PANEL ===== -->
+      <div class="panel" id="panel-booking">
+        <div class="panel-title">Book a Live Lesson</div>
+        <div class="panel-sub">Choose an available slot and confirm your session with your teacher.</div>
+        <div id="booking-lock-banner"></div>
+        <div id="booking-content"></div>
+      </div>
+
+      <!-- ===== ADMIN: STUDENTS ===== -->
+      <div class="panel" id="panel-students">
+        <div class="panel-title">Student Management</div>
+        <div class="panel-sub">All registered students, their plan and last activity.</div>
+        <div class="card" style="overflow:hidden;padding:0">
+          <div style="padding:16px 20px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center">
+            <span style="font-weight:600;font-size:15px">All students</span>
+            <span id="student-count" style="font-size:13px;color:var(--dim)"></span>
+          </div>
+          <div style="overflow-x:auto">
+            <table class="students-table" id="students-table">
+              <thead>
+                <tr>
+                  <th>Student</th>
+                  <th>Plan</th>
+                  <th>Status</th>
+                  <th>Lessons done</th>
+                  <th>Last seen</th>
+                </tr>
+              </thead>
+              <tbody id="students-tbody"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== ADMIN: NOTIFICATIONS ===== -->
+      <div class="panel" id="panel-notifications">
+        <div class="panel-title">Notifications</div>
+        <div class="panel-sub">Student activity, logins and booking requests.</div>
+        <div class="notif-list" id="notif-list"></div>
+      </div>
+
+      <!-- ===== ADMIN: ATTENDANCE ===== -->
+      <div class="panel" id="panel-attendance">
+        <div class="panel-title">Attendance Tracker</div>
+        <div class="panel-sub">Quick attendance overview for all your students.</div>
+        <div class="card">
+          <p style="color:var(--dim);font-size:14px">Your full attendance tracker is available as a separate tool — <a href="AHK_Academy_Attendance.html" style="color:var(--accent)">open it here</a>. It will be merged into this dashboard in the next build.</p>
+        </div>
+      </div>
+
+    </div><!-- /dash-content -->
+  </div><!-- /dash-body -->
+</div><!-- /dashboard -->
+
+</div><!-- /app -->
+
+<div class="toast" id="toast"></div>
+
+<script>
+/*
+=============================================================
+  AHK ACADEMY — FULL SYSTEM
+  
+  SETUP INSTRUCTIONS:
+  1. Go to supabase.com → create a free account
+  2. Create a new project
+  3. Go to Project Settings → API
+  4. Copy your Project URL and paste it as SUPABASE_URL below
+  5. Copy your anon/public key and paste it as SUPABASE_ANON_KEY below
+  6. In Supabase → SQL Editor, run this SQL to set up your tables:
+
+  CREATE TABLE profiles (
+    id uuid REFERENCES auth.users PRIMARY KEY,
+    full_name text,
+    role text DEFAULT 'student_free',
+    created_at timestamptz DEFAULT now(),
+    last_seen timestamptz DEFAULT now(),
+    lessons_done int DEFAULT 0
+  );
+
+  ALTER TABLE profiles ENABLE ROW LEVEL SECURITY;
+  CREATE POLICY "Users can view own profile" ON profiles FOR SELECT USING (auth.uid() = id);
+  CREATE POLICY "Users can update own profile" ON profiles FOR UPDATE USING (auth.uid() = id);
+  CREATE POLICY "Admin can view all" ON profiles FOR SELECT USING (true);
+
+  CREATE TABLE notifications (
+    id serial PRIMARY KEY,
+    message text,
+    type text DEFAULT 'info',
+    student_name text,
+    created_at timestamptz DEFAULT now(),
+    read boolean DEFAULT false
+  );
+
+=============================================================
+*/
+
+const SUPABASE_URL = 'https://fwgaygysjayebbljhmce.supabase.co';       // ← replace this
+const SUPABASE_ANON_KEY = 'sb_publishable_wIlu4Rl5OWeZUmg0eyA64A_VpsQtfCC'; // ← replace this
+
+const DEMO_MODE = false;
+
+let supabase = null;
+if (!DEMO_MODE) {
+  supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+}
+
+// ===================== DEMO DATA =====================
+const DEMO_USERS = {
+  student_free: { id: 'demo-free', name: 'Ayşe Kaya', email: 'ayse@demo.com', role: 'student_free', lessons_done: 6 },
+  student_paid: { id: 'demo-paid', name: 'Mehmet Yıldız', email: 'mehmet@demo.com', role: 'student_paid', lessons_done: 14 },
+  admin: { id: 'demo-admin', name: 'AHK Teacher', email: 'admin@ahkacademy.com', role: 'admin', lessons_done: 0 },
+};
+
+const DEMO_STUDENTS = [
+  { name: 'Ayşe Kaya', email: 'ayse@demo.com', role: 'student_free', online: true, lessons_done: 6, last_seen: '2 min ago' },
+  { name: 'Mehmet Yıldız', email: 'mehmet@demo.com', role: 'student_paid', online: true, lessons_done: 14, last_seen: '5 min ago' },
+  { name: 'Zeynep Demir', email: 'zeynep@demo.com', role: 'student_paid', online: false, lessons_done: 22, last_seen: '1 hour ago' },
+  { name: 'Burak Şahin', email: 'burak@demo.com', role: 'student_free', online: false, lessons_done: 3, last_seen: '2 days ago' },
+  { name: 'Selin Çelik', email: 'selin@demo.com', role: 'student_paid', online: true, lessons_done: 18, last_seen: 'Just now' },
+];
+
+const DEMO_NOTIFS = [
+  { type: 'login', icon: '🟢', student_name: 'Selin Çelik', message: 'just logged in', time: 'Just now', unread: true },
+  { type: 'login', icon: '🟢', student_name: 'Mehmet Yıldız', message: 'just logged in', time: '5 min ago', unread: true },
+  { type: 'booking', icon: '📅', student_name: 'Zeynep Demir', message: 'booked a lesson for Thursday 15:00', time: '1 hour ago', unread: false },
+  { type: 'signup', icon: '🎉', student_name: 'Burak Şahin', message: 'created a new account (Free plan)', time: '2 days ago', unread: false },
+  { type: 'upgrade', icon: '⭐', student_name: 'Ayşe Kaya', message: 'upgraded to Premium', time: '3 days ago', unread: false },
+];
+
+const COURSES = [
+  { level: 'A1', title: 'Absolute Beginners', lessons: 12, done: 0, color: '#4ca8f0', free: true },
+  { level: 'A2', title: 'Elementary English', lessons: 14, done: 0, color: '#4ca8f0', free: true },
+  { level: 'B1', title: 'Pre-Intermediate', lessons: 16, done: 0, color: '#2dd4a0', free: false },
+  { level: 'B2', title: 'Intermediate', lessons: 18, done: 0, color: '#2dd4a0', free: false },
+  { level: 'C1', title: 'Upper-Intermediate', lessons: 20, done: 0, color: '#e8a020', free: false },
+  { level: 'C2', title: 'Mastery', lessons: 24, done: 0, color: '#f06060', free: false },
+];
+
+const QUIZZES = [
+  { icon: '📝', title: 'Present Tenses', desc: '20 questions · Mixed level', free: true },
+  { icon: '🔤', title: 'Vocabulary A1–A2', desc: '30 words · Beginner', free: true },
+  { icon: '⚡', title: 'Conditional Forms', desc: '25 questions · B1+', free: false },
+  { icon: '🔡', title: 'Phrasal Verbs', desc: '20 questions · B2+', free: false },
+  { icon: '💬', title: 'Idioms & Expressions', desc: '15 questions · C1', free: false },
+  { icon: '📖', title: 'Reading Comprehension', desc: '3 texts · All levels', free: false },
+];
+
+const GAMES = [
+  { icon: '🃏', title: 'Flashcard Match', desc: 'Match words to their meanings', free: true },
+  { icon: '🔀', title: 'Sentence Scramble', desc: 'Build correct sentences fast', free: true },
+  { icon: '⏱', title: 'Speed Vocabulary', desc: 'How many words in 60 seconds?', free: false },
+  { icon: '🎯', title: 'Grammar Blitz', desc: 'Pick the correct answer quickly', free: false },
+  { icon: '🔊', title: 'Listening Challenge', desc: 'Hear it and spell it', free: false },
+  { icon: '🧩', title: 'Word Builder', desc: 'Construct words from letters', free: false },
+];
+
+const SLOTS = [
+  'Mon 09:00', 'Mon 11:00', 'Mon 15:00',
+  'Tue 10:00', 'Tue 14:00', 'Tue 16:00',
+  'Wed 09:00', 'Wed 13:00', 'Wed 17:00',
+  'Thu 10:00', 'Thu 15:00', 'Fri 09:00',
+];
+
+// ===================== STATE =====================
+let currentUser = null;
+let selectedPlan = 'free';
+
+// ===================== AUTH FUNCTIONS =====================
+function switchAuthTab(tab) {
+  document.getElementById('login-form').style.display = tab === 'login' ? 'block' : 'none';
+  document.getElementById('signup-form').style.display = tab === 'signup' ? 'block' : 'none';
+  document.getElementById('tab-login').className = 'auth-tab' + (tab === 'login' ? ' active' : '');
+  document.getElementById('tab-signup').className = 'auth-tab' + (tab === 'signup' ? ' active' : '');
+  clearAuthMessages();
+}
+
+function selectPlan(plan) {
+  selectedPlan = plan;
+  document.getElementById('plan-free').className = 'plan-opt plan-free' + (plan === 'free' ? ' selected-free' : '');
+  document.getElementById('plan-paid').className = 'plan-opt plan-paid' + (plan === 'paid' ? ' selected-paid' : '');
+}
+
+function showAuthError(msg) {
+  const el = document.getElementById('auth-error');
+  el.textContent = msg; el.style.display = 'block';
+  document.getElementById('auth-success').style.display = 'none';
+}
+function showAuthSuccess(msg) {
+  const el = document.getElementById('auth-success');
+  el.textContent = msg; el.style.display = 'block';
+  document.getElementById('auth-error').style.display = 'none';
+}
+function clearAuthMessages() {
+  document.getElementById('auth-error').style.display = 'none';
+  document.getElementById('auth-success').style.display = 'none';
+}
+
+async function doLogin() {
+  const email = document.getElementById('login-email').value.trim();
+  const pass = document.getElementById('login-password').value;
+  if (!email || !pass) return showAuthError('Please enter your email and password.');
+  const btn = document.getElementById('btn-login');
+  btn.innerHTML = '<span class="spinner"></span>';
+  btn.disabled = true;
+
+  if (DEMO_MODE) {
+    setTimeout(() => {
+      btn.innerHTML = 'Sign In'; btn.disabled = false;
+      showAuthError('Demo mode: use the demo buttons below, or set up your Supabase keys.');
+    }, 800);
+    return;
+  }
+
+  const { data, error } = await supabase.auth.signInWithPassword({ email, password: pass });
+  btn.innerHTML = 'Sign In'; btn.disabled = false;
+  if (error) return showAuthError(error.message);
+  await loadUserAndLaunch(data.user);
+}
+
+async function doSignup() {
+  const first = document.getElementById('signup-first').value.trim();
+  const last = document.getElementById('signup-last').value.trim();
+  const email = document.getElementById('signup-email').value.trim();
+  const pass = document.getElementById('signup-password').value;
+  if (!first || !last || !email || !pass) return showAuthError('Please fill in all fields.');
+  if (pass.length < 8) return showAuthError('Password must be at least 8 characters.');
+  const btn = document.getElementById('btn-signup');
+  btn.innerHTML = '<span class="spinner"></span>'; btn.disabled = true;
+
+  if (DEMO_MODE) {
+    setTimeout(() => {
+      btn.innerHTML = 'Create Account'; btn.disabled = false;
+      showAuthError('Demo mode active — set up Supabase to enable real signups.');
+    }, 800);
+    return;
+  }
+
+  const role = selectedPlan === 'paid' ? 'student_paid' : 'student_free';
+  const { data, error } = await supabase.auth.signUp({
+    email, password: pass,
+    options: { data: { full_name: `${first} ${last}`, role } }
+  });
+  btn.innerHTML = 'Create Account'; btn.disabled = false;
+  if (error) return showAuthError(error.message);
+
+  if (data.user) {
+    await supabase.from('profiles').upsert({
+      id: data.user.id,
+      full_name: `${first} ${last}`,
+      role,
+      lessons_done: 0,
+    });
+    await supabase.from('notifications').insert({
+      message: `created a new account (${selectedPlan === 'paid' ? 'Premium' : 'Free'} plan)`,
+      type: 'signup',
+      student_name: `${first} ${last}`,
+    });
+  }
+  showAuthSuccess('Account created! Please check your email to confirm, then sign in.');
+}
+
+async function demoLogin(role) {
+  currentUser = DEMO_USERS[role];
+  launchDashboard();
+}
+
+async function loadUserAndLaunch(user) {
+  const { data: profile } = await supabase.from('profiles').select('*').eq('id', user.id).single();
+  await supabase.from('profiles').update({ last_seen: new Date().toISOString() }).eq('id', user.id);
+  await supabase.from('notifications').insert({
+    message: 'just logged in', type: 'login',
+    student_name: profile?.full_name || user.email,
+  });
+  currentUser = {
+    id: user.id,
+    name: profile?.full_name || user.email,
+    email: user.email,
+    role: profile?.role || 'student_free',
+    lessons_done: profile?.lessons_done || 0,
+  };
+  launchDashboard();
+}
+
+async function doLogout() {
+  if (!DEMO_MODE && supabase) await supabase.auth.signOut();
+  currentUser = null;
+  document.getElementById('auth-page').style.display = 'grid';
+  document.getElementById('dashboard').style.display = 'none';
+  showPanel('home');
+}
+
+// ===================== DASHBOARD =====================
+function launchDashboard() {
+  document.getElementById('auth-page').style.display = 'none';
+  document.getElementById('dashboard').style.display = 'block';
+  const u = currentUser;
+  const isAdmin = u.role === 'admin';
+  const isPaid = u.role === 'student_paid' || isAdmin;
+  const initials = u.name.trim().split(/\s+/).map(w => w[0]).join('').toUpperCase().slice(0, 2);
+
+  // Topbar
+  document.getElementById('user-name-chip').textContent = u.name.split(' ')[0];
+  document.getElementById('user-avatar').textContent = initials;
+  document.getElementById('user-avatar').style.background = isAdmin ? 'var(--ok)' : isPaid ? 'var(--accent)' : 'var(--free-c)';
+  document.getElementById('user-avatar').style.color = '#000';
+  const rp = document.getElementById('role-pill');
+  rp.textContent = isAdmin ? 'Teacher' : isPaid ? 'Premium' : 'Free';
+  rp.className = 'role-pill ' + (isAdmin ? 'role-admin' : isPaid ? 'role-paid' : 'role-free');
+
+  // Admin section
+  document.getElementById('admin-section').style.display = isAdmin ? 'block' : 'none';
+  if (DEMO_MODE) {
+    document.getElementById('notif-dot').style.display = isAdmin ? 'block' : 'none';
+  }
+
+  // Locks
+  document.getElementById('lock-courses').textContent = '';
+  document.getElementById('lock-quizzes').textContent = isPaid ? '' : '🔒';
+  document.getElementById('lock-games').textContent = isPaid ? '' : '🔒';
+  document.getElementById('lock-booking').textContent = isPaid ? '' : '🔒';
+
+  buildHomeDashboard(u, isPaid, isAdmin);
+  buildCourses(isPaid);
+  buildQuizzes(isPaid);
+  buildGames(isPaid);
+  buildProgress(u);
+  buildBooking(isPaid);
+  if (isAdmin) { buildStudentsTable(); buildNotifications(); }
+
+  showPanel('home');
+}
+
+function buildHomeDashboard(u, isPaid, isAdmin) {
+  document.getElementById('home-greeting').textContent = `Welcome back, ${u.name.split(' ')[0]}!`;
+  document.getElementById('upgrade-banner').style.display = (!isPaid && !isAdmin) ? 'flex' : 'none';
+
+  const statsEl = document.getElementById('home-stats');
+  if (isAdmin) {
+    const online = DEMO_STUDENTS.filter(s => s.online).length;
+    statsEl.innerHTML = `
+      ${statCard('👥', 'Total Students', DEMO_STUDENTS.length, 'var(--info)')}
+      ${statCard('🟢', 'Online Now', online, 'var(--ok)')}
+      ${statCard('⭐', 'Premium Students', DEMO_STUDENTS.filter(s=>s.role==='student_paid').length, 'var(--accent)')}
+      ${statCard('📅', 'Lessons This Week', 8, 'var(--warn)')}
+    `;
+  } else {
+    statsEl.innerHTML = `
+      ${statCard('📚', 'Lessons Done', u.lessons_done, 'var(--accent)')}
+      ${statCard('🎯', 'Quizzes Taken', Math.floor(u.lessons_done * .6), 'var(--info)')}
+      ${statCard('🔥', 'Day Streak', 3, 'var(--warn)')}
+      ${statCard('⭐', 'Points', u.lessons_done * 50, 'var(--ok)')}
+    `;
+  }
+
+  // Continue learning
+  const cl = document.getElementById('continue-list');
+  cl.innerHTML = COURSES.slice(0, 2).map(c => `
+    <div style="display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid var(--border)">
+      <div style="width:38px;height:38px;border-radius:9px;background:${c.color}22;border:1px solid ${c.color}44;display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:800;font-size:13px;color:${c.color};flex-shrink:0">${c.level}</div>
+      <div style="flex:1">
+        <div style="font-weight:600;font-size:13.5px">${c.title}</div>
+        <div class="prog-wrap" style="margin:5px 0 0">
+          <div class="prog-bg"><div class="prog-fill" style="width:${Math.round(u.lessons_done/c.lessons*100)}%;background:${c.color}"></div></div>
+        </div>
+      </div>
+    </div>`).join('');
+
+  // Upcoming lessons
+  const ul = document.getElementById('upcoming-list');
+  if (!isPaid && !isAdmin) {
+    ul.innerHTML = `<div style="color:var(--muted);font-size:13.5px;padding:14px 0;text-align:center">Upgrade to Premium to book live lessons.</div>`;
+  } else {
+    ul.innerHTML = `
+      <div style="display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid var(--border)">
+        <div style="font-size:22px">📅</div>
+        <div><div style="font-weight:600;font-size:13.5px">Thursday, 15:00</div><div style="font-size:12px;color:var(--dim)">1-on-1 with AHK Teacher</div></div>
+        <span class="tag tag-new" style="margin-left:auto">Confirmed</span>
+      </div>
+      <div style="color:var(--muted);font-size:13px;padding:12px 0 0">No other upcoming sessions. <a href="#" style="color:var(--accent)" onclick="showPanel('booking');return false">Book one →</a></div>`;
+  }
+}
+
+function statCard(icon, label, val, color) {
+  return `<div class="stat-card" style="--c:${color}">
+    <div style="font-size:20px;margin-bottom:8px">${icon}</div>
+    <div class="stat-val">${val}</div>
+    <div class="stat-lbl">${label}</div>
+  </div>`;
+}
+
+function lockBanner(feature) {
+  return `<div class="upgrade-banner" style="margin-bottom:22px">
+    <div style="font-size:28px">🔒</div>
+    <div class="upgrade-banner-text">
+      <h3>${feature} requires Premium</h3>
+      <p>Upgrade your account to unlock all courses, quizzes, games and live booking.</p>
+    </div>
+    <button class="btn-upgrade" onclick="showToast('Contact your teacher to upgrade!','⭐')">Upgrade Now</button>
+  </div>`;
+}
+
+function buildCourses(isPaid) {
+  document.getElementById('courses-lock-banner').innerHTML = '';
+  document.getElementById('courses-grid').innerHTML = COURSES.map(c => {
+    const locked = !c.free && !isPaid;
+    return `<div class="feat-card" style="--hover-c:${c.color}44;border-top:3px solid ${c.color}" onclick="${locked ? "showToast('Upgrade to access this course','🔒')" : "showToast('Opening " + c.title + "...','📚')"}">
+      ${locked ? '<div class="feat-lock">🔒 Premium</div>' : ''}
+      <div style="font-family:var(--font-display);font-weight:800;font-size:13px;color:${c.color};margin-bottom:6px">${c.level}</div>
+      <h3>${c.title}</h3>
+      <p>${c.lessons} lessons · Structured curriculum</p>
+      <div class="prog-wrap" style="margin-top:12px">
+        <div class="prog-label"><span>Progress</span><span>0/${c.lessons}</span></div>
+        <div class="prog-bg"><div class="prog-fill" style="width:0%;background:${c.color}"></div></div>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function buildQuizzes(isPaid) {
+  if (!isPaid) document.getElementById('quizzes-lock-banner').innerHTML = lockBanner('Quizzes');
+  else document.getElementById('quizzes-lock-banner').innerHTML = '';
+  document.getElementById('quizzes-grid').innerHTML = QUIZZES.map(q => {
+    const locked = !q.free && !isPaid;
+    return `<div class="feat-card" onclick="${locked ? "showToast('Upgrade to access quizzes','🔒')" : "showToast('Starting: " + q.title + "...','✏️')"}">
+      ${locked ? '<div class="feat-lock">🔒 Premium</div>' : ''}
+      <div class="feat-icon">${q.icon}</div>
+      <h3>${q.title}</h3>
+      <p>${q.desc}</p>
+    </div>`;
+  }).join('');
+}
+
+function buildGames(isPaid) {
+  if (!isPaid) document.getElementById('games-lock-banner').innerHTML = lockBanner('Games');
+  else document.getElementById('games-lock-banner').innerHTML = '';
+  document.getElementById('games-grid').innerHTML = GAMES.map(g => {
+    const locked = !g.free && !isPaid;
+    return `<div class="feat-card" onclick="${locked ? "showToast('Upgrade to access games','🔒')" : "showToast('Loading: " + g.title + "...','🎮')"}">
+      ${locked ? '<div class="feat-lock">🔒 Premium</div>' : ''}
+      <div class="feat-icon">${g.icon}</div>
+      <h3>${g.title}</h3>
+      <p>${g.desc}</p>
+    </div>`;
+  }).join('');
+}
+
+function buildProgress(u) {
+  const isPaid = u.role === 'student_paid' || u.role === 'admin';
+  document.getElementById('progress-stats').innerHTML = `
+    ${statCard('📚', 'Total lessons done', u.lessons_done, 'var(--accent)')}
+    ${statCard('✅', 'Present', Math.ceil(u.lessons_done*.85), 'var(--ok)')}
+    ${statCard('❌', 'Absent', Math.floor(u.lessons_done*.1), 'var(--bad)')}
+    ${statCard('⏰', 'Late', Math.floor(u.lessons_done*.05), 'var(--warn)')}
+  `;
+  document.getElementById('progress-bars').innerHTML = COURSES.map(c => {
+    const pct = isPaid ? Math.min(100, Math.round(u.lessons_done / COURSES.length / c.lessons * 100 * 6)) : c.free ? Math.min(100, u.lessons_done * 8) : 0;
+    return `<div style="margin-bottom:18px">
+      <div class="prog-label"><span style="font-weight:600">${c.level} — ${c.title}</span><span style="color:${c.color}">${pct}%</span></div>
+      <div class="prog-bg"><div class="prog-fill" style="width:${pct}%;background:${c.color}"></div></div>
+    </div>`;
+  }).join('');
+}
+
+function buildBooking(isPaid) {
+  if (!isPaid) {
+    document.getElementById('booking-lock-banner').innerHTML = lockBanner('Live Lesson Booking');
+    document.getElementById('booking-content').innerHTML = '';
+    return;
+  }
+  document.getElementById('booking-lock-banner').innerHTML = '';
+  document.getElementById('booking-content').innerHTML = `
+    <div class="card" style="margin-bottom:18px">
+      <div class="section-head" style="margin-bottom:16px"><h3>Available slots this week</h3></div>
+      <div class="slots-grid">
+        ${SLOTS.map((s, i) => `<button class="slot-btn ${i===3?'booked':''}" ${i===3?'disabled':''} onclick="bookSlot(this,'${s}')">${s}${i===3?' ✓ Booked':''}</button>`).join('')}
+      </div>
+    </div>
+    <div class="card">
+      <h3 style="font-family:var(--font-display);font-weight:700;font-size:15px;margin-bottom:8px">How it works</h3>
+      <p style="font-size:13.5px;color:var(--dim);line-height:1.7">Choose any available slot above. Your teacher will receive a notification and confirm the session. You'll get a confirmation email with the lesson link.</p>
+    </div>`;
+}
+
+function bookSlot(btn, slot) {
+  btn.className = 'slot-btn booked';
+  btn.textContent = slot + ' ✓ Booked';
+  btn.disabled = true;
+  showToast(`Lesson booked for ${slot}!`, '📅');
+}
+
+function buildStudentsTable() {
+  const tbody = document.getElementById('students-tbody');
+  document.getElementById('student-count').textContent = `${DEMO_STUDENTS.length} students total`;
+  tbody.innerHTML = DEMO_STUDENTS.map(s => `
+    <tr>
+      <td>
+        <div style="display:flex;align-items:center;gap:10px">
+          <div style="width:34px;height:34px;border-radius:9px;background:${s.role==='student_paid'?'rgba(232,160,32,.15)':'rgba(76,168,240,.15)'};display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:800;font-size:12px;color:${s.role==='student_paid'?'var(--paid-c)':'var(--free-c)'}">${s.name.split(' ').map(w=>w[0]).join('')}</div>
+          <div>
+            <div style="font-weight:600;font-size:13.5px">${s.name}</div>
+            <div style="font-size:12px;color:var(--muted)">${s.email}</div>
+          </div>
+        </div>
+      </td>
+      <td><span class="tag ${s.role==='student_paid'?'tag-paid':'tag-free'}">${s.role==='student_paid'?'Premium':'Free'}</span></td>
+      <td><span class="online-dot ${s.online?'on':'off'}"></span>${s.online?'Online':'Offline'}</td>
+      <td style="font-weight:600">${s.lessons_done}</td>
+      <td style="color:var(--dim)">${s.last_seen}</td>
+    </tr>`).join('');
+}
+
+function buildNotifications() {
+  document.getElementById('notif-list').innerHTML = DEMO_NOTIFS.map(n => `
+    <div class="notif-item ${n.unread?'unread':''}">
+      <div class="notif-icon">${n.icon}</div>
+      <div class="notif-body">
+        <h4>${n.student_name}</h4>
+        <p>${n.message}</p>
+        <div class="notif-time">${n.time}</div>
+      </div>
+      ${n.unread?'<span class="tag tag-new" style="flex-shrink:0;margin-top:2px">New</span>':''}
+    </div>`).join('');
+}
+
+// ===================== NAVIGATION =====================
+function showPanel(name) {
+  document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+  const panel = document.getElementById(`panel-${name}`);
+  if (panel) panel.classList.add('active');
+  const nav = document.getElementById(`nav-${name}`);
+  if (nav) nav.classList.add('active');
+}
+
+// ===================== TOAST =====================
+function showToast(msg, icon = '✓') {
+  const t = document.getElementById('toast');
+  t.innerHTML = `<span>${icon}</span> ${msg}`;
+  t.style.display = 'flex';
+  clearTimeout(showToast._t);
+  showToast._t = setTimeout(() => t.style.display = 'none', 2800);
+}
+
+// ===================== AUTO-LOGIN CHECK =====================
+window.addEventListener('load', async () => {
+  if (!DEMO_MODE && supabase) {
+    const { data: { session } } = await supabase.auth.getSession();
+    if (session?.user) {
+      await loadUserAndLaunch(session.user);
+    }
+    supabase.auth.onAuthStateChange(async (event, session) => {
+      if (event === 'SIGNED_IN' && session?.user && !currentUser) {
+        await loadUserAndLaunch(session.user);
+      }
+    });
+  }
+});
+</script>
+</body>
+</html>
