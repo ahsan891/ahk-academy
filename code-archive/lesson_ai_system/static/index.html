@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Lesson AI System</title>
+<style>
+  /* ── Reset & Base ─────────────────────────────────── */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --navy:   #1B4F72;
+    --blue:   #2874A6;
+    --green:  #1E8449;
+    --amber:  #B7950B;
+    --red:    #922B21;
+    --light:  #F0F4F8;
+    --border: #D5DDE5;
+    --text:   #1A1A2E;
+    --muted:  #6C757D;
+    --white:  #FFFFFF;
+    --radius: 10px;
+    --shadow: 0 2px 12px rgba(0,0,0,.10);
+  }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: #EEF2F7;
+         color: var(--text); min-height: 100vh; }
+
+  /* ── Layout ───────────────────────────────────────── */
+  .app { display: grid; grid-template-columns: 360px 1fr; min-height: 100vh; }
+
+  /* ── Left panel (input) ───────────────────────────── */
+  .sidebar {
+    background: var(--white); border-right: 1px solid var(--border);
+    padding: 24px 20px; display: flex; flex-direction: column; gap: 18px;
+    position: sticky; top: 0; height: 100vh; overflow-y: auto;
+  }
+  .brand { display: flex; align-items: center; gap: 10px; margin-bottom: 4px; }
+  .brand-icon { font-size: 26px; }
+  .brand h1 { font-size: 17px; font-weight: 700; color: var(--navy); line-height: 1.2; }
+  .brand p  { font-size: 12px; color: var(--muted); }
+
+  label { font-size: 13px; font-weight: 600; color: var(--navy); display: block;
+          margin-bottom: 5px; }
+  input[type=text], textarea {
+    width: 100%; padding: 9px 12px; border: 1.5px solid var(--border);
+    border-radius: 7px; font-size: 14px; color: var(--text);
+    transition: border-color .2s;
+  }
+  input[type=text]:focus, textarea:focus { outline: none; border-color: var(--blue); }
+  textarea { resize: vertical; font-family: inherit; line-height: 1.5; }
+
+  /* File drop zones */
+  .drop-zone {
+    border: 2px dashed var(--border); border-radius: 8px; padding: 12px 14px;
+    text-align: center; cursor: pointer; transition: all .2s; background: var(--light);
+    position: relative;
+  }
+  .drop-zone:hover, .drop-zone.drag-over {
+    border-color: var(--blue); background: #EBF5FB;
+  }
+  .drop-zone input[type=file] {
+    position: absolute; inset: 0; opacity: 0; cursor: pointer; width: 100%; height: 100%;
+  }
+  .drop-zone .dz-icon { font-size: 22px; margin-bottom: 4px; }
+  .drop-zone .dz-label { font-size: 12px; color: var(--muted); }
+  .drop-zone .dz-types { font-size: 11px; color: var(--blue); margin-top: 2px; }
+  .drop-zone .dz-filename { font-size: 12px; color: var(--green); margin-top: 4px;
+                             font-weight: 600; word-break: break-all; }
+
+  .btn-run {
+    background: var(--navy); color: var(--white); border: none; border-radius: 8px;
+    padding: 13px 20px; font-size: 15px; font-weight: 700; cursor: pointer;
+    transition: background .2s; letter-spacing: .3px;
+  }
+  .btn-run:hover:not(:disabled) { background: var(--blue); }
+  .btn-run:disabled { opacity: .55; cursor: not-allowed; }
+
+  .divider { border: none; border-top: 1px solid var(--border); }
+
+  /* ── Right panel (output) ─────────────────────────── */
+  .main { padding: 28px 32px; display: flex; flex-direction: column; gap: 16px; }
+  .main-header { color: var(--navy); font-size: 20px; font-weight: 700; }
+  .main-sub    { color: var(--muted); font-size: 13px; margin-top: 2px; }
+
+  /* Step cards */
+  .step-card {
+    background: var(--white); border: 1.5px solid var(--border);
+    border-radius: var(--radius); box-shadow: var(--shadow); overflow: hidden;
+    transition: border-color .2s;
+  }
+  .step-card.running { border-color: var(--blue); }
+  .step-card.done    { border-color: var(--green); }
+  .step-card.error   { border-color: var(--red); }
+
+  .step-header {
+    display: flex; align-items: center; gap: 12px; padding: 14px 18px;
+    cursor: pointer; user-select: none;
+  }
+  .step-num {
+    width: 32px; height: 32px; border-radius: 50%; display: flex;
+    align-items: center; justify-content: center; font-size: 14px;
+    font-weight: 700; flex-shrink: 0;
+    background: var(--light); color: var(--muted);
+    transition: all .2s;
+  }
+  .running .step-num { background: var(--blue); color: var(--white); }
+  .done    .step-num { background: var(--green); color: var(--white); }
+  .error   .step-num { background: var(--red); color: var(--white); }
+
+  .step-title { flex: 1; font-weight: 600; font-size: 15px; }
+  .step-status { font-size: 12px; color: var(--muted); }
+  .running .step-status { color: var(--blue); }
+  .done    .step-status { color: var(--green); }
+  .error   .step-status { color: var(--red); }
+  .step-chevron { font-size: 18px; color: var(--muted); transition: transform .2s; }
+  .step-card.open .step-chevron { transform: rotate(180deg); }
+
+  .step-body { display: none; border-top: 1px solid var(--border); }
+  .step-card.open .step-body { display: block; }
+
+  .step-content {
+    padding: 18px; font-size: 14px; line-height: 1.7; color: var(--text);
+    max-height: 520px; overflow-y: auto; white-space: pre-wrap; word-break: break-word;
+  }
+
+  /* Thinking indicator */
+  .thinking-bar {
+    padding: 10px 18px; background: #EBF5FB; border-bottom: 1px solid #D6EAF8;
+    font-size: 12px; color: var(--blue); display: flex; align-items: center; gap: 8px;
+  }
+  .dot-pulse { width: 8px; height: 8px; background: var(--blue); border-radius: 50%;
+               animation: pulse 1.2s ease-in-out infinite; }
+  @keyframes pulse { 0%,100%{opacity:.3} 50%{opacity:1} }
+
+  /* Quiz cards */
+  .quiz-section { padding: 18px; border-top: 1px solid var(--border); }
+  .quiz-section h3 { font-size: 13px; font-weight: 700; color: var(--navy);
+                     margin-bottom: 10px; text-transform: uppercase; letter-spacing: .5px; }
+  .summary-box {
+    background: var(--light); border-radius: 8px; padding: 14px;
+    font-size: 14px; line-height: 1.6; color: var(--text); margin-bottom: 16px;
+  }
+  .quiz-q { background: var(--white); border: 1.5px solid var(--border);
+             border-radius: 8px; padding: 14px; margin-bottom: 12px; }
+  .quiz-q .q-type { font-size: 10px; text-transform: uppercase; font-weight: 700;
+                    letter-spacing: .8px; color: var(--blue); margin-bottom: 6px; }
+  .quiz-q .q-text { font-size: 14px; font-weight: 600; margin-bottom: 10px; }
+  .quiz-q .q-options { display: grid; gap: 6px; }
+  .q-option { padding: 7px 11px; border: 1.5px solid var(--border); border-radius: 6px;
+               font-size: 13px; transition: all .15s; }
+  .q-option.correct { border-color: var(--green); background: #EAFAF1;
+                       color: var(--green); font-weight: 600; }
+  .quiz-q .q-explain { margin-top: 10px; font-size: 12px; color: var(--muted);
+                        font-style: italic; }
+
+  /* Download buttons */
+  .dl-bar { display: flex; gap: 10px; padding: 14px 18px; border-top: 1px solid var(--border);
+             flex-wrap: wrap; }
+  .btn-dl {
+    display: inline-flex; align-items: center; gap: 7px; padding: 9px 16px;
+    background: var(--navy); color: var(--white); text-decoration: none;
+    border-radius: 7px; font-size: 13px; font-weight: 600; transition: background .2s;
+  }
+  .btn-dl:hover { background: var(--blue); }
+  .btn-dl.pptx { background: #C0392B; }
+  .btn-dl.pptx:hover { background: #922B21; }
+  .btn-dl.json { background: #1E8449; }
+  .btn-dl.json:hover { background: #186A3B; }
+
+  /* Error box */
+  .error-msg {
+    padding: 12px 16px; background: #FADBD8; color: var(--red);
+    border-radius: 8px; font-size: 13px; margin: 12px 18px;
+    border: 1px solid #F1948A;
+  }
+
+  /* Done banner */
+  .done-banner {
+    background: linear-gradient(135deg, #1B4F72, #218C74);
+    color: var(--white); border-radius: var(--radius); padding: 18px 24px;
+    font-size: 16px; font-weight: 700; text-align: center;
+    box-shadow: var(--shadow); display: none;
+  }
+  .done-banner.visible { display: block; }
+
+  /* Responsive */
+  @media (max-width: 900px) {
+    .app { grid-template-columns: 1fr; }
+    .sidebar { position: static; height: auto; }
+  }
+</style>
+</head>
+<body>
+<div class="app">
+
+  <!-- ───────────── LEFT: INPUT PANEL ───────────── -->
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="brand-icon">🎓</div>
+      <div>
+        <h1>Lesson AI System</h1>
+        <p>5-step content update pipeline</p>
+      </div>
+    </div>
+
+    <div>
+      <label for="lessonName">Lesson / Topic Name *</label>
+      <input type="text" id="lessonName" placeholder="e.g. Marine Spatial Planning — Chapter 4"/>
+    </div>
+
+    <hr class="divider"/>
+    <p style="font-size:12px;color:var(--muted)">📂 <strong>Upload files</strong> or paste text below</p>
+
+    <div>
+      <label>Existing Lesson Content</label>
+      <div class="drop-zone" id="dz-old">
+        <input type="file" id="oldContentFile" accept=".pdf,.pptx,.docx,.txt,.md"
+               onchange="setFile(this,'dz-old','dzf-old')"/>
+        <div class="dz-icon">📄</div>
+        <div class="dz-label">Drop file or click to browse</div>
+        <div class="dz-types">PDF · PPTX · DOCX · TXT · MD</div>
+        <div class="dz-filename" id="dzf-old"></div>
+      </div>
+      <textarea id="oldContentText" rows="4" placeholder="…or paste lesson text here"
+                style="margin-top:8px"></textarea>
+    </div>
+
+    <div>
+      <label>New Publications / Resources</label>
+      <div class="drop-zone" id="dz-pub">
+        <input type="file" id="pubFile" accept=".pdf,.txt,.md"
+               onchange="setFile(this,'dz-pub','dzf-pub')"/>
+        <div class="dz-icon">📰</div>
+        <div class="dz-label">Drop file or click to browse</div>
+        <div class="dz-types">PDF · TXT · MD</div>
+        <div class="dz-filename" id="dzf-pub"></div>
+      </div>
+      <textarea id="pubText" rows="3" placeholder="…or paste publication text / abstracts here"
+                style="margin-top:8px"></textarea>
+    </div>
+
+    <div>
+      <label>Existing Presentation (optional)</label>
+      <div class="drop-zone" id="dz-pptx">
+        <input type="file" id="pptxFile" accept=".pptx"
+               onchange="setFile(this,'dz-pptx','dzf-pptx')"/>
+        <div class="dz-icon">📊</div>
+        <div class="dz-label">Drop .pptx to enrich</div>
+        <div class="dz-types">PPTX only</div>
+        <div class="dz-filename" id="dzf-pptx"></div>
+      </div>
+    </div>
+
+    <button class="btn-run" id="runBtn" onclick="runPipeline()">
+      ▶ Run AI Pipeline
+    </button>
+  </aside>
+
+  <!-- ───────────── RIGHT: OUTPUT PANEL ─────────── -->
+  <main class="main">
+    <div>
+      <div class="main-header" id="mainHeader">AI Lesson Update Pipeline</div>
+      <div class="main-sub">Upload your lesson and click Run to start all 5 steps.</div>
+    </div>
+
+    <div id="doneBanner" class="done-banner">
+      ✅ Pipeline complete — all 5 steps finished successfully!
+    </div>
+
+    <!-- Step cards injected here -->
+    <div id="stepsContainer"></div>
+  </main>
+</div>
+
+<script>
+// ── State ──────────────────────────────────────────────────────────────────
+const STEPS = [
+  { num: 1, label: "Updated Lesson Content" },
+  { num: 2, label: "Detailed Explanatory Text" },
+  { num: 3, label: "Presentation Enrichment" },
+  { num: 4, label: "Student Explanation" },
+  { num: 5, label: "Daily Summary & Quizzes" },
+];
+
+let stepData = {};   // num → { content, downloads }
+
+// ── File drop helpers ──────────────────────────────────────────────────────
+function setFile(input, dzId, labelId) {
+  const name = input.files[0]?.name || "";
+  document.getElementById(labelId).textContent = name;
+  document.getElementById(dzId).classList.toggle("has-file", !!name);
+}
+
+// Drag-over styling
+document.querySelectorAll(".drop-zone").forEach(dz => {
+  dz.addEventListener("dragover",  e => { e.preventDefault(); dz.classList.add("drag-over"); });
+  dz.addEventListener("dragleave", ()  => dz.classList.remove("drag-over"));
+  dz.addEventListener("drop",      e => { e.preventDefault(); dz.classList.remove("drag-over"); });
+});
+
+// ── Build step cards ───────────────────────────────────────────────────────
+function initCards() {
+  const container = document.getElementById("stepsContainer");
+  container.innerHTML = "";
+  stepData = {};
+
+  STEPS.forEach(s => {
+    stepData[s.num] = { content: "", downloads: [] };
+
+    const card = document.createElement("div");
+    card.className = "step-card";
+    card.id = `card-${s.num}`;
+    card.innerHTML = `
+      <div class="step-header" onclick="toggleCard(${s.num})">
+        <div class="step-num" id="num-${s.num}">${s.num}</div>
+        <div class="step-title">${s.label}</div>
+        <div class="step-status" id="status-${s.num}">Pending</div>
+        <div class="step-chevron">⌄</div>
+      </div>
+      <div class="step-body" id="body-${s.num}">
+        <div class="thinking-bar" id="think-${s.num}" style="display:none">
+          <div class="dot-pulse"></div> AI is thinking…
+        </div>
+        <div class="step-content" id="content-${s.num}"></div>
+        <div id="extras-${s.num}"></div>
+      </div>`;
+    container.appendChild(card);
+  });
+}
+
+function toggleCard(n) {
+  const card = document.getElementById(`card-${n}`);
+  card.classList.toggle("open");
+}
+
+// ── Pipeline runner ────────────────────────────────────────────────────────
+async function runPipeline() {
+  const lessonName = document.getElementById("lessonName").value.trim();
+  if (!lessonName) { alert("Please enter a lesson name."); return; }
+
+  const oldFile  = document.getElementById("oldContentFile").files[0];
+  const pubFile  = document.getElementById("pubFile").files[0];
+  const pptxFile = document.getElementById("pptxFile").files[0];
+  const oldText  = document.getElementById("oldContentText").value.trim();
+  const pubText  = document.getElementById("pubText").value.trim();
+
+  if (!oldFile && !oldText) {
+    alert("Please provide lesson content (file or text)."); return;
+  }
+
+  // Reset UI
+  initCards();
+  document.getElementById("doneBanner").classList.remove("visible");
+  document.getElementById("mainHeader").textContent = `Processing: ${lessonName}`;
+  document.getElementById("runBtn").disabled = true;
+
+  const fd = new FormData();
+  fd.append("lesson_name", lessonName);
+  fd.append("old_content_text",      oldText);
+  fd.append("new_publications_text", pubText);
+  if (oldFile)  fd.append("old_content_file",      oldFile);
+  if (pubFile)  fd.append("new_publications_file", pubFile);
+  if (pptxFile) fd.append("old_pptx_file",         pptxFile);
+
+  let response;
+  try {
+    response = await fetch("/api/process", { method: "POST", body: fd });
+  } catch (e) {
+    alert("Network error: " + e.message);
+    document.getElementById("runBtn").disabled = false;
+    return;
+  }
+
+  if (!response.ok) {
+    const err = await response.json().catch(() => ({ detail: response.statusText }));
+    alert("Error: " + (err.detail || response.statusText));
+    document.getElementById("runBtn").disabled = false;
+    return;
+  }
+
+  const reader  = response.body.getReader();
+  const decoder = new TextDecoder();
+  let   buffer  = "";
+
+  while (true) {
+    const { done, value } = await reader.read();
+    if (done) break;
+
+    buffer += decoder.decode(value, { stream: true });
+    const lines = buffer.split("\n");
+    buffer = lines.pop();   // keep the incomplete last line
+
+    for (const line of lines) {
+      if (!line.startsWith("data: ")) continue;
+      try { handleEvent(JSON.parse(line.slice(6))); }
+      catch (_) {}
+    }
+  }
+
+  document.getElementById("runBtn").disabled = false;
+}
+
+// ── Event router ───────────────────────────────────────────────────────────
+function handleEvent(ev) {
+  switch (ev.event) {
+
+    case "step_start": {
+      const card = document.getElementById(`card-${ev.step}`);
+      card.classList.add("running", "open");
+      document.getElementById(`status-${ev.step}`).textContent = "Running…";
+      document.getElementById(`think-${ev.step}`).style.display = "flex";
+      break;
+    }
+
+    case "chunk": {
+      const el = document.getElementById(`content-${ev.step}`);
+      // Hide thinking bar once text arrives
+      document.getElementById(`think-${ev.step}`).style.display = "none";
+      el.textContent += ev.text;
+      el.scrollTop = el.scrollHeight;
+      break;
+    }
+
+    case "step_done": {
+      const card = document.getElementById(`card-${ev.step}`);
+      card.classList.remove("running");
+      card.classList.add("done");
+      document.getElementById(`think-${ev.step}`).style.display = "none";
+      document.getElementById(`status-${ev.step}`).textContent = "Done ✓";
+      break;
+    }
+
+    case "error": {
+      const card = document.getElementById(`card-${ev.step}`);
+      card.classList.remove("running");
+      card.classList.add("error", "open");
+      document.getElementById(`status-${ev.step}`).textContent = "Error";
+      const extras = document.getElementById(`extras-${ev.step}`);
+      extras.innerHTML += `<div class="error-msg">⚠ ${escHtml(ev.message)}</div>`;
+      break;
+    }
+
+    case "warning": {
+      const extras = document.getElementById(`extras-${ev.step}`);
+      extras.innerHTML += `<div class="error-msg" style="background:#FEF9E7;color:#7D6608;border-color:#F7DC6F">
+        ⚡ ${escHtml(ev.message)}</div>`;
+      break;
+    }
+
+    case "file_ready": {
+      addDownload(ev.step, ev.filename, ev.file_type);
+      break;
+    }
+
+    case "quiz_result": {
+      renderQuiz(ev.step, ev.data);
+      break;
+    }
+
+    case "pipeline_done": {
+      document.getElementById("doneBanner").classList.add("visible");
+      document.getElementById("mainHeader").textContent = "Pipeline Complete ✅";
+      break;
+    }
+  }
+}
+
+// ── Quiz renderer ──────────────────────────────────────────────────────────
+function renderQuiz(step, data) {
+  const container = document.getElementById(`extras-${step}`);
+  let html = `<div class="quiz-section">
+    <h3>📋 Daily Summary</h3>
+    <div class="summary-box">${escHtml(data.summary || "")}</div>
+    <h3>📝 Quizzes</h3>`;
+
+  (data.quizzes || []).forEach((q, i) => {
+    html += `<div class="quiz-q">
+      <div class="q-type">${q.type} — Question ${i + 1}</div>
+      <div class="q-text">${escHtml(q.question)}</div>
+      <div class="q-options">`;
+
+    (q.options || []).forEach(opt => {
+      const letter = opt.charAt(0).toUpperCase();
+      const isCorrect = letter === q.correct_answer;
+      html += `<div class="q-option ${isCorrect ? "correct" : ""}">${escHtml(opt)}</div>`;
+    });
+
+    html += `</div>
+      <div class="q-explain">✔ ${escHtml(q.explanation || "")}</div>
+    </div>`;
+  });
+
+  html += "</div>";
+  container.innerHTML += html;
+}
+
+// ── Download button ────────────────────────────────────────────────────────
+function addDownload(step, filename, type) {
+  const bar = document.getElementById(`extras-${step}`);
+  let dlBar = bar.querySelector(".dl-bar");
+  if (!dlBar) {
+    dlBar = document.createElement("div");
+    dlBar.className = "dl-bar";
+    bar.prepend(dlBar);
+  }
+  const icon  = type === "pptx" ? "📊" : "📄";
+  const label = type === "pptx" ? "Download PPTX" : "Download Quiz JSON";
+  dlBar.innerHTML += `
+    <a class="btn-dl ${type}" href="/api/download/${encodeURIComponent(filename)}" download>
+      ${icon} ${label}
+    </a>`;
+}
+
+// ── Utility ────────────────────────────────────────────────────────────────
+function escHtml(s) {
+  return String(s)
+    .replace(/&/g,"&amp;").replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;").replace(/"/g,"&quot;");
+}
+
+// Init on load
+initCards();
+</script>
+</body>
+</html>

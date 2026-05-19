@@ -1,0 +1,117 @@
+% Setting up the document class and geometry
+\documentclass[a4paper,12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{geometry}
+\geometry{margin=1in}
+
+% Including essential packages for formatting and images
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{sectsty}
+\usepackage{titlesec}
+\usepackage{parskip}
+\usepackage{wrapfig}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{setspace}
+
+% Configuring fonts
+\usepackage{noto}
+\renewcommand{\familydefault}{\sfdefault}
+
+% Customizing section headers
+\allsectionsfont{\sffamily\bfseries\color{blue!70!black}}
+\titleformat{\section}{\Large\sffamily\bfseries\color{blue!70!black}}{\thesection}{1em}{}
+\titleformat{\subsection}{\large\sffamily\bfseries\color{blue!50!black}}{\thesubsection}{1em}{}
+
+% Setting up header and footer
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot[C]{\sffamily\small Page \thepage\ of \pageref{LastPage}}
+\fancyhead[C]{\sffamily\large Relationships Speaking Session}
+
+% Custom watermark for background
+\usepackage{draftwatermark}
+\SetWatermarkText{ahk}
+\SetWatermarkScale{5}
+\SetWatermarkColor[gray]{0.9}
+\SetWatermarkAngle{45}
+
+\begin{document}
+
+% Title page
+\begin{titlepage}
+    \centering
+    \vspace*{2cm}
+    {\sffamily\Huge\bfseries\color{blue!70!black} Relationships Speaking Session\par}
+    \vspace{1cm}
+    {\sffamily\Large A Conversation Guide for Building Connections\par}
+    \vspace{2cm}
+    {\includegraphics[width=0.5\textwidth]{/relationships.jpg}} % Placeholder image
+    \vfill
+    {\sffamily\large Created for Meaningful Discussions\par}
+    {\sffamily\small Powered by ahk\par}
+    \vspace{1cm}
+\end{titlepage}
+
+% Main content
+\section*{Speaking Session: Relationships}
+\onehalfspacing
+This speaking session is designed to spark meaningful conversations about relationships, both familial and friendly. Below are questions for two students to ask each other, encouraging reflection and connection.
+
+\begin{wrapfigure}{r}{0.4\textwidth}
+    \centering
+    \vspace{-10pt}
+    \includegraphics[width=0.38\textwidth]{/family.jpg} % Placeholder image
+    \caption{\small Family and Friends}
+\end{wrapfigure}
+
+\subsection*{Student A – Questions for Student B}
+\begin{enumerate}
+    \item \textbf{Who is the person you are closest to in your family? Why?} \\
+    Reflect on the bond you share and what makes this relationship special.
+    \item \textbf{Do you find it easy to make new friends? Why or why not?} \\
+    Consider your personality and experiences in forming new connections.
+    \item \textbf{What qualities do you look for in a good friend?} \\
+    Think about traits like trust, humor, or loyalty that matter to you.
+    \item \textbf{How do you usually celebrate special occasions with family or friends?} \\
+    Share traditions or memorable moments from celebrations.
+    \item \textbf{Do you think long-distance relationships can work? Why or why not?} \\
+    Explore the challenges and possibilities of maintaining connections across distances.
+\end{enumerate}
+
+\begin{wrapfigure}{l}{0.4\textwidth}
+    \centering
+    \vspace{-10pt}
+    \includegraphics[width=0.38\textwidth]{/friends.jpg} % Placeholder image
+    \caption{\small Building Friendships}
+\end{wrapfigure}
+
+\subsection*{Student B – Questions for Student A}
+\begin{enumerate}
+    \item \textbf{Who gives you the best advice in your life?} \\
+    Describe why their advice resonates with you.
+    \item \textbf{Do you prefer having many friends or just a few close ones? Why?} \\
+    Discuss your approach to friendships and what feels right for you.
+    \item \textbf{What do you do when you have a disagreement with a friend or family member?} \\
+    Share strategies for resolving conflicts or maintaining harmony.
+    \item \textbf{How has technology (like social media) changed relationships today?} \\
+    Consider the positive and negative impacts of technology on connections.
+    \item \textbf{Do you think friends are more important than family? Why or why not?} \\
+    Reflect on the roles friends and family play in your life.
+\end{enumerate}
+
+\section*{Tips for a Great Discussion}
+\begin{itemize}
+    \item \textbf{Listen Actively:} Pay attention to your partner's responses and ask follow-up questions.
+    \item \textbf{Be Respectful:} Value differing perspectives and experiences.
+    \item \textbf{Share Honestly:} Open up about your thoughts to deepen the conversation.
+\end{itemize}
+
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{/connection.jpg} % Placeholder image
+    \\ \small Building stronger relationships through conversation
+\end{center}
+
+\end{document}

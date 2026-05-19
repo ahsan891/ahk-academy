@@ -1,0 +1,112 @@
+{% extends "base.html" %}
+{% block title %}{% if package %}Edit Package{% else %}New Package{% endif %} — EduTrack{% endblock %}
+{% block page_title %}{% if package %}Edit Package{% else %}New Package{% endif %}{% endblock %}
+
+{% block content %}
+<a href="{{ url_for('packages') }}" class="text-muted text-decoration-none small d-block mb-3">
+  <i class="bi bi-arrow-left me-1"></i>Back to Packages
+</a>
+<div class="form-card">
+  <h6 class="fw-bold mb-1">
+    {% if package %}<i class="bi bi-pencil-square me-2 text-primary"></i>Edit "{{ package.name }}"
+    {% else %}<i class="bi bi-box-seam me-2 text-primary"></i>New Package{% endif %}
+  </h6>
+  <p class="text-muted small mb-4">
+    Example: 100 lessons / ₺80,000 / pay every 25 lessons → ₺20,000 per instalment.
+  </p>
+  <form method="POST">
+    <div class="row g-3">
+      <div class="col-12">
+        <label class="form-label">Package Name <span class="text-danger">*</span></label>
+        <input type="text" name="name" class="form-control" required
+               value="{{ package.name if package else '' }}"
+               placeholder="e.g. Standard 100 Lessons, VIP 50 Lessons">
+      </div>
+      <div class="col-sm-6">
+        <label class="form-label">Total Lessons <span class="text-danger">*</span></label>
+        <input type="number" name="total_lessons" class="form-control" min="1" required
+               value="{{ package.total_lessons if package else '' }}" placeholder="e.g. 100"
+               oninput="calcInstalment()">
+      </div>
+      <div class="col-sm-6">
+        <label class="form-label">Total Price <span class="text-danger">*</span></label>
+        <div class="input-group">
+          <span class="input-group-text" id="currency_symbol">₺</span>
+          <input type="number" name="total_price" class="form-control" min="0" step="0.01" required
+                 value="{{ package.total_price if package else '' }}" placeholder="e.g. 80000"
+                 oninput="calcInstalment()">
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <label class="form-label">Pay Every N Lessons <span class="text-danger">*</span></label>
+        <input type="number" name="payment_interval" class="form-control" min="1" required
+               value="{{ package.payment_interval if package else 25 }}" placeholder="e.g. 25"
+               oninput="calcInstalment()">
+        <div class="form-text">Payment is triggered every time the student completes this many lessons.</div>
+      </div>
+      <div class="col-sm-6">
+        <label class="form-label">Currency</label>
+        <select name="currency" id="currency" class="form-select" onchange="updateSymbol()">
+          <option value="TL" {% if not package or package.currency == 'TL' %}selected{% endif %}>TL (₺)</option>
+          <option value="GBP" {% if package and package.currency == 'GBP' %}selected{% endif %}>GBP (£)</option>
+          <option value="USD" {% if package and package.currency == 'USD' %}selected{% endif %}>USD ($)</option>
+          <option value="EUR" {% if package and package.currency == 'EUR' %}selected{% endif %}>EUR (€)</option>
+        </select>
+      </div>
+
+      <!-- Instalment preview -->
+      <div class="col-12">
+        <div class="p-3 rounded-3" style="background:#f0fdf4;border:1px solid #bbf7d0">
+          <div class="fw-semibold text-success mb-1"><i class="bi bi-calculator me-2"></i>Instalment Preview</div>
+          <div id="instalment_preview" class="small text-muted">Fill in the fields above to see instalment amount.</div>
+        </div>
+      </div>
+
+      <div class="col-12">
+        <label class="form-label">Notes</label>
+        <textarea name="notes" class="form-control" rows="2"
+                  placeholder="Any details about this package…">{{ package.notes if package else '' }}</textarea>
+      </div>
+      <div class="col-12 d-flex gap-2 pt-1">
+        <button type="submit" class="btn btn-primary px-4">
+          <i class="bi bi-{% if package %}check-lg{% else %}plus-lg{% endif %} me-1"></i>
+          {% if package %}Save Changes{% else %}Create Package{% endif %}
+        </button>
+        <a href="{{ url_for('packages') }}" class="btn btn-outline-secondary">Cancel</a>
+      </div>
+    </div>
+  </form>
+</div>
+
+<script>
+const symbols = { TL: '₺', GBP: '£', USD: '$', EUR: '€' };
+
+function updateSymbol() {
+  var cur = document.getElementById('currency').value;
+  document.getElementById('currency_symbol').textContent = symbols[cur] || cur;
+  calcInstalment();
+}
+
+function calcInstalment() {
+  var lessons = parseFloat(document.querySelector('[name=total_lessons]').value);
+  var price   = parseFloat(document.querySelector('[name=total_price]').value);
+  var interval = parseFloat(document.querySelector('[name=payment_interval]').value);
+  var cur = document.getElementById('currency').value;
+  var sym = symbols[cur] || cur;
+  var el = document.getElementById('instalment_preview');
+
+  if (lessons > 0 && price > 0 && interval > 0 && interval <= lessons) {
+    var n = Math.floor(lessons / interval);
+    var inst = price / n;
+    el.innerHTML = `<strong>${n} instalments</strong> of <strong>${sym}${inst.toLocaleString('tr-TR', {maximumFractionDigits:0})}</strong> each — one due every ${interval} lessons completed.`;
+  } else {
+    el.textContent = 'Fill in valid values above to see instalment amount.';
+  }
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  updateSymbol();
+  calcInstalment();
+});
+</script>
+{% endblock %}

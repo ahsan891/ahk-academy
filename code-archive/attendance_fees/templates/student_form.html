@@ -1,0 +1,103 @@
+{% extends "base.html" %}
+{% block title %}{% if student %}Edit {{ student.name }}{% else %}New Student{% endif %} — EduTrack{% endblock %}
+{% block page_title %}{% if student %}Edit Student{% else %}Add Student{% endif %}{% endblock %}
+
+{% block content %}
+<a href="{{ url_for('students') }}" class="text-muted text-decoration-none small d-block mb-3">
+  <i class="bi bi-arrow-left me-1"></i>Back to Students
+</a>
+<div class="form-card">
+  <h6 class="fw-bold mb-4">
+    {% if student %}<i class="bi bi-pencil-square me-2 text-primary"></i>Edit "{{ student.name }}"
+    {% else %}<i class="bi bi-person-plus me-2 text-primary"></i>New Student{% endif %}
+  </h6>
+  <form method="POST">
+    <div class="row g-3">
+      <div class="col-sm-6">
+        <label class="form-label">Full Name <span class="text-danger">*</span></label>
+        <input type="text" name="name" class="form-control" required
+               value="{{ student.name if student else '' }}" placeholder="e.g. Ahmet Yılmaz">
+      </div>
+      <div class="col-sm-6">
+        <label class="form-label">Subject / Course</label>
+        <input type="text" name="subject" class="form-control"
+               value="{{ student.subject if student else '' }}" placeholder="e.g. General English, IELTS">
+      </div>
+      <div class="col-sm-6">
+        <label class="form-label">Email</label>
+        <input type="email" name="email" class="form-control"
+               value="{{ student.email if student else '' }}" placeholder="student@email.com">
+      </div>
+      <div class="col-sm-6">
+        <label class="form-label">Phone</label>
+        <input type="text" name="phone" class="form-control"
+               value="{{ student.phone if student else '' }}" placeholder="+90 555 000 0000">
+      </div>
+      <div class="col-sm-6">
+        <label class="form-label">Start Date <span class="text-danger">*</span></label>
+        <input type="date" name="start_date" class="form-control" required
+               value="{{ student.start_date if student else today }}">
+      </div>
+
+      <!-- Package selector -->
+      <div class="col-sm-6">
+        <label class="form-label">Package</label>
+        <select name="package_id" id="package_id" class="form-select" onchange="toggleFeeField()">
+          <option value="">— No package (per-lesson billing) —</option>
+          {% for p in packages %}
+          <option value="{{ p.id }}"
+            {% if student and student.package_id == p.id %}selected{% endif %}>
+            {{ p.name }} — {{ p.total_lessons }} lessons / ₺{{ '{:,.0f}'.format(p.total_price) }}
+            (every {{ p.payment_interval }} lessons)
+          </option>
+          {% endfor %}
+        </select>
+        <div class="form-text">
+          Assign a billing package or leave empty to use per-lesson fee.
+          <a href="{{ url_for('package_new') }}">+ Create new package</a>
+        </div>
+      </div>
+
+      <!-- Per-lesson fee — only relevant without a package -->
+      <div class="col-sm-6" id="fee_field">
+        <label class="form-label">Fee Per Lesson (£)</label>
+        <div class="input-group">
+          <span class="input-group-text">£</span>
+          <input type="number" name="fee_per_lesson" class="form-control" min="0" step="0.01"
+                 value="{{ student.fee_per_lesson if student else '' }}" placeholder="0.00">
+        </div>
+        <div class="form-text">Used only when no package is assigned.</div>
+      </div>
+
+      <div class="col-sm-6">
+        <label class="form-label">Total Lessons Planned</label>
+        <input type="number" name="lessons_planned" class="form-control" min="0"
+               value="{{ student.lessons_planned if student else '' }}" placeholder="e.g. 100">
+        <div class="form-text">Leave blank if using a package (auto-filled).</div>
+      </div>
+
+      <div class="col-12">
+        <label class="form-label">Notes</label>
+        <textarea name="notes" class="form-control" rows="3"
+                  placeholder="Any extra notes…">{{ student.notes if student else '' }}</textarea>
+      </div>
+      <div class="col-12 d-flex gap-2 pt-1">
+        <button type="submit" class="btn btn-primary px-4">
+          <i class="bi bi-{% if student %}check-lg{% else %}person-plus{% endif %} me-1"></i>
+          {% if student %}Save Changes{% else %}Add Student{% endif %}
+        </button>
+        <a href="{{ url_for('students') }}" class="btn btn-outline-secondary">Cancel</a>
+      </div>
+    </div>
+  </form>
+</div>
+
+<script>
+function toggleFeeField() {
+  var sel = document.getElementById('package_id');
+  var feeField = document.getElementById('fee_field');
+  feeField.style.opacity = sel.value ? '0.4' : '1';
+}
+document.addEventListener('DOMContentLoaded', toggleFeeField);
+</script>
+{% endblock %}

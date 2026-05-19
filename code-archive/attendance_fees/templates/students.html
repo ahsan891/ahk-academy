@@ -1,0 +1,110 @@
+{% extends "base.html" %}
+{% block title %}Students — EduTrack{% endblock %}
+{% block page_title %}Students{% endblock %}
+
+{% block content %}
+<div class="d-flex align-items-center justify-content-between mb-3">
+  <form class="d-flex gap-2" method="GET">
+    <div class="input-group" style="max-width:320px">
+      <span class="input-group-text bg-white border-end-0"><i class="bi bi-search text-muted"></i></span>
+      <input type="text" name="q" value="{{ search }}" class="form-control border-start-0" placeholder="Search by name, subject, email…">
+    </div>
+    <button class="btn btn-outline-secondary" type="submit">Search</button>
+    {% if search %}<a href="{{ url_for('students') }}" class="btn btn-outline-danger">Clear</a>{% endif %}
+  </form>
+  <a href="{{ url_for('student_new') }}" class="btn btn-primary">
+    <i class="bi bi-person-plus me-1"></i>Add Student
+  </a>
+</div>
+
+{% if students %}
+<div class="table-card">
+  <table class="table table-hover align-middle">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Subject</th>
+        <th>Start Date</th>
+        <th>Fee / Lesson</th>
+        <th>Lessons</th>
+        <th>Payment</th>
+        <th>Balance</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for s in students %}
+      <tr>
+        <td>
+          <a href="{{ url_for('student_detail', student_id=s.id) }}" class="text-decoration-none">
+            <span class="fw-semibold text-dark">{{ s.name }}</span>
+          </a>
+          {% if s.phone %}<div class="text-muted" style="font-size:.75rem">{{ s.phone }}</div>{% endif %}
+        </td>
+        <td>
+          {% if s.subject %}
+            <span class="badge" style="background:#eef2ff;color:#4f46e5">{{ s.subject }}</span>
+          {% else %}
+            <span class="text-muted">—</span>
+          {% endif %}
+        </td>
+        <td>{{ s.start_date | date_fmt }}</td>
+        <td class="fw-semibold">{{ s.fee_per_lesson | currency }}</td>
+        <td>
+          <div class="prog-wrap">
+            <div class="prog-label">{{ s.lessons_completed }} / {{ s.lessons_planned }} planned</div>
+            <div class="progress" style="height:6px;border-radius:999px">
+              {% set lp = ((s.lessons_completed / s.lessons_planned * 100) | round | int) if s.lessons_planned else 0 %}
+              <div class="progress-bar bg-primary" style="width:{{ lp }}%"></div>
+            </div>
+          </div>
+        </td>
+        <td>
+          <div class="prog-wrap">
+            {% set pay_pct = ((s.total_paid / s.total_owed * 100) | round | int) if s.total_owed > 0 else 100 %}
+            <div class="prog-label">{{ s.total_paid | currency }} / {{ s.total_owed | currency }}</div>
+            <div class="progress" style="height:6px;border-radius:999px">
+              <div class="progress-bar {% if pay_pct >= 100 %}bg-success{% elif pay_pct >= 50 %}bg-warning{% else %}bg-danger{% endif %}"
+                   style="width:{{ [pay_pct, 100] | min }}%"></div>
+            </div>
+          </div>
+        </td>
+        <td>
+          {% if s.balance > 0.01 %}
+            <span class="balance-pill balance-owed">{{ s.balance | currency }} owed</span>
+          {% elif s.balance < -0.01 %}
+            <span class="balance-pill balance-paid">{{ (-s.balance) | currency }} credit</span>
+          {% else %}
+            <span class="balance-pill balance-zero">Paid up</span>
+          {% endif %}
+        </td>
+        <td class="text-end">
+          <a href="{{ url_for('student_detail', student_id=s.id) }}" class="btn btn-sm btn-outline-primary me-1" title="View">
+            <i class="bi bi-eye"></i>
+          </a>
+          <a href="{{ url_for('student_edit', student_id=s.id) }}" class="btn btn-sm btn-outline-secondary me-1" title="Edit">
+            <i class="bi bi-pencil"></i>
+          </a>
+          <button class="btn btn-sm btn-outline-danger" title="Delete"
+                  onclick="confirmDelete('{{ url_for('student_delete', student_id=s.id) }}', 'Delete {{ s.name }}? All their lessons and payments will be removed.')">
+            <i class="bi bi-trash"></i>
+          </button>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% else %}
+<div class="text-center py-5">
+  <i class="bi bi-people fs-1 text-muted d-block mb-3"></i>
+  {% if search %}
+    <p class="text-muted">No students matching "<strong>{{ search }}</strong>"</p>
+    <a href="{{ url_for('students') }}" class="btn btn-outline-secondary">Clear search</a>
+  {% else %}
+    <p class="text-muted">No students added yet</p>
+    <a href="{{ url_for('student_new') }}" class="btn btn-primary"><i class="bi bi-person-plus me-1"></i>Add First Student</a>
+  {% endif %}
+</div>
+{% endif %}
+{% endblock %}

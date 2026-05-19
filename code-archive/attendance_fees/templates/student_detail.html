@@ -1,0 +1,338 @@
+{% extends "base.html" %}
+{% block title %}{{ student.name }} — EduTrack{% endblock %}
+{% block page_title %}{{ student.name }}{% endblock %}
+
+{% block content %}
+<!-- Header -->
+<div class="d-flex align-items-start justify-content-between mb-4">
+  <div>
+    <a href="{{ url_for('students') }}" class="text-muted text-decoration-none small">
+      <i class="bi bi-arrow-left me-1"></i>All Students
+    </a>
+    <h5 class="mt-1 mb-0 fw-bold">{{ student.name }}</h5>
+    <div class="d-flex flex-wrap gap-2 mt-1">
+      {% if student.subject %}<span class="badge" style="background:#eef2ff;color:#4f46e5">{{ student.subject }}</span>{% endif %}
+      {% if package %}<span class="badge" style="background:#f0fdf4;color:#166534"><i class="bi bi-box-seam me-1"></i>{{ package.name }}</span>{% endif %}
+      {% if student.email %}<span class="text-muted small"><i class="bi bi-envelope me-1"></i>{{ student.email }}</span>{% endif %}
+      {% if student.phone %}<span class="text-muted small"><i class="bi bi-phone me-1"></i>{{ student.phone }}</span>{% endif %}
+      <span class="text-muted small"><i class="bi bi-calendar3 me-1"></i>Started {{ student.start_date | date_fmt }}</span>
+    </div>
+  </div>
+  <div class="d-flex gap-2">
+    {% if student.portal_token %}
+    <a href="{{ url_for('student_portal', token=student.portal_token) }}" target="_blank"
+       class="btn btn-outline-primary btn-sm">
+      <i class="bi bi-box-arrow-up-right me-1"></i>Student Portal
+    </a>
+    {% endif %}
+    <a href="{{ url_for('student_edit', student_id=student.id) }}" class="btn btn-outline-secondary btn-sm">
+      <i class="bi bi-pencil me-1"></i>Edit
+    </a>
+    <button class="btn btn-outline-danger btn-sm"
+            onclick="confirmDelete('{{ url_for('student_delete', student_id=student.id) }}', 'Delete {{ student.name }}? All lessons and payments will be removed.')">
+      <i class="bi bi-trash me-1"></i>Delete
+    </button>
+  </div>
+</div>
+
+<!-- Package milestone banner -->
+{% if package and milestone_status %}
+{% set ms = milestone_status %}
+<div class="mb-4 p-3 rounded-3 border" style="background:#f0fdf4;border-color:#bbf7d0!important">
+  <div class="d-flex flex-wrap align-items-center justify-content-between gap-2">
+    <div>
+      <div class="fw-semibold text-success mb-1">
+        <i class="bi bi-box-seam me-2"></i>{{ package.name }}
+      </div>
+      <div class="small text-muted">
+        {{ package.total_lessons }} lessons total &nbsp;·&nbsp;
+        ₺{{ '{:,.0f}'.format(package.total_price) }} total &nbsp;·&nbsp;
+        Pay every {{ package.payment_interval }} lessons
+        (₺{{ '{:,.0f}'.format(ms.installment) }} / instalment)
+      </div>
+    </div>
+    <div class="text-end">
+      <div class="small text-muted mb-1">Instalments paid</div>
+      <div class="fw-bold" style="font-size:1.1rem">
+        {{ ms.milestones_passed }} / {{ ms.milestones_total }}
+      </div>
+    </div>
+  </div>
+
+  <!-- Milestone progress dots -->
+  <div class="d-flex align-items-center gap-1 mt-3 flex-wrap">
+    {% for i in range(ms.milestones_total) %}
+    {% set milestone_lesson = (i + 1) * package.payment_interval %}
+    {% if i < ms.milestones_passed %}
+      <div class="d-flex flex-column align-items-center" style="min-width:48px">
+        <div style="width:28px;height:28px;border-radius:50%;background:#16a34a;display:flex;align-items:center;justify-content:center">
+          <i class="bi bi-check text-white" style="font-size:.8rem"></i>
+        </div>
+        <div style="font-size:.65rem;color:#16a34a;margin-top:2px">L{{ milestone_lesson }}</div>
+      </div>
+    {% elif i == ms.milestones_passed and ms.next_milestone_lesson %}
+      <div class="d-flex flex-column align-items-center" style="min-width:48px">
+        <div style="width:28px;height:28px;border-radius:50%;background:#fef9c3;border:2px solid #ca8a04;display:flex;align-items:center;justify-content:center">
+          <i class="bi bi-clock" style="font-size:.7rem;color:#ca8a04"></i>
+        </div>
+        <div style="font-size:.65rem;color:#ca8a04;margin-top:2px">L{{ milestone_lesson }}</div>
+      </div>
+    {% else %}
+      <div class="d-flex flex-column align-items-center" style="min-width:48px">
+        <div style="width:28px;height:28px;border-radius:50%;background:#f1f5f9;border:2px solid #e2e8f0"></div>
+        <div style="font-size:.65rem;color:#94a3b8;margin-top:2px">L{{ milestone_lesson }}</div>
+      </div>
+    {% endif %}
+    {% if not loop.last %}
+    <div style="flex:1;height:2px;background:#e2e8f0;min-width:8px"></div>
+    {% endif %}
+    {% endfor %}
+  </div>
+
+  {% if ms.next_milestone_lesson %}
+  <div class="mt-2 small">
+    <i class="bi bi-arrow-right-circle text-warning me-1"></i>
+    Next payment of <strong>₺{{ '{:,.0f}'.format(ms.installment) }}</strong>
+    due at lesson <strong>{{ ms.next_milestone_lesson }}</strong>
+    ({{ ms.next_milestone_lesson - lessons_completed }} lessons away)
+  </div>
+  {% else %}
+  <div class="mt-2 small text-success">
+    <i class="bi bi-check-circle-fill me-1"></i>All payment milestones reached
+  </div>
+  {% endif %}
+</div>
+{% endif %}
+
+<!-- Summary cards -->
+<div class="row g-3 mb-4">
+  <div class="col-sm-6 col-lg-3">
+    <div class="stat-card">
+      <div class="stat-icon mb-3" style="background:#eef2ff"><i class="bi bi-book-fill" style="color:#4f46e5"></i></div>
+      <div class="stat-value">{{ lessons_completed }}</div>
+      <div class="stat-label">Lessons Completed</div>
+      {% set total_planned = package.total_lessons if package else student.lessons_planned %}
+      {% if total_planned %}
+      <div class="progress mt-2" style="height:5px;border-radius:999px">
+        <div class="progress-bar bg-primary" style="width:{{ lesson_pct }}%"></div>
+      </div>
+      <div style="font-size:.7rem;color:#94a3b8;margin-top:3px">{{ lesson_pct }}% of {{ total_planned }} planned</div>
+      {% endif %}
+    </div>
+  </div>
+  <div class="col-sm-6 col-lg-3">
+    <div class="stat-card">
+      <div class="stat-icon mb-3" style="background:#fef9c3"><i class="bi bi-clock" style="color:#ca8a04"></i></div>
+      <div class="stat-value">{{ lessons_scheduled }}</div>
+      <div class="stat-label">Lessons Scheduled</div>
+      {% if package %}
+      <div style="font-size:.7rem;color:#94a3b8;margin-top:6px">₺{{ '{:,.0f}'.format(milestone_status.installment) }} / instalment</div>
+      {% else %}
+      <div style="font-size:.7rem;color:#94a3b8;margin-top:6px">{{ student.fee_per_lesson | currency }} per lesson</div>
+      {% endif %}
+    </div>
+  </div>
+  <div class="col-sm-6 col-lg-3">
+    <div class="stat-card">
+      <div class="stat-icon mb-3" style="background:#dcfce7"><i class="bi bi-check-circle-fill" style="color:#16a34a"></i></div>
+      {% if package %}
+      <div class="stat-value text-success">{{ total_paid | tl }}</div>
+      {% else %}
+      <div class="stat-value text-success">{{ total_paid | currency }}</div>
+      {% endif %}
+      <div class="stat-label">Total Paid</div>
+      {% if total_owed > 0 %}
+      <div class="progress mt-2" style="height:5px;border-radius:999px">
+        <div class="progress-bar {% if pay_pct >= 100 %}bg-success{% elif pay_pct >= 50 %}bg-warning{% else %}bg-danger{% endif %}"
+             style="width:{{ [pay_pct, 100] | min }}%"></div>
+      </div>
+      <div style="font-size:.7rem;color:#94a3b8;margin-top:3px">
+        {{ pay_pct }}% of
+        {% if package %}{{ total_owed | tl }}{% else %}{{ total_owed | currency }}{% endif %}
+        owed
+      </div>
+      {% endif %}
+    </div>
+  </div>
+  <div class="col-sm-6 col-lg-3">
+    <div class="stat-card">
+      <div class="stat-icon mb-3" style="background:{% if balance > 0.01 %}#fee2e2{% elif balance < -0.01 %}#dcfce7{% else %}#f1f5f9{% endif %}">
+        <i class="bi bi-{% if balance > 0.01 %}exclamation-circle-fill{% elif balance < -0.01 %}award-fill{% else %}check2-circle{% endif %}"
+           style="color:{% if balance > 0.01 %}#b91c1c{% elif balance < -0.01 %}#16a34a{% else %}#64748b{% endif %}"></i>
+      </div>
+      {% if package %}
+      <div class="stat-value {% if balance > 0.01 %}text-danger{% elif balance < -0.01 %}text-success{% endif %}">
+        {{ balance | abs | tl }}
+      </div>
+      {% else %}
+      <div class="stat-value {% if balance > 0.01 %}text-danger{% elif balance < -0.01 %}text-success{% endif %}">
+        {{ balance | abs | currency }}
+      </div>
+      {% endif %}
+      <div class="stat-label">
+        {% if balance > 0.01 %}Outstanding Balance{% elif balance < -0.01 %}Credit / Overpaid{% else %}Fully Paid{% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% if student.notes %}
+<div class="alert alert-light border mb-4 py-2 px-3">
+  <i class="bi bi-sticky me-2 text-muted"></i><span class="small">{{ student.notes }}</span>
+</div>
+{% endif %}
+
+<!-- Tabs -->
+<ul class="nav nav-tabs mb-3" id="detailTabs">
+  <li class="nav-item">
+    <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#tab-lessons">
+      <i class="bi bi-calendar3 me-1"></i>Lessons
+      <span class="badge bg-secondary ms-1">{{ lessons | length }}</span>
+    </button>
+  </li>
+  <li class="nav-item">
+    <button class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-payments">
+      <i class="bi bi-cash-coin me-1"></i>Payments
+      <span class="badge bg-secondary ms-1">{{ payments | length }}</span>
+    </button>
+  </li>
+</ul>
+
+<div class="tab-content">
+  <!-- Lessons tab -->
+  <div class="tab-pane fade show active" id="tab-lessons">
+    <div class="d-flex justify-content-end mb-2">
+      <a href="{{ url_for('lesson_new', student_id=student.id) }}" class="btn btn-sm btn-primary">
+        <i class="bi bi-calendar-plus me-1"></i>Add Lesson
+      </a>
+    </div>
+    {% if lessons %}
+    <div class="table-card">
+      <table class="table table-hover align-middle">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Date</th>
+            <th>Status</th>
+            <th>Topic</th>
+            <th>Duration</th>
+            <th>Notes</th>
+            <th class="text-end">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% set completed_count = namespace(n=0) %}
+          {% for l in lessons | sort(attribute='lesson_date') %}
+          {% if l.status == 'completed' %}{% set completed_count.n = completed_count.n + 1 %}{% endif %}
+          <tr>
+            <td class="text-muted small">
+              {% if l.status == 'completed' %}{{ completed_count.n }}{% else %}—{% endif %}
+            </td>
+            <td class="fw-semibold">{{ l.lesson_date | date_fmt }}</td>
+            <td>
+              <span class="badge badge-{{ l.status }}">
+                <i class="bi bi-{% if l.status == 'completed' %}check-circle-fill{% elif l.status == 'scheduled' %}clock{% else %}x-circle{% endif %} me-1"></i>
+                {{ l.status | title }}
+              </span>
+            </td>
+            <td>{{ l.topic or '—' }}</td>
+            <td>{{ l.duration_minutes }} min</td>
+            <td class="text-muted small">{{ l.notes or '—' }}</td>
+            <td class="text-end">
+              {% if l.status == 'scheduled' %}
+              <form method="POST" action="{{ url_for('lesson_complete', lesson_id=l.id) }}" class="d-inline">
+                <button class="btn btn-xs btn-success me-1" title="Mark complete" style="font-size:.75rem;padding:.2rem .5rem">
+                  <i class="bi bi-check-lg"></i> Done
+                </button>
+              </form>
+              {% endif %}
+              <a href="{{ url_for('lesson_edit', lesson_id=l.id) }}" class="btn btn-xs btn-outline-secondary me-1"
+                 style="font-size:.75rem;padding:.2rem .5rem" title="Edit">
+                <i class="bi bi-pencil"></i>
+              </a>
+              <button class="btn btn-xs btn-outline-danger" style="font-size:.75rem;padding:.2rem .5rem" title="Delete"
+                      onclick="confirmDelete('{{ url_for('lesson_delete', lesson_id=l.id) }}', 'Delete this lesson?')">
+                <i class="bi bi-trash"></i>
+              </button>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    {% else %}
+    <div class="text-center py-4 text-muted">
+      <i class="bi bi-calendar-x fs-3 d-block mb-2"></i>No lessons added yet
+    </div>
+    {% endif %}
+  </div>
+
+  <!-- Payments tab -->
+  <div class="tab-pane fade" id="tab-payments">
+    <div class="d-flex justify-content-between align-items-center mb-2">
+      <span class="text-muted small">
+        Total paid:
+        {% if package %}
+          <strong class="text-success">{{ total_paid | tl }}</strong> &nbsp;|&nbsp;
+          Due so far: <strong>{{ total_owed | tl }}</strong> &nbsp;|&nbsp;
+        {% else %}
+          <strong class="text-success">{{ total_paid | currency }}</strong> &nbsp;|&nbsp;
+          Owed: <strong>{{ total_owed | currency }}</strong> &nbsp;|&nbsp;
+        {% endif %}
+        {% if balance > 0.01 %}
+          Balance due:
+          {% if package %}<strong class="text-danger">{{ balance | tl }}</strong>
+          {% else %}<strong class="text-danger">{{ balance | currency }}</strong>{% endif %}
+        {% elif balance < -0.01 %}
+          Credit: {% if package %}<strong class="text-success">{{ (-balance) | tl }}</strong>
+          {% else %}<strong class="text-success">{{ (-balance) | currency }}</strong>{% endif %}
+        {% else %}
+          <strong class="text-success">Fully paid</strong>
+        {% endif %}
+      </span>
+      <a href="{{ url_for('payment_new', student_id=student.id) }}" class="btn btn-sm btn-primary">
+        <i class="bi bi-cash-coin me-1"></i>Record Payment
+      </a>
+    </div>
+    {% if payments %}
+    <div class="table-card">
+      <table class="table table-hover align-middle">
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Amount</th>
+            <th>Method</th>
+            <th>Notes</th>
+            <th class="text-end">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for p in payments %}
+          <tr>
+            <td class="fw-semibold">{{ p.payment_date | date_fmt }}</td>
+            <td class="fw-bold text-success">
+              {% if package %}{{ p.amount | tl }}{% else %}{{ p.amount | currency }}{% endif %}
+            </td>
+            <td>
+              <span class="badge badge-{{ p.payment_method | lower }}">{{ p.payment_method }}</span>
+            </td>
+            <td class="text-muted small">{{ p.notes or '—' }}</td>
+            <td class="text-end">
+              <button class="btn btn-xs btn-outline-danger" style="font-size:.75rem;padding:.2rem .5rem"
+                      onclick="confirmDelete('{{ url_for('payment_delete', payment_id=p.id) }}', 'Delete this payment?')">
+                <i class="bi bi-trash"></i>
+              </button>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    {% else %}
+    <div class="text-center py-4 text-muted">
+      <i class="bi bi-cash fs-3 d-block mb-2"></i>No payments recorded yet
+    </div>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}

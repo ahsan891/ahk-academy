@@ -1,0 +1,190 @@
+{% extends "base.html" %}
+{% block title %}Dashboard — EduTrack{% endblock %}
+{% block page_title %}Dashboard{% endblock %}
+
+{% block content %}
+<!-- Stat Cards -->
+<div class="row g-3 mb-4">
+  <div class="col-sm-6 col-xl-3">
+    <div class="stat-card">
+      <div class="d-flex align-items-center justify-content-between mb-3">
+        <div class="stat-icon" style="background:#eef2ff">
+          <i class="bi bi-people-fill" style="color:#4f46e5"></i>
+        </div>
+      </div>
+      <div class="stat-value">{{ stats.total_students }}</div>
+      <div class="stat-label">Total Students</div>
+    </div>
+  </div>
+  <div class="col-sm-6 col-xl-3">
+    <div class="stat-card">
+      <div class="d-flex align-items-center justify-content-between mb-3">
+        <div class="stat-icon" style="background:#dcfce7">
+          <i class="bi bi-check-circle-fill" style="color:#16a34a"></i>
+        </div>
+      </div>
+      <div class="stat-value">{{ stats.lessons_this_week }}</div>
+      <div class="stat-label">Lessons Completed (7 days)</div>
+    </div>
+  </div>
+  <div class="col-sm-6 col-xl-3">
+    <div class="stat-card">
+      <div class="d-flex align-items-center justify-content-between mb-3">
+        <div class="stat-icon" style="background:#f0fdf4">
+          <i class="bi bi-currency-pound" style="color:#15803d"></i>
+        </div>
+      </div>
+      <div class="stat-value">{{ stats.revenue_this_month | currency }}</div>
+      <div class="stat-label">Revenue This Month</div>
+    </div>
+  </div>
+  <div class="col-sm-6 col-xl-3">
+    <div class="stat-card">
+      <div class="d-flex align-items-center justify-content-between mb-3">
+        <div class="stat-icon" style="background:#fff7ed">
+          <i class="bi bi-exclamation-circle-fill" style="color:#ea580c"></i>
+        </div>
+      </div>
+      {% if stats.outstanding_tl > 0 %}
+      <div class="stat-value text-danger">₺{{ '{:,.0f}'.format(stats.outstanding_tl) }}</div>
+      <div class="stat-label">Outstanding (TL packages)</div>
+      {% elif stats.outstanding_gbp > 0 %}
+      <div class="stat-value text-danger">{{ stats.outstanding_gbp | currency }}</div>
+      <div class="stat-label">Outstanding Balance</div>
+      {% else %}
+      <div class="stat-value text-success">All Clear</div>
+      <div class="stat-label">Outstanding Balance</div>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+<!-- Chart + Upcoming -->
+<div class="row g-3 mb-4">
+  <div class="col-lg-6">
+    <div class="table-card h-100">
+      <div class="card-header">
+        <span><i class="bi bi-bar-chart-fill me-2 text-primary"></i>Monthly Completed Lessons</span>
+      </div>
+      <div class="p-3" style="min-height:220px">
+        <canvas id="lessonsChart"></canvas>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-6">
+    <div class="table-card h-100">
+      <div class="card-header">
+        <span><i class="bi bi-calendar-check me-2 text-success"></i>Upcoming Lessons</span>
+        <a href="{{ url_for('lesson_new') }}" class="btn btn-sm btn-outline-primary">
+          <i class="bi bi-plus"></i>
+        </a>
+      </div>
+      {% if stats.upcoming %}
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>Student</th>
+            <th>Date</th>
+            <th>Topic</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for l in stats.upcoming %}
+          <tr>
+            <td>
+              <a href="{{ url_for('student_detail', student_id=l.student_id) }}" class="text-decoration-none fw-semibold">
+                {{ l.student_name }}
+              </a>
+            </td>
+            <td>{{ l.lesson_date | date_fmt }}</td>
+            <td class="text-muted">{{ l.topic or '—' }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      {% else %}
+      <div class="p-4 text-center text-muted">
+        <i class="bi bi-calendar-x fs-3 d-block mb-2"></i>No upcoming lessons scheduled
+      </div>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+<!-- Recent Payments -->
+<div class="table-card">
+  <div class="card-header">
+    <span><i class="bi bi-clock-history me-2 text-warning"></i>Recent Payments</span>
+    <a href="{{ url_for('payment_new') }}" class="btn btn-sm btn-outline-primary">
+      <i class="bi bi-plus"></i>
+    </a>
+  </div>
+  {% if stats.recent_payments %}
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Student</th>
+        <th>Amount</th>
+        <th>Date</th>
+        <th>Method</th>
+        <th>Notes</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for p in stats.recent_payments %}
+      <tr>
+        <td>
+          <a href="{{ url_for('student_detail', student_id=p.student_id) }}" class="text-decoration-none fw-semibold">
+            {{ p.student_name }}
+          </a>
+        </td>
+        <td class="fw-bold text-success">{{ p.amount | currency }}</td>
+        <td>{{ p.payment_date | date_fmt }}</td>
+        <td>
+          <span class="badge badge-{{ p.payment_method | lower }}">{{ p.payment_method }}</span>
+        </td>
+        <td class="text-muted">{{ p.notes or '—' }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% else %}
+  <div class="p-4 text-center text-muted">
+    <i class="bi bi-cash fs-3 d-block mb-2"></i>No payments recorded yet
+  </div>
+  {% endif %}
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+const monthly = {{ stats.monthly | tojson }};
+const labels = monthly.map(m => {
+  const [y, mo] = m.month.split('-');
+  return new Date(y, mo-1).toLocaleString('default', {month: 'short', year: '2-digit'});
+});
+const data = monthly.map(m => m.cnt);
+
+new Chart(document.getElementById('lessonsChart'), {
+  type: 'bar',
+  data: {
+    labels: labels.length ? labels : ['No data'],
+    datasets: [{
+      label: 'Completed Lessons',
+      data: data.length ? data : [0],
+      backgroundColor: 'rgba(79,70,229,.75)',
+      borderRadius: 6,
+      borderSkipped: false,
+    }]
+  },
+  options: {
+    responsive: true,
+    plugins: { legend: { display: false } },
+    scales: {
+      y: { beginAtZero: true, ticks: { stepSize: 1 }, grid: { color: '#f1f5f9' } },
+      x: { grid: { display: false } }
+    }
+  }
+});
+</script>
+{% endblock %}

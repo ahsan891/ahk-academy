@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% block title %}Packages — EduTrack{% endblock %}
+{% block page_title %}Packages{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+  <p class="text-muted mb-0 small">Define billing packages — assign them to students for milestone-based payment tracking.</p>
+  <a href="{{ url_for('package_new') }}" class="btn btn-primary btn-sm">
+    <i class="bi bi-plus-lg me-1"></i>New Package
+  </a>
+</div>
+
+{% if packages %}
+<div class="table-card">
+  <table class="table table-hover align-middle">
+    <thead>
+      <tr>
+        <th>Package Name</th>
+        <th>Total Lessons</th>
+        <th>Total Price</th>
+        <th>Pay Every</th>
+        <th>Instalment</th>
+        <th>Students</th>
+        <th class="text-end">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for p in packages %}
+      {% set installment = p.total_price / (p.total_lessons / p.payment_interval) %}
+      <tr>
+        <td class="fw-semibold">{{ p.name }}</td>
+        <td>{{ p.total_lessons }}</td>
+        <td>
+          {% if p.currency == 'TL' %}₺{{ '{:,.0f}'.format(p.total_price) }}
+          {% else %}£{{ '{:,.2f}'.format(p.total_price) }}{% endif %}
+        </td>
+        <td>Every {{ p.payment_interval }} lessons</td>
+        <td class="fw-semibold text-success">
+          {% if p.currency == 'TL' %}₺{{ '{:,.0f}'.format(installment) }}
+          {% else %}£{{ '{:,.2f}'.format(installment) }}{% endif %}
+        </td>
+        <td>
+          <span class="badge bg-secondary">{{ p.student_count }} student{{ 's' if p.student_count != 1 }}</span>
+        </td>
+        <td class="text-end">
+          <a href="{{ url_for('package_edit', package_id=p.id) }}"
+             class="btn btn-xs btn-outline-secondary me-1" style="font-size:.75rem;padding:.2rem .5rem">
+            <i class="bi bi-pencil"></i> Edit
+          </a>
+          <button class="btn btn-xs btn-outline-danger" style="font-size:.75rem;padding:.2rem .5rem"
+                  onclick="confirmDelete('{{ url_for('package_delete', package_id=p.id) }}',
+                    'Delete package &quot;{{ p.name }}&quot;? Students on this package will be unassigned.')">
+            <i class="bi bi-trash"></i>
+          </button>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% else %}
+<div class="text-center py-5 text-muted">
+  <i class="bi bi-box-seam fs-2 d-block mb-2"></i>
+  No packages yet.
+  <a href="{{ url_for('package_new') }}">Create your first package</a>
+</div>
+{% endif %}
+{% endblock %}

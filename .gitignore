@@ -51,3 +51,23 @@ data/other-laptop-env.txt
 *.mp4
 *.opus
 *.zip
+*.rar
+*.db
+
+# Old laptop copy (we extracted everything useful)
+AHK_Academy/
+
+# Large teaching materials (IELTS books are copyrighted)
+teaching/ielts/*.pdf
+teaching/ielts/*.rar
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Large non-essential files
+data/students/gurkan/WhatsApp_New/KGM*
+data/students/gurkan/WhatsApp_New/The_Art*
+data/students/maral/*.png
+data/students/maral/Mathematics/
+data/students/maral/Mathematics HL*

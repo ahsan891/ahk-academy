@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+{% block title %}{% if lesson %}Edit Lesson{% else %}New Lesson{% endif %} — EduTrack{% endblock %}
+{% block page_title %}{% if lesson %}Edit Lesson{% else %}Add Lesson{% endif %}{% endblock %}
+
+{% block content %}
+<a href="javascript:history.back()" class="text-muted text-decoration-none small d-block mb-3">
+  <i class="bi bi-arrow-left me-1"></i>Back
+</a>
+<div class="form-card">
+  <h6 class="fw-bold mb-4">
+    <i class="bi bi-calendar-{% if lesson %}check{% else %}plus{% endif %} me-2 text-primary"></i>
+    {% if lesson %}Edit Lesson{% else %}New Lesson{% endif %}
+  </h6>
+  <form method="POST" action="{% if lesson %}{{ url_for('lesson_edit', lesson_id=lesson.id) }}{% else %}{{ url_for('lesson_new') }}{% endif %}">
+    <div class="row g-3">
+      <div class="col-sm-6">
+        <label class="form-label">Student <span class="text-danger">*</span></label>
+        <select name="student_id" class="form-select" required>
+          <option value="">— Select student —</option>
+          {% for s in students %}
+          <option value="{{ s.id }}" {% if (preselected_student | string) == (s.id | string) %}selected{% endif %}>
+            {{ s.name }}
+          </option>
+          {% endfor %}
+        </select>
+      </div>
+      <div class="col-sm-6">
+        <label class="form-label">Lesson Date <span class="text-danger">*</span></label>
+        <input type="date" name="lesson_date" class="form-control" required
+               value="{{ lesson.lesson_date if lesson else today }}">
+      </div>
+      <div class="col-sm-6">
+        <label class="form-label">Status</label>
+        <select name="status" class="form-select">
+          {% for opt in ['scheduled', 'completed', 'cancelled'] %}
+          <option value="{{ opt }}" {% if (lesson and lesson.status == opt) or (not lesson and opt == 'scheduled') %}selected{% endif %}>
+            {{ opt | title }}
+          </option>
+          {% endfor %}
+        </select>
+      </div>
+      <div class="col-sm-6">
+        <label class="form-label">Duration (minutes)</label>
+        <input type="number" name="duration_minutes" class="form-control" min="1"
+               value="{{ lesson.duration_minutes if lesson else 60 }}" placeholder="60">
+      </div>
+      <div class="col-12">
+        <label class="form-label">Topic / Title</label>
+        <input type="text" name="topic" class="form-control"
+               value="{{ lesson.topic if lesson else '' }}" placeholder="e.g. Algebra — quadratic equations">
+      </div>
+      <div class="col-12">
+        <label class="form-label">Notes</label>
+        <textarea name="notes" class="form-control" rows="3"
+                  placeholder="Homework set, progress notes…">{{ lesson.notes if lesson else '' }}</textarea>
+      </div>
+      <div class="col-12 d-flex gap-2 pt-1">
+        <button type="submit" class="btn btn-primary px-4">
+          <i class="bi bi-check-lg me-1"></i>{% if lesson %}Save Changes{% else %}Add Lesson{% endif %}
+        </button>
+        <a href="javascript:history.back()" class="btn btn-outline-secondary">Cancel</a>
+      </div>
+    </div>
+  </form>
+</div>
+{% endblock %}

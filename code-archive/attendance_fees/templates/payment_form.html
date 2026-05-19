@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% block title %}Record Payment — EduTrack{% endblock %}
+{% block page_title %}Record Payment{% endblock %}
+
+{% block content %}
+<a href="javascript:history.back()" class="text-muted text-decoration-none small d-block mb-3">
+  <i class="bi bi-arrow-left me-1"></i>Back
+</a>
+<div class="form-card">
+  <h6 class="fw-bold mb-4">
+    <i class="bi bi-cash-coin me-2 text-primary"></i>Record Payment
+  </h6>
+  <form method="POST" action="{{ url_for('payment_new') }}">
+    <div class="row g-3">
+      <div class="col-sm-6">
+        <label class="form-label">Student <span class="text-danger">*</span></label>
+        <select name="student_id" class="form-select" required>
+          <option value="">— Select student —</option>
+          {% for s in students %}
+          <option value="{{ s.id }}" {% if (preselected_student | string) == (s.id | string) %}selected{% endif %}>
+            {{ s.name }}
+          </option>
+          {% endfor %}
+        </select>
+      </div>
+      <div class="col-sm-6">
+        <label class="form-label">Amount (£) <span class="text-danger">*</span></label>
+        <div class="input-group">
+          <span class="input-group-text">£</span>
+          <input type="number" name="amount" class="form-control" min="0.01" step="0.01" required
+                 placeholder="0.00">
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <label class="form-label">Payment Date <span class="text-danger">*</span></label>
+        <input type="date" name="payment_date" class="form-control" required value="{{ today }}">
+      </div>
+      <div class="col-sm-6">
+        <label class="form-label">Payment Method</label>
+        <select name="payment_method" class="form-select">
+          {% for m in ['Cash', 'Bank Transfer', 'Card', 'Other'] %}
+          <option value="{{ m }}">{{ m }}</option>
+          {% endfor %}
+        </select>
+      </div>
+      <div class="col-12">
+        <label class="form-label">Notes</label>
+        <textarea name="notes" class="form-control" rows="2"
+                  placeholder="Reference number, payment notes…"></textarea>
+      </div>
+      <div class="col-12 d-flex gap-2 pt-1">
+        <button type="submit" class="btn btn-primary px-4">
+          <i class="bi bi-check-lg me-1"></i>Record Payment
+        </button>
+        <a href="javascript:history.back()" class="btn btn-outline-secondary">Cancel</a>
+      </div>
+    </div>
+  </form>
+</div>
+{% endblock %}
