@@ -5,9 +5,8 @@ const fs = require('fs');
 const path = require('path');
 
 const FAMILIES = [
-  'Montserrat:wght@700;800;900',
-  'Oswald:wght@500;700',
-  'Inter:wght@400;500;600;700',
+  'Unbounded:wght@500;700;900',
+  'Inter:wght@400;500;600;700;800',
   'Caveat:wght@700',
 ];
 const UA = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0 Safari/537.36';

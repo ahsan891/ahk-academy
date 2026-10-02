@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<title>r10 — Vocabulary ladder</title>
+<link rel="stylesheet" href="../../assets/base.css">
+<style>
+  .hook { max-height: 200px; overflow: hidden; margin: 22px 0 36px; }
+  .ladder { display: flex; flex-direction: column-reverse; gap: 22px; position: relative; }
+  .rung { display: flex; align-items: center; gap: 26px; background: rgba(255,255,255,.08); border: 3px solid rgba(255,255,255,.18); border-radius: 28px; padding: 24px 34px; }
+  .rung .w { font-family: var(--font-display); font-weight: 900; font-size: 58px; flex: 1; white-space: nowrap; overflow: hidden; }
+  .rung .lvl { font-family: var(--font-body); font-weight: 800; font-size: 26px; letter-spacing: .12em; padding: 10px 20px; border-radius: 999px; background: rgba(255,255,255,.15); flex: none; }
+  .rung.top { background: var(--gold); color: var(--navy); border-color: var(--gold); box-shadow: 0 0 0 12px rgba(245,166,31,.22); }
+  .rung.top .lvl { background: var(--navy); color: var(--white); }
+  .rung.base { opacity: .75; }
+  .rung .star-img { width: 60px; height: 68px; flex: none; }
+  .tip { margin-top: 40px; display: flex; gap: 20px; font-size: 34px; line-height: 1.35; max-height: 150px; overflow: hidden; }
+  .tip .star-bullet { margin-top: 8px; width: 32px; height: 32px; flex: none; }
+  .ctaRow { margin-top: 36px; }
+</style>
+</head>
+<body>
+<div class="stage bg-navy on-dark">
+  <div class="deco-dots"></div>
+  <div class="deco-ring" style="width:800px;height:800px;right:-330px;top:-260px"></div>
+  <div class="content">
+    <div class="label" id="label" data-anim="in-left@0"></div>
+    <div class="h-hook hook" id="hook" data-fit="44" data-anim="in-up@0.15"></div>
+    <div class="ladder" id="ladder"></div>
+    <div class="tip" data-anim="in-up@7.6 out-fade@9.4"><span class="star-bullet"></span><div id="tip"></div></div>
+    <div class="ctaRow" data-anim="in-pop@8.6 out-fade@9.4"><div class="cta" id="cta"></div></div>
+  </div>
+</div>
+<script src="../../assets/base.js"></script>
+<script>
+AHK.template({
+  format: 'reel', duration: 10, preview: 7.0,
+  build(d) {
+    AHK.chrome({ tag: 'VOCAB' });
+    AHK.$('#label').textContent = d.label;
+    AHK.$('#hook').textContent = d.hook;
+    const l = AHK.$('#ladder'), n = d.steps.length;
+    d.steps.forEach((s, i) => {
+      const t = 0.9 + i * 1.6, last = i === n - 1;
+      l.append(AHK.h('div.rung' + (last ? '.top' : i === 0 ? '.base' : ''), { 'data-anim': `in-up@${t.toFixed(1)}${last ? ' pulse@' + (t + 0.6).toFixed(1) + ':0.8:2' : ' dim@' + (t + 1.6).toFixed(1)}` }, [
+        last ? AHK.h('div.star-img') : null,
+        AHK.h('div.w', { 'data-fit': '34' }, s.word), AHK.h('div.lvl', s.level),
+      ]));
+    });
+    AHK.$('#tip').innerHTML = AHK.rich(d.tip);
+    AHK.$('#cta').textContent = d.cta;
+  }
+});
+</script>
+</body>
+</html>

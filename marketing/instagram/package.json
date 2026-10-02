@@ -1,0 +1,16 @@
+{
+  "name": "ahk-instagram-templates",
+  "version": "1.0.0",
+  "private": true,
+  "description": "AHK Akademi Instagram template system: 30 HTML templates, deterministic Playwright/ffmpeg renderer, cheap-LLM content generator.",
+  "scripts": {
+    "gallery": "node serve.js",
+    "render": "node render.js all",
+    "today": "node generate.js --today",
+    "sample": "node generate.js --today --dry-run",
+    "fonts": "node fetch-fonts.js"
+  },
+  "engines": { "node": ">=18" },
+  "peerDependencies": { "playwright": ">=1.40" },
+  "notes": "Playwright is used from the global install (npm i -g playwright && npx playwright install chromium). ffmpeg must be on PATH. No other dependencies."
+}

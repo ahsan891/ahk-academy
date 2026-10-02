@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "r13-false-friends — Turkish word vs English look-alike",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["label", "hook", "tr_word", "tr_word_means", "en_word", "en_word_means", "example", "cta", "meta"],
+  "properties": {
+    "label": { "type": "string", "minLength": 4, "maxLength": 24 },
+    "hook": { "type": "string", "minLength": 6, "maxLength": 34 },
+    "tr_word": { "type": "string", "minLength": 3, "maxLength": 16, "description": "The Turkish word (lowercase)" },
+    "tr_word_means": { "type": "string", "minLength": 10, "maxLength": 64, "description": "'Türkçede: … → İngilizcesi **…**'" },
+    "en_word": { "type": "string", "minLength": 3, "maxLength": 16, "description": "The English look-alike (lowercase)" },
+    "en_word_means": { "type": "string", "minLength": 10, "maxLength": 64, "description": "'İngilizcede: … → **…**' (Turkish meaning in bold)" },
+    "example": { "type": "string", "minLength": 20, "maxLength": 110, "pattern": "==.+==", "description": "One or two mini examples separated by ' · '; wrap the English words in ==double equals==" },
+    "cta": { "type": "string", "minLength": 6, "maxLength": 44 },
+    "meta": { "$ref": "../_shared/meta.schema.json" }
+  }
+}

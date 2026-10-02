@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "r02-quiz-3sec — 3-second multiple-choice quiz",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["label", "question", "options", "answer", "explanation", "comment_prompt", "meta"],
+  "properties": {
+    "tag": { "type": "string", "maxLength": 12 },
+    "label": { "type": "string", "minLength": 4, "maxLength": 30, "description": "Turkish pill, e.g. '3 saniyelik quiz'" },
+    "question": { "type": "string", "minLength": 10, "maxLength": 70, "description": "Question or gap sentence. Use ___ for a gap." },
+    "options": { "type": "array", "minItems": 3, "maxItems": 3, "items": { "type": "string", "minLength": 1, "maxLength": 28 } },
+    "answer": { "type": "integer", "minimum": 0, "maximum": 2, "description": "Index of the correct option (0 = A)" },
+    "explanation": { "type": "string", "minLength": 20, "maxLength": 115, "description": "Turkish one-liner why. **bold** the key term." },
+    "comment_prompt": { "type": "string", "minLength": 6, "maxLength": 44, "description": "Comment bait, Turkish, e.g. 'Kaçıncıyı seçtin? A / B / C 👇'" },
+    "meta": { "$ref": "../_shared/meta.schema.json" }
+  }
+}

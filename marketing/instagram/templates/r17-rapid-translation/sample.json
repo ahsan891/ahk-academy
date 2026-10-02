@@ -1,0 +1,19 @@
+{
+  "label": "Hızlı çeviri",
+  "intro": "5 cümle. 2 saniye. Kaçını bilirsin?",
+  "pairs": [
+    { "tr": "Boş ver.", "en": "Never mind." },
+    { "tr": "Şaka yapıyorum.", "en": "I'm just kidding." },
+    { "tr": "Geç kaldım, kusura bakma.", "en": "Sorry I'm late." },
+    { "tr": "Bana uyar.", "en": "Works for me." },
+    { "tr": "Haberin olsun.", "en": "Just so you know." }
+  ],
+  "outro": "Kaç tane bildin? 0–5 yorumla 👇",
+  "cta": "Tekrar izle ve kaydet 🔖",
+  "meta": {
+    "topic": "everyday Turkish phrases in English",
+    "caption": "5 günlük cümle, 2'şer saniye ⚡ Kaçını bildin?\n\n• Boş ver → Never mind.\n• Şaka yapıyorum → I'm just kidding.\n• Geç kaldım, kusura bakma → Sorry I'm late.\n• Bana uyar → Works for me.\n• Haberin olsun → Just so you know.\n\nSkorunu yorumlara yaz (0–5) 👇 Kaydet, tekrar dene 🔖\n\nRapid-fire translation: 5 everyday Turkish phrases in natural English.",
+    "hashtags": ["#ingilizce", "#ahkakademi", "#ingilizcekonuşma", "#learnenglish", "#dailyenglish", "#ingilizceöğreniyorum", "#speakenglish", "#ielts", "#englishphrases", "#günlükingilizce", "#toefl"],
+    "audio_mood": "fast ticking beat with a whoosh on every cut"
+  }
+}

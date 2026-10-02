@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<title>p11 — Synonym wheel</title>
+<link rel="stylesheet" href="../../assets/base.css">
+<style>
+  .content { top: 190px; bottom: 140px; }
+  .title { font-family: var(--font-display); font-weight: 900; font-size: 54px; line-height: 1.1; max-height: 130px; overflow: hidden; margin-top: 14px; text-align: center; }
+  .wheel { position: relative; width: 936px; height: 780px; margin: 30px auto 0; }
+  .wheel .center { position: absolute; left: 50%; top: 50%; width: 330px; height: 330px; margin: -165px 0 0 -165px; border-radius: 50%; background: var(--gold); color: var(--navy); display: grid; place-items: center; text-align: center; font-family: var(--font-display); font-weight: 900; font-size: 44px; box-shadow: 0 0 0 22px rgba(245,166,31,.18), var(--shadow-lg); padding: 20px; }
+  .wheel .center .cw { white-space: nowrap; overflow: hidden; max-width: 290px; }
+  .wheel .center small { display: block; font-family: var(--font-body); font-weight: 700; font-size: 22px; letter-spacing: .25em; text-transform: uppercase; opacity: .7; margin-bottom: 6px; }
+  .wheel .spoke { position: absolute; left: 50%; top: 50%; width: 300px; height: 6px; margin-top: -3px; background: rgba(255,255,255,.2); transform-origin: left center; }
+  .wheel .s { position: absolute; width: 300px; margin-left: -150px; margin-top: -60px; background: var(--white); color: var(--navy); border-radius: 26px; padding: 20px 22px; text-align: center; box-shadow: var(--shadow-md); }
+  .wheel .s .w { font-family: var(--font-display); font-weight: 900; font-size: 34px; white-space: nowrap; overflow: hidden; }
+  .wheel .s .t { font-size: 22px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--blue); margin-top: 6px; }
+  .foot { text-align: center; font-size: 32px; font-weight: 600; opacity: .9; margin-top: 20px; }
+</style>
+</head>
+<body>
+<div class="stage bg-navy on-dark">
+  <div class="deco-dots"></div>
+  <div class="content">
+    <div class="label" id="label" style="align-self:center"></div>
+    <div class="title" id="title" data-fit="36"></div>
+    <div class="wheel" id="wheel"></div>
+    <div class="foot" id="foot"></div>
+  </div>
+</div>
+<script src="../../assets/base.js"></script>
+<script>
+AHK.template({
+  format: 'post',
+  build(d) {
+    AHK.chrome({ tag: 'SYNONYMS' });
+    AHK.$('#label').textContent = d.label;
+    AHK.$('#title').textContent = d.title;
+    const w = AHK.$('#wheel'), n = d.synonyms.length, R = 290, cx = 468, cy = 390;
+    d.synonyms.forEach((s, i) => {
+      const a = -90 + i * (360 / n), rad = a * Math.PI / 180;
+      w.append(AHK.h('div.spoke', { style: `transform: rotate(${a}deg)` }));
+      w.append(AHK.h('div.s', { style: `left:${cx + Math.cos(rad) * R}px; top:${cy + Math.sin(rad) * R}px` }, [AHK.h('div.w', { 'data-fit': '22' }, s.word), AHK.h('div.t', s.tag)]));
+    });
+    w.append(AHK.h('div.center', [AHK.h('div', [AHK.h('small', 'instead of'), AHK.h('div.cw', { 'data-fit': '24' }, d.word)])]));
+    AHK.$('#foot').innerHTML = AHK.rich(d.footer);
+  }
+});
+</script>
+</body>
+</html>

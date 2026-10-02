@@ -1,0 +1,16 @@
+{
+  "label": "False friends",
+  "hook": "Aynı kelime mi? Hayır!",
+  "tr_word": "sempatik",
+  "tr_word_means": "Türkçede: cana yakın → İngilizcesi **likeable / nice**",
+  "en_word": "sympathetic",
+  "en_word_means": "İngilizcede: anlayışlı, halden anlayan → **merhametli**",
+  "example": "She's very ==likeable==. (sempatik) · He was ==sympathetic== when I failed. (anlayışlı)",
+  "cta": "Kaydet 🔖 Başka false friend biliyor musun?",
+  "meta": {
+    "topic": "sempatik vs sympathetic",
+    "caption": "\"Sempatik\" = \"sympathetic\" mi? ❌\n\n🇹🇷 sempatik → cana yakın → EN: likeable, nice\n🇬🇧 sympathetic → anlayışlı, halden anlayan\n\n\"My boss is very sympathetic\" dersen patronun cana yakın değil, merhametli demiş olursun 😅\n\nBildiğin başka false friend var mı? Yorumlara yaz 👇\nKaydet 🔖\n\nFalse friends TR–EN: sempatik ≠ sympathetic.",
+    "hashtags": ["#falsefriends", "#ingilizce", "#ahkakademi", "#ingilizcekelime", "#learnenglish", "#ielts", "#vocabulary", "#ingilizceöğreniyorum", "#englishvocabulary", "#türkçeingilizce", "#toefl"],
+    "audio_mood": "quirky 'plot twist' sound, record scratch at ≠"
+  }
+}

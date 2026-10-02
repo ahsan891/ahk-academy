@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<title>p10 — Two-panel meme</title>
+<link rel="stylesheet" href="../../assets/base.css">
+<style>
+  .content { top: 190px; bottom: 140px; gap: 0; justify-content: flex-start; }
+  .panel { border-radius: var(--r-lg); padding: 44px 50px; display: flex; flex-direction: column; gap: 18px; min-height: 380px; justify-content: center; }
+  .panel.top { background: var(--navy-soft); color: var(--navy); }
+  .panel.bottom { background: var(--navy); color: var(--white); margin-top: 26px; }
+  .panel .lbl { font-size: 26px; letter-spacing: .3em; text-transform: uppercase; font-weight: 700; opacity: .75; }
+  .panel .big { font-family: var(--font-display); font-weight: 900; font-size: 54px; line-height: 1.15; max-height: 250px; overflow: hidden; }
+  .panel.bottom .big { color: var(--gold); }
+  .panel .em { font-size: 80px; line-height: 1; }
+  .lesson { margin-top: 30px; display: flex; gap: 20px; align-items: flex-start; font-size: 32px; line-height: 1.35; color: var(--ink-2); max-height: 100px; overflow: hidden; }
+  .lesson .star-bullet { width: 30px; height: 30px; margin-top: 8px; }
+  .lesson mark { color: var(--blue); }
+</style>
+</head>
+<body>
+<div class="stage bg-white on-light">
+  <div class="deco-grid"></div>
+  <div class="content">
+    <div class="panel top"><div class="lbl" id="tl"></div><div class="em emoji" id="te"></div><div class="big" id="tt" data-fit="32"></div></div>
+    <div class="panel bottom"><div class="lbl" id="bl"></div><div class="em emoji" id="be"></div><div class="big" id="bt" data-fit="32"></div></div>
+    <div class="lesson"><span class="star-bullet"></span><div id="lesson"></div></div>
+  </div>
+</div>
+<script src="../../assets/base.js"></script>
+<script>
+AHK.template({
+  format: 'post',
+  build(d) {
+    AHK.chrome({ tag: 'MEME' });
+    AHK.$('#tl').textContent = d.top_label; AHK.$('#te').textContent = d.top_emoji; AHK.$('#tt').textContent = d.top_text;
+    AHK.$('#bl').textContent = d.bottom_label; AHK.$('#be').textContent = d.bottom_emoji; AHK.$('#bt').textContent = d.bottom_text;
+    AHK.$('#lesson').innerHTML = AHK.rich(d.lesson);
+  }
+});
+</script>
+</body>
+</html>

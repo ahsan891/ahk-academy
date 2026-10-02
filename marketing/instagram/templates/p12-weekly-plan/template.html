@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<title>p12 — 7-day study plan</title>
+<link rel="stylesheet" href="../../assets/base.css">
+<style>
+  .content { top: 180px; bottom: 130px; }
+  .title { font-family: var(--font-display); font-weight: 900; font-size: 58px; line-height: 1.1; max-height: 140px; overflow: hidden; margin-top: 14px; color: var(--navy); }
+  .sub { font-size: 30px; color: var(--ink-2); margin-top: 10px; max-height: 50px; overflow: hidden; }
+  .days { display: flex; flex-direction: column; gap: 12px; margin-top: 26px; }
+  .day { display: flex; align-items: center; gap: 22px; background: var(--white); border-radius: 20px; padding: 16px 24px; box-shadow: var(--shadow-md); }
+  .day .d { width: 100px; flex: none; font-family: var(--font-display); font-weight: 900; font-size: 26px; color: var(--white); background: var(--navy); border-radius: 14px; padding: 12px 0; text-align: center; }
+  .day:nth-child(7) .d { background: var(--gold); color: var(--navy); }
+  .day .m { font-size: 26px; flex: none; width: 50px; text-align: center; }
+  .day .t { font-size: 30px; font-weight: 600; line-height: 1.2; max-height: 72px; overflow: hidden; color: var(--navy); }
+  .foot { margin-top: 24px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+  .foot .cta { font-size: 28px; padding: 18px 30px; }
+  .foot .q { font-size: 28px; font-weight: 600; color: var(--ink-2); }
+</style>
+</head>
+<body>
+<div class="stage bg-off on-light">
+  <div class="deco-dots dark"></div>
+  <div class="star-wm" style="right:-330px; bottom:-330px; width:900px; height:900px"></div>
+  <div class="content">
+    <div class="label navy" id="label"></div>
+    <div class="title" id="title" data-fit="36"></div>
+    <div class="sub" id="sub"></div>
+    <div class="days" id="days"></div>
+    <div class="foot"><span class="q" id="q"></span><span class="cta navy" id="cta"></span></div>
+  </div>
+</div>
+<script src="../../assets/base.js"></script>
+<script>
+AHK.template({
+  format: 'post',
+  build(d) {
+    AHK.chrome({ tag: '7 GÜN' });
+    AHK.$('#label').textContent = d.label;
+    AHK.$('#title').textContent = d.title;
+    AHK.$('#sub').textContent = d.subtitle;
+    d.days.forEach(x => AHK.$('#days').append(AHK.h('div.day', [AHK.h('div.d', x.day), AHK.h('div.m.emoji', x.emoji), AHK.h('div.t', { 'data-fit': '22' }, x.task)])));
+    AHK.$('#q').textContent = d.question;
+    AHK.$('#cta').textContent = d.cta;
+  }
+});
+</script>
+</body>
+</html>

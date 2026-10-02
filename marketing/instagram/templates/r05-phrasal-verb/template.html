@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<title>r05 — Phrasal verb in context</title>
+<link rel="stylesheet" href="../../assets/base.css">
+<style>
+  .verb { font-family: var(--font-display); font-weight: 900; font-size: 112px; line-height: 1; letter-spacing: -.03em; color: var(--navy); white-space: nowrap; overflow: hidden; margin: 26px 0 20px; }
+  .ask { display: flex; align-items: center; gap: 24px; font-size: 40px; font-weight: 700; color: var(--blue); }
+  .dots { display: flex; gap: 14px; }
+  .dots .star { width: 40px; height: 40px; background: var(--gold); }
+  .mean { margin-top: 44px; }
+  .mean .en { font-family: var(--font-body); font-weight: 800; font-size: 50px; line-height: 1.15; max-height: 120px; overflow: hidden; }
+  .mean .tr { font-size: 36px; margin-top: 12px; opacity: .85; max-height: 100px; overflow: hidden; }
+  .exs { display: flex; flex-direction: column; gap: 22px; margin-top: 36px; }
+  .ex { background: var(--white); border-radius: var(--r-md); padding: 28px 36px; font-size: 36px; font-weight: 600; line-height: 1.3; box-shadow: var(--shadow-md); display: flex; gap: 22px; align-items: center; max-height: 150px; overflow: hidden; }
+  .ex .n { width: 56px; height: 56px; border-radius: 50%; background: var(--navy); color: var(--white); display: grid; place-items: center; font-family: var(--font-display); font-weight: 700; font-size: 26px; flex: none; }
+  .ex mark { color: var(--blue); background: var(--gold-soft); border-radius: 8px; padding: 0 6px; }
+  .ctaRow { margin-top: 40px; }
+</style>
+</head>
+<body>
+<div class="stage bg-off on-light">
+  <div class="deco-dots dark"></div>
+  <div class="star-wm" style="right:-300px; top:1150px; width:820px; height:820px"></div>
+  <div class="content">
+    <div class="label navy" id="label" data-anim="in-left@0"></div>
+    <div class="verb" id="verb" data-fit="56" data-anim="in-pop@0.2"></div>
+    <div class="ask" data-anim="in-fade@0.8 out-fade@4.3"><span id="ask"></span>
+      <div class="dots"><span class="star" data-anim="in-spin@1.4"></span><span class="star" data-anim="in-spin@2.4"></span><span class="star" data-anim="in-spin@3.4"></span></div>
+    </div>
+    <div class="slot" style="height:200px">
+      <div class="card navy mean" style="margin-top:0" data-anim="in-up@4.5 out-fade@11.4">
+        <div class="en" id="en" data-fit="30"></div>
+        <div class="tr" id="tr" data-fit="24"></div>
+      </div>
+    </div>
+    <div class="exs" id="exs"></div>
+    <div class="ctaRow" data-anim="in-pop@10.0 out-fade@11.4"><div class="cta navy" id="cta"></div></div>
+  </div>
+  <div class="star-transition navy" data-anim="star-burst@4.3"></div>
+</div>
+<script src="../../assets/base.js"></script>
+<script>
+AHK.template({
+  format: 'reel', duration: 12, preview: 9.2,
+  build(d) {
+    AHK.chrome({ tag: 'PHRASAL' });
+    AHK.$('#label').textContent = d.label;
+    AHK.$('#verb').textContent = d.verb;
+    AHK.$('#ask').textContent = d.ask;
+    AHK.$('#en').textContent = d.meaning_en;
+    AHK.$('#tr').textContent = d.meaning_tr;
+    const box = AHK.$('#exs');
+    d.examples.forEach((e, i) => box.append(AHK.h('div.ex', { 'data-anim': `in-flip@${(6.0 + i * 1.3).toFixed(1)} out-fade@11.4` }, [AHK.h('span.n', String(i + 1)), AHK.h('div', { html: AHK.rich(e) })])));
+    AHK.$('#cta').textContent = d.cta;
+  },
+  afterFit() {
+    const m = AHK.$('.mean'); AHK.$('.slot').style.height = (m.offsetHeight + 10) + 'px';
+  }
+});
+</script>
+</body>
+</html>

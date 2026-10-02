@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "p09-checklist — tick list post",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["label", "title", "subtitle", "items", "question", "cta", "meta"],
+  "properties": {
+    "label": { "type": "string", "minLength": 3, "maxLength": 20 },
+    "title": { "type": "string", "minLength": 8, "maxLength": 40 },
+    "subtitle": { "type": "string", "minLength": 8, "maxLength": 60 },
+    "items": { "type": "array", "minItems": 5, "maxItems": 6, "items": { "type": "string", "minLength": 10, "maxLength": 56 } },
+    "question": { "type": "string", "minLength": 8, "maxLength": 44 },
+    "cta": { "type": "string", "minLength": 4, "maxLength": 20 },
+    "meta": { "$ref": "../_shared/meta.schema.json" }
+  }
+}

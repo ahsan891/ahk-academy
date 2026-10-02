@@ -1,0 +1,19 @@
+{
+  "label": "Mini ders",
+  "title": "Articles: a / an / the",
+  "subtitle": "Türkçede olmayan bu 3 küçük kelime, IELTS Writing'de en çok puan kaybettiren hata.",
+  "steps": [
+    { "title": "a / an = herhangi bir", "body": "İlk kez bahsettiğin, sayılabilir, tekil bir şey. Sesli harfle **okunuyorsa** an.", "example": "I bought ==a== laptop and ==an== umbrella." },
+    { "title": "the = belirli olan", "body": "Hem sen hem dinleyen hangisinden bahsettiğini biliyorsa the.", "example": "==The== laptop I bought is fast." },
+    { "title": "Sıfır article", "body": "Genel anlamda çoğul ve sayılamayan isimlerde article yok.", "example": "I love ==∅== coffee. ==∅== Teachers work hard." },
+    { "title": "Türklerin tuzağı", "body": "Türkçede article yok diye atlıyoruz. Meslekler ve 'one of the' her zaman article ister.", "example": "She is ==a== doctor. · one of ==the== best" }
+  ],
+  "cta_title": "Bunu sınavdan önce bir daha oku",
+  "cta_body": "Kaydet, arkadaşına gönder. Hangi kural en çok karıştırıyor? Yorumlara yaz 👇",
+  "meta": {
+    "topic": "articles a/an/the",
+    "caption": "a / an / the — Türkçede yok, İngilizcede her yerde 🧩\n\nBu mini derste 4 kural:\n1️⃣ a/an = herhangi bir (ilk kez bahsettiğin)\n2️⃣ the = ikinizin de bildiği belirli şey\n3️⃣ Genel anlamda çoğul & sayılamayan → article yok\n4️⃣ Meslekler ve 'one of the' her zaman article ister\n\nHangi kural seni en çok zorluyor? Yorumlara yaz 👇\nKaydet, writing'den önce tekrar bak 🔖\n\nMini lesson: English articles explained for Turkish speakers.",
+    "hashtags": ["#ingilizcegramer", "#articles", "#ahkakademi", "#ingilizce", "#ielts", "#ieltswriting", "#learnenglish", "#ingilizceöğreniyorum", "#grammar", "#toefl", "#yds", "#englishtips"],
+    "audio_mood": "n/a (carousel) — optional calm lo-fi"
+  }
+}

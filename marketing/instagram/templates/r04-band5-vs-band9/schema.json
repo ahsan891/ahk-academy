@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "r04-band5-vs-band9 — IELTS speaking answer upgrade",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["hook", "question", "band5", "band9", "tip", "cta", "meta"],
+  "properties": {
+    "hook": { "type": "string", "minLength": 8, "maxLength": 44, "description": "English hook line, e.g. 'Same question. Band 5 vs Band 9.'" },
+    "question": { "type": "string", "minLength": 15, "maxLength": 80, "description": "A real IELTS Speaking Part 1 or 3 question" },
+    "band5": { "type": "string", "minLength": 40, "maxLength": 150, "description": "Simple, repetitive, slightly awkward answer (typical band 5). No markup." },
+    "band9": { "type": "string", "minLength": 60, "maxLength": 210, "pattern": "==.+==", "description": "Natural, precise answer with the SAME idea. Wrap 3–5 upgraded words/phrases in ==double equals==." },
+    "tip": { "type": "string", "minLength": 20, "maxLength": 120, "description": "Turkish: what makes the difference. **bold** 2–3 key terms." },
+    "cta": { "type": "string", "minLength": 6, "maxLength": 40 },
+    "meta": { "$ref": "../_shared/meta.schema.json" }
+  }
+}

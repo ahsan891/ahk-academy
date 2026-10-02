@@ -1,0 +1,16 @@
+{
+  "label": "Common mistakes",
+  "title": "Bu 3 hatayı yapmayı bırak",
+  "items": [
+    { "wrong": "I have 25 years old.", "right": "I am 25 years old.", "why": "Yaş için **to be** kullanılır, have değil." },
+    { "wrong": "Open the light.", "right": "Turn on the light.", "why": "Işık/cihazlar **turn on / off** ile açılır." },
+    { "wrong": "She explained me the rule.", "right": "She explained the rule to me.", "why": "**explain to** someone — explain'den sonra kişi doğrudan gelmez." }
+  ],
+  "footer": "Hangisini yapıyordun? Yorumla 👇 · Kaydet 🔖",
+  "meta": {
+    "topic": "3 common Turkish-speaker mistakes",
+    "caption": "Bu 3 hatayı yapmayı bırak 🚫\n\n❌ I have 25 years old → ✅ I am 25 years old\n❌ Open the light → ✅ Turn on the light\n❌ She explained me the rule → ✅ She explained the rule to me\n\nHepsi Türkçeden birebir çeviri. Hangisini sen de yapıyordun? Yorumlara yaz 👇\nKaydet, arkadaşına gönder 🔖\n\n3 common mistakes Turkish speakers make in English.",
+    "hashtags": ["#ingilizce", "#commonmistakes", "#ahkakademi", "#ingilizcegramer", "#learnenglish", "#ielts", "#ingilizceöğreniyorum", "#englishmistakes", "#grammar", "#toefl", "#speakenglish"],
+    "audio_mood": "n/a (static post)"
+  }
+}

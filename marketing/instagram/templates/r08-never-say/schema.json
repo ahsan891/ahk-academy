@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "r08-never-say — three rapid 'never say X, say Y' upgrades",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["hook", "pairs", "outro", "cta", "meta"],
+  "properties": {
+    "hook": { "type": "string", "minLength": 8, "maxLength": 40, "description": "Completes the sentence after a big '3', e.g. 'things to stop saying in English'" },
+    "pairs": { "type": "array", "minItems": 3, "maxItems": 3, "items": { "type": "object", "additionalProperties": false, "required": ["never", "say", "note"], "properties": {
+      "never": { "type": "string", "minLength": 3, "maxLength": 24 },
+      "say": { "type": "string", "minLength": 3, "maxLength": 24 },
+      "note": { "type": "string", "minLength": 6, "maxLength": 44, "description": "Turkish micro-reason" }
+    } } },
+    "outro": { "type": "string", "minLength": 8, "maxLength": 44, "description": "Turkish question for the comments" },
+    "cta": { "type": "string", "minLength": 6, "maxLength": 36 },
+    "meta": { "$ref": "../_shared/meta.schema.json" }
+  }
+}

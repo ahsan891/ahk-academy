@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<title>r16 — POV meme</title>
+<link rel="stylesheet" href="../../assets/base.css">
+<style>
+  .pov { font-family: var(--font-display); font-weight: 900; font-size: 62px; line-height: 1.12; max-height: 290px; overflow: hidden; }
+  .pov .tag { color: var(--gold); display: block; font-size: 40px; letter-spacing: .1em; margin-bottom: 18px; }
+  .big-emoji { font-size: 130px; line-height: 1; margin: 24px 0 0; }
+  .dots { font-family: var(--font-display); font-weight: 900; font-size: 70px; letter-spacing: .2em; color: var(--gold); line-height: 1; margin-top: 10px; }
+  .punch { font-family: var(--font-display); font-weight: 900; font-size: 66px; line-height: 1.1; color: var(--gold); max-height: 300px; overflow: hidden; }
+  .lesson { margin-top: 44px; }
+  .lesson .card { background: rgba(255,255,255,.1); color: var(--white); border: 3px solid rgba(255,255,255,.3); box-shadow: none; padding: 28px 36px; font-size: 36px; line-height: 1.3; max-height: 170px; overflow: hidden; }
+  .lesson mark { color: var(--gold); }
+  .ctaRow { margin-top: 30px; }
+  .flash { position: absolute; inset: 0; background: var(--gold); opacity: 0; z-index: 45; pointer-events: none; }
+</style>
+</head>
+<body>
+<div class="stage bg-navy on-dark">
+  <div class="deco-dots"></div>
+  <div class="deco-ring" style="width:820px;height:820px;left:-360px;bottom:-240px"></div>
+  <div class="content">
+    <div class="pov" id="pov" data-fit="40" data-anim="in-pop@0.1"><span class="tag">POV:</span><span id="povTxt"></span></div>
+    <div class="big-emoji emoji" id="emoji" data-anim="in-pop@0.9 wiggle@1.4:1.2"></div>
+    <div class="dots" data-anim="in-fade@1.8 blink@2.2:0.6:3 out-fade@3.4:0.1">…</div>
+    <div class="slot" style="height:380px">
+      <div data-anim="in-slam@3.5 out-fade@7.4">
+        <div class="punch" id="punch" data-fit="40"></div>
+      </div>
+      <div style="top:auto;bottom:0" data-anim="in-up@5.0 out-fade@7.4">
+        <div class="lesson"><div class="card" id="lesson"></div></div>
+        <div class="ctaRow"><div class="cta" id="cta"></div></div>
+      </div>
+    </div>
+  </div>
+  <div class="flash" data-anim="flash@3.4:0.3"></div>
+</div>
+<script src="../../assets/base.js"></script>
+<script>
+AHK.template({
+  format: 'reel', duration: 8, preview: 4.2,
+  build(d) {
+    AHK.chrome({ tag: 'POV' });
+    AHK.$('#povTxt').textContent = ' ' + d.pov;
+    AHK.$('#emoji').textContent = d.emoji;
+    AHK.$('#punch').textContent = d.punchline;
+    AHK.$('#lesson').innerHTML = AHK.rich(d.lesson);
+    AHK.$('#cta').textContent = d.cta;
+  },
+  afterFit() {
+    const p = AHK.$('.punch').parentElement, l = AHK.$('.slot > div:last-child');
+    AHK.$('.slot').style.height = Math.max(p.offsetHeight + l.offsetHeight + 10, 380) + 'px';
+  }
+});
+</script>
+</body>
+</html>

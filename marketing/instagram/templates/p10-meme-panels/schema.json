@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "p10-meme-panels — expectation vs reality two-panel meme",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["top_label", "top_emoji", "top_text", "bottom_label", "bottom_emoji", "bottom_text", "lesson", "meta"],
+  "properties": {
+    "top_label": { "type": "string", "minLength": 3, "maxLength": 16 },
+    "top_emoji": { "type": "string", "minLength": 1, "maxLength": 8 },
+    "top_text": { "type": "string", "minLength": 10, "maxLength": 70 },
+    "bottom_label": { "type": "string", "minLength": 3, "maxLength": 16 },
+    "bottom_emoji": { "type": "string", "minLength": 1, "maxLength": 8 },
+    "bottom_text": { "type": "string", "minLength": 10, "maxLength": 70 },
+    "lesson": { "type": "string", "minLength": 20, "maxLength": 115, "description": "Turkish takeaway with **bold** and ==highlight==" },
+    "meta": { "$ref": "../_shared/meta.schema.json" }
+  }
+}

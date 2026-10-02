@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<title>r04 — Band 5 vs Band 9</title>
+<link rel="stylesheet" href="../../assets/base.css">
+<style>
+  .qcard { background: rgba(255,255,255,.1); border: 3px solid rgba(255,255,255,.25); border-radius: var(--r-md); padding: 34px 40px; margin-bottom: 40px; }
+  .qcard .lbl { font-size: 24px; letter-spacing: .3em; text-transform: uppercase; font-weight: 700; opacity: .7; margin-bottom: 10px; }
+  .qcard .q { font-family: var(--font-body); font-weight: 700; font-size: 40px; line-height: 1.25; max-height: 150px; overflow: hidden; }
+  .ans { position: relative; }
+  .ans .label { position: absolute; left: 44px; top: -28px; font-size: 26px; }
+  .ans .txt { font-family: var(--font-body); font-weight: 600; font-size: 40px; line-height: 1.35; max-height: 330px; overflow: hidden; }
+  .ans.b5 { background: #D9DEE8; color: #4B587A; box-shadow: none; }
+  .ans.b5 .label { background: #8A94AA; color: var(--white); }
+  .ans.b9 { margin-top: 40px; }
+  .ans.b9 .txt { color: var(--navy); }
+  .ans.b9 mark { color: inherit; background: none; border-radius: 8px; padding: 0 6px; margin: 0 -6px; }
+  .ans.b9 .label { background: var(--green); color: var(--white); }
+  .stack { position: relative; }
+  .tip { margin-top: 44px; display: flex; gap: 20px; font-size: 33px; line-height: 1.35; max-height: 140px; overflow: hidden; }
+  .tip .star-bullet { margin-top: 8px; width: 32px; height: 32px; flex: none; }
+  .ctaRow { margin-top: 40px; }
+</style>
+</head>
+<body>
+<div class="stage bg-navy on-dark">
+  <div class="deco-dots"></div>
+  <div class="star-wm" style="right:-280px; top:1150px; width:820px; height:820px"></div>
+  <div class="content">
+    <div class="h-md" id="hook" data-fit="34" data-anim="in-up@0" style="margin-bottom:34px; max-height:150px; overflow:hidden"></div>
+    <div class="qcard" data-anim="in-up@0.3">
+      <div class="lbl">Examiner</div>
+      <div class="q" id="q" data-fit="28"></div>
+    </div>
+    <div class="stack">
+      <div class="card ans b5" data-anim="in-up@1.4 shake@4.6:0.5:1 out-down@5.0">
+        <span class="label">Band 5</span>
+        <div class="txt" id="b5" data-fit="28"></div>
+      </div>
+      <div class="card ans b9" data-anim="in-up@5.4 out-fade@13.4" style="margin-top:0; position:absolute; left:0; right:0; top:0">
+        <span class="label">Band 9</span>
+        <div class="txt" id="b9" data-fit="28"></div>
+      </div>
+    </div>
+    <div class="spacer" id="spacer"></div>
+    <div class="tip" data-anim="in-up@10.6 out-fade@13.4"><span class="star-bullet"></span><div id="tip"></div></div>
+    <div class="ctaRow" data-anim="in-pop@12.0 out-fade@13.4"><div class="cta" id="cta"></div></div>
+  </div>
+  <div class="star-transition" data-anim="star-burst@5.1"></div>
+</div>
+<script src="../../assets/base.js"></script>
+<script>
+AHK.template({
+  format: 'reel', duration: 14, preview: 9.5,
+  build(d) {
+    AHK.chrome({ tag: 'IELTS' });
+    AHK.$('#hook').textContent = d.hook;
+    AHK.$('#q').textContent = d.question;
+    AHK.$('#b5').textContent = d.band5;
+    AHK.$('#b9').innerHTML = AHK.rich(d.band9);
+    AHK.$$('#b9 mark').forEach((m, i) => m.dataset.anim = `hl@${(6.6 + i * 0.75).toFixed(2)}`);
+    AHK.$('#tip').innerHTML = AHK.rich(d.tip);
+    AHK.$('#cta').textContent = d.cta;
+  },
+  afterFit() {
+    // reserve vertical space for the taller of the two answer cards (they overlap in the same slot)
+    const b5 = AHK.$('.b5'), b9 = AHK.$('.b9');
+    AHK.$('.stack').style.height = Math.max(b5.offsetHeight, b9.offsetHeight) + 'px';
+  }
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "r11-fill-blank — slot-machine gap fill",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["label", "sentence", "options", "answer", "explanation_tr", "prompt", "meta"],
+  "properties": {
+    "label": { "type": "string", "minLength": 4, "maxLength": 24 },
+    "sentence": { "type": "string", "minLength": 12, "maxLength": 70, "pattern": "___", "description": "Sentence with exactly one gap written as ___" },
+    "options": { "type": "array", "minItems": 3, "maxItems": 4, "items": { "type": "string", "minLength": 1, "maxLength": 12 } },
+    "answer": { "type": "string", "minLength": 1, "maxLength": 12, "description": "Must be exactly one of the options" },
+    "explanation_tr": { "type": "string", "minLength": 20, "maxLength": 115, "description": "Turkish rule in one line; **bold** the key words" },
+    "prompt": { "type": "string", "minLength": 6, "maxLength": 40 },
+    "meta": { "$ref": "../_shared/meta.schema.json" }
+  }
+}

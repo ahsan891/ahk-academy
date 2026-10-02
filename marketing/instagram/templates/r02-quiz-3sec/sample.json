@@ -1,0 +1,15 @@
+{
+  "tag": "QUIZ",
+  "label": "3 saniyelik quiz",
+  "question": "She ___ to London twice this year.",
+  "options": ["went", "has been", "has gone"],
+  "answer": 1,
+  "explanation": "\"Twice **this year**\" → zaman dilimi hâlâ sürüyor. Present perfect: **has been** (gitti ve döndü).",
+  "comment_prompt": "Kaçıncıyı seçtin? A / B / C 👇",
+  "meta": {
+    "topic": "has been vs has gone vs went",
+    "caption": "3 saniyen var ⏱️ Hangisi doğru?\n\nShe ___ to London twice this year.\nA) went  B) has been  C) has gone\n\nCevap: B 🎯 \"This year\" hâlâ bitmedi, o yüzden present perfect. \"Has been\" = gitti ve geri döndü. \"Has gone\" = gitti, hâlâ orada.\n\nSen kaçta bildin? Yorumlara yaz 👇\n\nQuick quiz: went / has been / has gone — do you know the difference? Save for later.",
+    "hashtags": ["#ingilizce", "#ingilizcequiz", "#ahkakademi", "#ielts", "#presentperfect", "#englishquiz", "#learnenglish", "#ingilizceöğreniyorum", "#grammar", "#toefl", "#englishtest"],
+    "audio_mood": "fast game-show ticking timer, ding on the reveal"
+  }
+}

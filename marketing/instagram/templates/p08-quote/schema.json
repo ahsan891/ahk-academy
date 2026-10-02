@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "p08-quote — bilingual motivation quote",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["quote_en", "quote_tr", "author", "meta"],
+  "properties": {
+    "tag": { "type": "string", "maxLength": 12 },
+    "quote_en": { "type": "string", "minLength": 20, "maxLength": 90, "pattern": "==.+==", "description": "Short original quote in English with ONE key word in ==double equals==" },
+    "quote_tr": { "type": "string", "minLength": 15, "maxLength": 100 },
+    "author": { "type": "string", "minLength": 3, "maxLength": 30, "description": "'Ahsan · AHK Akademi' unless it's a famous quote (then the real author)" },
+    "meta": { "$ref": "../_shared/meta.schema.json" }
+  }
+}

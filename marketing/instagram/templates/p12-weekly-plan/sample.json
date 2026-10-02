@@ -1,0 +1,22 @@
+{
+  "label": "Haftalık plan",
+  "title": "Günde 20 dk: 7 günlük İngilizce planı",
+  "subtitle": "Her gün tek bir küçük görev. Zinciri kırma.",
+  "days": [
+    { "day": "PZT", "emoji": "🎧", "task": "10 dk podcast, 5 cümleyi gölgele (shadowing)" },
+    { "day": "SAL", "emoji": "✍️", "task": "Dünü İngilizce 5 cümleyle yaz" },
+    { "day": "ÇAR", "emoji": "🗣️", "task": "IELTS Part 1 sorusuna 1 dk sesli cevap, kaydet" },
+    { "day": "PER", "emoji": "📖", "task": "1 haber makalesi, 5 yeni kelime çıkar" },
+    { "day": "CUM", "emoji": "🔁", "task": "Haftanın 20 kelimesini cümlede kullan" },
+    { "day": "CMT", "emoji": "🎬", "task": "1 bölüm İngilizce altyazılı, 3 kalıp not al" },
+    { "day": "PAZ", "emoji": "🏆", "task": "Haftayı 2 dk sesli özetle, kendini dinle" }
+  ],
+  "question": "Hangi günü atlıyorsun? 👇",
+  "cta": "🔖 Planı kaydet",
+  "meta": {
+    "topic": "7-day 20-minute English plan",
+    "caption": "Günde sadece 20 dakika ⏱️ 7 günlük plan:\n\nPzt 🎧 Podcast + shadowing\nSal ✍️ Dünü 5 cümleyle yaz\nÇar 🗣️ 1 dk sesli cevap, kaydet\nPer 📖 Haber + 5 kelime\nCum 🔁 20 kelimeyi cümlede kullan\nCmt 🎬 1 bölüm, 3 kalıp\nPaz 🏆 Haftayı sesli özetle\n\nZinciri kırma. Hangi günü atlamaya meyillisin? Yorumlara yaz 👇\nKaydet, pazartesi başla 🔖\n\n7-day English plan, 20 minutes a day.",
+    "hashtags": ["#ingilizce", "#haftalıkplan", "#ahkakademi", "#learnenglish", "#ingilizceöğreniyorum", "#studyplan", "#ielts", "#dilöğrenme", "#englishroutine", "#motivasyon", "#toefl"],
+    "audio_mood": "n/a (static post)"
+  }
+}

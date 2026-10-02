@@ -1,0 +1,16 @@
+{
+  "hook": "things to stop saying in English",
+  "pairs": [
+    { "never": "Very good", "say": "Excellent", "note": "\"Very\" + sıfat yerine tek güçlü kelime" },
+    { "never": "I think that…", "say": "In my view…", "note": "Speaking'de daha doğal ve akademik" },
+    { "never": "Very tired", "say": "Exhausted", "note": "Band 7+ için güçlü sıfatlar" }
+  ],
+  "outro": "Hangisini bugün kullanacaksın?",
+  "cta": "Yorumla 👇 ve kaydet 🔖",
+  "meta": {
+    "topic": "very + adjective upgrades",
+    "caption": "Bu 3 şeyi söylemeyi bırak 🚫\n\n❌ Very good → ✅ Excellent\n❌ I think that… → ✅ In my view…\n❌ Very tired → ✅ Exhausted\n\n\"Very\" + sıfat yerine tek bir güçlü kelime kullan; examiner bunu Band 7+ sinyali olarak görür.\n\nHangisini bugün kullanacaksın? Yorumlara yaz 👇\nKaydet, yarın tekrar bak 🔖\n\nStop saying 'very good' — say 'excellent'.",
+    "hashtags": ["#ingilizce", "#ahkakademi", "#ielts", "#vocabulary", "#learnenglish", "#ingilizceöğreniyorum", "#englishtips", "#speakenglish", "#ieltsspeaking", "#toefl", "#ingilizcekelime", "#englishvocabulary"],
+    "audio_mood": "fast-cut trap/phonk beat, hits on each cut"
+  }
+}

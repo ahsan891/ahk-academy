@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "r10-vocab-ladder — basic word climbs to its best synonym",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["label", "hook", "steps", "tip", "cta", "meta"],
+  "properties": {
+    "label": { "type": "string", "minLength": 4, "maxLength": 24 },
+    "hook": { "type": "string", "minLength": 6, "maxLength": 30, "description": "e.g. 'Stop saying \"good\"'" },
+    "steps": { "type": "array", "minItems": 4, "maxItems": 4, "items": { "type": "object", "additionalProperties": false, "required": ["word", "level"], "properties": {
+      "word": { "type": "string", "minLength": 2, "maxLength": 16 },
+      "level": { "type": "string", "minLength": 2, "maxLength": 8, "description": "CEFR level (A2/B1/B2/C1/C2) or band (Band 6)" }
+    } }, "description": "From the most basic (first) to the most advanced (last)" },
+    "tip": { "type": "string", "minLength": 20, "maxLength": 110, "description": "Turkish, when to use the top word; **bold** the words" },
+    "cta": { "type": "string", "minLength": 6, "maxLength": 44 },
+    "meta": { "$ref": "../_shared/meta.schema.json" }
+  }
+}

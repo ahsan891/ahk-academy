@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "r16-pov-meme — POV setup, wait for it, punchline, lesson",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["pov", "emoji", "punchline", "lesson", "cta", "meta"],
+  "properties": {
+    "pov": { "type": "string", "minLength": 15, "maxLength": 70, "description": "The POV situation (after 'POV:'), English or Turkish, relatable learner moment" },
+    "emoji": { "type": "string", "minLength": 1, "maxLength": 8, "description": "One or two emojis for the reaction" },
+    "punchline": { "type": "string", "minLength": 10, "maxLength": 60 },
+    "lesson": { "type": "string", "minLength": 20, "maxLength": 115, "description": "The actual lesson, Turkish, with **bold** rule and ==example== words" },
+    "cta": { "type": "string", "minLength": 6, "maxLength": 40 },
+    "meta": { "$ref": "../_shared/meta.schema.json" }
+  }
+}

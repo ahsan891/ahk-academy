@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "p02-this-or-that — two options, which is correct?",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["label", "title", "a", "b", "prompt", "meta"],
+  "properties": {
+    "label": { "type": "string", "minLength": 3, "maxLength": 20 },
+    "title": { "type": "string", "minLength": 6, "maxLength": 34 },
+    "a": { "type": "string", "minLength": 8, "maxLength": 60 },
+    "b": { "type": "string", "minLength": 8, "maxLength": 60 },
+    "prompt": { "type": "string", "minLength": 10, "maxLength": 70, "description": "Turkish comment bait; ==highlight== 'Cevap açıklamada' or similar" },
+    "meta": { "$ref": "../_shared/meta.schema.json" }
+  }
+}

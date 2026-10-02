@@ -1,0 +1,18 @@
+{
+  "label": "Pronunciation trap",
+  "word": "Comfortable",
+  "ipa": "/ˈkʌmf.tə.bəl/",
+  "wrong_label": "Türkler böyle söylüyor",
+  "wrong_syllables": ["kom", "for", "tey", "bıl"],
+  "right_label": "Natives say",
+  "right_syllables": ["KUMF", "tə", "bəl"],
+  "stress_index": 0,
+  "tip": "4 hece değil, **3 hece**. \"for\" neredeyse yok oluyor; vurgu **ilk** hecede: KUMF-tə-bəl.",
+  "cta": "3 kez yüksek sesle söyle 👇 sonra kaydet",
+  "meta": {
+    "topic": "comfortable pronunciation",
+    "caption": "\"Comfortable\" kelimesini \"kom-for-tey-bıl\" diye mi okuyorsun? 😬\n\nNatives 3 hece söyler: KUMF-tə-bəl. Ortadaki \"for\" neredeyse kaybolur, vurgu ilk hecede.\n\nŞimdi 3 kez yüksek sesle söyle 🔊 Sonra yorumlara \"done\" yaz 👇\nKaydet, speaking sınavından önce tekrar dinle 🔖\n\nPronunciation trap: comfortable is 3 syllables, not 4.",
+    "hashtags": ["#pronunciation", "#ingilizcetelaffuz", "#ahkakademi", "#ingilizce", "#ielts", "#ieltsspeaking", "#learnenglish", "#speakenglish", "#ingilizcekonuşma", "#telaffuz", "#englishpronunciation"],
+    "audio_mood": "rhythmic beat with claps on the syllables"
+  }
+}

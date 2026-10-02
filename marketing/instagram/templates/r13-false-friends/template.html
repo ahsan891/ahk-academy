@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<title>r13 — False friends</title>
+<link rel="stylesheet" href="../../assets/base.css">
+<style>
+  .hook { max-height: 150px; overflow: hidden; margin: 20px 0 34px; }
+  .pair { display: flex; flex-direction: column; gap: 24px; }
+  .ff { background: var(--white); border-radius: var(--r-md); padding: 30px 38px; display: flex; align-items: center; gap: 26px; box-shadow: var(--shadow-md); position: relative; }
+  .ff .flag { font-size: 56px; line-height: 1; flex: none; }
+  .ff .w { font-family: var(--font-display); font-weight: 900; font-size: 60px; white-space: nowrap; overflow: hidden; color: var(--navy); }
+  .ff .m { font-size: 32px; color: var(--ink-2); margin-top: 6px; max-height: 90px; overflow: hidden; }
+  .ff .m b { color: var(--blue); }
+  .eq { text-align: center; font-family: var(--font-display); font-weight: 900; font-size: 64px; color: var(--navy); line-height: 1; position: relative; height: 70px; }
+  .eq span { position: absolute; left: 0; right: 0; }
+  .eq .no { color: var(--red); }
+  .ex { margin-top: 40px; font-size: 38px; line-height: 1.3; font-weight: 600; color: var(--navy); max-height: 160px; overflow: hidden; }
+  .ex mark { color: var(--blue); background: var(--white); border-radius: 8px; padding: 0 8px; }
+  .ctaRow { margin-top: 36px; }
+</style>
+</head>
+<body>
+<div class="stage bg-gold">
+  <div class="star-wm" style="left:-320px; top:-100px; width:900px; height:900px; opacity:.09"></div>
+  <div class="content">
+    <div class="label navy" id="label" data-anim="in-left@0"></div>
+    <div class="h-hook hook" id="hook" data-fit="40" data-anim="in-up@0.15"></div>
+    <div class="pair">
+      <div class="ff" data-anim="in-left@0.5">
+        <div class="flag emoji">🇹🇷</div>
+        <div><div class="w" id="trw" data-fit="34"></div><div class="m" id="trm" data-anim="in-fade@3.4"></div></div>
+      </div>
+      <div class="eq"><span data-anim="in-pop@1.2 out-pop@2.8">=&nbsp;?</span><span class="no" data-anim="in-slam@2.9">≠</span></div>
+      <div class="ff" data-anim="in-right@0.7">
+        <div class="flag emoji">🇬🇧</div>
+        <div><div class="w" id="enw" data-fit="34"></div><div class="m" id="enm" data-anim="in-fade@4.2"></div></div>
+      </div>
+    </div>
+    <div class="ex" id="ex" data-anim="in-up@6.0 out-fade@10.4"></div>
+    <div class="ctaRow" data-anim="in-pop@8.2 out-fade@10.4"><div class="cta navy" id="cta"></div></div>
+  </div>
+  <div class="star-transition navy" data-anim="star-burst@2.8"></div>
+</div>
+<script src="../../assets/base.js"></script>
+<script>
+AHK.template({
+  format: 'reel', duration: 11, preview: 5.0,
+  build(d) {
+    AHK.chrome({ tag: 'FALSE FRIEND', dark: false });
+    AHK.$('#label').textContent = d.label;
+    AHK.$('#hook').textContent = d.hook;
+    AHK.$('#trw').textContent = d.tr_word;
+    AHK.$('#trm').innerHTML = AHK.rich(d.tr_word_means);
+    AHK.$('#enw').textContent = d.en_word;
+    AHK.$('#enm').innerHTML = AHK.rich(d.en_word_means);
+    AHK.$('#ex').innerHTML = AHK.rich(d.example);
+    AHK.$('#cta').textContent = d.cta;
+  }
+});
+</script>
+</body>
+</html>

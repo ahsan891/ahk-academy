@@ -1,0 +1,15 @@
+{
+  "label": "Emoji riddle",
+  "question": "Hangi deyim? 🤔",
+  "emojis": ["🐘", "🛋️", "🤐"],
+  "answer": "The elephant in the room",
+  "meaning_tr": "Herkesin bildiği ama kimsenin konuşmadığı büyük sorun",
+  "example": "Let's talk about ==the elephant in the room==: the deadline.",
+  "cta": "Bildin mi? Yorumla 👇 ve kaydet 🔖",
+  "meta": {
+    "topic": "the elephant in the room",
+    "caption": "🐘🛋️🤐 Hangi deyim? 3 saniyen var!\n\nCevap: THE ELEPHANT IN THE ROOM\n= Herkesin bildiği ama kimsenin konuşmadığı büyük sorun.\n\nÖrnek: Let's talk about the elephant in the room: the deadline.\n\nBildin mi? Yorumlara yaz 👇 Kaydet 🔖\n\nEmoji riddle: can you guess the idiom?",
+    "hashtags": ["#ingilizcedeyimler", "#idioms", "#ahkakademi", "#ingilizce", "#emojiquiz", "#learnenglish", "#englishidioms", "#ingilizceöğreniyorum", "#ielts", "#vocabulary", "#speakenglish"],
+    "audio_mood": "playful quiz jingle, think-music loop, ta-da on the reveal"
+  }
+}

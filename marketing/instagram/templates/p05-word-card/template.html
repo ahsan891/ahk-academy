@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<title>p05 — Word card</title>
+<link rel="stylesheet" href="../../assets/base.css">
+<style>
+  .content { top: 190px; }
+  .word { font-family: var(--font-display); font-weight: 900; font-size: 120px; line-height: 1; letter-spacing: -.03em; color: var(--navy); white-space: nowrap; overflow: hidden; margin-top: 20px; }
+  .meta { display: flex; gap: 22px; align-items: center; margin-top: 22px; font-size: 34px; color: var(--ink-2); }
+  .meta .pos { font-style: italic; }
+  .grule { margin: 34px 0; }
+  .def .lbl { font-size: 24px; letter-spacing: .3em; text-transform: uppercase; font-weight: 700; color: var(--blue); }
+  .def .tr { font-family: var(--font-body); font-weight: 800; font-size: 50px; line-height: 1.15; margin-top: 10px; color: var(--navy); max-height: 120px; overflow: hidden; }
+  .def .en { font-size: 34px; line-height: 1.35; margin-top: 12px; color: var(--ink-2); max-height: 95px; overflow: hidden; }
+  .ex { margin-top: 36px; background: var(--navy); color: var(--white); border-radius: var(--r-md); padding: 30px 38px; font-size: 38px; font-weight: 600; line-height: 1.3; max-height: 170px; overflow: hidden; }
+  .ex mark { color: var(--gold); }
+  .syn { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 32px; align-items: center; }
+  .syn .lbl { font-size: 24px; letter-spacing: .3em; text-transform: uppercase; font-weight: 700; color: var(--blue); margin-right: 8px; }
+  .syn .label { font-size: 26px; padding: 12px 22px; }
+  .save { position: absolute; right: 72px; top: 190px; width: 120px; height: 120px; border-radius: 50%; background: var(--gold); display: grid; place-items: center; font-size: 54px; box-shadow: var(--shadow-md); }
+</style>
+</head>
+<body>
+<div class="stage bg-white on-light">
+  <div class="deco-grid"></div>
+  <div class="star-wm" style="right:-300px; bottom:-300px; width:860px; height:860px"></div>
+  <div class="save emoji">🔖</div>
+  <div class="content">
+    <div class="label navy" id="label"></div>
+    <div class="word" id="word" data-fit="56"></div>
+    <div class="meta"><span id="ipa"></span><span>·</span><span class="pos" id="pos"></span></div>
+    <div class="gold-rule grule" style="width:160px"></div>
+    <div class="def">
+      <div class="lbl">Türkçesi</div>
+      <div class="tr" id="tr" data-fit="30"></div>
+      <div class="en" id="en" data-fit="24"></div>
+    </div>
+    <div class="ex" id="ex" data-fit="26"></div>
+    <div class="syn" id="syn"><span class="lbl">Synonyms</span></div>
+  </div>
+</div>
+<script src="../../assets/base.js"></script>
+<script>
+AHK.template({
+  format: 'post',
+  build(d) {
+    AHK.chrome({ tag: 'VOCAB' });
+    AHK.$('#label').textContent = d.label;
+    AHK.$('#word').textContent = d.word;
+    AHK.$('#ipa').textContent = d.ipa;
+    AHK.$('#pos').textContent = d.pos;
+    AHK.$('#tr').textContent = d.meaning_tr;
+    AHK.$('#en').textContent = d.definition_en;
+    AHK.$('#ex').innerHTML = AHK.rich(d.example);
+    d.synonyms.forEach(s => AHK.$('#syn').append(AHK.h('span.label', s)));
+  }
+});
+</script>
+</body>
+</html>

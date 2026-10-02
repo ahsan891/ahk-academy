@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<title>p08 — Motivation quote</title>
+<link rel="stylesheet" href="../../assets/base.css">
+<style>
+  .content { justify-content: center; }
+  .qm { font-family: var(--font-display); font-weight: 900; font-size: 260px; line-height: .5; color: var(--gold); height: 120px; }
+  .en { font-family: var(--font-display); font-weight: 900; font-size: 80px; line-height: 1.12; max-height: 560px; overflow: hidden; }
+  .en mark { color: var(--gold); }
+  .tr { font-family: var(--font-hand); font-size: 56px; line-height: 1.15; margin-top: 40px; color: #9DC0F0; max-height: 200px; overflow: hidden; }
+  .author { margin-top: 44px; display: flex; align-items: center; gap: 20px; font-size: 30px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; opacity: .8; }
+  .author .gold-rule { width: 70px; height: 6px; }
+</style>
+</head>
+<body>
+<div class="stage bg-navy on-dark">
+  <div class="deco-dots"></div>
+  <div class="star-wm" style="right:-260px; bottom:-260px; width:980px; height:980px; opacity:.09"></div>
+  <div class="content">
+    <div class="qm">“</div>
+    <div class="en" id="en" data-fit="44"></div>
+    <div class="tr" id="tr" data-fit="36"></div>
+    <div class="author"><span class="gold-rule"></span><span id="author"></span></div>
+  </div>
+</div>
+<script src="../../assets/base.js"></script>
+<script>
+AHK.template({
+  format: 'post',
+  build(d) {
+    AHK.chrome({ tag: d.tag || 'MOTIVATION' });
+    AHK.$('#en').innerHTML = AHK.rich(d.quote_en);
+    AHK.$('#tr').textContent = d.quote_tr;
+    AHK.$('#author').textContent = d.author;
+  }
+});
+</script>
+</body>
+</html>

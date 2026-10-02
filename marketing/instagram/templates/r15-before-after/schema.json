@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "r15-before-after — student score counter",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["label", "name", "goal", "label_before", "label_after", "before", "after", "decimals", "unit", "quote", "cta", "meta"],
+  "properties": {
+    "label": { "type": "string", "minLength": 4, "maxLength": 24 },
+    "name": { "type": "string", "minLength": 2, "maxLength": 18, "description": "First name and optional age, e.g. 'Elif, 24' (use the name given; never invent a surname)" },
+    "goal": { "type": "string", "minLength": 6, "maxLength": 40, "description": "'Hedef: …'" },
+    "label_before": { "type": "string", "minLength": 3, "maxLength": 10 },
+    "label_after": { "type": "string", "minLength": 3, "maxLength": 10 },
+    "before": { "type": "number", "minimum": 0, "maximum": 999 },
+    "after": { "type": "number", "minimum": 0, "maximum": 999 },
+    "decimals": { "type": "integer", "minimum": 0, "maximum": 1 },
+    "unit": { "type": "string", "minLength": 1, "maxLength": 10, "description": "IELTS, TOEFL, YDS, %, etc." },
+    "quote": { "type": "string", "minLength": 20, "maxLength": 110, "description": "Student quote in Turkish, first person" },
+    "cta": { "type": "string", "minLength": 6, "maxLength": 40 },
+    "meta": { "$ref": "../_shared/meta.schema.json" }
+  }
+}

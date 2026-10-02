@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>AHK Akademi — Instagram template gallery</title>
+<link rel="stylesheet" href="assets/fonts.css">
+<style>
+  :root { --navy: #0E1F3E; --gold: #F5A61F; --off: #F9FAFD; }
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: Inter, system-ui, sans-serif; background: #0B1730; color: #fff; }
+  header { padding: 28px 36px; display: flex; align-items: center; gap: 20px; border-bottom: 1px solid rgba(255,255,255,.1); flex-wrap: wrap; }
+  header img { height: 56px; }
+  header h1 { font-family: Unbounded, Inter, sans-serif; font-size: 22px; margin: 0; font-weight: 900; }
+  header p { margin: 0; opacity: .7; font-size: 14px; flex-basis: 100%; }
+  .toolbar { padding: 14px 36px; display: flex; gap: 10px; flex-wrap: wrap; }
+  .toolbar button { background: rgba(255,255,255,.08); color: #fff; border: 1px solid rgba(255,255,255,.15); border-radius: 999px; padding: 8px 16px; cursor: pointer; font: inherit; }
+  .toolbar button.on { background: var(--gold); color: var(--navy); border-color: var(--gold); font-weight: 700; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 26px; padding: 20px 36px 60px; }
+  .card { background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.1); border-radius: 18px; overflow: hidden; }
+  .card.hide { display: none; }
+  .frame { position: relative; width: 100%; aspect-ratio: 9 / 16; background: #000; overflow: hidden; }
+  .frame.post { aspect-ratio: 4 / 5; }
+  .frame iframe { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; border: 0; transform-origin: 0 0; pointer-events: none; }
+  .frame.post iframe { height: 1350px; }
+  .meta { padding: 14px 16px 16px; }
+  .meta .id { font-family: ui-monospace, monospace; font-size: 12px; color: var(--gold); }
+  .meta h2 { font-size: 16px; margin: 4px 0 6px; font-weight: 700; }
+  .meta .m { font-size: 13px; opacity: .75; line-height: 1.4; }
+  .meta .tags { margin-top: 8px; display: flex; gap: 6px; flex-wrap: wrap; }
+  .meta .tags span { font-size: 11px; padding: 3px 8px; border-radius: 999px; background: rgba(255,255,255,.1); }
+  .meta a { color: #9DC0F0; font-size: 12px; }
+</style>
+</head>
+<body>
+<header>
+  <img src="assets/ahk-akademi-horizontal.webp" alt="AHK Akademi" style="background:#fff;padding:8px 12px;border-radius:10px">
+  <h1>Instagram template gallery — 30 templates, sample data</h1>
+  <p>Reels loop live; carousels auto-advance. Open via <code>node serve.js</code> (fetching sample.json needs a local server). Click a card title to open the template full-size.</p>
+</header>
+<div class="toolbar" id="toolbar">
+  <button data-f="all" class="on">All (30)</button>
+  <button data-f="reel">Reels (18)</button>
+  <button data-f="post">Posts (12)</button>
+</div>
+<div class="grid" id="grid"></div>
+<script>
+(async () => {
+  const tpls = await (await fetch('templates.json')).json();
+  const grid = document.getElementById('grid');
+  for (const t of tpls) {
+    const isReel = t.format === 'reel';
+    const card = document.createElement('div');
+    card.className = 'card'; card.dataset.format = isReel ? 'reel' : 'post';
+    card.innerHTML = `
+      <div class="frame ${isReel ? '' : 'post'}"><iframe loading="lazy" src="templates/${t.id}/template.html"></iframe></div>
+      <div class="meta">
+        <div class="id">${t.id} · ${t.format}${isReel ? ' · ' + t.duration + 's' : t.slides ? ' · ' + t.slides + ' slides' : ''}</div>
+        <h2><a href="templates/${t.id}/template.html" target="_blank" style="color:inherit;text-decoration:none">${t.title}</a></h2>
+        <div class="m">${t.description}</div>
+        <div class="tags">${t.mechanic.split('+').map(s => `<span>${s.trim()}</span>`).join('')}</div>
+      </div>`;
+    grid.append(card);
+  }
+  const scale = () => document.querySelectorAll('.frame').forEach(f => { f.querySelector('iframe').style.transform = `scale(${f.clientWidth / 1080})`; });
+  scale(); addEventListener('resize', scale);
+  document.getElementById('toolbar').addEventListener('click', e => {
+    const b = e.target.closest('button'); if (!b) return;
+    document.querySelectorAll('#toolbar button').forEach(x => x.classList.toggle('on', x === b));
+    document.querySelectorAll('.card').forEach(c => c.classList.toggle('hide', b.dataset.f !== 'all' && c.dataset.format !== b.dataset.f));
+  });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<title>r07 — Pronunciation trap</title>
+<link rel="stylesheet" href="../../assets/base.css">
+<style>
+  .word { font-family: var(--font-display); font-weight: 900; font-size: 118px; line-height: 1; letter-spacing: -.03em; white-space: nowrap; overflow: hidden; margin: 26px 0 8px; }
+  .ipa { font-size: 38px; opacity: .8; font-weight: 500; }
+  .block { margin-top: 44px; }
+  .block .lbl { display: flex; align-items: center; gap: 18px; font-size: 28px; letter-spacing: .2em; text-transform: uppercase; font-weight: 700; opacity: .85; margin-bottom: 20px; }
+  .syl { display: flex; gap: 16px; flex-wrap: wrap; }
+  .syl span { font-family: var(--font-display); font-weight: 700; font-size: 56px; padding: 18px 30px; border-radius: 22px; background: rgba(255,255,255,.12); border: 3px solid rgba(255,255,255,.3); }
+  .wrong .syl span { color: #FFB3B0; text-decoration: line-through; text-decoration-thickness: 6px; text-decoration-color: var(--red); }
+  .right .syl span.stress { background: var(--gold); color: var(--navy); border-color: var(--gold); transform-origin: center; box-shadow: 0 0 0 10px rgba(245,166,31,.25); }
+  .right .lbl { color: #9DF0C4; }
+  .tip { margin-top: 44px; display: flex; gap: 20px; font-size: 34px; line-height: 1.35; max-height: 150px; overflow: hidden; }
+  .tip .star-bullet { margin-top: 8px; width: 32px; height: 32px; flex: none; }
+  .ctaRow { margin-top: 40px; }
+</style>
+</head>
+<body>
+<div class="stage bg-navy on-dark">
+  <div class="deco-dots"></div>
+  <div class="star-wm" style="left:-300px; top:1100px; width:860px; height:860px"></div>
+  <div class="content">
+    <div class="label" id="label" data-anim="in-left@0"></div>
+    <div class="word" id="word" data-fit="56" data-anim="in-pop@0.2"></div>
+    <div class="ipa" id="ipa" data-anim="in-fade@0.6"></div>
+    <div class="block wrong" data-anim="in-up@1.0 shake@2.6:0.5:1 dim@3.4">
+      <div class="lbl"><span class="mark-x" style="width:52px;height:52px;font-size:30px" data-anim="in-pop@2.4">✗</span><span id="wrongLbl"></span></div>
+      <div class="syl" id="wrongSyl"></div>
+    </div>
+    <div class="block right" data-anim="in-up@3.6 out-fade@9.4">
+      <div class="lbl"><span class="mark-ok" style="width:52px;height:52px;font-size:30px">✓</span><span id="rightLbl"></span></div>
+      <div class="syl" id="rightSyl"></div>
+    </div>
+    <div class="tip" data-anim="in-up@6.0 out-fade@9.4"><span class="star-bullet"></span><div id="tip"></div></div>
+    <div class="ctaRow" data-anim="in-pop@7.6 pulse@8.2:1:2 out-fade@9.4"><div class="cta" id="cta"></div></div>
+  </div>
+</div>
+<script src="../../assets/base.js"></script>
+<script>
+AHK.template({
+  format: 'reel', duration: 10, preview: 5.6,
+  build(d) {
+    AHK.chrome({ tag: 'SPEAK' });
+    AHK.$('#label').textContent = d.label;
+    AHK.$('#word').textContent = d.word;
+    AHK.$('#ipa').textContent = d.ipa;
+    AHK.$('#wrongLbl').textContent = d.wrong_label;
+    AHK.$('#rightLbl').textContent = d.right_label;
+    const w = AHK.$('#wrongSyl'), r = AHK.$('#rightSyl');
+    d.wrong_syllables.forEach((s, i) => w.append(AHK.h('span', { 'data-anim': `in-up@${(1.2 + i * 0.15).toFixed(2)}` }, s)));
+    d.right_syllables.forEach((s, i) => r.append(AHK.h('span' + (i === d.stress_index ? '.stress' : ''), { 'data-anim': `in-up@${(3.8 + i * 0.25).toFixed(2)} bounce@${(4.2 + i * 0.25).toFixed(2)}:0.9:${i === d.stress_index ? 3 : 1}` }, s)));
+    AHK.$('#tip').innerHTML = AHK.rich(d.tip);
+    AHK.$('#cta').textContent = d.cta;
+  }
+});
+</script>
+</body>
+</html>

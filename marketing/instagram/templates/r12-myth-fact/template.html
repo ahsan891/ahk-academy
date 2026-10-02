@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<title>r12 — Myth vs Fact</title>
+<link rel="stylesheet" href="../../assets/base.css">
+<style>
+  .hook { max-height: 150px; overflow: hidden; margin: 20px 0 36px; color: var(--navy); }
+  .mythcard { position: relative; }
+  .mythcard .q { font-family: var(--font-body); font-weight: 700; font-size: 46px; line-height: 1.25; max-height: 240px; overflow: hidden; color: var(--ink); }
+  .mythcard .q::before { content: "“"; font-family: var(--font-display); color: var(--gold); font-size: 80px; line-height: 0; vertical-align: -30px; margin-right: 8px; }
+  .stamp { position: absolute; right: 30px; bottom: -44px; font-family: var(--font-display); font-weight: 900; font-size: 62px; letter-spacing: .08em; color: var(--red); border: 10px solid var(--red); border-radius: 22px; padding: 10px 30px; background: rgba(255,255,255,.9); transform: rotate(-8deg); }
+  .factcard { margin-top: 36px; position: relative; }
+  .factcard .lbl { display: inline-flex; align-items: center; gap: 14px; font-family: var(--font-display); font-weight: 900; font-size: 36px; letter-spacing: .08em; color: var(--gold); }
+  .factcard .lbl .mark-ok { width: 54px; height: 54px; font-size: 30px; }
+  .factcard .f { font-family: var(--font-body); font-weight: 800; font-size: 46px; line-height: 1.22; margin-top: 18px; max-height: 240px; overflow: hidden; }
+  .reason { margin-top: 36px; display: flex; gap: 20px; font-size: 34px; line-height: 1.35; max-height: 150px; overflow: hidden; color: var(--ink-2); }
+  .reason .star-bullet { margin-top: 8px; width: 32px; height: 32px; flex: none; }
+  .ctaRow { margin-top: 36px; }
+</style>
+</head>
+<body>
+<div class="stage bg-off on-light">
+  <div class="deco-dots dark"></div>
+  <div class="star-wm" style="right:-300px; top:1120px; width:820px; height:820px"></div>
+  <div class="content">
+    <div class="label navy" id="label" data-anim="in-left@0"></div>
+    <div class="h-md hook" id="hook" data-fit="34" data-anim="in-up@0.15"></div>
+    <div class="mythcard" data-anim="in-up@0.5 shake@2.4:0.5:1 dim@3.4">
+      <div class="card"><div class="q" id="myth" data-fit="30"></div></div>
+      <div class="stamp" data-anim="in-slam@2.2">MYTH</div>
+    </div>
+    <div class="card navy factcard" data-anim="in-up@4.0 out-fade@9.4">
+      <div class="lbl"><span class="mark-ok">✓</span>FACT</div>
+      <div class="f" id="fact" data-fit="30"></div>
+    </div>
+    <div class="reason" data-anim="in-up@6.4 out-fade@9.4"><span class="star-bullet"></span><div id="reason"></div></div>
+    <div class="ctaRow" data-anim="in-pop@8.0 out-fade@9.4"><div class="cta navy" id="cta"></div></div>
+  </div>
+  <div class="star-transition navy" data-anim="star-burst@3.6"></div>
+</div>
+<script src="../../assets/base.js"></script>
+<script>
+AHK.template({
+  format: 'reel', duration: 10, preview: 5.5,
+  build(d) {
+    AHK.chrome({ tag: 'MYTH' });
+    AHK.$('#label').textContent = d.label;
+    AHK.$('#hook').textContent = d.hook;
+    AHK.$('#myth').textContent = d.myth;
+    AHK.$('#fact').innerHTML = AHK.rich(d.fact);
+    AHK.$('#reason').innerHTML = AHK.rich(d.reason);
+    AHK.$('#cta').textContent = d.cta;
+  }
+});
+</script>
+</body>
+</html>

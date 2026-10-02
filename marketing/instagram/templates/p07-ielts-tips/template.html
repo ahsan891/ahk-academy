@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<title>p07 — IELTS tips carousel</title>
+<link rel="stylesheet" href="../../assets/base.css">
+<style>
+  .cover .big { font-family: var(--font-display); font-weight: 900; font-size: 200px; line-height: .95; letter-spacing: -.05em; color: var(--navy); }
+  .cover .title { font-family: var(--font-display); font-weight: 900; font-size: 70px; line-height: 1.1; max-height: 320px; overflow: hidden; color: var(--navy); }
+  .cover .sub { font-size: 36px; line-height: 1.35; margin-top: 26px; color: var(--navy); opacity: .85; max-height: 150px; overflow: hidden; }
+  .tip .n { display: inline-flex; align-items: center; gap: 16px; font-family: var(--font-display); font-weight: 900; font-size: 34px; color: var(--gold); letter-spacing: .1em; }
+  .tip .n .star-bullet { width: 30px; height: 30px; }
+  .tip .t { font-family: var(--font-display); font-weight: 900; font-size: 58px; line-height: 1.12; margin-top: 18px; max-height: 200px; overflow: hidden; }
+  .tip .b { font-size: 36px; line-height: 1.4; margin-top: 24px; color: var(--ink-2); max-height: 260px; overflow: hidden; }
+  .tip .exm { margin-top: 36px; background: var(--navy); color: var(--white); border-radius: var(--r-md); padding: 30px 38px; display: flex; gap: 22px; align-items: flex-start; }
+  .tip .exm .eye { font-size: 44px; line-height: 1.2; flex: none; }
+  .tip .exm .lbl { font-size: 22px; letter-spacing: .25em; text-transform: uppercase; font-weight: 700; color: var(--gold); }
+  .tip .exm .x { font-size: 32px; line-height: 1.35; margin-top: 6px; max-height: 130px; overflow: hidden; }
+  .last .t { font-family: var(--font-display); font-weight: 900; font-size: 74px; line-height: 1.1; max-height: 340px; overflow: hidden; }
+  .last .b { font-size: 38px; line-height: 1.35; margin-top: 30px; opacity: .9; max-height: 220px; overflow: hidden; }
+</style>
+</head>
+<body>
+<div class="stage"><div class="slides" id="slides"></div></div>
+<script src="../../assets/base.js"></script>
+<script>
+AHK.template({
+  format: 'carousel',
+  build(d) {
+    const slides = AHK.$('#slides'), n = d.tips.length + 2;
+    const mk = (cls, dark, i, inner) => {
+      const s = AHK.h('div.slide.' + cls + (dark ? '.on-dark' : ''), [AHK.h('div.content', inner)]);
+      slides.append(s);
+      AHK.chrome({ stage: s, dark, tag: `${i + 1} / ${n}` });
+      if (i < n - 1) s.append(AHK.h('div.swipe-hint', 'Kaydır →'));
+      return s;
+    };
+    mk('cover bg-gold', false, 0, [AHK.h('div.label.navy', d.label), AHK.h('div.big', String(d.tips.length)), AHK.h('div.title', { 'data-fit': '40' }, d.title), AHK.h('div.sub', d.subtitle)]);
+    d.tips.forEach((t, i) => mk('tip bg-off', false, i + 1, [
+      AHK.h('div.n', [AHK.h('span.star-bullet'), `TIP ${i + 1}`]),
+      AHK.h('div.t', { 'data-fit': '36' }, t.title),
+      AHK.h('div.b', { 'data-fit': '26', html: AHK.rich(t.body) }),
+      AHK.h('div.exm', [AHK.h('div.eye.emoji', '👀'), AHK.h('div', [AHK.h('div.lbl', 'Examiner ne görür?'), AHK.h('div.x', { 'data-fit': '24' }, t.examiner)])]),
+    ]));
+    mk('last bg-navy', true, n - 1, [AHK.h('div.deco-dots'), AHK.h('div.star-img.outlined', { style: 'width:150px;height:170px' }), AHK.h('div.t', { 'data-fit': '40', style: 'margin-top:30px' }, d.cta_title), AHK.h('div.b', { 'data-fit': '28' }, d.cta_body), AHK.h('div', { style: 'margin-top:50px' }, [AHK.h('span.cta', '🔖 Kaydet'), ' ', AHK.h('span.cta.white', { style: 'margin-left:16px' }, '📤 Paylaş')])]);
+  }
+});
+</script>
+</body>
+</html>

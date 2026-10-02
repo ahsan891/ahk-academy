@@ -1,0 +1,16 @@
+{
+  "tag": "MISTAKE",
+  "label": "Türkler bunu hep yanlış söylüyor",
+  "hook": "Can you spot the mistake?",
+  "wrong": "I am ~~agree~~ with you.",
+  "turkish_hint": "Türkçe düşününce: \"Sana katılıyorum\" → \"I am agree\"",
+  "correct": "I ==agree== with you.",
+  "why": "\"Agree\" bir **fiil**, sıfat değil. \"am\" eklemeye gerek yok: I agree / I don't agree.",
+  "cta": "Kaydet 🔖 ve bunu diyen arkadaşına gönder",
+  "meta": {
+    "topic": "I am agree → I agree",
+    "caption": "\"I am agree\" diyorsan bu video sana 👀\n\n\"Agree\" İngilizcede bir fiildir, sıfat değil. Yani \"to be\" (am/is/are) ile kullanılmaz:\n✗ I am agree with you.\n✓ I agree with you.\n✓ I don't agree. / I totally agree!\n\nSen bu hatayı hiç yaptın mı? Yorumlara yaz 👇\nKaydet, sınavdan önce bir daha bak 🔖\n\nMost Turkish learners say \"I am agree\". Correct: \"I agree\".",
+    "hashtags": ["#ingilizce", "#ingilizceöğreniyorum", "#ingilizcedersi", "#ahkakademi", "#ielts", "#toefl", "#englishgrammar", "#learnenglish", "#commonmistakes", "#ingilizcekonuşma", "#speakingpractice", "#grammar"],
+    "audio_mood": "suspense tick-tock build, drop at the reveal (trending 'wait for it' sound)"
+  }
+}

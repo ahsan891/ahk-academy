@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "r12-myth-fact — a common belief stamped MYTH, then the FACT",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["label", "hook", "myth", "fact", "reason", "cta", "meta"],
+  "properties": {
+    "label": { "type": "string", "minLength": 4, "maxLength": 24 },
+    "hook": { "type": "string", "minLength": 6, "maxLength": 34, "description": "Turkish hook question, e.g. 'Buna hâlâ inanıyor musun?'" },
+    "myth": { "type": "string", "minLength": 20, "maxLength": 85, "description": "The myth as people say it, Turkish" },
+    "fact": { "type": "string", "minLength": 20, "maxLength": 95, "pattern": "==.+==", "description": "The fact, Turkish, with 1–2 key phrases in ==double equals==" },
+    "reason": { "type": "string", "minLength": 20, "maxLength": 115, "description": "Why, Turkish; **bold** the key term" },
+    "cta": { "type": "string", "minLength": 6, "maxLength": 44 },
+    "meta": { "$ref": "../_shared/meta.schema.json" }
+  }
+}

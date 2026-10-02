@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "p11-synonym-wheel — centre word with 6 stronger synonyms",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["label", "title", "word", "synonyms", "footer", "meta"],
+  "properties": {
+    "label": { "type": "string", "minLength": 3, "maxLength": 20 },
+    "title": { "type": "string", "minLength": 8, "maxLength": 34 },
+    "word": { "type": "string", "minLength": 2, "maxLength": 12, "description": "The overused basic word" },
+    "synonyms": { "type": "array", "minItems": 6, "maxItems": 6, "items": { "type": "object", "additionalProperties": false, "required": ["word", "tag"], "properties": {
+      "word": { "type": "string", "minLength": 2, "maxLength": 13 },
+      "tag": { "type": "string", "minLength": 2, "maxLength": 14, "description": "Level · register, e.g. 'C1 · essay'" }
+    } } },
+    "footer": { "type": "string", "minLength": 8, "maxLength": 56 },
+    "meta": { "$ref": "../_shared/meta.schema.json" }
+  }
+}

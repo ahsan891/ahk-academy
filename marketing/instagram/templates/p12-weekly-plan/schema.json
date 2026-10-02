@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "p12-weekly-plan — 7-day plan grid",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["label", "title", "subtitle", "days", "question", "cta", "meta"],
+  "properties": {
+    "label": { "type": "string", "minLength": 3, "maxLength": 20 },
+    "title": { "type": "string", "minLength": 8, "maxLength": 44 },
+    "subtitle": { "type": "string", "minLength": 8, "maxLength": 56 },
+    "days": { "type": "array", "minItems": 7, "maxItems": 7, "items": { "type": "object", "additionalProperties": false, "required": ["day", "emoji", "task"], "properties": {
+      "day": { "type": "string", "minLength": 2, "maxLength": 4, "description": "PZT, SAL, ÇAR, PER, CUM, CMT, PAZ" },
+      "emoji": { "type": "string", "minLength": 1, "maxLength": 8 },
+      "task": { "type": "string", "minLength": 10, "maxLength": 52 }
+    } } },
+    "question": { "type": "string", "minLength": 6, "maxLength": 34 },
+    "cta": { "type": "string", "minLength": 4, "maxLength": 20 },
+    "meta": { "$ref": "../_shared/meta.schema.json" }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "r03-word-of-day — one upgraded word",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["label", "word", "ipa", "pos", "meaning_tr", "example", "example_tr", "synonyms", "cta", "meta"],
+  "properties": {
+    "label": { "type": "string", "minLength": 4, "maxLength": 26 },
+    "word": { "type": "string", "minLength": 3, "maxLength": 16, "description": "One English word (C1/IELTS 7+ level), capitalised" },
+    "ipa": { "type": "string", "minLength": 3, "maxLength": 24, "description": "IPA with slashes" },
+    "pos": { "type": "string", "enum": ["noun", "verb", "adjective", "adverb", "phrase"] },
+    "meaning_tr": { "type": "string", "minLength": 4, "maxLength": 56 },
+    "example": { "type": "string", "minLength": 15, "maxLength": 80, "description": "Natural example sentence containing the word" },
+    "example_tr": { "type": "string", "minLength": 10, "maxLength": 80 },
+    "synonyms": { "type": "array", "minItems": 2, "maxItems": 3, "items": { "type": "string", "minLength": 2, "maxLength": 14 } },
+    "cta": { "type": "string", "minLength": 6, "maxLength": 44 },
+    "meta": { "$ref": "../_shared/meta.schema.json" }
+  }
+}

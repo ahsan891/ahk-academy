@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "r17-rapid-translation — 5 Turkish phrases, 2 seconds each",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["label", "intro", "pairs", "outro", "cta", "meta"],
+  "properties": {
+    "label": { "type": "string", "minLength": 4, "maxLength": 24 },
+    "intro": { "type": "string", "minLength": 10, "maxLength": 44 },
+    "pairs": { "type": "array", "minItems": 5, "maxItems": 5, "items": { "type": "object", "additionalProperties": false, "required": ["tr", "en"], "properties": {
+      "tr": { "type": "string", "minLength": 3, "maxLength": 32, "description": "Short everyday Turkish phrase" },
+      "en": { "type": "string", "minLength": 3, "maxLength": 34, "description": "The NATURAL English equivalent (not literal)" }
+    } } },
+    "outro": { "type": "string", "minLength": 8, "maxLength": 44 },
+    "cta": { "type": "string", "minLength": 6, "maxLength": 36 },
+    "meta": { "$ref": "../_shared/meta.schema.json" }
+  }
+}

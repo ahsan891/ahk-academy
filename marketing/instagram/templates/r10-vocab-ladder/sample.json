@@ -1,0 +1,18 @@
+{
+  "label": "Vocabulary ladder",
+  "hook": "Stop saying \"good\"",
+  "steps": [
+    { "word": "good", "level": "A2" },
+    { "word": "great", "level": "B1" },
+    { "word": "outstanding", "level": "C1" },
+    { "word": "exceptional", "level": "C2" }
+  ],
+  "tip": "Essay'de **good** yerine **outstanding / exceptional** kullan: Lexical Resource puanın yükselir.",
+  "cta": "Kaydet 🔖 En üst basamağı bugün kullan",
+  "meta": {
+    "topic": "good → exceptional",
+    "caption": "\"Good\" demeyi bırak 🪜\n\ngood → great → outstanding → exceptional\n\nIELTS Writing'de Lexical Resource puanı tam olarak bunu ölçer: aynı fikri daha kesin, daha güçlü kelimelerle anlatabiliyor musun?\n\nSen hangi basamaktasın? Yorumlara yaz 👇\nKaydet, essay yazarken aç 🔖\n\nVocabulary ladder: good → great → outstanding → exceptional.",
+    "hashtags": ["#ingilizcekelime", "#vocabulary", "#ahkakademi", "#ingilizce", "#ielts", "#ieltswriting", "#learnenglish", "#ingilizceöğreniyorum", "#englishvocabulary", "#toefl", "#lexicalresource"],
+    "audio_mood": "rising synth arpeggio, each step a higher note, sparkle at the top"
+  }
+}

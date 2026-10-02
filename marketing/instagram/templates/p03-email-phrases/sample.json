@@ -1,0 +1,19 @@
+{
+  "label": "Business English",
+  "title": "5 e-posta kalıbı: profesyonel görün",
+  "subtitle": "Türkçeden çevirmek yerine native'lerin gerçekten kullandığı cümleler.",
+  "phrases": [
+    { "situation": "Konuya girerken", "phrase": "I'm writing to follow up on our conversation yesterday.", "tr": "Dünkü görüşmemizin devamı olarak yazıyorum." },
+    { "situation": "Bir şey isterken", "phrase": "Could you please send me the updated figures by Friday?", "tr": "Güncel rakamları cuma gününe kadar gönderebilir misiniz?" },
+    { "situation": "Kibarca hayır derken", "phrase": "Unfortunately, that won't be possible this week.", "tr": "Maalesef bu hafta mümkün olmayacak." },
+    { "situation": "Dosya eklerken", "phrase": "Please find the report attached.", "tr": "Raporu ekte bulabilirsiniz." },
+    { "situation": "Bitirirken", "phrase": "I look forward to hearing from you.", "tr": "Yanıtınızı dört gözle bekliyorum." }
+  ],
+  "cta": "🔖 Kaydet, e-posta yazarken aç",
+  "meta": {
+    "topic": "professional email phrases",
+    "caption": "İş e-postası yazarken Türkçeden çeviriyor musun? 📧\n\nİşte native'lerin gerçekten kullandığı 5 kalıp:\n1. I'm writing to follow up on… (konuya girerken)\n2. Could you please send me… by Friday? (isterken)\n3. Unfortunately, that won't be possible. (kibarca hayır)\n4. Please find the report attached. (dosya eklerken)\n5. I look forward to hearing from you. (bitirirken)\n\nEn çok hangi durumda zorlanıyorsun? Yorumlara yaz 👇\nKaydet, bir sonraki e-postada aç 🔖\n\n5 professional email phrases you can use today.",
+    "hashtags": ["#businessenglish", "#işingilizcesi", "#ahkakademi", "#ingilizce", "#emailenglish", "#learnenglish", "#professionalenglish", "#ingilizceöğreniyorum", "#kariyer", "#ielts", "#englishforwork"],
+    "audio_mood": "n/a (carousel) — optional corporate lo-fi"
+  }
+}

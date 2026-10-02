@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<title>r11 — Fill in the blank</title>
+<link rel="stylesheet" href="../../assets/base.css">
+<style>
+  .sent { font-family: var(--font-body); font-weight: 800; font-size: 60px; line-height: 1.25; margin: 30px 0 40px; max-height: 320px; overflow: hidden; }
+  .sent .gap { display: inline-block; min-width: 260px; padding: 0 22px; margin: 0 6px; border-radius: 18px; background: var(--white); color: var(--navy); text-align: center; vertical-align: baseline; border-bottom: 10px solid var(--gold); line-height: 1.3; }
+  .sent .gap.locked { background: var(--green); color: var(--white); border-color: var(--green); }
+  .opts { display: flex; flex-wrap: wrap; gap: 18px; }
+  .opts span { font-family: var(--font-display); font-weight: 700; font-size: 38px; padding: 18px 30px; border-radius: 20px; background: rgba(255,255,255,.14); border: 3px solid rgba(255,255,255,.3); }
+  .opts span.hit { background: var(--gold); color: var(--navy); border-color: var(--gold); }
+  .cdrow { display: flex; align-items: center; gap: 24px; margin-top: 40px; }
+  .cdrow .timer-bar { flex: 1; background: rgba(255,255,255,.2); }
+  .cdrow .n { font-family: var(--font-display); font-weight: 900; font-size: 64px; width: 90px; text-align: center; color: var(--gold); }
+  .expl { margin-top: 10px; display: flex; gap: 20px; font-size: 34px; line-height: 1.35; max-height: 150px; overflow: hidden; }
+  .expl .star-bullet { margin-top: 8px; width: 32px; height: 32px; flex: none; }
+  .ctaRow { margin-top: 34px; }
+</style>
+</head>
+<body>
+<div class="stage bg-blue on-dark">
+  <div class="deco-dots"></div>
+  <div class="star-wm" style="left:-320px; top:1080px; width:900px; height:900px"></div>
+  <div class="content">
+    <div class="label" id="label" data-anim="in-left@0"></div>
+    <div class="sent" id="sent" data-fit="36" data-anim="in-up@0.15"></div>
+    <div class="opts" id="opts" data-anim="in-up@0.7"></div>
+    <div class="slot" style="height:260px">
+      <div class="cdrow" data-anim="in-fade@1.0 out-fade@4.4">
+        <div class="timer-bar"><i data-anim="drain@1.2:3"></i></div>
+        <div class="n" id="num">3</div>
+      </div>
+      <div>
+        <div class="expl" data-anim="in-up@6.0 out-fade@10.4"><span class="star-bullet"></span><div id="expl"></div></div>
+        <div class="ctaRow" data-anim="in-pop@8.0 out-fade@10.4"><div class="cta" id="cta"></div></div>
+      </div>
+    </div>
+  </div>
+  <div class="star-transition" data-anim="star-burst@4.4"></div>
+</div>
+<script src="../../assets/base.js"></script>
+<script>
+let OPTS = [], ANS = '';
+AHK.template({
+  format: 'reel', duration: 11, preview: 5.4,
+  build(d) {
+    AHK.chrome({ tag: 'FILL IN' });
+    AHK.$('#label').textContent = d.label;
+    const parts = d.sentence.split('___');
+    const s = AHK.$('#sent');
+    s.append(parts[0], AHK.h('span.gap#gap', '…'), parts[1] || '');
+    OPTS = d.options; ANS = d.answer;
+    const o = AHK.$('#opts');
+    d.options.forEach((w, i) => o.append(AHK.h('span', { 'data-opt': w, 'data-anim': `in-pop@${(0.8 + i * 0.12).toFixed(2)}` }, w)));
+    AHK.$('#expl').innerHTML = AHK.rich(d.explanation_tr);
+    AHK.$('#cta').textContent = d.prompt;
+  },
+  onTime(t) {
+    const gap = AHK.$('#gap');
+    AHK.$('#num').textContent = Math.max(1, AHK.countdown(t, 1.2, 3));
+    let shown = '…', hit = null;
+    if (t >= 1.2 && t < 4.3) { const i = Math.floor((t - 1.2) / 0.16) % OPTS.length; shown = OPTS[i]; hit = OPTS[i]; }
+    else if (t >= 4.3) { shown = ANS; hit = ANS; }
+    if (gap.textContent !== shown) gap.textContent = shown;
+    gap.classList.toggle('locked', t >= 4.3);
+    AHK.$$('#opts span').forEach(el => el.classList.toggle('hit', el.dataset.opt === hit));
+  }
+});
+</script>
+</body>
+</html>

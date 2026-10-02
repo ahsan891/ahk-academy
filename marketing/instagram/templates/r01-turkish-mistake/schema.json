@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "r01-turkish-mistake — spot the Turkish-speaker mistake",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["label", "hook", "wrong", "turkish_hint", "correct", "why", "cta", "meta"],
+  "properties": {
+    "tag": { "type": "string", "maxLength": 12, "description": "Tiny uppercase corner tag, e.g. MISTAKE, GRAMMAR" },
+    "label": { "type": "string", "minLength": 6, "maxLength": 38, "description": "Turkish pill above the hook, e.g. 'Türkler bunu hep yanlış söylüyor'" },
+    "hook": { "type": "string", "minLength": 8, "maxLength": 48, "description": "1-second English hook question, e.g. 'Can you spot the mistake?'" },
+    "wrong": { "type": "string", "minLength": 8, "maxLength": 60, "pattern": "~~.+~~", "description": "The wrong sentence. Wrap ONLY the wrong word(s) in ~~double tildes~~." },
+    "turkish_hint": { "type": "string", "minLength": 6, "maxLength": 70, "description": "Why a Turkish speaker says it: 'Türkçe düşününce: ...'" },
+    "correct": { "type": "string", "minLength": 8, "maxLength": 60, "pattern": "==.+==", "description": "The correct sentence. Wrap the corrected word(s) in ==double equals==." },
+    "why": { "type": "string", "minLength": 20, "maxLength": 125, "description": "One-line explanation in Turkish. Use **bold** for the key term." },
+    "cta": { "type": "string", "minLength": 8, "maxLength": 48, "description": "Save/share call to action, Turkish, 1 emoji max" },
+    "meta": { "$ref": "../_shared/meta.schema.json" }
+  }
+}

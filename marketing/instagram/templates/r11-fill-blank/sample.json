@@ -1,0 +1,14 @@
+{
+  "label": "Boşluğu doldur",
+  "sentence": "I've been learning English ___ 2021.",
+  "options": ["for", "since", "from", "during"],
+  "answer": "since",
+  "explanation_tr": "**Since** + başlangıç noktası (2021, Monday, I was 10). **For** + süre (3 years, two weeks).",
+  "prompt": "Doğru bildin mi? 👇 Yorumla",
+  "meta": {
+    "topic": "since vs for",
+    "caption": "Boşluğu doldur 👇\n\nI've been learning English ___ 2021.\nfor / since / from / during\n\nCevap: SINCE ✅\nSince + başlangıç noktası (2021, Monday, I was 10)\nFor + süre (3 years, two weeks)\n\nSen hangisini seçtin? Yorumlara yaz 👇\nKaydet, bir daha karıştırma 🔖\n\nSince vs for: since + starting point, for + duration.",
+    "hashtags": ["#ingilizce", "#ingilizcegramer", "#ahkakademi", "#ielts", "#grammar", "#learnenglish", "#sincevsfor", "#ingilizceöğreniyorum", "#englishquiz", "#toefl", "#yds"],
+    "audio_mood": "slot-machine spin, ding on lock-in"
+  }
+}

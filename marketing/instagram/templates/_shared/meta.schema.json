@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Post metadata (caption, hashtags, audio) — shared by every template",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["topic", "caption", "hashtags", "audio_mood"],
+  "properties": {
+    "topic": { "type": "string", "minLength": 3, "maxLength": 60, "description": "Short internal topic label, e.g. 'present perfect vs past simple'" },
+    "caption": { "type": "string", "minLength": 40, "maxLength": 700, "description": "Instagram caption. Turkish first, then 1–2 English lines. Hook line, 2–4 short lines of value, 1 question for comments, 1 CTA (kaydet / paylaş / link in bio)." },
+    "hashtags": { "type": "array", "minItems": 8, "maxItems": 15, "items": { "type": "string", "pattern": "^#[A-Za-z0-9_çğıİöşüÇĞÖŞÜ]{2,30}$" }, "description": "Mix of Turkish and English hashtags. Always include #ahkakademi and #ingilizce." },
+    "audio_mood": { "type": "string", "minLength": 3, "maxLength": 80, "description": "Suggested trending-audio mood, e.g. 'upbeat suspense build with a drop at the reveal'" }
+  }
+}

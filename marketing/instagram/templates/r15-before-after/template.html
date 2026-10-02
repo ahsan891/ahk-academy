@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<title>r15 — Student before / after</title>
+<link rel="stylesheet" href="../../assets/base.css">
+<style>
+  .who { margin-top: 24px; }
+  .who .name { font-family: var(--font-display); font-weight: 900; font-size: 62px; line-height: 1.1; white-space: nowrap; overflow: hidden; }
+  .who .goal { font-size: 34px; color: var(--ink-2); margin-top: 8px; }
+  .scores { display: flex; gap: 26px; margin-top: 44px; align-items: stretch; }
+  .tile { flex: 1; border-radius: var(--r-md); padding: 30px 28px; text-align: center; }
+  .tile .lbl { font-size: 24px; letter-spacing: .25em; text-transform: uppercase; font-weight: 700; opacity: .75; }
+  .tile .v { font-family: var(--font-display); font-weight: 900; font-size: 128px; line-height: 1; margin-top: 12px; letter-spacing: -.04em; }
+  .tile .u { font-size: 28px; font-weight: 600; opacity: .75; margin-top: 6px; }
+  .tile.before { background: #DDE3EE; color: #4B587A; }
+  .tile.after { background: var(--navy); color: var(--white); box-shadow: var(--shadow-lg); }
+  .tile.after .v { color: var(--gold); }
+  .arrow { align-self: center; font-family: var(--font-display); font-size: 60px; color: var(--gold); }
+  .tile.after { position: relative; }
+  .delta { position: absolute; right: -24px; top: -34px; background: var(--green); color: var(--white); font-family: var(--font-display); font-weight: 900; font-size: 42px; padding: 16px 30px; border-radius: 999px; transform: rotate(6deg); box-shadow: var(--shadow-md); z-index: 5; }
+  .quote { margin-top: 44px; font-family: var(--font-hand); font-size: 54px; line-height: 1.15; color: var(--navy); max-height: 200px; overflow: hidden; }
+  .quote::before { content: "“"; color: var(--gold); }
+  .quote::after { content: "”"; color: var(--gold); }
+  .ctaRow { margin-top: 36px; }
+</style>
+</head>
+<body>
+<div class="stage bg-off on-light">
+  <div class="deco-dots dark"></div>
+  <div class="star-wm" style="right:-280px; top:1100px; width:840px; height:840px"></div>
+  <div id="confetti" style="position:absolute;inset:0;pointer-events:none;z-index:4"></div>
+  <div class="content">
+    <div class="label navy" id="label" data-anim="in-left@0"></div>
+    <div class="who" data-anim="in-up@0.2">
+      <div class="name" id="name" data-fit="36"></div>
+      <div class="goal" id="goal"></div>
+    </div>
+    <div class="scores" data-anim="in-up@0.8">
+      <div class="tile before"><div class="lbl" id="lb"></div><div class="v" id="vb"></div><div class="u" id="ub"></div></div>
+      <div class="arrow" data-anim="in-pop@2.0 pulse@2.6">→</div>
+      <div class="tile after" data-anim="pulse@5.0:0.6:2"><div class="lbl" id="la"></div><div class="v" id="va"></div><div class="u" id="ua"></div><div class="delta" id="delta" data-anim="in-slam@5.1"></div></div>
+    </div>
+    <div class="quote" id="quote" data-fit="34" data-anim="in-up@6.4 out-fade@10.4"></div>
+    <div class="ctaRow" data-anim="in-pop@8.4 out-fade@10.4"><div class="cta navy" id="cta"></div></div>
+  </div>
+</div>
+<script src="../../assets/base.js"></script>
+<script>
+let D = null;
+AHK.template({
+  format: 'reel', duration: 11, preview: 7.2,
+  build(d) {
+    D = d;
+    AHK.chrome({ tag: 'SUCCESS' });
+    AHK.$('#label').textContent = d.label;
+    AHK.$('#name').textContent = d.name;
+    AHK.$('#goal').textContent = d.goal;
+    AHK.$('#lb').textContent = d.label_before; AHK.$('#la').textContent = d.label_after;
+    AHK.$('#ub').textContent = d.unit; AHK.$('#ua').textContent = d.unit;
+    AHK.$('#vb').textContent = d.before.toFixed(d.decimals);
+    const diff = d.after - d.before;
+    AHK.$('#delta').textContent = (diff > 0 ? '+' : '') + diff.toFixed(d.decimals) + ' ' + d.unit;
+    AHK.$('#quote').textContent = d.quote;
+    AHK.$('#cta').textContent = d.cta;
+    AHK.confetti(AHK.$('#confetti'), { start: 5.0, count: 34, seed: 11, colors: ['#F5A61F', '#0E1F3E', '#1F5FAE', '#E9A222'] });
+  },
+  onTime(t) {
+    AHK.$('#va').textContent = t < 2.2 ? D.before.toFixed(D.decimals) : AHK.countNumber(t, 2.2, 2.6, D.before, D.after, D.decimals);
+  }
+});
+</script>
+</body>
+</html>

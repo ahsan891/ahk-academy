@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "p06-mistake-grid — 3 mistakes, wrong → right → why",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["label", "title", "items", "footer", "meta"],
+  "properties": {
+    "label": { "type": "string", "minLength": 3, "maxLength": 20 },
+    "title": { "type": "string", "minLength": 8, "maxLength": 36 },
+    "items": { "type": "array", "minItems": 3, "maxItems": 3, "items": { "type": "object", "additionalProperties": false, "required": ["wrong", "right", "why"], "properties": {
+      "wrong": { "type": "string", "minLength": 5, "maxLength": 34 },
+      "right": { "type": "string", "minLength": 5, "maxLength": 34 },
+      "why": { "type": "string", "minLength": 10, "maxLength": 70, "description": "Turkish, **bold** the rule" }
+    } } },
+    "footer": { "type": "string", "minLength": 8, "maxLength": 50 },
+    "meta": { "$ref": "../_shared/meta.schema.json" }
+  }
+}

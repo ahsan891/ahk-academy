@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<title>r09 — Grammar in 15 seconds</title>
+<link rel="stylesheet" href="../../assets/base.css">
+<style>
+  .top { display: flex; align-items: center; justify-content: space-between; gap: 30px; }
+  .ring { position: relative; width: 170px; height: 170px; flex: none; }
+  .ring svg { position: absolute; inset: 0; width: 170px; height: 170px; transform: rotate(-90deg); }
+  .ring circle { fill: none; stroke-width: 12; stroke-linecap: round; }
+  .ring .bg { stroke: rgba(14,31,62,.12); }
+  .ring .fg { stroke: var(--gold); stroke-dasharray: 471; }
+  .ring .n { position: absolute; inset: 0; display: grid; place-items: center; font-family: var(--font-display); font-weight: 900; font-size: 60px; color: var(--navy); }
+  .title { font-family: var(--font-display); font-weight: 900; font-size: 64px; line-height: 1.1; max-height: 220px; overflow: hidden; }
+  .formula { margin-top: 34px; background: var(--navy); color: var(--white); border-radius: var(--r-md); padding: 30px 38px; display: flex; flex-wrap: wrap; gap: 14px; align-items: center; }
+  .formula span { font-family: var(--font-display); font-weight: 700; font-size: 38px; padding: 10px 22px; border-radius: 14px; background: rgba(255,255,255,.12); }
+  .formula span.op { background: none; color: var(--gold); padding: 0 6px; }
+  .rule { margin-top: 28px; font-size: 34px; line-height: 1.35; max-height: 100px; overflow: hidden; color: var(--ink-2); }
+  .exs { display: flex; flex-direction: column; gap: 18px; margin-top: 32px; }
+  .ex { background: var(--white); border-radius: 24px; padding: 24px 32px; font-size: 36px; font-weight: 600; line-height: 1.3; box-shadow: var(--shadow-md); max-height: 140px; overflow: hidden; display: flex; gap: 18px; align-items: center; }
+  .ex .star-bullet { width: 28px; height: 28px; }
+  .ex mark { color: var(--blue); background: var(--gold-soft); border-radius: 8px; padding: 0 6px; }
+  .done { margin-top: 34px; display: flex; align-items: center; gap: 24px; flex-wrap: wrap; }
+  .done .txt { font-family: var(--font-display); font-weight: 700; font-size: 34px; color: var(--green); }
+</style>
+</head>
+<body>
+<div class="stage bg-off on-light">
+  <div class="deco-grid"></div>
+  <div class="star-wm" style="right:-300px; top:1120px; width:820px; height:820px"></div>
+  <div class="content">
+    <div class="top">
+      <div>
+        <div class="label navy" id="label" data-anim="in-left@0"></div>
+        <div class="title" id="title" data-fit="40" data-anim="in-up@0.2" style="margin-top:22px"></div>
+      </div>
+      <div class="ring" data-anim="in-pop@0.3">
+        <svg viewBox="0 0 170 170"><circle class="bg" cx="85" cy="85" r="75"/><circle class="fg" cx="85" cy="85" r="75" data-anim="ring-drain15@0.5:15"/></svg>
+        <div class="n" id="num">15</div>
+      </div>
+    </div>
+    <div class="formula" id="formula" data-anim="in-up@1.4"></div>
+    <div class="rule" id="rule" data-anim="in-fade@2.4"></div>
+    <div class="exs" id="exs"></div>
+    <div class="slot" style="height:120px">
+      <div class="done" data-anim="in-pop@12.4 out-fade@14.4"><span class="txt" id="done"></span><span class="cta navy" id="cta"></span></div>
+    </div>
+  </div>
+</div>
+<script src="../../assets/base.js"></script>
+<script>
+AHK.template({
+  format: 'reel', duration: 15, preview: 11,
+  build(d) {
+    AHK.chrome({ tag: '15 SN' });
+    AHK.$('#label').textContent = d.label;
+    AHK.$('#title').textContent = d.title;
+    const f = AHK.$('#formula');
+    d.formula.split('+').map(s => s.trim()).forEach((part, i) => { if (i) f.append(AHK.h('span.op', '+')); f.append(AHK.h('span', part)); });
+    AHK.$('#rule').innerHTML = AHK.rich(d.rule_tr);
+    const box = AHK.$('#exs');
+    d.examples.forEach((e, i) => box.append(AHK.h('div.ex', { 'data-anim': `in-up@${(4 + i * 2.6).toFixed(1)} out-fade@14.4`, 'data-fit': '26' }, [AHK.h('span.star-bullet'), AHK.h('div', { html: AHK.rich(e) })])));
+    AHK.$('#done').textContent = d.done;
+    AHK.$('#cta').textContent = d.cta;
+    // the ring drains over 15s; the counter counts down in sync
+    const style = document.createElement('style'); style.textContent = '@keyframes ring-drain15 { from { stroke-dashoffset: 0; } to { stroke-dashoffset: 471; } }'; document.head.append(style);
+  },
+  onTime(t) { AHK.$('#num').textContent = AHK.countdown(t, 0.5, 15); }
+});
+</script>
+</body>
+</html>

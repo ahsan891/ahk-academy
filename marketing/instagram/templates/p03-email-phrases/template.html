@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<title>p03 — Business email phrases</title>
+<link rel="stylesheet" href="../../assets/base.css">
+<style>
+  .cover .title { font-family: var(--font-display); font-weight: 900; font-size: 86px; line-height: 1.08; max-height: 480px; overflow: hidden; margin-top: 30px; }
+  .cover .sub { font-size: 38px; line-height: 1.35; margin-top: 30px; opacity: .85; max-height: 160px; overflow: hidden; }
+  .ph .sit { display: inline-flex; align-items: center; gap: 16px; font-size: 30px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--blue); }
+  .ph .sit .star-bullet { width: 26px; height: 26px; }
+  .ph .mail { margin-top: 30px; background: var(--white); border-radius: var(--r-lg); box-shadow: var(--shadow-lg); overflow: hidden; }
+  .ph .mail .bar { background: var(--navy); color: var(--white); padding: 20px 36px; display: flex; gap: 14px; align-items: center; font-size: 26px; font-weight: 600; opacity: .95; }
+  .ph .mail .bar i { width: 18px; height: 18px; border-radius: 50%; background: var(--gold); display: inline-block; }
+  .ph .mail .body { padding: 44px 46px; font-family: var(--font-body); font-weight: 800; font-size: 50px; line-height: 1.22; color: var(--navy); max-height: 330px; overflow: hidden; }
+  .ph .tr { margin-top: 30px; font-size: 36px; line-height: 1.35; color: var(--ink-2); max-height: 150px; overflow: hidden; }
+  .ph .n { position: absolute; right: 72px; bottom: 150px; font-family: var(--font-display); font-weight: 900; font-size: 140px; color: var(--gold); opacity: .35; line-height: 1; }
+  .ph .foot { margin-top: 40px; }
+</style>
+</head>
+<body>
+<div class="stage"><div class="slides" id="slides"></div></div>
+<script src="../../assets/base.js"></script>
+<script>
+AHK.template({
+  format: 'carousel',
+  build(d) {
+    const slides = AHK.$('#slides'), n = d.phrases.length + 1;
+    const mk = (cls, dark, i, inner) => {
+      const s = AHK.h('div.slide.' + cls + (dark ? '.on-dark' : ''), [AHK.h('div.content', inner)]);
+      slides.append(s);
+      AHK.chrome({ stage: s, dark, tag: `${i + 1} / ${n}` });
+      if (i < n - 1) s.append(AHK.h('div.swipe-hint', 'Kaydır →'));
+      return s;
+    };
+    mk('cover bg-blue', true, 0, [AHK.h('div.deco-dots'), AHK.h('div.label', d.label), AHK.h('div.title', { 'data-fit': '48' }, d.title), AHK.h('div.sub', d.subtitle), AHK.h('div', { style: 'margin-top:50px' }, [AHK.h('span.cta', 'Kaydır → ' + d.phrases.length + ' kalıp')])]);
+    d.phrases.forEach((p, i) => {
+      const last = i === d.phrases.length - 1;
+      const s = mk('ph bg-off', false, i + 1, [
+        AHK.h('div.sit', [AHK.h('span.star-bullet'), p.situation]),
+        AHK.h('div.mail', [AHK.h('div.bar', [AHK.h('i'), 'New message']), AHK.h('div.body', { 'data-fit': '30' }, p.phrase)]),
+        AHK.h('div.tr', { 'data-fit': '26' }, p.tr),
+        last ? AHK.h('div.foot', [AHK.h('span.cta.navy', d.cta)]) : null,
+      ]);
+      s.append(AHK.h('div.n', String(i + 1)));
+    });
+  }
+});
+</script>
+</body>
+</html>

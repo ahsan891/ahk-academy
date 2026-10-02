@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<title>r02 — 3-second quiz</title>
+<link rel="stylesheet" href="../../assets/base.css">
+<style>
+  .q { max-height: 300px; overflow: hidden; margin: 26px 0 40px; }
+  .opts { display: flex; flex-direction: column; gap: 26px; }
+  .pill-opt { position: relative; }
+  .pill-opt .txt { flex: 1; max-height: 112px; overflow: hidden; line-height: 1.2; }
+  .pill-opt .ok { position: absolute; right: -20px; top: -20px; }
+  .timer { margin-top: 40px; display: flex; align-items: center; gap: 28px; }
+  .timer .timer-bar { flex: 1; background: rgba(14,31,62,.12); }
+  .timer .n { font-family: var(--font-display); font-weight: 900; font-size: 64px; width: 90px; text-align: center; color: var(--blue); }
+  .expl { margin-top: 30px; display: flex; gap: 20px; font-size: 34px; line-height: 1.35; max-height: 150px; overflow: hidden; color: var(--ink); }
+  .expl .star-bullet { margin-top: 8px; width: 32px; height: 32px; }
+  .prompt { margin-top: 40px; }
+</style>
+</head>
+<body>
+<div class="stage bg-off on-light">
+  <div class="deco-grid"></div>
+  <div class="star-wm" style="left:-320px; top:1180px; width:800px; height:800px"></div>
+  <div class="content">
+    <div class="label navy" id="label" data-anim="in-left@0"></div>
+    <div class="h-lg q" id="q" data-fit="40" data-anim="in-up@0.15"></div>
+    <div class="opts" id="opts"></div>
+    <div class="slot" style="height:300px">
+      <div class="timer" data-anim="in-fade@1.4 out-fade@4.9">
+        <div class="timer-bar"><i data-anim="drain@1.7:3"></i></div>
+        <div class="n" id="num">3</div>
+      </div>
+      <div>
+        <div class="expl" data-anim="in-up@5.9 out-fade@9.4"><span class="star-bullet"></span><div id="expl"></div></div>
+        <div class="prompt" data-anim="in-pop@7.4 out-fade@9.4"><div class="cta navy" id="prompt"></div></div>
+      </div>
+    </div>
+  </div>
+  <div class="star-transition" data-anim="star-burst@4.7"></div>
+</div>
+<script src="../../assets/base.js"></script>
+<script>
+const KEYS = ['A', 'B', 'C', 'D'];
+AHK.template({
+  format: 'reel', duration: 10, preview: 5.6,
+  build(d) {
+    AHK.chrome({ tag: d.tag || 'QUIZ' });
+    AHK.$('#label').textContent = d.label;
+    AHK.$('#q').innerHTML = AHK.rich(d.question);
+    const box = AHK.$('#opts');
+    d.options.forEach((o, i) => {
+      const ok = i === d.answer;
+      const el = AHK.h('div.pill-opt', { 'data-anim': `in-left@${(0.6 + i * 0.22).toFixed(2)}${ok ? ' pulse@5.1:0.6:2' : ' dim@4.95'} out-fade@9.4` }, [
+        AHK.h('span.key', KEYS[i]), AHK.h('div.txt', { 'data-fit': '28', text: o }),
+        ok ? AHK.h('div.mark-ok.ok', { 'data-anim': 'in-pop@5.0' }, '✓') : null,
+      ]);
+      if (ok) el.dataset.ok = '1';
+      box.append(el);
+    });
+    AHK.$('#expl').innerHTML = AHK.rich(d.explanation);
+    AHK.$('#prompt').textContent = d.comment_prompt;
+  },
+  onTime(t) {
+    AHK.$('#num').textContent = Math.max(1, AHK.countdown(t, 1.7, 3));
+    AHK.$$('.pill-opt[data-ok]').forEach(el => el.classList.toggle('correct', t >= 4.95));
+  }
+});
+</script>
+</body>
+</html>

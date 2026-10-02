@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "p01-mini-lesson — 6-slide carousel lesson",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["label", "title", "subtitle", "steps", "cta_title", "cta_body", "meta"],
+  "properties": {
+    "label": { "type": "string", "minLength": 3, "maxLength": 20 },
+    "title": { "type": "string", "minLength": 6, "maxLength": 40 },
+    "subtitle": { "type": "string", "minLength": 20, "maxLength": 110, "description": "Turkish, why this matters" },
+    "steps": { "type": "array", "minItems": 4, "maxItems": 4, "items": { "type": "object", "additionalProperties": false, "required": ["title", "body", "example"], "properties": {
+      "title": { "type": "string", "minLength": 4, "maxLength": 34 },
+      "body": { "type": "string", "minLength": 20, "maxLength": 120, "description": "Turkish explanation, **bold** allowed" },
+      "example": { "type": "string", "minLength": 8, "maxLength": 70, "description": "English example; wrap the key part in ==double equals==" }
+    } } },
+    "cta_title": { "type": "string", "minLength": 8, "maxLength": 40 },
+    "cta_body": { "type": "string", "minLength": 20, "maxLength": 100 },
+    "meta": { "$ref": "../_shared/meta.schema.json" }
+  }
+}
