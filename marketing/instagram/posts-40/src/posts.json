@@ -1,0 +1,4332 @@
+[
+ {
+  "id": "01",
+  "slug": "turkce-dusunme-hatalari",
+  "title": "Türkçe düşünerek yapılan 7 hata",
+  "format": "carousel",
+  "pillar": "Turkish-speaker mistakes",
+  "series": "Türkçe Düşünme · Bölüm 1",
+  "hook": "Bu 7 cümleyi hâlâ söylüyorsan Türkçe düşünüyorsun",
+  "theme": "navy",
+  "slides": [
+   {
+    "type": "cover",
+    "kicker": "TÜRKÇE DÜŞÜNME · BÖLÜM 1",
+    "title": "Bu 7 cümleyi hâlâ söylüyorsan ==Türkçe düşünüyorsun==",
+    "sub": "Hepsi birebir çeviri. Hepsi yanlış. Hepsinin 10 saniyelik düzeltmesi var.",
+    "pill": "Kaydır → 7 hata"
+   },
+   {
+    "type": "mistake",
+    "n": 1,
+    "heading": "Yaş söylerken",
+    "tr": "25 yaşındayım.",
+    "wrong": "I have 25 years old.",
+    "right": "I am 25 years old.",
+    "why": "İngilizcede yaş **sahip olunan** bir şey değil, **olunan** bir şey: //to be// kullanılır."
+   },
+   {
+    "type": "mistake",
+    "n": 2,
+    "heading": "Işığı açarken",
+    "tr": "Işığı aç.",
+    "wrong": "Open the light.",
+    "right": "Turn on the light.",
+    "why": "Kapı, pencere, kitap → **open**. Işık, TV, telefon, bilgisayar → **turn on / turn off**."
+   },
+   {
+    "type": "mistake",
+    "n": 3,
+    "heading": "Birine bir şey anlatırken",
+    "tr": "Bana kuralı açıkladı.",
+    "wrong": "She explained me the rule.",
+    "right": "She explained the rule to me.",
+    "why": "**explain**, **describe**, **suggest** ve **say** kişiyi doğrudan almaz: //explain something **to** someone//."
+   },
+   {
+    "type": "mistake",
+    "n": 4,
+    "heading": "Yorulunca",
+    "tr": "Çok yorgunum.",
+    "wrong": "I am very tired, I am boring.",
+    "right": "I am very tired, I am bored.",
+    "why": "**-ing** = sebep (sıkıcı), **-ed** = his (sıkılmış). //I'm boring// = \"Ben sıkıcı biriyim\" demektir."
+   },
+   {
+    "type": "mistake",
+    "n": 5,
+    "heading": "Soru sorarken",
+    "tr": "Bana yardım edebilir misin?",
+    "wrong": "Can you help to me?",
+    "right": "Can you help me?",
+    "why": "Türkçedeki **-e/-a** eki İngilizcede her zaman **to** olmaz: //help me, call me, ask me, tell me//."
+   },
+   {
+    "type": "mistake",
+    "n": 6,
+    "heading": "Katılırken",
+    "tr": "Sana katılıyorum.",
+    "wrong": "I am agree with you.",
+    "right": "I agree with you.",
+    "why": "**agree** bir fiildir, sıfat değil. //I agree. / I don't agree. / Do you agree?//"
+   },
+   {
+    "type": "mistake",
+    "n": 7,
+    "heading": "Bilgi verirken",
+    "tr": "Bana bir bilgi ver.",
+    "wrong": "Give me an information.",
+    "right": "Give me some information.",
+    "why": "**information, advice, news, furniture, homework** sayılamaz: //a piece of advice, some news//."
+   },
+   {
+    "type": "recap",
+    "kicker": "ÖZET · 7 DÜZELTME",
+    "title": "Türkçe düşünme, İngilizce kur.",
+    "items": [
+     "I **am** 25 years old.",
+     "**Turn on** the light.",
+     "Explain it **to** me.",
+     "I'm **bored**, not boring.",
+     "Can you help me? (**to** yok)",
+     "I **agree** with you.",
+     "**Some** information."
+    ],
+    "foot": "Hangisini yapıyordun? Yorumda numarasını yaz :point: Bölüm 2 yakında."
+   }
+  ],
+  "caption": "Bu 7 cümleyi hâlâ söylüyorsan Türkçe düşünüyorsun 🇹🇷→🇬🇧\n\nHepsi birebir çeviri, hepsi yanlış, hepsinin düzeltmesi 10 saniye:\n❌ I have 25 years old → ✅ I am 25 years old\n❌ Open the light → ✅ Turn on the light\n❌ She explained me → ✅ She explained it to me\n❌ I am boring → ✅ I am bored\n❌ Can you help to me → ✅ Can you help me\n❌ I am agree → ✅ I agree\n❌ an information → ✅ some information\n\nHangisini sen de yapıyordun? Numarasını yorumlara yaz 👇\nKaydet, sınavdan önce bir daha bak 🔖 Türkçe düşünen arkadaşına gönder.\n\n7 mistakes Turkish speakers make in English — and the 10-second fix for each.",
+  "hashtags": [
+   "#ingilizce",
+   "#ingilizceöğreniyorum",
+   "#ingilizcegramer",
+   "#türkçedüşünme",
+   "#commonmistakes",
+   "#learnenglish",
+   "#englishmistakes",
+   "#ielts",
+   "#toefl",
+   "#speakenglish",
+   "#ahkakademi",
+   "#ingilizcekonuşma"
+  ],
+  "alt": "8 slaytlık lacivert ve altın renkli carousel. Kapakta 'Bu 7 cümleyi hâlâ söylüyorsan Türkçe düşünüyorsun' başlığı. Her slaytta Türkçeden birebir çevrilmiş yanlış bir İngilizce cümle (örneğin 'I have 25 years old'), üstü çizili; altında doğrusu ('I am 25 years old') ve kısa Türkçe açıklama. Son slaytta 7 düzeltmenin özeti ve kaydet/paylaş çağrısı."
+ },
+ {
+  "id": "02",
+  "slug": "false-friends",
+  "title": "Türkçeye benzeyen ama farklı 8 kelime",
+  "format": "carousel",
+  "pillar": "False friends",
+  "series": "False Friends · Bölüm 1",
+  "hook": "\"Pasta\" dediğinde İngiliz makarna anlıyor",
+  "theme": "paper",
+  "slides": [
+   {
+    "type": "coverSplit",
+    "kicker": "FALSE FRIENDS · BÖLÜM 1",
+    "title": "Türkçeye benzeyen ama bambaşka anlama gelen ==8 kelime==",
+    "sub": "Seni iki saniyede ele veren \"sahte dostlar\".",
+    "lead": "\"I love pasta.\" → Makarnayı seviyorum.",
+    "bottomText": "Pastayı değil. Kaydır, 8'ini de öğren →"
+   },
+   {
+    "type": "word",
+    "theme": "paper",
+    "kicker": "SAHTE DOST 1 / 8",
+    "word": "pasta",
+    "ipa": "/ˈpæstə/",
+    "pos": "isim",
+    "looks": "Türkçe **pasta** (doğum günü pastası)",
+    "actual": "**makarna** · pasta = **cake**",
+    "example": "We had pasta for dinner.",
+    "exampleTr": "Akşam yemeğinde makarna yedik."
+   },
+   {
+    "type": "word",
+    "theme": "paper",
+    "kicker": "SAHTE DOST 2 / 8",
+    "word": "sympathetic",
+    "ipa": "/ˌsɪmpəˈθetɪk/",
+    "pos": "sıfat",
+    "looks": "Türkçe **sempatik** (sevimli, cana yakın)",
+    "actual": "**anlayışlı, şefkatli** · sempatik = **likeable / nice**",
+    "example": "The doctor was very sympathetic.",
+    "exampleTr": "Doktor çok anlayışlıydı."
+   },
+   {
+    "type": "word",
+    "theme": "paper",
+    "kicker": "SAHTE DOST 3 / 8",
+    "word": "magazine",
+    "ipa": "/ˌmæɡəˈziːn/",
+    "pos": "isim",
+    "looks": "Türkçe **magazin** (ünlü haberleri)",
+    "actual": "**dergi** · magazin haberi = **celebrity gossip**",
+    "example": "She reads a science magazine.",
+    "exampleTr": "Bir bilim dergisi okuyor."
+   },
+   {
+    "type": "word",
+    "theme": "paper",
+    "kicker": "SAHTE DOST 4 / 8",
+    "word": "fabric",
+    "ipa": "/ˈfæbrɪk/",
+    "pos": "isim",
+    "looks": "Türkçe **fabrika**",
+    "actual": "**kumaş** · fabrika = **factory**",
+    "example": "This fabric is 100% cotton.",
+    "exampleTr": "Bu kumaş %100 pamuk."
+   },
+   {
+    "type": "word",
+    "theme": "paper",
+    "kicker": "SAHTE DOST 5 / 8",
+    "word": "actual",
+    "ipa": "/ˈæktʃuəl/",
+    "pos": "sıfat",
+    "looks": "Türkçe **aktüel** (güncel)",
+    "actual": "**gerçek, asıl** · güncel = **current**",
+    "example": "The actual cost was higher.",
+    "exampleTr": "Gerçek maliyet daha yüksekti."
+   },
+   {
+    "type": "word",
+    "theme": "paper",
+    "kicker": "SAHTE DOST 6 / 8",
+    "word": "college",
+    "ipa": "/ˈkɒlɪdʒ/",
+    "pos": "isim",
+    "looks": "Türkçe **kolej** (özel lise)",
+    "actual": "**yüksekokul / üniversite** · özel lise = **private high school**",
+    "example": "My sister is in her first year of college.",
+    "exampleTr": "Kız kardeşim üniversitede birinci sınıfta."
+   },
+   {
+    "type": "word",
+    "theme": "paper",
+    "kicker": "SAHTE DOST 7 / 8",
+    "word": "chef",
+    "ipa": "/ʃef/",
+    "pos": "isim",
+    "looks": "Türkçe **şef** (müdür, patron)",
+    "actual": "**aşçıbaşı** · iş yerindeki şef = **boss / manager**",
+    "example": "The chef cooked a brilliant dinner.",
+    "exampleTr": "Aşçıbaşı harika bir akşam yemeği yaptı."
+   },
+   {
+    "type": "word",
+    "theme": "paper",
+    "kicker": "SAHTE DOST 8 / 8",
+    "word": "preservative",
+    "ipa": "/prɪˈzɜːvətɪv/",
+    "pos": "isim",
+    "looks": "Türkçe **prezervatif**",
+    "actual": "**koruyucu madde** (gıdada) · prezervatif = **condom**",
+    "example": "This jam contains no preservatives.",
+    "exampleTr": "Bu reçelde koruyucu madde yok.",
+    "note": "Markette \"no preservatives\" yazısını görünce şaşırma :wink:"
+   },
+   {
+    "type": "recap",
+    "theme": "navy",
+    "kicker": "ÖZET · 8 SAHTE DOST",
+    "title": "Benziyor ama değil",
+    "items": [
+     {
+      "k": "pasta",
+      "v": "makarna"
+     },
+     {
+      "k": "sympathetic",
+      "v": "anlayışlı"
+     },
+     {
+      "k": "magazine",
+      "v": "dergi"
+     },
+     {
+      "k": "fabric",
+      "v": "kumaş"
+     },
+     {
+      "k": "actual",
+      "v": "gerçek"
+     },
+     {
+      "k": "college",
+      "v": "üniversite"
+     },
+     {
+      "k": "chef",
+      "v": "aşçıbaşı"
+     },
+     {
+      "k": "preservative",
+      "v": "koruyucu madde"
+     }
+    ],
+    "foot": "Bildiğin başka sahte dost var mı? Yorumlara yaz, Bölüm 2'ye koyalım :point:"
+   }
+  ],
+  "caption": "\"I love pasta\" dediğinde İngiliz makarna anlıyor 🍝 (pasta = cake!)\n\nTürkçeye benzeyen ama bambaşka anlama gelen 8 \"sahte dost\":\n• pasta → makarna\n• sympathetic → anlayışlı (sevimli değil)\n• magazine → dergi\n• fabric → kumaş (fabrika = factory)\n• actual → gerçek (güncel = current)\n• college → üniversite\n• chef → aşçıbaşı\n• preservative → koruyucu madde 😅\n\nHangisine sen de yakalandın? Bildiğin başka sahte dost varsa yorumlara yaz, Bölüm 2'ye koyalım 👇\nKaydet 🔖 ve o \"sempatik\" arkadaşına gönder.\n\nFalse friends: 8 English words that look Turkish but mean something completely different.",
+  "hashtags": [
+   "#falsefriends",
+   "#ingilizce",
+   "#ingilizcekelime",
+   "#vocabulary",
+   "#learnenglish",
+   "#ingilizceöğreniyorum",
+   "#englishvocabulary",
+   "#türkçe",
+   "#ielts",
+   "#ahkakademi",
+   "#kelimeöğren",
+   "#englishtips"
+  ],
+  "alt": "10 slaytlık carousel. Kapak lacivert-altın bölünmüş düzen: 'Türkçeye benzeyen ama bambaşka anlama gelen 8 kelime'. Her slaytta açık renkli zeminde büyük bir İngilizce kelime, IPA okunuşu, 'benziyor ama değil' kutusunda Türkçe benzeri, 'aslında' kutusunda gerçek anlamı ve örnek cümle. Son slaytta 8 kelimenin özet listesi."
+ },
+ {
+  "id": "03",
+  "slug": "aksanin-hata-degil",
+  "title": "Aksanın bir hata değil",
+  "format": "single",
+  "pillar": "Motivation",
+  "hook": "Aksanın bir hata değil.",
+  "theme": "navy",
+  "slides": [
+   {
+    "type": "poster",
+    "kicker": "KONUŞMA ÖZGÜVENİ",
+    "title": "Aksanın bir ==hata== değil.",
+    "sub": "Anlaşılmak yeterli. Native'ler bile birbirini bazen anlamıyor.",
+    "hand": "Konuş. Düzeltmeyi sonra yaparız.",
+    "pill": "Katılıyorsan paylaş :share:"
+   }
+  ],
+  "caption": "Aksanın bir hata değil. 🗣️\n\nHedef \"native gibi\" olmak değil, anlaşılmak. Dünyada İngilizceyi ikinci dil olarak konuşan insanlar, ana dili olanlardan daha fazla — ve hepsinin bir aksanı var.\n\nAksanından utanıp susmak, tek gerçek hata. Konuş; telaffuzu yolda düzeltiriz.\n\nKatılıyorsan hikayende paylaş, aksanından utanan arkadaşına gönder ↗\n\nYour accent is not a mistake. Being understood is the goal.",
+  "hashtags": [
+   "#ingilizcekonuşma",
+   "#speakenglish",
+   "#aksan",
+   "#ingilizce",
+   "#motivasyon",
+   "#learnenglish",
+   "#ingilizceöğreniyorum",
+   "#konuşmapratiği",
+   "#englishspeaking",
+   "#ahkakademi"
+  ],
+  "alt": "Lacivert zeminde büyük beyaz başlık: 'Aksanın bir hata değil.' ('hata' altın renkli). Altında 'Anlaşılmak yeterli' alt başlığı, el yazısıyla 'Konuş. Düzeltmeyi sonra yaparız.' notu ve 'Katılıyorsan paylaş' düğmesi. Arka planda soluk altı köşeli yıldız motifi."
+ },
+ {
+  "id": "04",
+  "slug": "ielts-speaking-band-upgrade",
+  "title": "IELTS Speaking: aynı fikir, Band 8 gibi",
+  "format": "carousel",
+  "pillar": "IELTS Speaking",
+  "series": "IELTS Speaking · Bölüm 1",
+  "hook": "Aynı fikri Band 6 gibi de söyleyebilirsin, Band 8 gibi de",
+  "theme": "navy",
+  "slides": [
+   {
+    "type": "cover",
+    "kicker": "IELTS SPEAKING · BÖLÜM 1",
+    "title": "Aynı fikir. Band 6 gibi de söylenir, ==Band 8 gibi de.==",
+    "sub": "Examiner \"Lexical Resource\" notunu verirken şunu arıyor: az bulunan, doğal, deyimsel dil. İşte 7 örnek.",
+    "pill": "Kaydır → 7 yükseltme"
+   },
+   {
+    "type": "compare",
+    "theme": "paper",
+    "kicker": "YÜKSELTME 1 / 7",
+    "heading": "\"Çok seviyorum\" derken",
+    "leftLabel": "BAND 6 GİBİ",
+    "left": "I like it very much.",
+    "rightLabel": "BAND 8 GİBİ",
+    "right": "I'm really into it.\nI'm a big fan of it.",
+    "stack": true,
+    "why": "**be into something** ve **be a fan of** doğal, günlük ve deyimsel: tam examiner'ın \"less common vocabulary\" dediği şey."
+   },
+   {
+    "type": "compare",
+    "theme": "paper",
+    "kicker": "YÜKSELTME 2 / 7",
+    "heading": "\"Çok önemli\" derken",
+    "leftLabel": "BAND 6 GİBİ",
+    "left": "It is very important.",
+    "rightLabel": "BAND 8 GİBİ",
+    "right": "It's absolutely crucial.\nIt plays a vital role.",
+    "stack": true,
+    "why": "**very** yerine güçlü sıfat: //crucial, vital, essential//. Önüne **absolutely** gelir, **very** değil."
+   },
+   {
+    "type": "compare",
+    "theme": "paper",
+    "kicker": "YÜKSELTME 3 / 7",
+    "heading": "Fikir verirken",
+    "leftLabel": "BAND 6 GİBİ",
+    "left": "In my opinion, I think…",
+    "rightLabel": "BAND 8 GİBİ",
+    "right": "As far as I'm concerned, …\nI'd say that…",
+    "stack": true,
+    "why": "//In my opinion// + //I think// aynı şeyi iki kez söyler. Her cevapta farklı bir fikir kalıbı kullan."
+   },
+   {
+    "type": "compare",
+    "theme": "paper",
+    "kicker": "YÜKSELTME 4 / 7",
+    "heading": "\"Birçok insan\" derken",
+    "leftLabel": "BAND 6 GİBİ",
+    "left": "There are many people who…",
+    "rightLabel": "BAND 8 GİBİ",
+    "right": "Quite a few people…\nA fair number of people…",
+    "stack": true,
+    "why": "**quite a few** = oldukça çok (az değil!). Konuşmada //many// yerine çok daha doğal duyulur."
+   },
+   {
+    "type": "compare",
+    "theme": "paper",
+    "kicker": "YÜKSELTME 5 / 7",
+    "heading": "Katılırken",
+    "leftLabel": "BAND 6 GİBİ",
+    "left": "I agree.",
+    "rightLabel": "BAND 8 GİBİ",
+    "right": "I couldn't agree more.\nThat's exactly how I see it.",
+    "stack": true,
+    "why": "**I couldn't agree more** = daha fazla katılamazdım = tamamen katılıyorum. Kısa cevap yerine gerekçeyle devam et."
+   },
+   {
+    "type": "compare",
+    "theme": "paper",
+    "kicker": "YÜKSELTME 6 / 7",
+    "heading": "\"Çok iyiydi\" derken",
+    "leftLabel": "BAND 6 GİBİ",
+    "left": "It was very good.",
+    "rightLabel": "BAND 8 GİBİ",
+    "right": "It was absolutely brilliant.\nIt exceeded my expectations.",
+    "stack": true,
+    "why": "//good// yerine **brilliant, outstanding, incredible**. //exceed expectations// = beklentileri aşmak."
+   },
+   {
+    "type": "compare",
+    "theme": "paper",
+    "kicker": "YÜKSELTME 7 / 7",
+    "heading": "Bilmediğinde",
+    "leftLabel": "BAND 6 GİBİ",
+    "left": "I don't know.",
+    "rightLabel": "BAND 8 GİBİ",
+    "right": "I've never really thought about it, but I suppose…",
+    "stack": true,
+    "why": "Sessizlik puan getirmez. Düşünürken bile İngilizce konuş: **fluency** notu tam burada kazanılır."
+   },
+   {
+    "type": "recap",
+    "kicker": "ÖZET · 7 YÜKSELTME",
+    "title": "Sınavdan önce bir daha oku",
+    "items": [
+     {
+      "k": "I'm really into it.",
+      "v": "very much yerine"
+     },
+     {
+      "k": "It's absolutely crucial.",
+      "v": "very important yerine"
+     },
+     {
+      "k": "As far as I'm concerned, …",
+      "v": "in my opinion yerine"
+     },
+     {
+      "k": "Quite a few people…",
+      "v": "many people yerine"
+     },
+     {
+      "k": "I couldn't agree more.",
+      "v": "I agree yerine"
+     },
+     {
+      "k": "It exceeded my expectations.",
+      "v": "very good yerine"
+     },
+     {
+      "k": "I suppose…",
+      "v": "I don't know yerine"
+     }
+    ],
+    "itemSize": "33px",
+    "foot": "Bölüm 2: Writing Task 2 bağlaçları. Kaçırmamak için takip et :point:"
+   }
+  ],
+  "caption": "Aynı fikir. Band 6 gibi de söylenir, Band 8 gibi de. 🎤\n\nIELTS Speaking'de examiner \"Lexical Resource\" notu için az bulunan, doğal ve deyimsel dil arıyor. 7 küçük yükseltme:\n• I like it very much → I'm really into it\n• It is very important → It's absolutely crucial\n• In my opinion, I think → As far as I'm concerned\n• There are many people → Quite a few people\n• I agree → I couldn't agree more\n• It was very good → It exceeded my expectations\n• I don't know → I've never really thought about it, but I suppose…\n\nSınava kadar her gün birini cevabına ekle. Kaydet 🔖, IELTS'e hazırlanan arkadaşına gönder.\n\nIELTS Speaking: 7 simple upgrades that make the same idea sound Band 8.",
+  "hashtags": [
+   "#ielts",
+   "#ieltsspeaking",
+   "#ieltspreparation",
+   "#ieltstips",
+   "#ingilizce",
+   "#ieltshazırlık",
+   "#band8",
+   "#speakingtips",
+   "#learnenglish",
+   "#ingilizcekonuşma",
+   "#ahkakademi",
+   "#yds"
+  ],
+  "alt": "9 slaytlık carousel. Lacivert kapakta 'Aynı fikir. Band 6 gibi de söylenir, Band 8 gibi de.' Her iç slaytta açık zemin üzerinde iki kutu: üstte 'Band 6 gibi' etiketli basit cümle (örneğin 'I like it very much'), altında lacivert 'Band 8 gibi' kutusunda doğal alternatifi ('I'm really into it') ve Türkçe açıklama. Son slaytta 7 kalıbın listesi."
+ },
+ {
+  "id": "05",
+  "slug": "ielts-writing-linking-words",
+  "title": "IELTS Writing bağlaç cheat sheet",
+  "format": "carousel",
+  "pillar": "IELTS Writing",
+  "series": "IELTS Writing · Bölüm 1",
+  "hook": "Sınavdan önce bu bağlaçları ekrana al",
+  "theme": "navy",
+  "slides": [
+   {
+    "type": "cover",
+    "kicker": "IELTS WRITING · CHEAT SHEET",
+    "title": "Sınavdan önce bunu ==ekran görüntüsü== al.",
+    "sub": "Task 2 için 6 grupta 28 bağlaç + her birinin örnek cümlesi. Bir de çoğu adayın yaptığı \"moreover\" hatası.",
+    "pill": "Kaydır → 6 grup",
+    "number": "28",
+    "numberSize": 260
+   },
+   {
+    "type": "section",
+    "theme": "paper",
+    "n": "1",
+    "heading": "Eklerken",
+    "sub": "Bir fikre ikinci bir fikir eklerken.",
+    "rows": [
+     {
+      "k": "Furthermore,",
+      "v": "ayrıca"
+     },
+     {
+      "k": "Moreover,",
+      "v": "dahası"
+     },
+     {
+      "k": "In addition,",
+      "v": "buna ek olarak"
+     },
+     {
+      "k": "What is more,",
+      "v": "üstelik"
+     },
+     {
+      "k": "Not only … but also …",
+      "v": "sadece … değil, … de"
+     }
+    ],
+    "example": "Furthermore, remote work reduces commuting time."
+   },
+   {
+    "type": "section",
+    "theme": "paper",
+    "n": "2",
+    "heading": "Karşıtlık kurarken",
+    "sub": "İki fikir çelişirken ya da \"ama\" derken.",
+    "rows": [
+     {
+      "k": "However,",
+      "v": "ancak"
+     },
+     {
+      "k": "Nevertheless,",
+      "v": "yine de"
+     },
+     {
+      "k": "On the other hand,",
+      "v": "öte yandan"
+     },
+     {
+      "k": "Although / Even though …",
+      "v": "… olmasına rağmen"
+     },
+     {
+      "k": "…, whereas …",
+      "v": "… oysa …"
+     }
+    ],
+    "example": "Although cities offer more jobs, the cost of living is higher.",
+    "note": "**Whereas** ve **although** cümle içinde bağlar; başına virgül+nokta koyup tek başına kullanma."
+   },
+   {
+    "type": "section",
+    "theme": "paper",
+    "n": "3",
+    "heading": "Sebep → sonuç",
+    "sub": "\"Bu yüzden\" demenin beş yolu.",
+    "rows": [
+     {
+      "k": "Therefore,",
+      "v": "bu nedenle"
+     },
+     {
+      "k": "As a result,",
+      "v": "sonuç olarak"
+     },
+     {
+      "k": "Consequently,",
+      "v": "dolayısıyla"
+     },
+     {
+      "k": "This is because …",
+      "v": "bunun sebebi …"
+     },
+     {
+      "k": "… due to / owing to + isim",
+      "v": "… nedeniyle"
+     }
+    ],
+    "example": "As a result, fewer people use public transport."
+   },
+   {
+    "type": "section",
+    "theme": "paper",
+    "n": "4",
+    "heading": "Örnek verirken",
+    "sub": "Fikri somutlaştırmadan paragraf bitmez.",
+    "rows": [
+     {
+      "k": "For example, / For instance,",
+      "v": "örneğin"
+     },
+     {
+      "k": "…, such as …",
+      "v": "… gibi …"
+     },
+     {
+      "k": "To illustrate,",
+      "v": "açıklamak gerekirse"
+     },
+     {
+      "k": "A case in point is …",
+      "v": "buna iyi bir örnek …"
+     },
+     {
+      "k": "…, namely …",
+      "v": "yani, şöyle ki"
+     }
+    ],
+    "example": "Many countries, such as Norway, tax sugary drinks."
+   },
+   {
+    "type": "section",
+    "theme": "paper",
+    "n": "5",
+    "heading": "Fikir belirtirken",
+    "sub": "\"I think\" dışında da hayat var.",
+    "rows": [
+     {
+      "k": "In my view,",
+      "v": "bana göre"
+     },
+     {
+      "k": "I firmly believe (that) …",
+      "v": "kesinlikle inanıyorum ki"
+     },
+     {
+      "k": "It is widely argued that …",
+      "v": "yaygın görüşe göre"
+     },
+     {
+      "k": "From my perspective,",
+      "v": "benim açımdan"
+     },
+     {
+      "k": "It seems to me (that) …",
+      "v": "bana öyle geliyor ki"
+     }
+    ],
+    "example": "I firmly believe that education should be free."
+   },
+   {
+    "type": "section",
+    "theme": "paper",
+    "n": "6",
+    "heading": "Bitirirken",
+    "sub": "Sonuç paragrafı için.",
+    "rows": [
+     {
+      "k": "In conclusion,",
+      "v": "sonuç olarak"
+     },
+     {
+      "k": "To sum up,",
+      "v": "özetlemek gerekirse"
+     },
+     {
+      "k": "Overall,",
+      "v": "genel olarak"
+     },
+     {
+      "k": "All things considered,",
+      "v": "her şey düşünüldüğünde"
+     },
+     {
+      "k": "Taking everything into account,",
+      "v": "her şeyi hesaba katarsak"
+     }
+    ],
+    "example": "In conclusion, the benefits clearly outweigh the drawbacks."
+   },
+   {
+    "type": "myth",
+    "theme": "paper",
+    "n": "!",
+    "kicker": "EN SIK YAPILAN HATA",
+    "myth": "Her cümleye \"Moreover\" koyarsam Coherence puanım artar.",
+    "fact": "Mekanik ve aşırı bağlaç kullanımı Coherence & Cohesion puanını düşürür.",
+    "why": "Band descriptor'larında aynen şöyle yazar: bağlaçlar **\"mechanical\"** kullanılırsa puan Band 6'da kalır. Kural: her paragrafta 2–3 bağlaç, hepsi farklı."
+   },
+   {
+    "type": "recap",
+    "kicker": "ÖZET · 6 GRUP",
+    "title": "Her paragraf için bir \"ekle, karşılaştır, kanıtla\" seti",
+    "items": [
+     {
+      "k": "Eklerken",
+      "v": "Furthermore, In addition"
+     },
+     {
+      "k": "Karşıtlık",
+      "v": "However, Although"
+     },
+     {
+      "k": "Sebep → sonuç",
+      "v": "Therefore, As a result"
+     },
+     {
+      "k": "Örnek",
+      "v": "For instance, such as"
+     },
+     {
+      "k": "Fikir",
+      "v": "In my view, I firmly believe"
+     },
+     {
+      "k": "Bitiriş",
+      "v": "In conclusion, Overall"
+     }
+    ],
+    "foot": "Sınavdan önce bir kez daha oku. IELTS'e giren arkadaşına gönder :share:"
+   }
+  ],
+  "caption": "Sınavdan önce bunu ekran görüntüsü al 📸\n\nIELTS Writing Task 2 için 6 grupta 28 bağlaç:\n➕ Eklerken: Furthermore, Moreover, In addition, What is more\n↔️ Karşıtlık: However, Nevertheless, On the other hand, Although, whereas\n➡️ Sebep-sonuç: Therefore, As a result, Consequently, This is because, due to\n💡 Örnek: For instance, such as, To illustrate, A case in point\n🗣️ Fikir: In my view, I firmly believe, It is widely argued that\n🏁 Bitiriş: In conclusion, To sum up, Overall, All things considered\n\nVe en sık yapılan hata: her cümleye \"Moreover\" koymak. Band descriptor'ları mekanik bağlaç kullanımını cezalandırır. Paragraf başına 2–3 bağlaç, hepsi farklı.\n\nKaydet 🔖 ve IELTS'e giren arkadaşına gönder.\n\nIELTS Writing Task 2 linking words cheat sheet: 28 connectors in 6 groups, with examples.",
+  "hashtags": [
+   "#ielts",
+   "#ieltswriting",
+   "#ieltstask2",
+   "#ieltspreparation",
+   "#linkingwords",
+   "#ingilizce",
+   "#ieltshazırlık",
+   "#academicwriting",
+   "#learnenglish",
+   "#ingilizceyazma",
+   "#ahkakademi",
+   "#band7"
+  ],
+  "alt": "9 slaytlık carousel. Lacivert kapakta büyük '28' rakamı ve 'Sınavdan önce bunu ekran görüntüsü al' başlığı. Altı açık renkli slaytın her birinde numaralı bir bağlaç grubu (eklerken, karşıtlık, sebep-sonuç, örnek, fikir, bitiriş), 5 bağlaç ve Türkçe karşılıkları, altta örnek cümle. Sekizinci slaytta efsane/gerçek kutusu: aşırı bağlaç kullanımı puanı düşürür. Son slaytta özet."
+ },
+ {
+  "id": "06",
+  "slug": "phrasal-verbs-get",
+  "title": "GET ile 7 phrasal verb",
+  "format": "carousel",
+  "pillar": "Phrasal verbs & idioms",
+  "series": "Phrasal Verbs · Bölüm 1",
+  "hook": "\"get\" tek başına 7 fiil eder",
+  "theme": "blue",
+  "slides": [
+   {
+    "type": "cover",
+    "kicker": "PHRASAL VERBS · BÖLÜM 1",
+    "title": "Tek kelime, ==7 farklı fiil:== GET",
+    "sub": "Native'lerin her gün kullandığı, ders kitaplarının geç öğrettiği 7 phrasal verb. Hepsi örnekli.",
+    "pill": "Kaydır → get over'dan başla",
+    "ghost": "GET",
+    "ghostSize": 360
+   },
+   {
+    "type": "word",
+    "theme": "paper",
+    "kicker": "GET · 1 / 7",
+    "word": "get over",
+    "size": "md",
+    "pos": "phrasal verb",
+    "meaning": "atlatmak (hastalık, ayrılık, şok)",
+    "example": "It took me weeks to get over the flu.",
+    "exampleTr": "Gribi atlatmam haftalar sürdü.",
+    "note": "Ayrılık için de: //I still haven't got over her.//"
+   },
+   {
+    "type": "word",
+    "theme": "paper",
+    "kicker": "GET · 2 / 7",
+    "word": "get along with",
+    "size": "md",
+    "pos": "phrasal verb",
+    "meaning": "biriyle iyi geçinmek",
+    "example": "I get along really well with my colleagues.",
+    "exampleTr": "İş arkadaşlarımla çok iyi geçiniyorum.",
+    "note": "İngiltere'de **get on with** de aynı anlamda."
+   },
+   {
+    "type": "word",
+    "theme": "paper",
+    "kicker": "GET · 3 / 7",
+    "word": "get by",
+    "size": "md",
+    "pos": "phrasal verb",
+    "meaning": "idare etmek, yetinmek",
+    "example": "My Spanish isn't great, but I can get by.",
+    "exampleTr": "İspanyolcam harika değil ama idare ediyorum.",
+    "note": "Para için de: //We get by on one salary.//"
+   },
+   {
+    "type": "word",
+    "theme": "paper",
+    "kicker": "GET · 4 / 7",
+    "word": "get away with",
+    "size": "md",
+    "pos": "phrasal verb",
+    "meaning": "yanına kâr kalmak, cezasız kurtulmak",
+    "example": "He cheated on the test and got away with it.",
+    "exampleTr": "Sınavda kopya çekti ve yanına kâr kaldı."
+   },
+   {
+    "type": "word",
+    "theme": "paper",
+    "kicker": "GET · 5 / 7",
+    "word": "get back to",
+    "size": "md",
+    "pos": "phrasal verb",
+    "meaning": "birine (cevapla) geri dönmek",
+    "example": "I'll get back to you by Monday.",
+    "exampleTr": "Pazartesiye kadar size dönüş yaparım.",
+    "note": "İş e-postalarının en çok kullanılan phrasal verb'ü."
+   },
+   {
+    "type": "word",
+    "theme": "paper",
+    "kicker": "GET · 6 / 7",
+    "word": "get through",
+    "size": "md",
+    "pos": "phrasal verb",
+    "meaning": "zor bir şeyi atlatmak, bitirmek",
+    "example": "We somehow got through the exam week.",
+    "exampleTr": "Sınav haftasını bir şekilde atlattık.",
+    "note": "Telefonda: //I couldn't get through to her.// = ulaşamadım."
+   },
+   {
+    "type": "word",
+    "theme": "paper",
+    "kicker": "GET · 7 / 7",
+    "word": "get rid of",
+    "size": "md",
+    "pos": "phrasal verb",
+    "meaning": "kurtulmak, başından atmak",
+    "example": "I need to get rid of these old books.",
+    "exampleTr": "Bu eski kitaplardan kurtulmam lazım."
+   },
+   {
+    "type": "recap",
+    "kicker": "ÖZET · GET × 7",
+    "title": "Bu hafta her gün birini cümlede kullan",
+    "items": [
+     {
+      "k": "get over",
+      "v": "atlatmak"
+     },
+     {
+      "k": "get along with",
+      "v": "iyi geçinmek"
+     },
+     {
+      "k": "get by",
+      "v": "idare etmek"
+     },
+     {
+      "k": "get away with",
+      "v": "yanına kâr kalmak"
+     },
+     {
+      "k": "get back to",
+      "v": "geri dönüş yapmak"
+     },
+     {
+      "k": "get through",
+      "v": "atlatmak, bitirmek"
+     },
+     {
+      "k": "get rid of",
+      "v": "kurtulmak"
+     }
+    ],
+    "foot": "Hangisiyle bir cümle kurarsın? Yorumlara yaz :point: Bölüm 2: TAKE."
+   }
+  ],
+  "caption": "Tek kelime, 7 farklı fiil: GET 🔑\n\n• get over → atlatmak: It took me weeks to get over the flu.\n• get along with → iyi geçinmek: I get along with my colleagues.\n• get by → idare etmek: My Spanish isn't great, but I can get by.\n• get away with → yanına kâr kalmak: He got away with it.\n• get back to → geri dönüş yapmak: I'll get back to you by Monday.\n• get through → atlatmak: We got through the exam week.\n• get rid of → kurtulmak: I need to get rid of these old books.\n\nBu hafta her gün birini kendi cümlende kullan. Hangisiyle cümle kurdun? Yorumlara yaz 👇\nKaydet 🔖 — Bölüm 2'de TAKE var.\n\n7 phrasal verbs with GET that native speakers use every day.",
+  "hashtags": [
+   "#phrasalverbs",
+   "#ingilizce",
+   "#ingilizcekelime",
+   "#learnenglish",
+   "#englishvocabulary",
+   "#ingilizceöğreniyorum",
+   "#speakenglish",
+   "#ielts",
+   "#vocabulary",
+   "#ahkakademi",
+   "#ingilizcekonuşma",
+   "#englishtips"
+  ],
+  "alt": "9 slaytlık carousel. Mavi kapakta 'Tek kelime, 7 farklı fiil: GET' başlığı ve arka planda büyük saydam 'GET' yazısı. Her açık renkli slaytta büyük bir phrasal verb (get over, get along with, get by, get away with, get back to, get through, get rid of), Türkçe anlamı, İngilizce örnek cümle ve çevirisi. Son slaytta 7 fiilin özet listesi."
+ },
+ {
+  "id": "07",
+  "slug": "business-email-native",
+  "title": "İş e-postası: Türkçe düşünce vs native",
+  "format": "carousel",
+  "pillar": "Business English",
+  "series": "Business English · Bölüm 1",
+  "hook": "\"Good works\" yazdıysan bu post senin için",
+  "theme": "navy",
+  "slides": [
+   {
+    "type": "coverStrike",
+    "kicker": "BUSINESS ENGLISH · BÖLÜM 1",
+    "wrong": "Good works!",
+    "title": "E-postanın sonuna bunu yazdıysan ==bu post senin.==",
+    "sub": "Türkçeden çevrilen 7 e-posta cümlesi ve native'lerin gerçekten yazdığı hâlleri.",
+    "pill": "Kaydır → 7 düzeltme"
+   },
+   {
+    "type": "compare",
+    "theme": "paper",
+    "kicker": "E-POSTA · 1 / 7 · HİTAP",
+    "heading": "\"Sayın John Bey\"",
+    "leftLabel": "TÜRKÇE DÜŞÜNCE",
+    "left": "Hello Mr. John,",
+    "rightLabel": "NATIVE",
+    "right": "Dear Mr Smith,  (resmi)\nHi John,  (günlük)",
+    "stack": true,
+    "why": "**Mr / Ms** sadece soyadla gelir. İsimle hitap ediyorsan **Hi** ya da **Dear John** yeterli."
+   },
+   {
+    "type": "compare",
+    "theme": "paper",
+    "kicker": "E-POSTA · 2 / 7 · GİRİŞ",
+    "heading": "\"Rapor için yazıyorum\"",
+    "leftLabel": "TÜRKÇE DÜŞÜNCE",
+    "left": "I am writing to you for the report.",
+    "rightLabel": "NATIVE",
+    "right": "I'm writing regarding the report.\nI'm writing to ask about the report.",
+    "stack": true,
+    "why": "**regarding / about** = hakkında. **for** burada \"rapor uğruna\" gibi duyulur."
+   },
+   {
+    "type": "compare",
+    "theme": "paper",
+    "kicker": "E-POSTA · 3 / 7 · EK",
+    "heading": "\"Dosyayı ekte gönderiyorum\"",
+    "leftLabel": "TÜRKÇE DÜŞÜNCE",
+    "left": "I send you the file in attachment.",
+    "rightLabel": "NATIVE",
+    "right": "Please find the report attached.\nI've attached the report.",
+    "stack": true,
+    "why": "İki kalıp da doğru; ikincisi daha modern ve sade. **in attachment** diye bir şey yok."
+   },
+   {
+    "type": "compare",
+    "theme": "paper",
+    "kicker": "E-POSTA · 4 / 7 · RİCA",
+    "heading": "\"Hızlı cevap verirseniz sevinirim\"",
+    "leftLabel": "TÜRKÇE DÜŞÜNCE",
+    "left": "I will be glad if you answer fast.",
+    "rightLabel": "NATIVE",
+    "right": "I'd appreciate a reply by Friday.\nCould you get back to me by Friday?",
+    "stack": true,
+    "why": "**fast** yerine net bir tarih. **I'd appreciate** = minnettar olurum: kibar ve profesyonel."
+   },
+   {
+    "type": "compare",
+    "theme": "paper",
+    "kicker": "E-POSTA · 5 / 7 · ÖZÜR",
+    "heading": "\"Geç cevap için özür dilerim\"",
+    "leftLabel": "TÜRKÇE DÜŞÜNCE",
+    "left": "Sorry for late answer.",
+    "rightLabel": "NATIVE",
+    "right": "Apologies for the delayed response.\nSorry for the late reply.",
+    "stack": true,
+    "why": "E-posta cevabı **reply / response**, //answer// değil. Artikel unutma: **the** late reply."
+   },
+   {
+    "type": "compare",
+    "theme": "paper",
+    "kicker": "E-POSTA · 6 / 7 · BEKLEME",
+    "heading": "\"Cevabınızı bekliyorum\"",
+    "leftLabel": "TÜRKÇE DÜŞÜNCE",
+    "left": "I wait your answer.",
+    "rightLabel": "NATIVE",
+    "right": "I look forward to hearing from you.\nLooking forward to your reply.",
+    "stack": true,
+    "why": "**look forward to + -ing**: //to hearing//, //to meeting//. //to hear// değil."
+   },
+   {
+    "type": "compare",
+    "theme": "paper",
+    "kicker": "E-POSTA · 7 / 7 · KAPANIŞ",
+    "heading": "\"İyi çalışmalar\"",
+    "leftLabel": "TÜRKÇE DÜŞÜNCE",
+    "left": "Good works,",
+    "rightLabel": "NATIVE",
+    "right": "Kind regards,  (resmi)\nBest,  (günlük)",
+    "stack": true,
+    "why": "\"İyi çalışmalar\"ın İngilizcesi yok. Kapanış kalıbı + isim yeter. Tam kapanış listesi ayrı bir postta."
+   },
+   {
+    "type": "recap",
+    "kicker": "ÖZET · 7 KALIP",
+    "title": "Bir sonraki e-postana kopyala",
+    "items": [
+     "Dear Mr Smith, / Hi John,",
+     "I'm writing regarding …",
+     "I've attached …",
+     "I'd appreciate a reply by …",
+     "Apologies for the delayed response.",
+     "I look forward to hearing from you.",
+     "Kind regards, / Best,"
+    ],
+    "itemSize": "34px",
+    "foot": "İngilizce e-posta yazan arkadaşına gönder :share: Bölüm 2: toplantı cümleleri."
+   }
+  ],
+  "caption": "E-postanın sonuna \"Good works\" yazdıysan bu post senin 📧\n\nTürkçeden çevrilen 7 e-posta cümlesi ve native'lerin gerçekten yazdığı hâlleri:\n❌ Hello Mr. John → ✅ Dear Mr Smith, / Hi John,\n❌ I am writing to you for the report → ✅ I'm writing regarding the report.\n❌ I send you the file in attachment → ✅ I've attached the report.\n❌ I will be glad if you answer fast → ✅ I'd appreciate a reply by Friday.\n❌ Sorry for late answer → ✅ Apologies for the delayed response.\n❌ I wait your answer → ✅ I look forward to hearing from you.\n❌ Good works → ✅ Kind regards, / Best,\n\nKaydet 🔖, bir sonraki e-postana kopyala. İngilizce e-posta yazan arkadaşına gönder ↗\n\n7 business email phrases Turkish speakers translate literally — and what native speakers actually write.",
+  "hashtags": [
+   "#businessenglish",
+   "#işingilizcesi",
+   "#emailenglish",
+   "#ingilizce",
+   "#professionalenglish",
+   "#learnenglish",
+   "#ingilizceöğreniyorum",
+   "#kurumsalingilizce",
+   "#englishforwork",
+   "#ahkakademi",
+   "#ingilizceeposta",
+   "#careertips"
+  ],
+  "alt": "9 slaytlık carousel. Lacivert kapakta üstü çizili 'Good works!' kutusu ve 'E-postanın sonuna bunu yazdıysan bu post senin' başlığı. Her açık renkli slaytta 'Türkçe düşünce' etiketli yanlış e-posta cümlesi, altında lacivert 'native' kutusunda doğru kalıplar ve Türkçe açıklama. Son slaytta 7 kalıbın listesi."
+ },
+ {
+  "id": "08",
+  "slug": "pronunciation-traps",
+  "title": "Türklerin yanlış okuduğu 8 kelime",
+  "format": "carousel",
+  "pillar": "Pronunciation",
+  "series": "Telaffuz Tuzakları · Bölüm 1",
+  "hook": "\"Comfortable\" 4 hece değil, 3 hece",
+  "theme": "navy",
+  "slides": [
+   {
+    "type": "cover",
+    "kicker": "TELAFFUZ TUZAKLARI · BÖLÜM 1",
+    "title": "\"Comfortable\" ==4 hece değil,== 3 hece.",
+    "sub": "Türkçe yazıldığı gibi okunur. İngilizce okunmaz. İşte Türklerin en çok yanlış okuduğu 8 kelime, IPA'sıyla.",
+    "pill": "Kaydır → sesli oku",
+    "lead": "/ˈkʌmf·tə·bəl/"
+   },
+   {
+    "type": "word",
+    "theme": "paper",
+    "kicker": "TUZAK 1 / 8",
+    "word": "comfortable",
+    "size": "md",
+    "ipa": "/ˈkʌmftəbəl/",
+    "looksLabel": "TÜRKLER BÖYLE OKUYOR",
+    "looks": "kom-for-tey-bıl (4 hece)",
+    "actualLabel": "DOĞRUSU",
+    "actual": "KAMF-tı-bıl (3 hece) · \"or\" neredeyse yok",
+    "example": "This chair is really comfortable.",
+    "note": "Aynı kural: **vegetable** → VEC-tı-bıl."
+   },
+   {
+    "type": "word",
+    "theme": "paper",
+    "kicker": "TUZAK 2 / 8",
+    "word": "vegetable",
+    "size": "md",
+    "ipa": "/ˈvedʒtəbəl/",
+    "looksLabel": "TÜRKLER BÖYLE OKUYOR",
+    "looks": "ve-ce-tey-bıl (4 hece)",
+    "actualLabel": "DOĞRUSU",
+    "actual": "VEC-tı-bıl (3 hece) · ortadaki \"e\" sessiz",
+    "example": "Eat more vegetables."
+   },
+   {
+    "type": "word",
+    "theme": "paper",
+    "kicker": "TUZAK 3 / 8",
+    "word": "Wednesday",
+    "size": "md",
+    "ipa": "/ˈwenzdeɪ/",
+    "looksLabel": "TÜRKLER BÖYLE OKUYOR",
+    "looks": "ved-nes-dey",
+    "actualLabel": "DOĞRUSU",
+    "actual": "VENZ-dey (2 hece) · ilk \"d\" sessiz",
+    "example": "See you on Wednesday."
+   },
+   {
+    "type": "word",
+    "theme": "paper",
+    "kicker": "TUZAK 4 / 8",
+    "word": "receipt",
+    "size": "md",
+    "ipa": "/rɪˈsiːt/",
+    "looksLabel": "TÜRKLER BÖYLE OKUYOR",
+    "looks": "ri-sept",
+    "actualLabel": "DOĞRUSU",
+    "actual": "ri-SİİT · \"p\" tamamen sessiz",
+    "example": "Could I have a receipt, please?",
+    "note": "Fiş = **receipt**. Tarif = **recipe** /ˈresəpi/."
+   },
+   {
+    "type": "word",
+    "theme": "paper",
+    "kicker": "TUZAK 5 / 8",
+    "word": "salmon",
+    "size": "md",
+    "ipa": "/ˈsæmən/",
+    "looksLabel": "TÜRKLER BÖYLE OKUYOR",
+    "looks": "sal-mon",
+    "actualLabel": "DOĞRUSU",
+    "actual": "SÆ-mın · \"l\" sessiz",
+    "example": "I'll have the grilled salmon."
+   },
+   {
+    "type": "word",
+    "theme": "paper",
+    "kicker": "TUZAK 6 / 8",
+    "word": "island",
+    "size": "md",
+    "ipa": "/ˈaɪlənd/",
+    "looksLabel": "TÜRKLER BÖYLE OKUYOR",
+    "looks": "is-lend",
+    "actualLabel": "DOĞRUSU",
+    "actual": "AY-lınd · \"s\" sessiz",
+    "example": "We spent a week on the island."
+   },
+   {
+    "type": "word",
+    "theme": "paper",
+    "kicker": "TUZAK 7 / 8",
+    "word": "colonel",
+    "size": "md",
+    "ipa": "/ˈkɜːnəl/",
+    "looksLabel": "TÜRKLER BÖYLE OKUYOR",
+    "looks": "ko-lo-nel",
+    "actualLabel": "DOĞRUSU",
+    "actual": "KÖÖ-nıl · \"kernel\" gibi okunur",
+    "example": "The colonel gave the order.",
+    "note": "İngilizcenin en absürt yazım-okunuş farkı. Evet, gerçekten."
+   },
+   {
+    "type": "word",
+    "theme": "paper",
+    "kicker": "TUZAK 8 / 8",
+    "word": "debt",
+    "size": "md",
+    "ipa": "/det/",
+    "looksLabel": "TÜRKLER BÖYLE OKUYOR",
+    "looks": "debt (b ile)",
+    "actualLabel": "DOĞRUSU",
+    "actual": "DET · \"b\" sessiz",
+    "example": "He paid off all his debt.",
+    "note": "Aynı aile: **doubt** /daʊt/, **subtle** /ˈsʌtəl/."
+   },
+   {
+    "type": "recap",
+    "kicker": "ÖZET · 8 KELİME",
+    "title": "Şimdi sesli oku: 3 tur",
+    "items": [
+     {
+      "k": "comfortable",
+      "v": "/ˈkʌmftəbəl/"
+     },
+     {
+      "k": "vegetable",
+      "v": "/ˈvedʒtəbəl/"
+     },
+     {
+      "k": "Wednesday",
+      "v": "/ˈwenzdeɪ/"
+     },
+     {
+      "k": "receipt",
+      "v": "/rɪˈsiːt/"
+     },
+     {
+      "k": "salmon",
+      "v": "/ˈsæmən/"
+     },
+     {
+      "k": "island",
+      "v": "/ˈaɪlənd/"
+     },
+     {
+      "k": "colonel",
+      "v": "/ˈkɜːnəl/"
+     },
+     {
+      "k": "debt",
+      "v": "/det/"
+     }
+    ],
+    "foot": "Hangisini yıllardır yanlış okuyordun? Yorumlara yaz :point: Bölüm 2: sessiz harfler."
+   }
+  ],
+  "caption": "\"Comfortable\" 4 hece değil, 3 hece 🗣️\n\nTürkçe yazıldığı gibi okunur; İngilizce okunmaz. Türklerin en çok yanlış okuduğu 8 kelime:\n• comfortable → /ˈkʌmftəbəl/ (KAMF-tı-bıl)\n• vegetable → /ˈvedʒtəbəl/ (VEC-tı-bıl)\n• Wednesday → /ˈwenzdeɪ/ (ilk d sessiz)\n• receipt → /rɪˈsiːt/ (p sessiz)\n• salmon → /ˈsæmən/ (l sessiz)\n• island → /ˈaɪlənd/ (s sessiz)\n• colonel → /ˈkɜːnəl/ (\"kernel\" gibi)\n• debt → /det/ (b sessiz)\n\nHangisini yıllardır yanlış okuyordun? Yorumlara yaz 👇\nKaydet 🔖, sesli okuma pratiği için geri dön. Bölüm 2'de sessiz harfler var.\n\n8 English words Turkish speakers mispronounce, with IPA.",
+  "hashtags": [
+   "#telaffuz",
+   "#pronunciation",
+   "#ingilizce",
+   "#ingilizcetelaffuz",
+   "#learnenglish",
+   "#englishpronunciation",
+   "#ingilizceöğreniyorum",
+   "#speakenglish",
+   "#ipa",
+   "#ahkakademi",
+   "#ingilizcekonuşma",
+   "#esl"
+  ],
+  "alt": "10 slaytlık carousel. Lacivert kapakta 'Comfortable 4 hece değil, 3 hece' başlığı ve IPA yazımı. Her açık renkli slaytta büyük bir İngilizce kelime, IPA okunuşu, kırmızı çizgili 'Türkler böyle okuyor' kutusu, yeşil çizgili 'doğrusu' kutusu ve örnek cümle. Son slaytta 8 kelime ve IPA'ları listelenmiş."
+ },
+ {
+  "id": "09",
+  "slug": "in-on-at-time",
+  "title": "in / on / at: zaman edatları",
+  "format": "carousel",
+  "pillar": "Grammar made simple",
+  "series": "Gramer · Edatlar",
+  "hook": "in, on, at: 3 kutu, sıfır ezber",
+  "theme": "gold",
+  "slides": [
+   {
+    "type": "cover",
+    "kicker": "GRAMER · ZAMAN EDATLARI",
+    "title": "in / on / at ==3 kutu,== sıfır ezber.",
+    "sub": "Büyükten küçüğe düşün: yıl ve ay → gün → saat. Gerisi birkaç istisna.",
+    "pill": "Kaydır → 3 kutu + quiz",
+    "ghost": "in on at",
+    "ghostSize": 180
+   },
+   {
+    "type": "section",
+    "theme": "paper",
+    "n": "IN",
+    "heading": "Geniş zamanlar",
+    "sub": "Yıllar, aylar, mevsimler, günün bölümleri, \"… sonra\".",
+    "rows": [
+     {
+      "k": "in 2025 · in the 1990s",
+      "v": "yıllar, on yıllar"
+     },
+     {
+      "k": "in May · in summer",
+      "v": "aylar, mevsimler"
+     },
+     {
+      "k": "in the morning / afternoon / evening",
+      "v": "günün bölümleri"
+     },
+     {
+      "k": "in two weeks",
+      "v": "iki hafta sonra"
+     },
+     {
+      "k": "in the 21st century",
+      "v": "yüzyıllar"
+     }
+    ],
+    "example": "I was born in July, in the morning."
+   },
+   {
+    "type": "section",
+    "theme": "paper",
+    "n": "ON",
+    "heading": "Günler ve tarihler",
+    "sub": "Belirli bir gün: takvimde parmağını koyabildiğin yer.",
+    "rows": [
+     {
+      "k": "on Monday · on Fridays",
+      "v": "günler"
+     },
+     {
+      "k": "on 5 May · on May 5th",
+      "v": "tarihler"
+     },
+     {
+      "k": "on my birthday",
+      "v": "özel günler"
+     },
+     {
+      "k": "on Christmas Day",
+      "v": "bayram günü (gün vurgusu)"
+     },
+     {
+      "k": "on Monday morning",
+      "v": "gün + bölüm → ON"
+     }
+    ],
+    "example": "The meeting is on Tuesday morning."
+   },
+   {
+    "type": "section",
+    "theme": "paper",
+    "n": "AT",
+    "heading": "Saatler ve anlar",
+    "sub": "Tam zaman noktaları ve birkaç sabit kalıp.",
+    "rows": [
+     {
+      "k": "at 7 o'clock · at 9:30",
+      "v": "saatler"
+     },
+     {
+      "k": "at noon · at midnight",
+      "v": "gün ortası, gece yarısı"
+     },
+     {
+      "k": "at night",
+      "v": "istisna! (in the evening ama at night)"
+     },
+     {
+      "k": "at the weekend",
+      "v": "İngiliz İng. (ABD: on the weekend)"
+     },
+     {
+      "k": "at Christmas · at the moment",
+      "v": "bayram dönemi, şu an"
+     }
+    ],
+    "example": "I usually study at night, at around 10."
+   },
+   {
+    "type": "section",
+    "theme": "paper",
+    "n": "✗",
+    "heading": "Edat YOK",
+    "sub": "Bu kelimelerle in/on/at kullanma. Türklerin en sık hatası.",
+    "rows": [
+     {
+      "k": "this / next / last Monday",
+      "v": "~~on~~ next Monday"
+     },
+     {
+      "k": "every morning",
+      "v": "~~in~~ every morning"
+     },
+     {
+      "k": "today · tomorrow · yesterday",
+      "v": "edatsız"
+     },
+     {
+      "k": "tonight · this week",
+      "v": "edatsız"
+     }
+    ],
+    "example": "See you next Friday. (✗ on next Friday)"
+   },
+   {
+    "type": "quiz",
+    "theme": "navy",
+    "n": "?",
+    "kicker": "MİNİ QUIZ · 3 SORU",
+    "q": "1. I'll see you ___ Friday ___ 9 o'clock.\n2. She was born ___ 1999, ___ July.\n3. What are you doing ___ the evening?",
+    "options": [
+     "on · at  /  in · in  /  in",
+     "at · on  /  on · in  /  at",
+     "in · at  /  in · on  /  on"
+    ],
+    "hint": "Cevaplar bir sonraki slaytta :point:"
+   },
+   {
+    "type": "answers",
+    "theme": "navy",
+    "heading": "Cevap: A",
+    "items": [
+     {
+      "n": "1",
+      "a": "on Friday at 9 o'clock",
+      "why": "gün → on, saat → at"
+     },
+     {
+      "n": "2",
+      "a": "in 1999, in July",
+      "why": "yıl → in, ay → in"
+     },
+     {
+      "n": "3",
+      "a": "in the evening",
+      "why": "günün bölümü → in (ama: at night)"
+     }
+    ],
+    "score": "3/3 yaptıysan yorumlara ⭐ bırak.",
+    "cta": [
+     ":save: Kaydet",
+     ":share: Paylaş"
+    ]
+   }
+  ],
+  "caption": "in / on / at: 3 kutu, sıfır ezber ⏰\n\nBüyükten küçüğe düşün:\n📅 IN → yıl, ay, mevsim, günün bölümü: in 2025, in May, in summer, in the morning\n📌 ON → gün ve tarih: on Monday, on 5 May, on my birthday, on Monday morning\n⏱️ AT → saat ve an: at 7 o'clock, at noon, at night (!), at the weekend (UK)\n🚫 Edat YOK → next Monday, every morning, today, tonight\n\nMini quiz: \"I'll see you ___ Friday ___ 9.\" Cevabını yorumlara yaz, son slaytta kontrol et 👇\nKaydet 🔖, edatlarda kafası karışan arkadaşına gönder.\n\nPrepositions of time in English: in / on / at explained with one simple rule and a 3-question quiz.",
+  "hashtags": [
+   "#ingilizcegramer",
+   "#prepositions",
+   "#ingilizce",
+   "#grammar",
+   "#learnenglish",
+   "#ingilizceöğreniyorum",
+   "#edatlar",
+   "#englishgrammar",
+   "#ielts",
+   "#ahkakademi",
+   "#ingilizcedersi",
+   "#yds"
+  ],
+  "alt": "7 slaytlık carousel. Altın sarısı kapakta 'in / on / at: 3 kutu, sıfır ezber' başlığı. Üç açık renkli slaytta IN, ON ve AT için kullanım listeleri ve örnek cümleler; dördüncüde edat kullanılmayan kelimeler (next, every, today). Lacivert quiz slaytında 3 boşluk doldurma sorusu ve A/B/C seçenekleri; son slaytta cevaplar ve açıklamaları."
+ },
+ {
+  "id": "10",
+  "slug": "present-perfect",
+  "title": "Present Perfect'i 1 dakikada anla",
+  "format": "carousel",
+  "pillar": "Grammar made simple",
+  "series": "Gramer · Zamanlar",
+  "hook": "\"I have seen him yesterday\" diyorsan Present Perfect'i yanlış öğrenmişsin",
+  "theme": "navy",
+  "slides": [
+   {
+    "type": "coverStrike",
+    "kicker": "GRAMER · ZAMANLAR",
+    "wrong": "I have seen him yesterday.",
+    "title": "Present Perfect'i ==1 dakikada== anla.",
+    "sub": "Türkçede karşılığı olmayan tek zaman. Ezber değil, tek bir fikir: geçmiş → şimdiye köprü.",
+    "pill": "Kaydır → 6 adım"
+   },
+   {
+    "type": "compare",
+    "theme": "paper",
+    "kicker": "ADIM 1 / 6 · FİKİR",
+    "heading": "Geçmişte oldu, etkisi şimdi",
+    "leftLabel": "PAST SIMPLE · BİTTİ",
+    "left": "I lost my keys yesterday.\n(dün kaybettim; belki buldum, belki bulmadım — mesele dün)",
+    "rightLabel": "PRESENT PERFECT · ŞİMDİYE BAĞLI",
+    "right": "I have lost my keys.\n(kaybettim ve hâlâ yok — mesele şu an)",
+    "stack": true,
+    "why": "Present Perfect = **have/has + V3**. Soru şu: bunun şimdiyle ilgisi var mı? Varsa Present Perfect."
+   },
+   {
+    "type": "section",
+    "theme": "paper",
+    "n": "2",
+    "heading": "since & for",
+    "sub": "Başlayıp hâlâ süren durumlar.",
+    "rows": [
+     {
+      "k": "since + başlangıç noktası",
+      "v": "since 2019, since Monday"
+     },
+     {
+      "k": "for + süre",
+      "v": "for 5 years, for two hours"
+     },
+     {
+      "k": "I've lived here since 2019.",
+      "v": "2019'dan beri"
+     },
+     {
+      "k": "I've lived here for five years.",
+      "v": "5 yıldır"
+     }
+    ],
+    "note": "Türkçe tuzağı: ~~I am here since two hours~~ → **I have been here for two hours.**"
+   },
+   {
+    "type": "section",
+    "theme": "paper",
+    "n": "3",
+    "heading": "already · yet · just",
+    "sub": "Üçü de \"şimdi\"ye bakar.",
+    "rows": [
+     {
+      "k": "I've already eaten.",
+      "v": "already = çoktan (olumlu)"
+     },
+     {
+      "k": "Have you finished yet?",
+      "v": "yet = henüz (soru)"
+     },
+     {
+      "k": "I haven't finished yet.",
+      "v": "yet = henüz (olumsuz, sonda)"
+     },
+     {
+      "k": "She's just left.",
+      "v": "just = az önce"
+     }
+    ]
+   },
+   {
+    "type": "section",
+    "theme": "paper",
+    "n": "4",
+    "heading": "ever · never",
+    "sub": "Hayat deneyimi: \"hiç … -dın mı?\"",
+    "rows": [
+     {
+      "k": "Have you ever been to London?",
+      "v": "hiç gittin mi?"
+     },
+     {
+      "k": "I've never tried sushi.",
+      "v": "hiç denemedim"
+     },
+     {
+      "k": "It's the best film I've ever seen.",
+      "v": "şimdiye kadar gördüğüm"
+     }
+    ],
+    "note": "**been to** = gidip döndü. **gone to** = gitti, hâlâ orada."
+   },
+   {
+    "type": "compare",
+    "theme": "paper",
+    "kicker": "ADIM 5 / 6 · EN BÜYÜK KURAL",
+    "heading": "Bitmiş zaman varsa Past Simple",
+    "leftLabel": "✗ BİTMİŞ ZAMAN + PRESENT PERFECT",
+    "left": "I have seen him yesterday.\nI have graduated in 2020.",
+    "rightLabel": "✓ BİTMİŞ ZAMAN + PAST SIMPLE",
+    "right": "I saw him yesterday.\nI graduated in 2020.",
+    "stack": true,
+    "why": "**yesterday, last week, in 2020, two days ago, when I was a child** → zaman bitmiş → Past Simple. İstisnasız."
+   },
+   {
+    "type": "recap",
+    "kicker": "ÖZET · 6 ADIM",
+    "title": "Tek soru: şimdiyle ilgisi var mı?",
+    "items": [
+     "Evet → **have/has + V3**",
+     "Başlangıç → **since** · süre → **for**",
+     "already (çoktan) · yet (henüz) · just (az önce)",
+     "Deneyim → **ever / never**",
+     "been to (döndü) ≠ gone to (orada)",
+     "yesterday, in 2020, ago → **Past Simple**"
+    ],
+    "itemSize": "34px",
+    "foot": "\"I have seen him yesterday\" diyen arkadaşına gönder :share:"
+   }
+  ],
+  "caption": "\"I have seen him yesterday\" diyorsan Present Perfect'i yanlış öğrenmişsin 🧠\n\nTürkçede karşılığı olmayan tek zaman, tek bir fikirle çözülür: geçmişte oldu, etkisi şimdi.\n• I lost my keys yesterday (mesele dün) vs I have lost my keys (hâlâ yok)\n• since + başlangıç (since 2019) · for + süre (for 5 years)\n• already (çoktan) · yet (henüz) · just (az önce)\n• ever / never → hayat deneyimi\n• been to (gidip döndü) ≠ gone to (hâlâ orada)\n• En büyük kural: yesterday, in 2020, ago, last week → Past Simple. İstisnasız.\n\nTürkçe tuzağı: ❌ I am here since two hours → ✅ I have been here for two hours.\n\nKaydet 🔖, sınavdan önce bir daha bak. \"I have seen him yesterday\" diyen arkadaşına gönder 👇\n\nPresent Perfect explained in one idea, with the six rules that matter.",
+  "hashtags": [
+   "#presentperfect",
+   "#ingilizcegramer",
+   "#ingilizce",
+   "#grammar",
+   "#englishgrammar",
+   "#learnenglish",
+   "#ingilizceöğreniyorum",
+   "#tenses",
+   "#ielts",
+   "#yds",
+   "#ahkakademi",
+   "#ingilizcedersi"
+  ],
+  "alt": "7 slaytlık carousel. Lacivert kapakta üstü çizili 'I have seen him yesterday' kutusu ve 'Present Perfect'i 1 dakikada anla' başlığı. İç slaytlarda açık zeminde karşılaştırma kutuları (Past Simple vs Present Perfect), since/for, already/yet/just ve ever/never listeleri; beşinci slaytta bitmiş zaman ifadeleriyle Past Simple kuralı. Son slaytta 6 maddelik özet."
+ },
+ {
+  "id": "11",
+  "slug": "seviye-quiz",
+  "title": "6 soruda seviyeni ölç",
+  "format": "carousel",
+  "pillar": "Quiz",
+  "series": "Quiz Günü",
+  "hook": "6 soru, 60 saniye: kaç doğru?",
+  "theme": "blue",
+  "slides": [
+   {
+    "type": "cover",
+    "kicker": "QUIZ GÜNÜ",
+    "title": "6 soru, 60 saniye. ==Kaç doğru?==",
+    "sub": "Cevapları son slaytta. Hile yok: önce kendi cevabını yorumlara yaz, sonra kaydır.",
+    "pill": "Kaydır → başla",
+    "number": "6",
+    "numberSize": 280
+   },
+   {
+    "type": "quiz",
+    "n": "1",
+    "q": "She ___ to work by bus every day.",
+    "options": [
+     "go",
+     "goes",
+     "is going"
+    ]
+   },
+   {
+    "type": "quiz",
+    "n": "2",
+    "q": "I've lived in İzmir ___ 2019.",
+    "options": [
+     "for",
+     "since",
+     "from"
+    ]
+   },
+   {
+    "type": "quiz",
+    "n": "3",
+    "q": "There isn't ___ milk left in the fridge.",
+    "options": [
+     "some",
+     "any",
+     "a"
+    ]
+   },
+   {
+    "type": "quiz",
+    "n": "4",
+    "q": "If I ___ you, I'd take the job.",
+    "options": [
+     "am",
+     "were",
+     "will be"
+    ]
+   },
+   {
+    "type": "quiz",
+    "n": "5",
+    "q": "He's really interested ___ modern art.",
+    "options": [
+     "on",
+     "in",
+     "about"
+    ]
+   },
+   {
+    "type": "quiz",
+    "n": "6",
+    "q": "___ you ever been to London?",
+    "options": [
+     "Did",
+     "Have",
+     "Were"
+    ]
+   },
+   {
+    "type": "answers",
+    "theme": "navy",
+    "heading": "Cevaplar",
+    "items": [
+     {
+      "n": "1",
+      "a": "B · goes",
+      "why": "every day → geniş zaman, 3. tekil → -s"
+     },
+     {
+      "n": "2",
+      "a": "B · since 2019",
+      "why": "başlangıç noktası → since; süre olsaydı → for"
+     },
+     {
+      "n": "3",
+      "a": "B · any",
+      "why": "olumsuz cümle + sayılamayan → any"
+     },
+     {
+      "n": "4",
+      "a": "B · were",
+      "why": "2. tip koşul: If I were you, I'd …"
+     },
+     {
+      "n": "5",
+      "a": "B · in",
+      "why": "interested **in** — sabit kalıp"
+     },
+     {
+      "n": "6",
+      "a": "B · Have",
+      "why": "ever + deneyim → Present Perfect"
+     }
+    ],
+    "score": "Evet, hepsi B. Fark etmiş miydin? :wink:",
+    "cta": [
+     "Skorunu yorumla :point:",
+     ":share: Meydan oku"
+    ]
+   }
+  ],
+  "caption": "6 soru, 60 saniye. Kaç doğru? ⏱️\n\n1. She ___ to work by bus every day. (go / goes / is going)\n2. I've lived in İzmir ___ 2019. (for / since / from)\n3. There isn't ___ milk left. (some / any / a)\n4. If I ___ you, I'd take the job. (am / were / will be)\n5. He's interested ___ modern art. (on / in / about)\n6. ___ you ever been to London? (Did / Have / Were)\n\nÖnce cevabını yorumlara yaz, sonra son slayta kaydır. Skorun kaç? 6/6 yapan arkadaşına meydan oku 👇\n\nQuick English grammar quiz: 6 questions, answers on the last slide.",
+  "hashtags": [
+   "#ingilizcequiz",
+   "#englishquiz",
+   "#ingilizce",
+   "#ingilizcetest",
+   "#grammar",
+   "#learnenglish",
+   "#ingilizceöğreniyorum",
+   "#ingilizcegramer",
+   "#quiz",
+   "#ahkakademi",
+   "#yds",
+   "#ielts"
+  ],
+  "alt": "8 slaytlık carousel. Mavi kapakta büyük '6' rakamı ve '6 soru, 60 saniye. Kaç doğru?' başlığı. Altı slaytta birer boşluk doldurma sorusu ve A/B/C seçenekleri (örneğin 'She ___ to work by bus every day'). Son lacivert slaytta 6 cevap ve kısa açıklamaları."
+ },
+ {
+  "id": "12",
+  "slug": "very-upgrade",
+  "title": "\"very\" yerine 16 güçlü kelime",
+  "format": "carousel",
+  "pillar": "Vocabulary upgrade",
+  "series": "Kelime Yükseltme",
+  "hook": "\"Very\" demeyi bırak",
+  "theme": "gold",
+  "slides": [
+   {
+    "type": "cover",
+    "kicker": "KELİME YÜKSELTME",
+    "title": "\"Very\" demeyi ==bırak.==",
+    "sub": "very tired, very big, very good… Her birinin tek kelimelik, daha güçlü ve daha native bir hâli var. 16 tanesi burada.",
+    "pill": "Kaydır → 16 kelime",
+    "ghost": "VERY",
+    "ghostSize": 300
+   },
+   {
+    "type": "table",
+    "theme": "paper",
+    "kicker": "GRUP 1 / 4 · HİSLER",
+    "head": [
+     "VERY + SIFAT",
+     "TEK KELİME",
+     "TÜRKÇESİ"
+    ],
+    "rows": [
+     [
+      "very tired",
+      "exhausted",
+      "bitkin"
+     ],
+     [
+      "very happy",
+      "delighted",
+      "çok sevinmiş"
+     ],
+     [
+      "very sad",
+      "devastated",
+      "yıkılmış"
+     ],
+     [
+      "very angry",
+      "furious",
+      "öfkeden kudurmuş"
+     ]
+    ],
+    "accentCol": 1,
+    "note": "//I'm absolutely exhausted.// Güçlü sıfatların önüne **very** değil **absolutely / really** gelir."
+   },
+   {
+    "type": "table",
+    "theme": "paper",
+    "kicker": "GRUP 2 / 4 · BOYUT & HAVA",
+    "head": [
+     "VERY + SIFAT",
+     "TEK KELİME",
+     "TÜRKÇESİ"
+    ],
+    "rows": [
+     [
+      "very big",
+      "enormous / huge",
+      "devasa"
+     ],
+     [
+      "very small",
+      "tiny",
+      "minicik"
+     ],
+     [
+      "very cold",
+      "freezing",
+      "buz gibi"
+     ],
+     [
+      "very hot",
+      "boiling",
+      "kavurucu"
+     ]
+    ],
+    "accentCol": 1,
+    "note": "//It's freezing outside!// Hava için Türkçedeki gibi: \"dondurucu\"."
+   },
+   {
+    "type": "table",
+    "theme": "paper",
+    "kicker": "GRUP 3 / 4 · DEĞERLENDİRME",
+    "head": [
+     "VERY + SIFAT",
+     "TEK KELİME",
+     "TÜRKÇESİ"
+    ],
+    "rows": [
+     [
+      "very good",
+      "excellent / superb",
+      "mükemmel"
+     ],
+     [
+      "very bad",
+      "awful / terrible",
+      "berbat"
+     ],
+     [
+      "very interesting",
+      "fascinating",
+      "büyüleyici"
+     ],
+     [
+      "very funny",
+      "hilarious",
+      "gülmekten öldüren"
+     ]
+    ],
+    "accentCol": 1,
+    "note": "IELTS Speaking'de //good// yerine **superb**, //interesting// yerine **fascinating**: Lexical Resource puanı tam burada."
+   },
+   {
+    "type": "table",
+    "theme": "paper",
+    "kicker": "GRUP 4 / 4 · GÜNLÜK",
+    "head": [
+     "VERY + SIFAT",
+     "TEK KELİME",
+     "TÜRKÇESİ"
+    ],
+    "rows": [
+     [
+      "very hungry",
+      "starving",
+      "açlıktan ölmek üzere"
+     ],
+     [
+      "very scared",
+      "terrified",
+      "ödü kopmuş"
+     ],
+     [
+      "very beautiful",
+      "gorgeous / stunning",
+      "nefes kesici"
+     ],
+     [
+      "very tasty",
+      "delicious",
+      "çok lezzetli"
+     ]
+    ],
+    "accentCol": 1,
+    "note": "~~very delicious~~ yanlış: **delicious** zaten \"çok lezzetli\". //absolutely delicious// olur."
+   },
+   {
+    "type": "recap",
+    "kicker": "ÖZET · 16 KELİME",
+    "title": "Bu hafta \"very\" yasak",
+    "items": [
+     {
+      "k": "exhausted · delighted · devastated · furious",
+      "v": "hisler"
+     },
+     {
+      "k": "enormous · tiny · freezing · boiling",
+      "v": "boyut & hava"
+     },
+     {
+      "k": "excellent · awful · fascinating · hilarious",
+      "v": "değerlendirme"
+     },
+     {
+      "k": "starving · terrified · gorgeous · delicious",
+      "v": "günlük"
+     }
+    ],
+    "itemSize": "32px",
+    "text": "Kural: güçlü sıfatın önüne **very** gelmez; **absolutely, really, completely** gelir.",
+    "foot": "En sevdiğin hangisi? Yorumda bir cümle kur :point:"
+   }
+  ],
+  "caption": "\"Very\" demeyi bırak 🚫\n\nvery tired → exhausted\nvery happy → delighted\nvery sad → devastated\nvery angry → furious\nvery big → enormous\nvery small → tiny\nvery cold → freezing\nvery hot → boiling\nvery good → excellent\nvery bad → awful\nvery interesting → fascinating\nvery funny → hilarious\nvery hungry → starving\nvery scared → terrified\nvery beautiful → gorgeous\nvery tasty → delicious\n\nKural: güçlü sıfatın önüne \"very\" gelmez; \"absolutely / really\" gelir. (\"very delicious\" ❌ \"absolutely delicious\" ✅)\n\nBu hafta \"very\" yasak. En sevdiğin kelimeyle yorumda bir cümle kur 👇 Kaydet 🔖\n\n16 strong adjectives to replace \"very + adjective\" in English.",
+  "hashtags": [
+   "#ingilizcekelime",
+   "#vocabulary",
+   "#ingilizce",
+   "#englishvocabulary",
+   "#learnenglish",
+   "#ingilizceöğreniyorum",
+   "#ielts",
+   "#ieltsvocabulary",
+   "#kelimeöğren",
+   "#ahkakademi",
+   "#speakenglish",
+   "#englishtips"
+  ],
+  "alt": "7 slaytlık carousel. Altın sarısı kapakta 'Very demeyi bırak' başlığı ve arka planda büyük saydam 'VERY' yazısı. Dört açık renkli slaytta üçer sütunlu tablolar: 'very + sıfat', tek kelimelik güçlü karşılığı (mavi) ve Türkçesi; her tablonun altında kullanım notu. Son slaytta 16 kelimenin gruplanmış özeti."
+ },
+ {
+  "id": "13",
+  "slug": "kolay-gelsin-ingilizce",
+  "title": "\"Kolay gelsin\" İngilizcede nasıl denir?",
+  "format": "carousel",
+  "pillar": "How to say X naturally",
+  "series": "Türkçeden İngilizceye",
+  "hook": "\"Kolay gelsin\"in İngilizcesi yok. Peki ne diyeceksin?",
+  "theme": "navy",
+  "slides": [
+   {
+    "type": "cover",
+    "kicker": "BUNU İNGİLİZCEDE NASIL DERİM?",
+    "title": "\"Kolay gelsin\"in İngilizcesi ==yok.== Peki ne diyeceksin?",
+    "sub": "Türkçenin en sevilen 7 kalıbı ve native'lerin aynı durumda gerçekten söyledikleri.",
+    "pill": "Kaydır → 7 kalıp"
+   },
+   {
+    "type": "phrase",
+    "kicker": "KALIP 1 / 7",
+    "tr": "Kolay gelsin",
+    "literal": "May it come easy",
+    "options": [
+     {
+      "en": "Good luck with it!",
+      "when": "işe başlayana"
+     },
+     {
+      "en": "Don't work too hard!",
+      "when": "samimi, şakayla"
+     },
+     {
+      "en": "Have a good one!",
+      "when": "ayrılırken, ABD"
+     }
+    ],
+    "note": "Birebir karşılığı yok; durumuna göre seç. Çalışan birine en yakını: **Good luck with it!**"
+   },
+   {
+    "type": "phrase",
+    "kicker": "KALIP 2 / 7",
+    "tr": "Afiyet olsun",
+    "literal": "Let it be health",
+    "options": [
+     {
+      "en": "Enjoy your meal!",
+      "when": "yemek öncesi"
+     },
+     {
+      "en": "Bon appétit!",
+      "when": "Fransızca ama herkes kullanır"
+     },
+     {
+      "en": "I hope you enjoyed it.",
+      "when": "yemek sonrası"
+     }
+    ]
+   },
+   {
+    "type": "phrase",
+    "kicker": "KALIP 3 / 7",
+    "tr": "Geçmiş olsun",
+    "literal": "May it be past",
+    "options": [
+     {
+      "en": "Get well soon!",
+      "when": "hastaysa"
+     },
+     {
+      "en": "I'm sorry to hear that.",
+      "when": "kötü haber aldıysa"
+     },
+     {
+      "en": "Glad you're okay!",
+      "when": "kaza atlattıysa"
+     }
+    ],
+    "note": "Türkçede tek kalıp, İngilizcede üç ayrı durum."
+   },
+   {
+    "type": "phrase",
+    "kicker": "KALIP 4 / 7",
+    "tr": "Eline sağlık",
+    "literal": "Health to your hand",
+    "options": [
+     {
+      "en": "This is delicious!",
+      "when": "yemek için"
+     },
+     {
+      "en": "Thanks for cooking!",
+      "when": "yemek için"
+     },
+     {
+      "en": "Great job! / Nice work!",
+      "when": "başka bir iş için"
+     }
+    ]
+   },
+   {
+    "type": "phrase",
+    "kicker": "KALIP 5 / 7",
+    "tr": "Hayırlı olsun",
+    "literal": "May it be auspicious",
+    "options": [
+     {
+      "en": "Congratulations!",
+      "when": "yeni iş, ev, araba"
+     },
+     {
+      "en": "All the best with it!",
+      "when": "yeni bir başlangıç"
+     },
+     {
+      "en": "Enjoy it!",
+      "when": "yeni bir eşya (güle güle kullan)"
+     }
+    ]
+   },
+   {
+    "type": "phrase",
+    "kicker": "KALIP 6 / 7",
+    "tr": "Hoş geldin → Hoş bulduk",
+    "literal": "Well you came → Well we found",
+    "options": [
+     {
+      "en": "Welcome!",
+      "when": "hoş geldin"
+     },
+     {
+      "en": "Thank you! / Thanks for having me.",
+      "when": "hoş bulduk"
+     },
+     {
+      "en": "Glad to be here!",
+      "when": "hoş bulduk, samimi"
+     }
+    ],
+    "note": "\"Hoş bulduk\"un karşılığı yok; teşekkürle cevap verilir."
+   },
+   {
+    "type": "phrase",
+    "kicker": "KALIP 7 / 7",
+    "tr": "Sıhhatler olsun",
+    "literal": "May there be healths",
+    "options": [
+     {
+      "en": "Nice haircut!",
+      "when": "kuaför sonrası"
+     },
+     {
+      "en": "Looking fresh!",
+      "when": "samimi, şakayla"
+     },
+     {
+      "en": "(hiçbir şey)",
+      "when": "duş sonrası için kalıp yok"
+     }
+    ],
+    "note": "Evet, duştan çıkan birine İngilizcede bir şey denmez. Garip ama gerçek."
+   },
+   {
+    "type": "recap",
+    "kicker": "ÖZET · 7 KALIP",
+    "title": "Birebir çevirme, durumu çevir",
+    "items": [
+     {
+      "k": "Kolay gelsin",
+      "v": "Good luck with it!"
+     },
+     {
+      "k": "Afiyet olsun",
+      "v": "Enjoy your meal!"
+     },
+     {
+      "k": "Geçmiş olsun",
+      "v": "Get well soon!"
+     },
+     {
+      "k": "Eline sağlık",
+      "v": "This is delicious!"
+     },
+     {
+      "k": "Hayırlı olsun",
+      "v": "Congratulations!"
+     },
+     {
+      "k": "Hoş bulduk",
+      "v": "Thanks for having me."
+     },
+     {
+      "k": "Sıhhatler olsun",
+      "v": "Nice haircut!"
+     }
+    ],
+    "foot": "Hangi Türkçe kalıbı İngilizcede söyleyemiyorsun? Yorumlara yaz, Bölüm 2'ye koyalım :point:"
+   }
+  ],
+  "caption": "\"Kolay gelsin\"in İngilizcesi yok. Peki ne diyeceksin? 🤔\n\nTürkçenin en sevilen 7 kalıbı, native'lerin aynı durumda söyledikleriyle:\n• Kolay gelsin → Good luck with it! / Don't work too hard!\n• Afiyet olsun → Enjoy your meal!\n• Geçmiş olsun → Get well soon! / I'm sorry to hear that.\n• Eline sağlık → This is delicious! / Thanks for cooking!\n• Hayırlı olsun → Congratulations!\n• Hoş bulduk → Thanks for having me!\n• Sıhhatler olsun → Nice haircut! (duş sonrası için kalıp yok 😅)\n\nKural: kelimeyi değil, durumu çevir.\nHangi Türkçe kalıbı İngilizcede söyleyemiyorsun? Yorumlara yaz, Bölüm 2'ye koyalım 👇 \"Kolay gelsin\" demeden duramayan arkadaşına gönder ↗\n\nHow to say \"kolay gelsin\", \"afiyet olsun\" and 5 other Turkish phrases naturally in English.",
+  "hashtags": [
+   "#ingilizce",
+   "#kolaygelsin",
+   "#ingilizcekonuşma",
+   "#learnenglish",
+   "#ingilizceöğreniyorum",
+   "#speakenglish",
+   "#türkçe",
+   "#dailyenglish",
+   "#englishphrases",
+   "#ahkakademi",
+   "#günlükingilizce",
+   "#turkishlearners"
+  ],
+  "alt": "9 slaytlık lacivert carousel. Kapakta 'Kolay gelsin'in İngilizcesi yok. Peki ne diyeceksin?' başlığı. Her slaytta altın kutuda bir Türkçe kalıp (örneğin 'Afiyet olsun'), üstü çizili birebir çevirisi ve altında 3 doğal İngilizce alternatif ile hangi durumda kullanıldığı. Son slaytta 7 kalıbın özet listesi."
+ },
+ {
+  "id": "14",
+  "slug": "idioms-literal",
+  "title": "Birebir çevirince saçmalayan 7 deyim",
+  "format": "carousel",
+  "pillar": "Phrasal verbs & idioms",
+  "series": "Deyimler",
+  "hook": "\"Bir dilim kek\" değil, \"çocuk oyuncağı\"",
+  "theme": "gold",
+  "slides": [
+   {
+    "type": "cover",
+    "kicker": "DEYİMLER · BÖLÜM 1",
+    "title": "Birebir çevirince ==saçmalayan== 7 deyim",
+    "sub": "\"The test was a piece of cake\" cümlesinde kek yok. Native'lerin her gün kullandığı 7 deyim, Türkçe karşılıklarıyla.",
+    "pill": "Kaydır → 7 deyim"
+   },
+   {
+    "type": "word",
+    "theme": "paper",
+    "kicker": "DEYİM 1 / 7",
+    "word": "a piece of cake",
+    "size": "md",
+    "looksLabel": "BİREBİR ÇEVİRİ",
+    "looks": "bir dilim kek :cake:",
+    "actualLabel": "ASLINDA",
+    "actual": "çocuk oyuncağı, çok kolay",
+    "example": "The exam was a piece of cake.",
+    "exampleTr": "Sınav çocuk oyuncağıydı."
+   },
+   {
+    "type": "word",
+    "theme": "paper",
+    "kicker": "DEYİM 2 / 7",
+    "word": "break the ice",
+    "size": "md",
+    "looksLabel": "BİREBİR ÇEVİRİ",
+    "looks": "buzu kırmak",
+    "actualLabel": "ASLINDA",
+    "actual": "ortamdaki gerginliği dağıtmak, buzları eritmek",
+    "example": "He told a joke to break the ice.",
+    "exampleTr": "Buzları eritmek için bir fıkra anlattı."
+   },
+   {
+    "type": "word",
+    "theme": "paper",
+    "kicker": "DEYİM 3 / 7",
+    "word": "cost an arm and a leg",
+    "size": "md",
+    "looksLabel": "BİREBİR ÇEVİRİ",
+    "looks": "bir kol ve bir bacağa mal olmak :leg:",
+    "actualLabel": "ASLINDA",
+    "actual": "dünyanın parası olmak, çok pahalı olmak",
+    "example": "The new phone cost an arm and a leg.",
+    "exampleTr": "Yeni telefon dünyanın parasıydı."
+   },
+   {
+    "type": "word",
+    "theme": "paper",
+    "kicker": "DEYİM 4 / 7",
+    "word": "call it a day",
+    "size": "md",
+    "looksLabel": "BİREBİR ÇEVİRİ",
+    "looks": "ona gün demek",
+    "actualLabel": "ASLINDA",
+    "actual": "bugünlük bu kadar demek, işi bırakmak",
+    "example": "It's 7 pm. Let's call it a day.",
+    "exampleTr": "Saat 7 oldu. Bugünlük bu kadar."
+   },
+   {
+    "type": "word",
+    "theme": "paper",
+    "kicker": "DEYİM 5 / 7",
+    "word": "on the same page",
+    "size": "md",
+    "looksLabel": "BİREBİR ÇEVİRİ",
+    "looks": "aynı sayfada",
+    "actualLabel": "ASLINDA",
+    "actual": "hemfikir olmak, aynı bilgiye sahip olmak",
+    "example": "Let's make sure we're all on the same page.",
+    "exampleTr": "Hepimiz aynı fikirde miyiz, emin olalım.",
+    "note": "Toplantıların en sevilen deyimi."
+   },
+   {
+    "type": "word",
+    "theme": "paper",
+    "kicker": "DEYİM 6 / 7",
+    "word": "hit the books",
+    "size": "md",
+    "looksLabel": "BİREBİR ÇEVİRİ",
+    "looks": "kitaplara vurmak :book:",
+    "actualLabel": "ASLINDA",
+    "actual": "ders çalışmaya oturmak",
+    "example": "Exams are next week. Time to hit the books.",
+    "exampleTr": "Sınavlar haftaya. Ders çalışma vakti."
+   },
+   {
+    "type": "word",
+    "theme": "paper",
+    "kicker": "DEYİM 7 / 7",
+    "word": "the ball is in your court",
+    "size": "md",
+    "looksLabel": "BİREBİR ÇEVİRİ",
+    "looks": "top senin sahanda",
+    "actualLabel": "ASLINDA",
+    "actual": "top sende, karar senin",
+    "example": "I've sent the offer. The ball is in your court.",
+    "exampleTr": "Teklifi gönderdim. Top sende."
+   },
+   {
+    "type": "recap",
+    "kicker": "ÖZET · 7 DEYİM",
+    "title": "Kek yok, kol bacak yok",
+    "items": [
+     {
+      "k": "a piece of cake",
+      "v": "çocuk oyuncağı"
+     },
+     {
+      "k": "break the ice",
+      "v": "buzları eritmek"
+     },
+     {
+      "k": "cost an arm and a leg",
+      "v": "dünyanın parası"
+     },
+     {
+      "k": "call it a day",
+      "v": "bugünlük bu kadar"
+     },
+     {
+      "k": "on the same page",
+      "v": "hemfikir"
+     },
+     {
+      "k": "hit the books",
+      "v": "ders çalışmaya oturmak"
+     },
+     {
+      "k": "the ball is in your court",
+      "v": "top sende"
+     }
+    ],
+    "foot": "Hangisini bugün kullanırsın? Yorumlara yaz :point:"
+   }
+  ],
+  "caption": "\"Bir dilim kek\" değil, \"çocuk oyuncağı\" 🍰\n\nBirebir çevirince saçmalayan 7 İngilizce deyim:\n• a piece of cake → çocuk oyuncağı\n• break the ice → buzları eritmek\n• cost an arm and a leg → dünyanın parası olmak\n• call it a day → bugünlük bu kadar\n• on the same page → hemfikir olmak\n• hit the books → ders çalışmaya oturmak\n• the ball is in your court → top sende\n\nHepsi günlük konuşmada ve iş hayatında sürekli kullanılıyor. Hangisini bugün kullanırsın? Yorumlara yaz 👇\nKaydet 🔖, deyim seven arkadaşına gönder.\n\n7 common English idioms that make no sense when translated literally into Turkish.",
+  "hashtags": [
+   "#idioms",
+   "#ingilizcedeyimler",
+   "#ingilizce",
+   "#englishidioms",
+   "#learnenglish",
+   "#ingilizceöğreniyorum",
+   "#vocabulary",
+   "#speakenglish",
+   "#ielts",
+   "#ahkakademi",
+   "#ingilizcekelime",
+   "#englishtips"
+  ],
+  "alt": "9 slaytlık carousel. Altın sarısı kapakta 'Birebir çevirince saçmalayan 7 deyim' başlığı. Her açık renkli slaytta büyük bir deyim (örneğin 'a piece of cake'), kırmızı çizgili kutuda komik birebir çevirisi, yeşil çizgili kutuda gerçek anlamı, örnek cümle ve Türkçesi. Son slaytta 7 deyimin özet listesi."
+ },
+ {
+  "id": "15",
+  "slug": "gunde-20-dakika-sistem",
+  "title": "Günde 20 dakika: işleyen sistem",
+  "format": "carousel",
+  "pillar": "Motivation & study systems",
+  "series": "Çalışma Sistemi",
+  "hook": "Motivasyon değil, sistem",
+  "theme": "navy",
+  "slides": [
+   {
+    "type": "cover",
+    "kicker": "ÇALIŞMA SİSTEMİ",
+    "title": "Motivasyon ==değil,== sistem.",
+    "sub": "Günde 20 dakika. 4 blok. Motivasyonun bittiği gün bile çalışan plan.",
+    "pill": "Kaydır → 4 blok",
+    "number": "20'",
+    "numberSize": 260
+   },
+   {
+    "type": "steps",
+    "theme": "paper",
+    "kicker": "BLOK 1 · 8 DAKİKA",
+    "heading": "Girdi: dinle ya da oku",
+    "sub": "Seviyene uygun bir şey seç: %90'ını anladığın, %10'unu anlamadığın.",
+    "items": [
+     {
+      "h": "Podcast, dizi sahnesi, haber paragrafı",
+      "p": "Sözlüğe sadece 2 kez bak. Fazlası \"çalışma\" değil, çeviri."
+     },
+     {
+      "h": "Altyazı: İngilizce, Türkçe değil",
+      "p": "Türkçe altyazı gözü dinletir, kulağı değil."
+     },
+     {
+      "h": "3 yeni kelime/kalıp not et",
+      "p": "10 değil. 3. Yarın 3 tane daha."
+     }
+    ]
+   },
+   {
+    "type": "steps",
+    "theme": "paper",
+    "kicker": "BLOK 2 · 6 DAKİKA",
+    "heading": "Çıktı: sesli konuş",
+    "sub": "Anlamak ≠ konuşmak. Ağız kası çalışmadan konuşma gelmez.",
+    "items": [
+     {
+      "h": "Shadowing: 5 cümleyi duyduğun gibi tekrar et",
+      "p": "Aynı hız, aynı vurgu, aynı tonlama. Aptal hissetmek normal."
+     },
+     {
+      "h": "1 dakikalık sesli özet",
+      "p": "\"Bugün … dinledim, … öğrendim.\" Telefona kaydet."
+     },
+     {
+      "h": "Kaydı dinle, 1 hatayı not et",
+      "p": "Sadece bir tane. Yarın onu düzelt."
+     }
+    ]
+   },
+   {
+    "type": "steps",
+    "theme": "paper",
+    "kicker": "BLOK 3 · 4 DAKİKA",
+    "heading": "Tekrar: aralıklı sistem",
+    "sub": "Kelime, öğrendiğin gün değil, unutmaya başladığın gün öğrenilir.",
+    "items": [
+     {
+      "h": "Dünkü 3 kelimeyi cümlede kullan",
+      "p": "Kelimeyi değil, cümleyi tekrar et."
+     },
+     {
+      "h": "1 · 3 · 7 · 21 gün sonra tekrar",
+      "p": "Takvime koy ya da bir flashcard uygulaması kullan."
+     },
+     {
+      "h": "Hatırlayamadığını listeye geri at",
+      "p": "Unutmak başarısızlık değil, sistemin parçası."
+     }
+    ]
+   },
+   {
+    "type": "steps",
+    "theme": "paper",
+    "kicker": "BLOK 4 · 2 DAKİKA",
+    "heading": "Hata günlüğü",
+    "sub": "En değerli defterin: kendi hataların.",
+    "items": [
+     {
+      "h": "Bugün yaptığın 1 hatayı yaz",
+      "p": "Yanlış hâli, doğru hâli, bir cümle."
+     },
+     {
+      "h": "Haftada 1 kez günlüğü baştan oku",
+      "p": "Tekrarlayan hata = bir sonraki haftanın hedefi."
+     },
+     {
+      "h": "Streak değil, toplam",
+      "p": "Bir günü kaçırmak sıfırlamaz. 20 dakika × 5 gün > 2 saat × 1 gün."
+     }
+    ]
+   },
+   {
+    "type": "recap",
+    "kicker": "ÖZET · 20 DAKİKA",
+    "title": "Her gün aynı 4 blok",
+    "items": [
+     {
+      "k": "8' Girdi",
+      "v": "dinle / oku, 3 kelime not et"
+     },
+     {
+      "k": "6' Çıktı",
+      "v": "shadowing + 1 dk sesli özet"
+     },
+     {
+      "k": "4' Tekrar",
+      "v": "1 · 3 · 7 · 21 gün"
+     },
+     {
+      "k": "2' Hata günlüğü",
+      "v": "1 hata, 1 düzeltme"
+     }
+    ],
+    "text": "Mükemmel plan yok. Uyguladığın plan var.",
+    "foot": "Bu hafta hangi gün başlıyorsun? Yorumla, hatırlatalım :point:"
+   }
+  ],
+  "caption": "Motivasyon değil, sistem. ⚙️\n\nGünde 20 dakika, 4 blok. Motivasyonun bittiği gün bile çalışan plan:\n⏱️ 8' Girdi → %90'ını anladığın bir şey dinle/oku, 3 kelime not et\n🗣️ 6' Çıktı → 5 cümle shadowing + 1 dakikalık sesli özet (kaydet!)\n🔁 4' Tekrar → dünkü kelimeleri cümlede kullan; 1·3·7·21 gün sonra tekrar\n📝 2' Hata günlüğü → 1 hata, 1 düzeltme\n\nStreak değil, toplam: 20 dakika × 5 gün, 2 saat × 1 günden iyidir.\n\nBu hafta hangi gün başlıyorsun? Yorumla 👇 Kaydet 🔖 ve \"vakit bulamıyorum\" diyen arkadaşına gönder.\n\nA 20-minute daily English study system: input, output, spaced review, error log.",
+  "hashtags": [
+   "#ingilizceöğreniyorum",
+   "#ingilizce",
+   "#çalışmaplanı",
+   "#studytips",
+   "#learnenglish",
+   "#dilöğrenme",
+   "#motivasyon",
+   "#languagelearning",
+   "#studysystem",
+   "#ahkakademi",
+   "#ingilizcekonuşma",
+   "#shadowing"
+  ],
+  "alt": "7 slaytlık carousel. Lacivert kapakta büyük \"20'\" rakamı ve 'Motivasyon değil, sistem.' başlığı. Dört açık renkli slaytta dakikaları belirtilmiş bloklar (girdi, çıktı, tekrar, hata günlüğü), her birinde 3 numaralı adım ve kısa açıklama. Son slaytta 4 bloğun dakika dağılımıyla özeti."
+ },
+ {
+  "id": "16",
+  "slug": "myth-vs-fact",
+  "title": "İngilizce hakkında 6 efsane",
+  "format": "carousel",
+  "pillar": "Myth vs fact",
+  "series": "Efsane / Gerçek",
+  "hook": "\"Önce gramer, sonra konuşma\" bir efsane",
+  "theme": "paper",
+  "slides": [
+   {
+    "type": "cover",
+    "theme": "navy",
+    "kicker": "EFSANE / GERÇEK",
+    "title": "İngilizce hakkında sana söylenen ==6 yalan==",
+    "sub": "İyi niyetli öğretmenler, ablalar, YouTube videoları… Hepsini duydun. Hiçbiri doğru değil.",
+    "pill": "Kaydır → 6 efsane",
+    "number": "6",
+    "numberSize": 280
+   },
+   {
+    "type": "myth",
+    "n": "1",
+    "myth": "Önce gramer, sonra konuşma.",
+    "fact": "Gramer ve konuşma aynı gün başlar. Konuşmadığın gramer, bilmediğin gramerdir.",
+    "why": "Kuralı öğrenmek 5 dakika; refleks hâline gelmesi 50 cümle. Cümleleri konuşarak kurarsın."
+   },
+   {
+    "type": "myth",
+    "n": "2",
+    "myth": "Yetişkinler dil öğrenemez, o iş çocukken olurdu.",
+    "fact": "Yetişkinler farklı öğrenir: daha yavaş aksan, daha hızlı gramer ve kelime.",
+    "why": "Dünyada her gün milyonlarca yetişkin ikinci dil öğreniyor. Fark yaş değil, günlük maruz kalma süresi."
+   },
+   {
+    "type": "myth",
+    "n": "3",
+    "myth": "Native gibi aksanım olmadan konuşmamalıyım.",
+    "fact": "Hedef \"native gibi\" değil, \"net anlaşılır\". Dünyadaki İngilizce konuşanların çoğunun aksanı var.",
+    "why": "IELTS Speaking bile aksanı puanlamaz; **anlaşılırlığı** puanlar."
+   },
+   {
+    "type": "myth",
+    "n": "4",
+    "myth": "Dizi izlemek yeter, kendiliğinden gelir.",
+    "fact": "Dizi girdi verir. Konuşma çıktı ister. İkisi birden lazım.",
+    "why": "Yıllarca dizi izleyip \"anlıyorum ama konuşamıyorum\" diyen herkesin ortak noktası: hiç sesli pratik yapmamış olmak."
+   },
+   {
+    "type": "myth",
+    "n": "5",
+    "myth": "Akıcı konuşmak için her kelimeyi bilmem lazım.",
+    "fact": "En sık kullanılan birkaç bin kelime günlük konuşmanın büyük çoğunluğunu karşılar.",
+    "why": "Native'ler de her kelimeyi bilmiyor. Bilmediğin kelimeyi başka kelimelerle anlatmak, akıcılığın ta kendisi."
+   },
+   {
+    "type": "myth",
+    "n": "6",
+    "myth": "Hata yaparsam rezil olurum, o yüzden susayım.",
+    "fact": "Hata, öğrenmenin yan ürünü değil, hammaddesi.",
+    "why": "Susan öğrenci hata yapmaz; ilerlemez de. Her düzeltilen hata, bir daha yapılmayan hatadır."
+   },
+   {
+    "type": "recap",
+    "theme": "navy",
+    "kicker": "ÖZET · 6 GERÇEK",
+    "title": "Bir daha duyarsan gülümse",
+    "items": [
+     "Gramer ve konuşma aynı gün başlar.",
+     "Yetişkinler farklı öğrenir, öğrenemez değil.",
+     "Hedef native aksan değil, net anlaşılmak.",
+     "Dizi = girdi. Konuşma = çıktı. İkisi de lazım.",
+     "Birkaç bin kelime günlük hayatın çoğunu karşılar.",
+     "Hata hammaddedir."
+    ],
+    "itemSize": "33px",
+    "foot": "Hangisine en çok inanmıştın? Yorumlara numarasını yaz :point:"
+   }
+  ],
+  "caption": "\"Önce gramer, sonra konuşma\" bir efsane. 🚫\n\nİngilizce hakkında sana söylenen 6 yalan ve gerçekleri:\n1. Önce gramer, sonra konuşma → İkisi aynı gün başlar.\n2. Yetişkinler dil öğrenemez → Farklı öğrenir: aksan yavaş, gramer ve kelime hızlı.\n3. Native aksan şart → Hedef net anlaşılmak. IELTS bile aksanı değil anlaşılırlığı puanlar.\n4. Dizi izlemek yeter → Dizi girdi verir, konuşma çıktı ister.\n5. Her kelimeyi bilmeliyim → En sık kullanılan birkaç bin kelime günlük hayatın çoğunu karşılar.\n6. Hata yaparsam rezil olurum → Hata hammaddedir.\n\nHangisine en çok inanmıştın? Numarasını yorumlara yaz 👇 Kaydet 🔖, \"önce gramer\" diyen arkadaşına gönder.\n\n6 myths about learning English, busted.",
+  "hashtags": [
+   "#ingilizceöğreniyorum",
+   "#ingilizce",
+   "#mythvsfact",
+   "#learnenglish",
+   "#dilöğrenme",
+   "#ingilizcekonuşma",
+   "#languagelearning",
+   "#motivasyon",
+   "#speakenglish",
+   "#ahkakademi",
+   "#englishlearning",
+   "#ielts"
+  ],
+  "alt": "8 slaytlık carousel. Lacivert kapakta büyük '6' rakamı ve 'İngilizce hakkında sana söylenen 6 yalan' başlığı. Her açık renkli slaytta üstü çizili kırmızı etiketli 'efsane' kutusu (örneğin 'Önce gramer, sonra konuşma') ve altında lacivert 'gerçek' kutusu ile kısa açıklama. Son slaytta 6 gerçeğin özeti."
+ },
+ {
+  "id": "17",
+  "slug": "ielts-thinking-phrases",
+  "title": "Examiner sorunca donma: 6 düşünme cümlesi",
+  "format": "carousel",
+  "pillar": "IELTS Speaking",
+  "series": "IELTS Speaking · Bölüm 2",
+  "hook": "Examiner sorunca 3 saniye donuyor musun?",
+  "theme": "navy",
+  "slides": [
+   {
+    "type": "cover",
+    "kicker": "IELTS SPEAKING · BÖLÜM 2",
+    "title": "Examiner sorunca ==3 saniye== donuyor musun?",
+    "sub": "Sessizlik puan getirmez. Düşünürken bile İngilizce konuşmanı sağlayan 6 cümle.",
+    "pill": "Kaydır → 6 cümle",
+    "lead": "\"Hmm… ehh… şey…\""
+   },
+   {
+    "type": "word",
+    "theme": "paper",
+    "kicker": "DÜŞÜNME CÜMLESİ 1 / 6",
+    "word": "That's an interesting question.",
+    "size": "sm",
+    "meaningLabel": "NE ZAMAN",
+    "meaning": "Beklemediğin, soyut bir soru geldiğinde. Klasik ama işe yarar.",
+    "example": "That's an interesting question. I'd say it depends on the person.",
+    "note": "Her soruya değil: bir sınavda en fazla bir kez."
+   },
+   {
+    "type": "word",
+    "theme": "paper",
+    "kicker": "DÜŞÜNME CÜMLESİ 2 / 6",
+    "word": "Well, off the top of my head, …",
+    "size": "sm",
+    "meaningLabel": "NE ZAMAN",
+    "meaning": "Örnek ya da liste istenince: \"aklıma ilk gelen…\"",
+    "example": "Well, off the top of my head, I'd say football and basketball."
+   },
+   {
+    "type": "word",
+    "theme": "paper",
+    "kicker": "DÜŞÜNME CÜMLESİ 3 / 6",
+    "word": "To be honest, I've never really thought about it, but …",
+    "size": "sm",
+    "meaningLabel": "NE ZAMAN",
+    "meaning": "Hiç fikrin olmadığında. \"I don't know\" yerine.",
+    "example": "To be honest, I've never really thought about it, but I suppose most people prefer the city."
+   },
+   {
+    "type": "word",
+    "theme": "paper",
+    "kicker": "DÜŞÜNME CÜMLESİ 4 / 6",
+    "word": "I suppose it depends on …",
+    "size": "sm",
+    "meaningLabel": "NE ZAMAN",
+    "meaning": "Cevap \"duruma göre\" olduğunda. Sana iki tarafı da anlatma şansı verir.",
+    "example": "I suppose it depends on the age group. Younger people tend to prefer apps."
+   },
+   {
+    "type": "word",
+    "theme": "paper",
+    "kicker": "DÜŞÜNME CÜMLESİ 5 / 6",
+    "word": "That's a tough one, but if I had to choose, …",
+    "size": "sm",
+    "meaningLabel": "NE ZAMAN",
+    "meaning": "Seçim soruları: \"X mi Y mi?\"",
+    "example": "That's a tough one, but if I had to choose, I'd go for the mountains."
+   },
+   {
+    "type": "word",
+    "theme": "paper",
+    "kicker": "DÜŞÜNME CÜMLESİ 6 / 6",
+    "word": "Let me think about that for a second.",
+    "size": "sm",
+    "meaningLabel": "NE ZAMAN",
+    "meaning": "Gerçekten düşünmen gerektiğinde. Doğal ve dürüst.",
+    "example": "Let me think about that for a second… Yes, I think I'd say my grandmother.",
+    "note": "Sonra gerçekten cevap ver. 2 saniye yeter."
+   },
+   {
+    "type": "recap",
+    "kicker": "ÖZET · 6 CÜMLE",
+    "title": "Donma, köprü kur",
+    "items": [
+     "That's an interesting question.",
+     "Well, off the top of my head, …",
+     "To be honest, I've never really thought about it, but …",
+     "I suppose it depends on …",
+     "That's a tough one, but if I had to choose, …",
+     "Let me think about that for a second."
+    ],
+    "itemSize": "32px",
+    "text": "Kural: her cevapta en fazla **bir** köprü. Sonra gerçek cevap.",
+    "foot": "IELTS'e giren arkadaşına gönder :share: Bölüm 3: Part 2 planı."
+   }
+  ],
+  "caption": "Examiner sorunca 3 saniye donuyor musun? 😶\n\nSessizlik puan getirmez. Düşünürken bile İngilizce konuşmanı sağlayan 6 köprü cümlesi:\n1. That's an interesting question.\n2. Well, off the top of my head, …\n3. To be honest, I've never really thought about it, but …\n4. I suppose it depends on …\n5. That's a tough one, but if I had to choose, …\n6. Let me think about that for a second.\n\nKural: her cevapta en fazla bir köprü; sonra gerçek cevap.\nKaydet 🔖, sınavdan önce sesli tekrar et. IELTS'e giren arkadaşına gönder ↗\n\n6 IELTS Speaking fillers that buy you thinking time without silence.",
+  "hashtags": [
+   "#ielts",
+   "#ieltsspeaking",
+   "#ieltstips",
+   "#ieltspreparation",
+   "#ingilizce",
+   "#ieltshazırlık",
+   "#speakingtips",
+   "#learnenglish",
+   "#ingilizcekonuşma",
+   "#ahkakademi",
+   "#fluency",
+   "#band7"
+  ],
+  "alt": "8 slaytlık carousel. Lacivert kapakta 'Examiner sorunca 3 saniye donuyor musun?' başlığı. Her açık renkli slaytta büyük bir İngilizce köprü cümlesi (örneğin 'Well, off the top of my head, …'), 'ne zaman' kutusunda kullanım durumu ve örnek bir cevap. Son slaytta 6 cümlenin listesi ve 'her cevapta en fazla bir köprü' kuralı."
+ },
+ {
+  "id": "18",
+  "slug": "articles-a-an-the",
+  "title": "a / an / the: Türkçede olmayan 3 kelime",
+  "format": "carousel",
+  "pillar": "Grammar made simple",
+  "series": "Gramer · Artikeller",
+  "hook": "\"I am student\" diyorsan bu 7 slayt sana",
+  "theme": "blue",
+  "slides": [
+   {
+    "type": "coverStrike",
+    "kicker": "GRAMER · ARTİKELLER",
+    "wrong": "I am student.",
+    "title": "Türkçede olmayan ==3 küçük kelime:== a / an / the",
+    "sub": "Türkçede yok diye atlıyoruz; IELTS Writing'de en çok puan götüren hata bu.",
+    "pill": "Kaydır → 5 kural"
+   },
+   {
+    "type": "section",
+    "theme": "paper",
+    "n": "1",
+    "heading": "a mı, an mı? Harfe değil, sese bak",
+    "sub": "Sonraki kelime sesli harf SESİYLE başlıyorsa an.",
+    "rows": [
+     {
+      "k": "an hour · an honest man",
+      "v": "h sessiz → sesli ses"
+     },
+     {
+      "k": "a university · a European",
+      "v": "\"yu\" sesi → a"
+     },
+     {
+      "k": "an MBA · an FBI agent",
+      "v": "\"em\", \"ef\" sesi → an"
+     },
+     {
+      "k": "a one-day trip",
+      "v": "\"wan\" sesi → a"
+     }
+    ]
+   },
+   {
+    "type": "section",
+    "theme": "paper",
+    "n": "2",
+    "heading": "a / an: ilk kez ya da herhangi biri",
+    "sub": "Sayılabilen tekil isim tek başına kalamaz.",
+    "rows": [
+     {
+      "k": "I am a student.",
+      "v": "meslek / kimlik"
+     },
+     {
+      "k": "She has a car.",
+      "v": "herhangi bir araba"
+     },
+     {
+      "k": "I saw a dog. The dog was huge.",
+      "v": "ilk kez a → sonra the"
+     },
+     {
+      "k": "~~I am teacher.~~",
+      "v": "✗ artikelsiz olmaz"
+     }
+    ]
+   },
+   {
+    "type": "section",
+    "theme": "paper",
+    "n": "3",
+    "heading": "the: ikimiz de hangisini biliyoruz",
+    "sub": "Belirli, tek ya da daha önce bahsedilmiş.",
+    "rows": [
+     {
+      "k": "the sun · the moon · the internet",
+      "v": "tek olan şeyler"
+     },
+     {
+      "k": "Close the door.",
+      "v": "belli ki şu kapı"
+     },
+     {
+      "k": "the best · the first · the only",
+      "v": "en üstünlük, sıra"
+     },
+     {
+      "k": "the UK · the USA · the Netherlands",
+      "v": "çoğul / birleşik ülke adları"
+     }
+    ]
+   },
+   {
+    "type": "section",
+    "theme": "paper",
+    "n": "4",
+    "heading": "Artikel YOK: genel konuşurken",
+    "sub": "Türklerin en sık \"fazladan the\" hatası burada.",
+    "rows": [
+     {
+      "k": "Life is hard.  (~~the life~~)",
+      "v": "soyut, genel"
+     },
+     {
+      "k": "I love music.  (~~the music~~)",
+      "v": "sayılamayan, genel"
+     },
+     {
+      "k": "Dogs are loyal.  (~~the dogs~~)",
+      "v": "çoğul, genel"
+     },
+     {
+      "k": "I live in Turkey.  (~~the Turkey~~)",
+      "v": "çoğu ülke adı"
+     }
+    ]
+   },
+   {
+    "type": "section",
+    "theme": "paper",
+    "n": "5",
+    "heading": "Türklerin en sık 5 hatası",
+    "sub": "Hepsi Türkçede artikel olmadığı için.",
+    "rows": [
+     {
+      "k": "~~I am student.~~ → I am **a** student.",
+      "v": ""
+     },
+     {
+      "k": "~~He is doctor.~~ → He is **a** doctor.",
+      "v": ""
+     },
+     {
+      "k": "~~The life is hard.~~ → Life is hard.",
+      "v": ""
+     },
+     {
+      "k": "~~I have car.~~ → I have **a** car.",
+      "v": ""
+     },
+     {
+      "k": "~~Go to the home.~~ → Go home.",
+      "v": ""
+     }
+    ],
+    "kStyle": {
+     "fontSize": "34px"
+    }
+   },
+   {
+    "type": "recap",
+    "kicker": "ÖZET · 5 KURAL",
+    "title": "Tek soru: hangisi olduğunu ikimiz de biliyor muyuz?",
+    "items": [
+     "Evet → **the**",
+     "Hayır, herhangi biri → **a / an** (sese göre)",
+     "Genel konuşuyorum, çoğul / sayılamayan → **artikel yok**",
+     "Meslek ve kimlik → her zaman **a / an**",
+     "the UK, the USA, the Netherlands; ama Turkey, Germany"
+    ],
+    "itemSize": "33px",
+    "foot": "\"I am student\" diyen arkadaşına gönder :share:"
+   }
+  ],
+  "caption": "\"I am student\" diyorsan bu post sana 📌\n\nTürkçede olmayan 3 küçük kelime: a / an / the. IELTS Writing'de en çok puan götüren hatalardan biri.\n1. a mı an mı → harfe değil sese bak: an hour, a university, an MBA\n2. a/an → ilk kez ya da herhangi biri: I am a student. She has a car.\n3. the → ikimiz de hangisini biliyoruz: the sun, close the door, the best, the UK\n4. Artikel yok → genel konuşurken: Life is hard. I love music. Dogs are loyal.\n5. En sık hatalar: ❌ I am student ❌ The life is hard ❌ I have car ❌ Go to the home\n\nTek soru: hangisi olduğunu ikimiz de biliyor muyuz? Evet → the. Hayır → a/an. Genel → hiçbiri.\n\nKaydet 🔖, \"I am student\" diyen arkadaşına gönder 👇\n\nEnglish articles (a / an / the) explained for Turkish speakers in 5 rules.",
+  "hashtags": [
+   "#ingilizcegramer",
+   "#articles",
+   "#ingilizce",
+   "#grammar",
+   "#englishgrammar",
+   "#learnenglish",
+   "#ingilizceöğreniyorum",
+   "#ielts",
+   "#ieltswriting",
+   "#yds",
+   "#ahkakademi",
+   "#ingilizcedersi"
+  ],
+  "alt": "7 slaytlık carousel. Mavi kapakta üstü çizili 'I am student.' kutusu ve 'Türkçede olmayan 3 küçük kelime: a / an / the' başlığı. Beş açık renkli slaytta numaralı kurallar ve örnek listeleri: a/an ses kuralı, ilk kez/herhangi biri, the kullanımı, artikelsiz durumlar ve Türklerin en sık 5 hatası. Son slaytta tek soruyla özet."
+ },
+ {
+  "id": "19",
+  "slug": "make-vs-do",
+  "title": "make mi, do mu?",
+  "format": "carousel",
+  "pillar": "Vocabulary upgrade",
+  "series": "Karıştırılanlar",
+  "hook": "\"Make homework\" diyen herkes buraya",
+  "theme": "gold",
+  "slides": [
+   {
+    "type": "cover",
+    "kicker": "KARIŞTIRILANLAR",
+    "title": "make mi, ==do== mu?",
+    "sub": "İkisi de Türkçede \"yapmak\". İngilizcede değil. 24 kalıp + quiz.",
+    "pill": "Kaydır → kural + quiz",
+    "ghost": "make/do",
+    "ghostSize": 200
+   },
+   {
+    "type": "section",
+    "theme": "paper",
+    "n": "M",
+    "heading": "MAKE: üretmek, ortaya çıkarmak",
+    "sub": "Sonunda ortada yeni bir şey varsa (karar, hata, para…) → make.",
+    "rows": [
+     {
+      "k": "make a decision",
+      "v": "karar vermek"
+     },
+     {
+      "k": "make a mistake",
+      "v": "hata yapmak"
+     },
+     {
+      "k": "make money",
+      "v": "para kazanmak"
+     },
+     {
+      "k": "make a phone call",
+      "v": "telefon etmek"
+     },
+     {
+      "k": "make an effort",
+      "v": "çaba göstermek"
+     },
+     {
+      "k": "make friends",
+      "v": "arkadaş edinmek"
+     },
+     {
+      "k": "make progress",
+      "v": "ilerleme kaydetmek"
+     },
+     {
+      "k": "make a mess",
+      "v": "ortalığı dağıtmak"
+     }
+    ],
+    "gap": "12px"
+   },
+   {
+    "type": "section",
+    "theme": "paper",
+    "n": "D",
+    "heading": "DO: iş, görev, genel eylem",
+    "sub": "Yeni bir şey üretilmiyor, bir iş yapılıyorsa → do.",
+    "rows": [
+     {
+      "k": "do homework",
+      "v": "ödev yapmak"
+     },
+     {
+      "k": "do the dishes",
+      "v": "bulaşık yıkamak"
+     },
+     {
+      "k": "do business",
+      "v": "iş yapmak"
+     },
+     {
+      "k": "do someone a favour",
+      "v": "iyilik yapmak"
+     },
+     {
+      "k": "do exercise",
+      "v": "egzersiz yapmak"
+     },
+     {
+      "k": "do your best",
+      "v": "elinden geleni yapmak"
+     },
+     {
+      "k": "do research",
+      "v": "araştırma yapmak"
+     },
+     {
+      "k": "do nothing",
+      "v": "hiçbir şey yapmamak"
+     }
+    ],
+    "gap": "12px"
+   },
+   {
+    "type": "section",
+    "theme": "paper",
+    "n": "!",
+    "heading": "Türkçeden gelen tuzaklar",
+    "sub": "\"Yapmak\" dediğin her şey make/do değil.",
+    "rows": [
+     {
+      "k": "~~make sport~~ → do sport / play football",
+      "v": ""
+     },
+     {
+      "k": "~~make a photo~~ → take a photo",
+      "v": ""
+     },
+     {
+      "k": "~~make party~~ → have / throw a party",
+      "v": ""
+     },
+     {
+      "k": "~~make an exam~~ → take / sit an exam",
+      "v": ""
+     },
+     {
+      "k": "~~do a mistake~~ → make a mistake",
+      "v": ""
+     },
+     {
+      "k": "~~make shopping~~ → do the shopping / go shopping",
+      "v": ""
+     }
+    ],
+    "kStyle": {
+     "fontSize": "34px"
+    },
+    "gap": "12px"
+   },
+   {
+    "type": "quiz",
+    "theme": "navy",
+    "n": "?",
+    "kicker": "MİNİ QUIZ · 6 BOŞLUK",
+    "q": "1. ___ a decision   2. ___ homework\n3. ___ a mistake   4. ___ the dishes\n5. ___ a favour   6. ___ money",
+    "options": [
+     "make · do · make · do · do · make",
+     "do · make · do · make · make · do",
+     "make · make · do · do · make · do"
+    ],
+    "hint": "Cevap bir sonraki slaytta :point:"
+   },
+   {
+    "type": "answers",
+    "theme": "navy",
+    "heading": "Cevap: A",
+    "items": [
+     {
+      "n": "1",
+      "a": "make a decision",
+      "why": "ortaya bir karar çıkıyor"
+     },
+     {
+      "n": "2",
+      "a": "do homework",
+      "why": "görev"
+     },
+     {
+      "n": "3",
+      "a": "make a mistake",
+      "why": "ortaya bir hata çıkıyor"
+     },
+     {
+      "n": "4",
+      "a": "do the dishes",
+      "why": "ev işi"
+     },
+     {
+      "n": "5",
+      "a": "do a favour",
+      "why": "sabit kalıp"
+     },
+     {
+      "n": "6",
+      "a": "make money",
+      "why": "para \"üretiliyor\""
+     }
+    ],
+    "score": "6/6 ise yorumlara :fire: bırak.",
+    "cta": [
+     ":save: Kaydet",
+     ":share: Paylaş"
+    ]
+   }
+  ],
+  "caption": "\"Make homework\" diyen herkes buraya 🙋\n\nİkisi de Türkçede \"yapmak\". İngilizcede değil:\n🛠️ MAKE → ortaya yeni bir şey çıkıyor: make a decision, make a mistake, make money, make a phone call, make an effort, make friends, make progress, make a mess\n📋 DO → iş, görev, genel eylem: do homework, do the dishes, do business, do a favour, do exercise, do your best, do research, do nothing\n\nTürkçeden gelen tuzaklar:\n❌ make sport → ✅ do sport / play football\n❌ make a photo → ✅ take a photo\n❌ make party → ✅ have a party\n❌ make an exam → ✅ take an exam\n\nQuiz: ___ a decision / ___ homework / ___ a mistake / ___ the dishes / ___ a favour / ___ money. Cevabın? 👇\nKaydet 🔖\n\nMake vs do: the rule, 16 collocations, 6 Turkish-speaker traps and a quiz.",
+  "hashtags": [
+   "#makevsdo",
+   "#ingilizcekelime",
+   "#ingilizce",
+   "#collocations",
+   "#learnenglish",
+   "#ingilizceöğreniyorum",
+   "#englishvocabulary",
+   "#ingilizcegramer",
+   "#ielts",
+   "#ahkakademi",
+   "#vocabulary",
+   "#englishtips"
+  ],
+  "alt": "7 slaytlık carousel. Altın sarısı kapakta 'make mi, do mu?' başlığı. Açık renkli slaytlarda MAKE ve DO için sekizer kalıp ve Türkçe anlamları, ardından Türkçeden gelen 6 tuzak (make sport → do sport gibi). Lacivert quiz slaytında 6 boşluk ve A/B/C seçenekleri; son slaytta cevaplar ve nedenleri."
+ },
+ {
+  "id": "20",
+  "slug": "turk-ingilizce-7-evre",
+  "title": "Türk olarak İngilizce öğrenmenin 7 evresi",
+  "format": "carousel",
+  "pillar": "Humor / relatable",
+  "series": "Mizah",
+  "hook": "Hangi evredesin?",
+  "theme": "navy",
+  "slides": [
+   {
+    "type": "cover",
+    "kicker": "MİZAH · RELATABLE",
+    "title": "Türk olarak İngilizce öğrenmenin ==7 evresi==",
+    "sub": "Hepsinden geçtik. Bazılarımız hâlâ 2. evrede. Hangisindesin?",
+    "pill": "Kaydır → evreni bul",
+    "lead": "\"I'm fine thank you, and you?\""
+   },
+   {
+    "type": "stage",
+    "n": 1,
+    "emoji": "😎",
+    "title": "\"Dizileri altyazısız izliyorum\" özgüveni",
+    "text": "Altyazı: İngilizce. Yani altyazılı. Ama Türkçe değil, sayılmaz.",
+    "hand": "Gerçek: Türkçe altyazıyı kapattığın gün = 1. gün."
+   },
+   {
+    "type": "stage",
+    "n": 2,
+    "emoji": "🔁",
+    "title": "\"How are you?\" → \"I'm fine thank you, and you?\" döngüsü",
+    "text": "7 yıl okul İngilizcesi, tek çıktı: bu cümle. Robot gibi, her seferinde.",
+    "hand": "Alternatif: \"Not bad, you?\" / \"Pretty good, thanks.\""
+   },
+   {
+    "type": "stage",
+    "n": 3,
+    "emoji": "🏃",
+    "title": "Turist adres sorunca yön değiştirme evresi",
+    "text": "İngilizce biliyorsun. Cevabı biliyorsun. Ama o an telefon çalıyor (çalmıyor).",
+    "hand": "Çözüm: \"Sorry, my English isn't great, but…\" de ve devam et."
+   },
+   {
+    "type": "stage",
+    "n": 4,
+    "emoji": "⏳",
+    "title": "Kafada cümleyi kurana kadar konunun değişmesi",
+    "text": "Mükemmel cümle hazır. Gramer tam. Konu 3 dakika önce bitmiş.",
+    "hand": "Mükemmel cümle yok. Zamanında cümle var."
+   },
+   {
+    "type": "stage",
+    "n": 5,
+    "emoji": "😴",
+    "title": "\"Dün İngilizce rüya gördüm\" evresi",
+    "text": "Görmedin. Ama ilerlediğini hissettiğin ilk an bu. Değerli.",
+    "hand": "Rüya değil, sesli düşünmeye başlamak işaret."
+   },
+   {
+    "type": "stage",
+    "n": 6,
+    "emoji": "🥹",
+    "title": "Yabancıyla 5 dakika konuşup \"ANLADI!\" sevinci",
+    "text": "Hatalıydı, yavaştı, \"ımm\" doluydu. Ama anlaşıldı. Bu, akıcılığın ilk günü.",
+    "hand": "Bu hissi hatırla; motivasyon bittiğinde lazım olacak."
+   },
+   {
+    "type": "stage",
+    "n": 7,
+    "emoji": "🏆",
+    "title": "\"th\" sesini bir kez doğru çıkarınca Oscar hissi",
+    "text": "\"Think\", \"sink\" değil. Dil dişlerin arasında. Komşular duydu, sorun değil.",
+    "hand": "Sıradaki boss: \"world\" kelimesi."
+   },
+   {
+    "type": "recap",
+    "kicker": "HANGİ EVREDESİN?",
+    "title": "Yorumlara numaranı yaz",
+    "items": [
+     "Altyazısız izleme özgüveni",
+     "\"I'm fine thank you, and you?\"",
+     "Turistten kaçma",
+     "Cümle hazır, konu bitmiş",
+     "İngilizce rüya (yalan)",
+     "\"ANLADI!\" sevinci",
+     "\"th\" Oscar'ı"
+    ],
+    "itemSize": "34px",
+    "cta": [
+     "Evreni yorumla :point:",
+     ":share: 2. evredeki arkadaşına gönder"
+    ]
+   }
+  ],
+  "caption": "Türk olarak İngilizce öğrenmenin 7 evresi 😅\n\n1. \"Dizileri altyazısız izliyorum\" özgüveni (altyazı: İngilizce)\n2. \"How are you?\" → \"I'm fine thank you, and you?\" döngüsü\n3. Turist adres sorunca yön değiştirme\n4. Kafada cümleyi kurana kadar konunun değişmesi\n5. \"Dün İngilizce rüya gördüm\" (görmedin)\n6. Yabancıyla 5 dakika konuşup \"ANLADI!\" sevinci\n7. \"th\" sesini bir kez doğru çıkarınca Oscar hissi\n\nHangi evredesin? Numaranı yorumlara yaz 👇 2. evrede takılı kalan arkadaşını etiketle 😂\n\nThe 7 stages of learning English as a Turkish speaker.",
+  "hashtags": [
+   "#ingilizce",
+   "#ingilizceöğreniyorum",
+   "#mizah",
+   "#relatable",
+   "#learnenglish",
+   "#ingilizcekonuşma",
+   "#türkiye",
+   "#englishlearning",
+   "#komik",
+   "#ahkakademi",
+   "#languagelearning",
+   "#esl"
+  ],
+  "alt": "9 slaytlık lacivert carousel. Kapakta 'Türk olarak İngilizce öğrenmenin 7 evresi' başlığı. Her slaytta büyük bir evre numarası, bir emoji, mizahi başlık (örneğin 'Turist adres sorunca yön değiştirme evresi'), kısa açıklama ve el yazısıyla bir tavsiye. Son slaytta 7 evrenin listesi ve 'Hangi evredesin?' sorusu."
+ },
+ {
+  "id": "21",
+  "slug": "confusing-pairs",
+  "title": "Karıştırılan 7 ikili",
+  "format": "carousel",
+  "pillar": "Confusing words",
+  "series": "Karıştırılanlar",
+  "hook": "\"It was so fun\" mı, \"so funny\" mi?",
+  "theme": "paper",
+  "slides": [
+   {
+    "type": "cover",
+    "theme": "navy",
+    "kicker": "KARIŞTIRILANLAR",
+    "title": "fun mı, ==funny== mi? say mi, ==tell== mi?",
+    "sub": "Türkçede tek kelime, İngilizcede iki. En çok karıştırılan 7 ikili, tek kuralla.",
+    "pill": "Kaydır → 7 ikili"
+   },
+   {
+    "type": "compare",
+    "kicker": "İKİLİ 1 / 7",
+    "heading": "fun vs funny",
+    "leftLabel": "FUN · EĞLENCELİ",
+    "left": "The party was fun.\n(eğlendim)",
+    "rightLabel": "FUNNY · KOMİK",
+    "right": "The film was funny.\n(güldüm)",
+    "why": "Bir dersi //funny// bulduysan hocaya gülmüşsündür. //fun// bulduysan eğlenmişsindir."
+   },
+   {
+    "type": "compare",
+    "kicker": "İKİLİ 2 / 7",
+    "heading": "say vs tell",
+    "leftLabel": "SAY + SÖZ",
+    "left": "She said (that) she was tired.\nHe said \"hello\".",
+    "rightLabel": "TELL + KİŞİ",
+    "right": "She told me she was tired.\nTell him the truth.",
+    "why": "**tell** hemen arkasına kişi ister: //tell me, tell him//. **say** istemez: //say to me//."
+   },
+   {
+    "type": "compare",
+    "kicker": "İKİLİ 3 / 7",
+    "heading": "hear vs listen",
+    "leftLabel": "HEAR · DUYMAK",
+    "left": "I heard a noise.\n(istemeden, kendiliğinden)",
+    "rightLabel": "LISTEN TO · DİNLEMEK",
+    "right": "I listened to the podcast.\n(bilinçli, dikkatle)",
+    "why": "**listen** her zaman **to** ile: //listen to music//. Aynı mantık: see (görmek) vs watch (izlemek), look at (bakmak)."
+   },
+   {
+    "type": "compare",
+    "kicker": "İKİLİ 4 / 7",
+    "heading": "remember vs remind",
+    "leftLabel": "REMEMBER · HATIRLAMAK",
+    "left": "I remember his name.\n(kendim)",
+    "rightLabel": "REMIND · HATIRLATMAK",
+    "right": "Remind me to call him.\n(biri bana)",
+    "why": "**remind** birini ister: //remind **me**//. Türkçedeki -t eki (hatırla**t**) = remind."
+   },
+   {
+    "type": "compare",
+    "kicker": "İKİLİ 5 / 7",
+    "heading": "lose vs loose",
+    "leftLabel": "LOSE · KAYBETMEK (fiil)",
+    "left": "Don't lose your keys.\n/luːz/",
+    "rightLabel": "LOOSE · GEVŞEK, BOL (sıfat)",
+    "right": "This shirt is too loose.\n/luːs/",
+    "why": "Tek **o** = fiil. Çift **oo** = bol/gevşek. ~~I'm loosing~~ → **I'm losing**"
+   },
+   {
+    "type": "compare",
+    "kicker": "İKİLİ 6 / 7",
+    "heading": "advice vs advise",
+    "leftLabel": "ADVICE · TAVSİYE (isim)",
+    "left": "Can I give you some advice?\n/ədˈvaɪs/",
+    "rightLabel": "ADVISE · TAVSİYE ETMEK (fiil)",
+    "right": "I'd advise you to wait.\n/ədˈvaɪz/",
+    "why": "**advice** sayılamaz: ~~an advice~~ → //a piece of advice//, //some advice//."
+   },
+   {
+    "type": "compare",
+    "kicker": "İKİLİ 7 / 7",
+    "heading": "affect vs effect",
+    "leftLabel": "AFFECT · ETKİLEMEK (fiil)",
+    "left": "Stress affects your sleep.",
+    "rightLabel": "EFFECT · ETKİ (isim)",
+    "right": "Stress has an effect on your sleep.",
+    "why": "**A**ffect = **A**ction (fiil). **E**ffect = **E**nd result (isim). IELTS Writing'de çok puan kurtarır."
+   },
+   {
+    "type": "recap",
+    "theme": "navy",
+    "kicker": "ÖZET · 7 İKİLİ",
+    "title": "Türkçede bir, İngilizcede iki",
+    "items": [
+     {
+      "k": "fun / funny",
+      "v": "eğlenceli / komik"
+     },
+     {
+      "k": "say / tell",
+      "v": "söz / kişi"
+     },
+     {
+      "k": "hear / listen to",
+      "v": "duymak / dinlemek"
+     },
+     {
+      "k": "remember / remind",
+      "v": "hatırlamak / hatırlatmak"
+     },
+     {
+      "k": "lose / loose",
+      "v": "kaybetmek / bol"
+     },
+     {
+      "k": "advice / advise",
+      "v": "isim / fiil"
+     },
+     {
+      "k": "affect / effect",
+      "v": "fiil / isim"
+     }
+    ],
+    "foot": "En çok hangisini karıştırıyorsun? Yorumla :point:"
+   }
+  ],
+  "caption": "\"It was so fun\" mı, \"so funny\" mi? 🤔\n\nTürkçede tek kelime, İngilizcede iki. En çok karıştırılan 7 ikili:\n• fun (eğlenceli) / funny (komik)\n• say + söz / tell + kişi → She said hello. She told me.\n• hear (duymak) / listen to (dinlemek)\n• remember (hatırlamak) / remind (hatırlatmak) → Remind me!\n• lose (kaybetmek, /luːz/) / loose (bol, /luːs/)\n• advice (isim) / advise (fiil) → a piece of advice\n• affect (fiil) / effect (isim) → Stress affects sleep. It has an effect.\n\nEn çok hangisini karıştırıyorsun? Yorumla 👇 Kaydet 🔖, \"so funny\" diyen arkadaşına gönder.\n\n7 commonly confused English word pairs, explained with one rule each.",
+  "hashtags": [
+   "#ingilizcekelime",
+   "#confusingwords",
+   "#ingilizce",
+   "#learnenglish",
+   "#ingilizceöğreniyorum",
+   "#englishvocabulary",
+   "#ingilizcegramer",
+   "#ielts",
+   "#vocabulary",
+   "#ahkakademi",
+   "#englishtips",
+   "#yds"
+  ],
+  "alt": "9 slaytlık carousel. Lacivert kapakta 'fun mı, funny mi? say mi, tell mi?' başlığı. Her açık renkli slaytta yan yana iki kutu: solda ilk kelime ve örneği, sağda lacivert kutuda ikinci kelime ve örneği, altında tek cümlelik kural. Son slaytta 7 ikilinin özet listesi."
+ },
+ {
+  "id": "22",
+  "slug": "didnt-went",
+  "title": "\"I didn't went\" hatası",
+  "format": "single",
+  "pillar": "Turkish-speaker mistakes",
+  "series": "Türkçe Düşünme · Bölüm 2",
+  "hook": "Bunu yıllardır yanlış söylüyorsun",
+  "theme": "navy",
+  "tag": "BÖLÜM 2",
+  "slides": [
+   {
+    "type": "coverStrike",
+    "kicker": "TÜRKÇE DÜŞÜNME · BÖLÜM 2",
+    "wrong": "I didn't went.",
+    "title": "Bunu yıllardır ==yanlış== söylüyorsun.",
+    "sub": "**did / didn't** zaten geçmiş zamanı taşıyor. Fiil yalın kalır:\n//I didn't **go**. Did you **see** it? She didn't **have** time.//",
+    "pill": "Doğrusu: I didn't go."
+   }
+  ],
+  "caption": "Bunu yıllardır yanlış söylüyorsun 🚫\n\n❌ I didn't went.\n❌ Did you saw it?\n❌ She didn't had time.\n\n\"did / didn't\" zaten geçmiş zamanı taşıyor. Fiil yalın kalır:\n✅ I didn't go.\n✅ Did you see it?\n✅ She didn't have time.\n\nTek cümlede geçmiş zaman bir kez işaretlenir. Türkçede \"-di\" her fiile gelir; İngilizcede sadece bir yere.\n\nKaydet 🔖, \"I didn't went\" diyen arkadaşına gönder 👇\n\nCommon mistake: \"I didn't went\" → \"I didn't go\". The past is marked once.",
+  "hashtags": [
+   "#ingilizcegramer",
+   "#commonmistakes",
+   "#ingilizce",
+   "#grammar",
+   "#learnenglish",
+   "#ingilizceöğreniyorum",
+   "#englishmistakes",
+   "#pastsimple",
+   "#yds",
+   "#ahkakademi",
+   "#ingilizcedersi"
+  ],
+  "alt": "Lacivert tek görsel. Üstü kırmızı çizili 'I didn't went.' kutusu, altında büyük başlık 'Bunu yıllardır yanlış söylüyorsun.' ve kural: did/didn't geçmiş zamanı taşır, fiil yalın kalır; örnekler 'I didn't go. Did you see it? She didn't have time.' Altın düğmede 'Doğrusu: I didn't go.'"
+ },
+ {
+  "id": "23",
+  "slug": "konusmak-mi-anlamak-mi",
+  "title": "Konuşmak mı, anlamak mı daha zor?",
+  "format": "single",
+  "pillar": "This-or-that poll",
+  "series": "Anket",
+  "hook": "Konuşmak mı, anlamak mı?",
+  "theme": "navy",
+  "tag": "ANKET",
+  "slides": [
+   {
+    "type": "poll",
+    "kicker": "BU MU, O MU?",
+    "title": "Senin için hangisi daha zor?",
+    "a": {
+     "emoji": "🗣️",
+     "label": "KONUŞMAK",
+     "desc": "Kafamda cümle hazır, ağzımdan çıkmıyor."
+    },
+    "b": {
+     "emoji": "👂",
+     "label": "ANLAMAK",
+     "desc": "Hızlı konuşunca 3. kelimede kayboluyorum."
+    },
+    "sub": "Yorumlara **A** ya da **B** yaz. Cevaba göre bir sonraki postu hazırlıyoruz :point:"
+   }
+  ],
+  "caption": "Senin için hangisi daha zor? 🗣️ vs 👂\n\nA) KONUŞMAK — kafamda cümle hazır, ağzımdan çıkmıyor.\nB) ANLAMAK — native hızlı konuşunca 3. kelimede kayboluyorum.\n\nYorumlara A ya da B yaz. En çok hangisi çıkarsa bir sonraki carousel onun için 👇\n(İkisi de normal: biri çıktı, diğeri girdi problemi; çözümleri farklı.)\n\nWhich is harder for you: speaking or understanding native speakers?",
+  "hashtags": [
+   "#anket",
+   "#ingilizce",
+   "#ingilizcekonuşma",
+   "#listening",
+   "#speaking",
+   "#learnenglish",
+   "#ingilizceöğreniyorum",
+   "#thisorthat",
+   "#englishlearning",
+   "#ahkakademi"
+  ],
+  "alt": "Lacivert anket görseli: 'Senin için hangisi daha zor?' başlığı. Solda altın kutu 'A · KONUŞMAK' (konuşma emojisi, 'Kafamda cümle hazır, ağzımdan çıkmıyor'), sağda beyaz kutu 'B · ANLAMAK' (kulak emojisi, 'Hızlı konuşunca kayboluyorum'), ortada 'VS' rozeti. Altta 'Yorumlara A ya da B yaz' çağrısı."
+ },
+ {
+  "id": "24",
+  "slug": "word-resilience",
+  "title": "Günün kelimesi: resilience",
+  "format": "single",
+  "pillar": "Vocabulary upgrade",
+  "series": "Günün Kelimesi",
+  "hook": "Dil öğrenmek yetenek değil, resilience ister",
+  "theme": "gold",
+  "tag": "GÜNÜN KELİMESİ",
+  "slides": [
+   {
+    "type": "word",
+    "kicker": "GÜNÜN KELİMESİ",
+    "word": "resilience",
+    "ipa": "/rɪˈzɪliəns/",
+    "pos": "isim",
+    "cefr": "C1",
+    "meaning": "zorluklardan sonra toparlanma gücü; dayanıklılık",
+    "example": "Learning a language takes resilience, not talent.",
+    "exampleTr": "Dil öğrenmek yetenek değil, dayanıklılık ister.",
+    "note": "Sıfatı: **resilient** /rɪˈzɪliənt/ → //She's incredibly resilient.// IELTS Speaking'de \"kişilik\" sorularının yıldızı."
+   }
+  ],
+  "caption": "Günün kelimesi: resilience /rɪˈzɪliəns/ (isim, C1) 💪\n\nZorluklardan sonra toparlanma gücü; dayanıklılık.\n\"Learning a language takes resilience, not talent.\"\n\nSıfatı: resilient → \"She's incredibly resilient.\"\nIELTS Speaking'de karakter, iş ve başarı sorularında birebir kullan.\n\nBugün bu kelimeyle bir cümle kur, yorumlara yaz 👇 Kaydet 🔖\n\nWord of the day: resilience — the ability to recover from difficulties.",
+  "hashtags": [
+   "#gününkelimesi",
+   "#wordoftheday",
+   "#ingilizcekelime",
+   "#vocabulary",
+   "#ingilizce",
+   "#learnenglish",
+   "#ielts",
+   "#ieltsvocabulary",
+   "#c1",
+   "#ahkakademi",
+   "#englishvocabulary"
+  ],
+  "alt": "Altın sarısı tek görsel. 'Günün kelimesi' etiketi, büyük lacivert 'resilience' yazısı, IPA okunuşu /rɪˈzɪliəns/, 'isim' ve 'C1' rozetleri. Beyaz kutuda Türkçe anlamı (toparlanma gücü, dayanıklılık), altında örnek cümle 'Learning a language takes resilience, not talent.' ve çevirisi; en altta sıfat hâli 'resilient' notu."
+ },
+ {
+  "id": "25",
+  "slug": "hata-yapmadan",
+  "title": "Hata yapmadan konuşamazsın",
+  "format": "single",
+  "pillar": "Motivation",
+  "series": "Poster",
+  "hook": "Hata yapmadan konuşamazsın. Konuşmadan düzeltemezsin.",
+  "theme": "paper",
+  "tag": "POSTER",
+  "slides": [
+   {
+    "type": "poster",
+    "theme": "paper",
+    "title": "Hata yapmadan konuşamazsın. Konuşmadan ==düzeltemezsin.==",
+    "size": "lg",
+    "sub": "Sıra önemli: önce konuş, sonra düzelt. Tersi yok.",
+    "pill": "Kaydet, zor günde bak :save:"
+   }
+  ],
+  "caption": "Hata yapmadan konuşamazsın. Konuşmadan düzeltemezsin. ✍️\n\nSıra önemli: önce konuş, sonra düzelt. Tersi yok.\n\"Hazır olunca konuşacağım\" diyen, hiç konuşmaz; çünkü hazır olmak konuşarak olur.\n\nBugün bir cümle: sesli, hatalı, ama söylenmiş. Yorumlara yaz 👇\nKaydet 🔖, zor günde bir daha bak.\n\nYou can't speak without making mistakes. You can't fix them without speaking.",
+  "hashtags": [
+   "#motivasyon",
+   "#ingilizcekonuşma",
+   "#ingilizce",
+   "#speakenglish",
+   "#learnenglish",
+   "#ingilizceöğreniyorum",
+   "#dilöğrenme",
+   "#konuşmapratiği",
+   "#mindset",
+   "#ahkakademi"
+  ],
+  "alt": "Açık renkli poster. Ortada büyük lacivert başlık: 'Hata yapmadan konuşamazsın. Konuşmadan düzeltemezsin.' ('düzeltemezsin' mavi). Altında 'Sıra önemli: önce konuş, sonra düzelt.' ve 'Kaydet, zor günde bak' düğmesi. Arka planda soluk altı köşeli yıldız."
+ },
+ {
+  "id": "26",
+  "slug": "fluent-meme",
+  "title": "\"İngilizcem akıcı\" memesi",
+  "format": "single",
+  "pillar": "Humor / relatable",
+  "series": "Mizah",
+  "hook": "Ben: İngilizcem akıcı. Native: Hey, how's it going?",
+  "theme": "paper",
+  "tag": "MEME",
+  "slides": [
+   {
+    "type": "meme",
+    "kicker": "MİZAH",
+    "title": "Akıcılık testi",
+    "chat": [
+     {
+      "who": "BEN, CV'DE",
+      "text": "English: Fluent :cool:"
+     },
+     {
+      "who": "NATIVE, KAPIDA",
+      "text": "Hey! How's it going?",
+      "me": true
+     },
+     {
+      "who": "BEN",
+      "text": "…"
+     },
+     {
+      "who": "BEN, 4 SANİYE SONRA",
+      "text": "I'm fine thank you, and you?"
+     }
+    ],
+    "caption": "\"How's it going?\" = \"Nasıl gidiyor?\" Cevap: **Pretty good, you?** / **Not bad!** / **Can't complain.**"
+   }
+  ],
+  "caption": "Ben, CV'de: English — Fluent 😎\nNative, kapıda: \"Hey! How's it going?\"\nBen: …\nBen, 4 saniye sonra: \"I'm fine thank you, and you?\" 🫠\n\n\"How's it going?\" = \"Nasıl gidiyor?\" Doğal cevaplar:\n• Pretty good, you?\n• Not bad!\n• Can't complain.\n• All good, thanks.\n\nKendini gördüysen 😅 yorumlara \"I'm fine thank you\" yaz. Aynı döngüdeki arkadaşına gönder ↗\n\nThe \"I'm fine thank you and you\" loop — and 4 natural replies to \"How's it going?\"",
+  "hashtags": [
+   "#mizah",
+   "#ingilizce",
+   "#relatable",
+   "#meme",
+   "#learnenglish",
+   "#ingilizceöğreniyorum",
+   "#ingilizcekonuşma",
+   "#englishmemes",
+   "#speakenglish",
+   "#ahkakademi",
+   "#komik"
+  ],
+  "alt": "Açık renkli meme görseli, mesajlaşma balonlarıyla. 'BEN, CV'DE: English: Fluent', mavi balonda 'NATIVE: Hey! How's it going?', ardından 'BEN: …' ve 'BEN, 4 SANİYE SONRA: I'm fine thank you, and you?'. Altta doğal cevaplar: Pretty good, you? / Not bad! / Can't complain."
+ },
+ {
+  "id": "27",
+  "slug": "ed-endings",
+  "title": "-ed üç farklı okunur",
+  "format": "single",
+  "pillar": "Pronunciation",
+  "series": "Telaffuz Tuzakları · Bölüm 3",
+  "hook": "walked 1 hece, wanted 2 hece",
+  "theme": "navy",
+  "tag": "CHEAT SHEET",
+  "slides": [
+   {
+    "type": "diagram",
+    "name": "ed",
+    "kicker": "TELAFFUZ · -ED CHEAT SHEET",
+    "title": "\"-ed\" ==üç farklı== okunur.",
+    "sub": "walked tek hece. wanted iki hece. Kural: son sese bak.",
+    "buckets": [
+     {
+      "sound": "/t/",
+      "rule": "Sessiz (titreşimsiz) sesten sonra: p, k, s, ʃ, tʃ, f",
+      "words": [
+       "walk**ed** /wɔːkt/",
+       "stopp**ed** /stɒpt/",
+       "wash**ed** /wɒʃt/",
+       "laugh**ed** /lɑːft/"
+      ]
+     },
+     {
+      "sound": "/d/",
+      "rule": "Titreşimli sesten sonra: sesliler, b, g, v, z, m, n, l, r",
+      "words": [
+       "play**ed** /pleɪd/",
+       "lov**ed** /lʌvd/",
+       "clean**ed** /kliːnd/",
+       "call**ed** /kɔːld/"
+      ]
+     },
+     {
+      "sound": "/ɪd/",
+      "rule": "Sadece t ve d'den sonra: fazladan bir hece",
+      "words": [
+       "want**ed** /ˈwɒntɪd/",
+       "need**ed** /ˈniːdɪd/",
+       "start**ed** /ˈstɑːtɪd/",
+       "decid**ed** /dɪˈsaɪdɪd/"
+      ]
+     }
+    ],
+    "after": "Türklerin hatası: her -ed'i \"-ed\" diye okumak. //walked// = \"vokt\", \"vok-ed\" değil. Elini boğazına koy: titreşim varsa /d/, yoksa /t/."
+   }
+  ],
+  "caption": "\"-ed\" üç farklı okunur 🗣️\n\nwalked tek hece. wanted iki hece. Kural: son sese bak.\n/t/ → sessiz sesten sonra: walked, stopped, washed, laughed\n/d/ → titreşimli sesten sonra: played, loved, cleaned, called\n/ɪd/ → sadece t ve d'den sonra (fazladan hece): wanted, needed, started, decided\n\nTürklerin hatası: her -ed'i \"ed\" diye okumak. \"walked\" = \"vokt\", \"vok-ed\" değil.\nTest: elini boğazına koy, son sesi söyle. Titreşim varsa /d/, yoksa /t/.\n\nKaydet 🔖, sesli pratik için geri dön. Telaffuz serisinin önceki bölümleri profilde.\n\nHow to pronounce -ed endings in English: /t/, /d/ or /ɪd/.",
+  "hashtags": [
+   "#telaffuz",
+   "#pronunciation",
+   "#ingilizce",
+   "#ingilizcetelaffuz",
+   "#edendings",
+   "#learnenglish",
+   "#englishpronunciation",
+   "#ingilizceöğreniyorum",
+   "#ipa",
+   "#ahkakademi",
+   "#speakenglish"
+  ],
+  "alt": "Lacivert cheat sheet. Başlık: '-ed üç farklı okunur.' Üç beyaz sütun: /t/ (sessiz sesten sonra: walked, stopped, washed, laughed), /d/ (titreşimli sesten sonra: played, loved, cleaned, called), /ɪd/ (t ve d'den sonra: wanted, needed, started, decided), her kelimenin IPA'sıyla. Altta 'elini boğazına koy' testi."
+ },
+ {
+  "id": "28",
+  "slug": "ielts-task1-trends",
+  "title": "IELTS Task 1: trend kelimeleri",
+  "format": "single",
+  "pillar": "IELTS Writing",
+  "series": "IELTS Writing · Bölüm 2",
+  "hook": "Grafik anlatırken \"increase\" dışında 20 kelime",
+  "theme": "paper",
+  "tag": "SINAV ÖNCESİ",
+  "slides": [
+   {
+    "type": "diagram",
+    "name": "trends",
+    "theme": "paper",
+    "kicker": "IELTS WRITING TASK 1 · KAYDET",
+    "title": "Grafik anlatırken ==\"increase\"== dışında bir şey de.",
+    "size": "sm",
+    "items": [
+     {
+      "icon": "up",
+      "k": "rise · grow · climb · increase",
+      "v": "yükselmek (a rise in / a growth in)"
+     },
+     {
+      "icon": "down",
+      "k": "fall · drop · decline · decrease",
+      "v": "düşmek (a fall in / a drop in)"
+     },
+     {
+      "icon": "flat",
+      "k": "remain stable · level off · stay constant",
+      "v": "sabit kalmak / yatay seyretmek"
+     },
+     {
+      "icon": "wave",
+      "k": "fluctuate",
+      "v": "dalgalanmak (a fluctuation)"
+     },
+     {
+      "icon": "peak",
+      "k": "peak at · reach a high of",
+      "v": "zirve yapmak"
+     },
+     {
+      "icon": "low",
+      "k": "hit a low of · bottom out",
+      "v": "dip yapmak"
+     }
+    ],
+    "after": "Zarf ekle, puanı yükselt: **sharply · dramatically · significantly** (büyük) · **steadily · gradually** (düzenli) · **slightly · marginally** (küçük). //Sales rose sharply to 40%.//"
+   }
+  ],
+  "caption": "Grafik anlatırken \"increase\" dışında bir şey de 📈\n\nIELTS Writing Task 1 trend kelimeleri:\n📈 rise · grow · climb · increase → a rise in / a growth in\n📉 fall · drop · decline · decrease → a fall in / a drop in\n➡️ remain stable · level off · stay constant\n〰️ fluctuate → a fluctuation\n🔺 peak at · reach a high of\n🔻 hit a low of · bottom out\n\nZarf ekle: sharply / dramatically / significantly (büyük) · steadily / gradually (düzenli) · slightly / marginally (küçük)\n\"Sales rose sharply to 40% in 2020.\"\n\nSınavdan önce bir daha bak: kaydet 🔖. Task 1 yazan arkadaşına gönder ↗\n\nIELTS Writing Task 1: 20 trend verbs and adverbs for describing graphs.",
+  "hashtags": [
+   "#ielts",
+   "#ieltswriting",
+   "#ieltstask1",
+   "#ieltspreparation",
+   "#ieltsvocabulary",
+   "#ingilizce",
+   "#ieltshazırlık",
+   "#academicenglish",
+   "#learnenglish",
+   "#ahkakademi",
+   "#band7",
+   "#ieltstips"
+  ],
+  "alt": "Açık renkli cheat sheet. Başlık: 'Grafik anlatırken increase dışında bir şey de.' Altı kart, her birinde küçük bir çizgi grafiği ikonu (yükselen, düşen, yatay, dalgalı, zirve, dip) ve ilgili fiiller: rise/grow/climb, fall/drop/decline, remain stable/level off, fluctuate, peak at, hit a low of. Altta zarflar: sharply, steadily, slightly ve örnek cümle."
+ },
+ {
+  "id": "29",
+  "slug": "3-saniye-quiz",
+  "title": "3 saniyede cevapla: for / since / from",
+  "format": "single",
+  "pillar": "Quiz",
+  "series": "Quiz Günü",
+  "hook": "3 saniyen var",
+  "theme": "blue",
+  "tag": "3 SANİYE",
+  "slides": [
+   {
+    "type": "quiz",
+    "n": "?",
+    "kicker": "3 SANİYEDE CEVAPLA",
+    "q": "She has been living in İstanbul ___ three years.",
+    "options": [
+     "for",
+     "since",
+     "from"
+    ],
+    "hint": "Cevabı yorumlara yaz; doğrusu açıklamada :point:"
+   }
+  ],
+  "caption": "3 saniyen var ⏱️\n\nShe has been living in İstanbul ___ three years.\nA) for  B) since  C) from\n\nCevabını yorumlara yaz, sonra oku 👇\n.\n.\n.\nDoğru cevap: A) for.\n\"three years\" bir süre → for. Başlangıç noktası olsaydı → since: \"since 2023\".\n\"from\" burada olmaz; \"from 2023 to 2025\" gibi bitişi olan aralıklarda kullanılır.\n\nTürkçe tuzağı: \"3 yıldır\" = for three years. \"2023'ten beri\" = since 2023.\n\nKaç saniyede bildin? Bilemeyen arkadaşına gönder ↗\n\n3-second quiz: for, since or from?",
+  "hashtags": [
+   "#ingilizcequiz",
+   "#englishquiz",
+   "#ingilizce",
+   "#forsince",
+   "#grammar",
+   "#learnenglish",
+   "#ingilizceöğreniyorum",
+   "#ingilizcegramer",
+   "#quiz",
+   "#ahkakademi",
+   "#presentperfect"
+  ],
+  "alt": "Mavi quiz görseli. '3 saniyede cevapla' etiketi, soru: 'She has been living in İstanbul ___ three years.' Altında üç beyaz seçenek: A for, B since, C from. El yazısıyla 'Cevabı yorumlara yaz; doğrusu açıklamada' notu."
+ },
+ {
+  "id": "30",
+  "slug": "borrow-vs-lend",
+  "title": "borrow mu, lend mi?",
+  "format": "single",
+  "pillar": "Confusing words",
+  "series": "Karıştırılanlar",
+  "hook": "\"Can you borrow me your pen?\" yanlış",
+  "theme": "paper",
+  "tag": "KARIŞTIRILANLAR",
+  "slides": [
+   {
+    "type": "diagram",
+    "name": "arrows",
+    "theme": "paper",
+    "kicker": "KARIŞTIRILANLAR",
+    "title": "borrow mu, ==lend== mi?",
+    "sub": "İkisi de Türkçede \"ödünç\". Yönü düşün: sana doğru mu, senden uzağa mı?",
+    "after": "~~Can you borrow me your pen?~~ → **Can you lend me your pen?** (sen veriyorsun) · **Can I borrow your pen?** (ben alıyorum)"
+   }
+  ],
+  "caption": "\"Can you borrow me your pen?\" yanlış ✏️\n\nİkisi de Türkçede \"ödünç\", ama yönleri farklı:\n➡️ borrow = ödünç ALMAK (bana doğru): Can I borrow your pen?\n⬅️ lend = ödünç VERMEK (benden uzağa): Can you lend me your pen?\n\nPüf: borrow FROM someone, lend TO someone.\nI borrowed money from the bank. The bank lent money to me.\n\nKaydet 🔖, kalemini ödünç alan arkadaşına gönder 😄\n\nBorrow vs lend: it's all about direction.",
+  "hashtags": [
+   "#borrowvslend",
+   "#ingilizcekelime",
+   "#ingilizce",
+   "#confusingwords",
+   "#learnenglish",
+   "#ingilizceöğreniyorum",
+   "#englishvocabulary",
+   "#ingilizcegramer",
+   "#vocabulary",
+   "#ahkakademi",
+   "#englishtips"
+  ],
+  "alt": "Açık renkli diyagram. Başlık 'borrow mu, lend mi?'. Solda lacivert 'BEN' kutusu, sağda mavi 'ARKADAŞIM' kutusu. Arkadaştan bana doğru altın ok: 'borrow — ödünç almak, bana doğru'. Benden arkadaşa mavi ok: 'lend — ödünç vermek, benden uzağa'. Altta örnek: Can you lend me your pen? / Can I borrow your pen?"
+ },
+ {
+  "id": "31",
+  "slug": "email-sign-offs",
+  "title": "E-posta kapanışları: resmiden samimiye",
+  "format": "single",
+  "pillar": "Business English",
+  "series": "Business English · Bölüm 2",
+  "hook": "\"Good works\"un yerine koyacağın 7 kapanış",
+  "theme": "navy",
+  "tag": "CHEAT SHEET",
+  "slides": [
+   {
+    "type": "ladder",
+    "kicker": "BUSINESS ENGLISH · KAPANIŞLAR",
+    "title": "\"İyi çalışmalar\" yok. Bunlar var.",
+    "items": [
+     {
+      "k": "Yours faithfully,",
+      "v": "DEAR SIR/MADAM (UK)"
+     },
+     {
+      "k": "Yours sincerely,",
+      "v": "DEAR MR SMITH (UK)"
+     },
+     {
+      "k": "Sincerely,",
+      "v": "RESMİ (US)"
+     },
+     {
+      "k": "Kind regards,",
+      "v": "İŞ · GÜVENLİ SEÇİM"
+     },
+     {
+      "k": "Best regards,",
+      "v": "İŞ · GÜNLÜK"
+     },
+     {
+      "k": "Best,",
+      "v": "TANIDIK MESLEKTAŞ"
+     },
+     {
+      "k": "Thanks!  /  Cheers,",
+      "v": "SAMİMİ (CHEERS: UK)"
+     }
+    ],
+    "note": "Emin değilsen **Kind regards,** — hiçbir e-postada yanlış durmaz. Kapanıştan sonra sadece ismin."
+   }
+  ],
+  "caption": "\"İyi çalışmalar\"ın İngilizcesi yok. Bunlar var 📧\n\nEn resmiden en samimiye:\n1. Yours faithfully, → Dear Sir/Madam ile (UK)\n2. Yours sincerely, → Dear Mr Smith ile (UK)\n3. Sincerely, → resmi (US)\n4. Kind regards, → iş, güvenli seçim\n5. Best regards, → iş, günlük\n6. Best, → tanıdık meslektaş\n7. Thanks! / Cheers, → samimi (Cheers: UK)\n\nEmin değilsen: Kind regards. Hiçbir e-postada yanlış durmaz.\n\nKaydet 🔖, \"Good works\" yazan arkadaşına gönder ↗\n\n7 English email sign-offs from most formal to most casual.",
+  "hashtags": [
+   "#businessenglish",
+   "#işingilizcesi",
+   "#emailenglish",
+   "#ingilizce",
+   "#professionalenglish",
+   "#learnenglish",
+   "#kurumsalingilizce",
+   "#englishforwork",
+   "#ingilizceeposta",
+   "#ahkakademi",
+   "#careertips"
+  ],
+  "alt": "Lacivert cheat sheet. Başlık: 'İyi çalışmalar yok. Bunlar var.' Merdiven gibi kademeli 7 satır, en resmiden (lacivert, 'Yours faithfully') en samimiye (altın, 'Thanks! / Cheers') doğru; her satırda ne zaman kullanılacağı etiketi. Altta 'Emin değilsen Kind regards' notu."
+ },
+ {
+  "id": "32",
+  "slug": "since-vs-for",
+  "title": "since vs for: tek çizgi",
+  "format": "single",
+  "pillar": "Grammar made simple",
+  "series": "Gramer · Zamanlar",
+  "hook": "since nokta, for çizgi",
+  "theme": "navy",
+  "tag": "GRAMER",
+  "slides": [
+   {
+    "type": "diagram",
+    "name": "timeline",
+    "kicker": "GRAMER · 10 SANİYE",
+    "title": "since ==nokta,== for ==çizgi.==",
+    "sub": "Başladığı AN'ı söylüyorsan since. Ne KADAR sürdüğünü söylüyorsan for.",
+    "after": "//I've worked here **since 2021**.// = //I've worked here **for five years**.// Aynı cümle, iki bakış."
+   }
+  ],
+  "caption": "since nokta, for çizgi 📍➖\n\nBaşladığı ANI söylüyorsan → since: since 2021, since Monday, since I was a child\nNe KADAR sürdüğünü söylüyorsan → for: for five years, for two hours, for a long time\n\nI've worked here since 2021. = I've worked here for five years. Aynı cümle, iki bakış.\n\nTürkçe tuzağı: \"-den beri\" ≠ her zaman since. \"5 yıldır\" = for 5 years.\n\nKaydet 🔖, since/for'u karıştıran arkadaşına gönder.\n\nSince vs for in one timeline: a point vs a duration.",
+  "hashtags": [
+   "#sincevsfor",
+   "#ingilizcegramer",
+   "#ingilizce",
+   "#presentperfect",
+   "#grammar",
+   "#learnenglish",
+   "#ingilizceöğreniyorum",
+   "#englishgrammar",
+   "#yds",
+   "#ahkakademi",
+   "#ingilizcedersi"
+  ],
+  "alt": "Lacivert diyagram. Başlık: 'since nokta, for çizgi.' Yatay bir zaman çizgisi: solda altın nokta '2021' (başlangıç noktası), sağda beyaz nokta 'ŞİMDİ'. Üstte altın yay 'for 5 years' (süre), altta 'since 2021'. Altta açıklama: iki cümle aynı anlama gelir."
+ },
+ {
+  "id": "33",
+  "slug": "break-a-leg",
+  "title": "Break a leg!",
+  "format": "single",
+  "pillar": "Phrasal verbs & idioms",
+  "series": "Deyimler",
+  "hook": "Sahneye çıkmadan önce biri \"bacağını kır\" derse",
+  "theme": "gold",
+  "tag": "DEYİM",
+  "slides": [
+   {
+    "type": "word",
+    "kicker": "GÜNÜN DEYİMİ",
+    "word": "Break a leg!",
+    "size": "lg",
+    "ipa": "/ˌbreɪk ə ˈleɡ/",
+    "looksLabel": "BİREBİR ÇEVİRİ",
+    "looks": "Bacağını kır! :leg:",
+    "actualLabel": "ASLINDA",
+    "actual": "İyi şanslar! (özellikle sahne, sunum, sınav öncesi) :theatre:",
+    "example": "You've got your IELTS tomorrow? Break a leg!",
+    "exampleTr": "Yarın IELTS'in mi var? Bol şans!",
+    "note": "Tiyatrodan gelir: \"good luck\" demek uğursuz sayılırmış. Cevabı: //Thanks!//"
+   }
+  ],
+  "caption": "Sahneye çıkmadan önce biri \"Break a leg!\" derse kaçma 🎭\n\nBirebir: Bacağını kır!\nAslında: İyi şanslar! (sahne, sunum, sınav öncesi)\n\n\"You've got your IELTS tomorrow? Break a leg!\"\nCevabı sadece: \"Thanks!\"\n\nTiyatrodan gelir: sahne arkasında \"good luck\" demek uğursuz sayılırmış.\n\nYarın sınavı olan arkadaşına gönder ↗ Kaydet 🔖\n\nIdiom of the day: break a leg = good luck.",
+  "hashtags": [
+   "#idioms",
+   "#ingilizcedeyimler",
+   "#ingilizce",
+   "#englishidioms",
+   "#breakaleg",
+   "#learnenglish",
+   "#ingilizceöğreniyorum",
+   "#vocabulary",
+   "#speakenglish",
+   "#ahkakademi",
+   "#englishtips"
+  ],
+  "alt": "Altın sarısı tek görsel. 'Günün deyimi' etiketi, büyük lacivert 'Break a leg!' yazısı ve IPA. Kırmızı çizgili kutuda birebir çeviri 'Bacağını kır!', yeşil çizgili kutuda gerçek anlamı 'İyi şanslar!'. Örnek: 'You've got your IELTS tomorrow? Break a leg!' ve tiyatro kökeni notu."
+ },
+ {
+  "id": "34",
+  "slug": "hangi-ogrenci-tipisin",
+  "title": "Hangi İngilizce öğrencisisin?",
+  "format": "single",
+  "pillar": "This-or-that poll",
+  "series": "Anket",
+  "hook": "4 tip var. Hangisisin?",
+  "theme": "navy",
+  "tag": "HANGİSİSİN?",
+  "slides": [
+   {
+    "type": "grid",
+    "kicker": "HANGİSİSİN?",
+    "title": "4 İngilizce öğrencisi tipi",
+    "cells": [
+     {
+      "n": "1",
+      "emoji": "📐",
+      "title": "Gramer Kurdu",
+      "text": "Her kuralı bilir. Konuşurken kuralları sayar, cümle gelmez."
+     },
+     {
+      "n": "2",
+      "emoji": "📺",
+      "title": "Dizi Öğrencisi",
+      "text": "Her şeyi anlar. \"Konuşmaya gelince kelimeler kaçıyor.\""
+     },
+     {
+      "n": "3",
+      "emoji": "🤫",
+      "title": "Sessiz Dinleyici",
+      "text": "Bilir, anlar, utanır. Grupta en son konuşur, genelde hiç."
+     },
+     {
+      "n": "4",
+      "emoji": "🗣️",
+      "title": "Cesur Konuşmacı",
+      "text": "Hatalı ama durmadan konuşur. En hızlı ilerleyen tip."
+     }
+    ],
+    "sub": "Numaranı yorumlara yaz. 4 değilsen, 4 olmanın yolu: günde 1 dakika sesli özet :point:"
+   }
+  ],
+  "caption": "4 tip var. Hangisisin? 👇\n\n1️⃣ Gramer Kurdu — her kuralı bilir, konuşurken cümle gelmez.\n2️⃣ Dizi Öğrencisi — her şeyi anlar, \"konuşmaya gelince kelimeler kaçıyor.\"\n3️⃣ Sessiz Dinleyici — bilir, anlar, utanır; genelde hiç konuşmaz.\n4️⃣ Cesur Konuşmacı — hatalı ama durmadan konuşur; en hızlı ilerleyen tip.\n\nNumaranı yorumlara yaz. 4 değilsen, 4 olmanın en kısa yolu: her gün 1 dakika sesli özet, telefona kayıt.\n\nArkadaşının tipini de etiketle 😄\n\nWhich type of English learner are you? Comment 1–4.",
+  "hashtags": [
+   "#anket",
+   "#ingilizce",
+   "#ingilizceöğreniyorum",
+   "#hangisisin",
+   "#learnenglish",
+   "#ingilizcekonuşma",
+   "#relatable",
+   "#languagelearning",
+   "#speakenglish",
+   "#ahkakademi",
+   "#englishlearning"
+  ],
+  "alt": "Lacivert görsel, '4 İngilizce öğrencisi tipi' başlığı ve 2×2 kart: 1 Gramer Kurdu (cetvel emojisi), 2 Dizi Öğrencisi (televizyon), 3 Sessiz Dinleyici (sus işareti), 4 Cesur Konuşmacı (konuşma emojisi); her kartta kısa mizahi açıklama. Altta 'Numaranı yorumlara yaz' çağrısı."
+ },
+ {
+  "id": "35",
+  "slug": "i-think-alternatives",
+  "title": "\"I think\" yerine 10 kalıp",
+  "format": "single",
+  "pillar": "IELTS Speaking",
+  "series": "IELTS Speaking · Bölüm 3",
+  "hook": "Her cümleye \"I think\" ile başlıyorsan",
+  "theme": "paper",
+  "tag": "CHEAT SHEET",
+  "slides": [
+   {
+    "type": "table",
+    "theme": "paper",
+    "kicker": "SPEAKING & WRITING · KAYDET",
+    "heading": "Her cümleye ==\"I think\"== ile başlıyorsan…",
+    "size": "sm",
+    "head": [
+     "KALIP",
+     "TON",
+     "TÜRKÇESİ"
+    ],
+    "rows": [
+     [
+      "In my opinion, …",
+      "nötr",
+      "bence"
+     ],
+     [
+      "As far as I'm concerned, …",
+      "nötr / güçlü",
+      "bana kalırsa"
+     ],
+     [
+      "I'd say (that) …",
+      "konuşma",
+      "derim ki"
+     ],
+     [
+      "It seems to me (that) …",
+      "yumuşak",
+      "bana öyle geliyor ki"
+     ],
+     [
+      "From my point of view, …",
+      "nötr",
+      "benim açımdan"
+     ],
+     [
+      "Personally, I believe …",
+      "kişisel",
+      "şahsen inanıyorum ki"
+     ],
+     [
+      "If you ask me, …",
+      "konuşma",
+      "bana sorarsan"
+     ],
+     [
+      "I'm inclined to think (that) …",
+      "resmi, ölçülü",
+      "düşünmeye meyilliyim"
+     ],
+     [
+      "To my mind, …",
+      "resmi",
+      "bence, kanımca"
+     ],
+     [
+      "I reckon …",
+      "günlük, UK",
+      "bence (samimi)"
+     ]
+    ],
+    "dense": true,
+    "accentCol": 0,
+    "note": "Sınavda kural: bir cevapta aynı kalıbı iki kez kullanma. Writing'de **I reckon** ve **If you ask me** olmaz: fazla günlük."
+   }
+  ],
+  "caption": "Her cümleye \"I think\" ile başlıyorsan 🗣️\n\n10 alternatif, tonuyla:\n• In my opinion, … (nötr)\n• As far as I'm concerned, … (güçlü)\n• I'd say (that) … (konuşma)\n• It seems to me (that) … (yumuşak)\n• From my point of view, … (nötr)\n• Personally, I believe … (kişisel)\n• If you ask me, … (konuşma)\n• I'm inclined to think (that) … (resmi)\n• To my mind, … (resmi)\n• I reckon … (günlük, UK)\n\nKural: bir cevapta aynı kalıbı iki kez kullanma. Writing'de \"I reckon\" ve \"If you ask me\" olmaz, fazla günlük.\n\nKaydet 🔖, IELTS'e giren arkadaşına gönder ↗\n\n10 ways to say \"I think\" in English, with register.",
+  "hashtags": [
+   "#ielts",
+   "#ieltsspeaking",
+   "#ieltswriting",
+   "#ingilizce",
+   "#speakingtips",
+   "#learnenglish",
+   "#ingilizcekonuşma",
+   "#ieltstips",
+   "#vocabulary",
+   "#ahkakademi",
+   "#ingilizcekelime",
+   "#band7"
+  ],
+  "alt": "Açık renkli tablo görseli. Başlık: 'Her cümleye I think ile başlıyorsan…'. Üç sütunlu tablo: kalıp (mavi, örneğin 'As far as I'm concerned'), ton (nötr, konuşma, resmi…) ve Türkçesi. 10 satır. Altta 'aynı kalıbı iki kez kullanma' notu."
+ },
+ {
+  "id": "36",
+  "slug": "silent-letters",
+  "title": "Sessiz harfler: 10 kelime",
+  "format": "single",
+  "pillar": "Pronunciation",
+  "series": "Telaffuz Tuzakları · Bölüm 2",
+  "hook": "Bu harfler orada ama okunmuyor",
+  "theme": "navy",
+  "tag": "BÖLÜM 2",
+  "slides": [
+   {
+    "type": "diagram",
+    "name": "silent",
+    "kicker": "TELAFFUZ TUZAKLARI · BÖLÜM 2",
+    "title": "Yazılıyor, ==okunmuyor.==",
+    "sub": "Türkçede her harf okunur. İngilizcede bu 10 harf süs.",
+    "words": [
+     {
+      "word": "knife",
+      "silent": [
+       0
+      ],
+      "ipa": "/naɪf/"
+     },
+     {
+      "word": "write",
+      "silent": [
+       0
+      ],
+      "ipa": "/raɪt/"
+     },
+     {
+      "word": "hour",
+      "silent": [
+       0
+      ],
+      "ipa": "/aʊə/"
+     },
+     {
+      "word": "honest",
+      "silent": [
+       0
+      ],
+      "ipa": "/ˈɒnɪst/"
+     },
+     {
+      "word": "listen",
+      "silent": [
+       3
+      ],
+      "ipa": "/ˈlɪsən/"
+     },
+     {
+      "word": "castle",
+      "silent": [
+       3
+      ],
+      "ipa": "/ˈkɑːsəl/"
+     },
+     {
+      "word": "comb",
+      "silent": [
+       3
+      ],
+      "ipa": "/kəʊm/"
+     },
+     {
+      "word": "climb",
+      "silent": [
+       4
+      ],
+      "ipa": "/klaɪm/"
+     },
+     {
+      "word": "island",
+      "silent": [
+       1
+      ],
+      "ipa": "/ˈaɪlənd/"
+     },
+     {
+      "word": "receipt",
+      "silent": [
+       5
+      ],
+      "ipa": "/rɪˈsiːt/"
+     }
+    ],
+    "after": "Kalıplar: **kn-** → k sessiz · **wr-** → w sessiz · **-mb** → b sessiz · **-stle / -sten** → t sessiz."
+   }
+  ],
+  "caption": "Yazılıyor, okunmuyor 🤫\n\nTürkçede her harf okunur. İngilizcede bu 10 harf süs:\n• knife /naɪf/ — k\n• write /raɪt/ — w\n• hour /aʊə/ — h\n• honest /ˈɒnɪst/ — h\n• listen /ˈlɪsən/ — t\n• castle /ˈkɑːsəl/ — t\n• comb /kəʊm/ — b\n• climb /klaɪm/ — b\n• island /ˈaɪlənd/ — s\n• receipt /rɪˈsiːt/ — p\n\nKalıplar: kn- → k sessiz · wr- → w sessiz · -mb → b sessiz · -stle/-sten → t sessiz\n\nHangisini \"harfi harfine\" okuyordun? Yorumla 👇 Kaydet 🔖. Bölüm 1 (comfortable, Wednesday…) profilde.\n\nSilent letters in English: 10 words Turkish speakers read letter by letter.",
+  "hashtags": [
+   "#telaffuz",
+   "#pronunciation",
+   "#silentletters",
+   "#ingilizce",
+   "#ingilizcetelaffuz",
+   "#learnenglish",
+   "#englishpronunciation",
+   "#ingilizceöğreniyorum",
+   "#ipa",
+   "#ahkakademi",
+   "#speakenglish"
+  ],
+  "alt": "Lacivert görsel. Başlık: 'Yazılıyor, okunmuyor.' 2 sütunlu 10 kart: knife, write, hour, honest, listen, castle, comb, climb, island, receipt; her kelimede sessiz harf soluk ve kırmızı çizili, altında IPA. Altta kalıplar: kn-, wr-, -mb, -stle."
+ },
+ {
+  "id": "37",
+  "slug": "meeting-phrases",
+  "title": "Toplantıda söze girmenin 8 yolu",
+  "format": "single",
+  "pillar": "Business English",
+  "series": "Business English · Bölüm 3",
+  "hook": "Toplantıda söze giremiyorsan",
+  "theme": "navy",
+  "tag": "CHEAT SHEET",
+  "slides": [
+   {
+    "type": "tickets",
+    "kicker": "BUSINESS ENGLISH · TOPLANTI",
+    "heading": "Toplantıda söze ==giremiyorsan==",
+    "size": "sm",
+    "items": [
+     {
+      "stub": "01",
+      "h": "Could I just jump in here?",
+      "p": "Söze girmek, kibarca"
+     },
+     {
+      "stub": "02",
+      "h": "I'd like to add something.",
+      "p": "Katkı yapmak"
+     },
+     {
+      "stub": "03",
+      "h": "To put it simply, …",
+      "p": "Basitleştirmek"
+     },
+     {
+      "stub": "04",
+      "h": "Let's circle back to that.",
+      "p": "Konuya sonra dönmek"
+     },
+     {
+      "stub": "05",
+      "h": "Can we take this offline?",
+      "p": "\"Bunu ayrıca konuşalım\""
+     },
+     {
+      "stub": "06",
+      "h": "Shall we move on?",
+      "p": "Sonraki maddeye geçmek"
+     },
+     {
+      "stub": "07",
+      "h": "Any thoughts?",
+      "p": "Fikir sormak"
+     },
+     {
+      "stub": "08",
+      "h": "Let's wrap up.",
+      "p": "Toparlamak, bitirmek"
+     }
+    ]
+   }
+  ],
+  "caption": "Toplantıda söze giremiyorsan 💼\n\n1. Could I just jump in here? → söze girmek\n2. I'd like to add something. → katkı yapmak\n3. To put it simply, … → basitleştirmek\n4. Let's circle back to that. → konuya sonra dönmek\n5. Can we take this offline? → bunu ayrıca konuşalım\n6. Shall we move on? → sonraki maddeye geçmek\n7. Any thoughts? → fikir sormak\n8. Let's wrap up. → toparlamak\n\nBir sonraki İngilizce toplantında 1 tanesini kullan. Hangisi? Yorumla 👇\nKaydet 🔖, toplantıda susan arkadaşına gönder ↗\n\n8 phrases for English meetings: interrupting politely, moving on, wrapping up.",
+  "hashtags": [
+   "#businessenglish",
+   "#işingilizcesi",
+   "#meetingenglish",
+   "#ingilizce",
+   "#professionalenglish",
+   "#learnenglish",
+   "#kurumsalingilizce",
+   "#englishforwork",
+   "#ingilizcekonuşma",
+   "#ahkakademi",
+   "#careertips"
+  ],
+  "alt": "Lacivert cheat sheet. Başlık: 'Toplantıda söze giremiyorsan'. Bilet biçiminde 8 beyaz kart, lacivert numaralı koçanlarıyla: Could I just jump in here?, I'd like to add something., To put it simply, Let's circle back to that., Can we take this offline?, Shall we move on?, Any thoughts?, Let's wrap up.; her birinin altında Türkçe kullanım notu."
+ },
+ {
+  "id": "38",
+  "slug": "british-vs-american-myth",
+  "title": "Efsane: İngiliz aksanı daha doğru",
+  "format": "single",
+  "pillar": "Myth vs fact",
+  "series": "Efsane / Gerçek",
+  "hook": "\"İngiliz aksanı daha doğru\" bir efsane",
+  "theme": "paper",
+  "tag": "EFSANE / GERÇEK",
+  "slides": [
+   {
+    "type": "myth",
+    "theme": "paper",
+    "n": "?",
+    "kicker": "EFSANE Mİ, GERÇEK Mİ?",
+    "myth": "İngiliz aksanı \"doğru\" İngilizce, Amerikan aksanı bozuk.",
+    "fact": "İkisi de standart. IELTS ve TOEFL ikisini de kabul eder. Önemli olan tutarlılık ve anlaşılırlık.",
+    "why": "**colour / color**, **centre / center**, **at the weekend / on the weekend**: ikisi de doğru. Birini seç, yazıda karıştırma."
+   }
+  ],
+  "caption": "\"İngiliz aksanı daha doğru\" bir efsane 🇬🇧🇺🇸\n\nGerçek: ikisi de standart İngilizce. IELTS de TOEFL da ikisini de kabul eder. Puanlanan şey aksan değil: tutarlılık ve anlaşılırlık.\n\ncolour / color · centre / center · at the weekend / on the weekend → hepsi doğru. Birini seç, yazıda karıştırma.\n\nSen hangisini tercih ediyorsun? 🇬🇧 ya da 🇺🇸 yorumla 👇\n\nMyth: British English is \"correct\" and American English is wrong. Fact: both are standard.",
+  "hashtags": [
+   "#mythvsfact",
+   "#ingilizce",
+   "#britishenglish",
+   "#americanenglish",
+   "#aksan",
+   "#ielts",
+   "#toefl",
+   "#learnenglish",
+   "#ingilizceöğreniyorum",
+   "#ahkakademi",
+   "#pronunciation"
+  ],
+  "alt": "Açık renkli efsane/gerçek görseli. Üstü çizili kırmızı etiketli 'efsane' kutusu: 'İngiliz aksanı doğru İngilizce, Amerikan aksanı bozuk.' Altında lacivert 'gerçek' kutusu: ikisi de standart, IELTS ve TOEFL ikisini de kabul eder. Altta yazım örnekleri colour/color, centre/center."
+ },
+ {
+  "id": "39",
+  "slug": "tell-me-about-yourself",
+  "title": "\"Tell me about yourself\" formülü",
+  "format": "single",
+  "pillar": "Business English",
+  "series": "Business English · Bölüm 4",
+  "hook": "Mülakatın ilk sorusu için 3 adımlık formül",
+  "theme": "blue",
+  "tag": "MÜLAKAT",
+  "slides": [
+   {
+    "type": "steps",
+    "theme": "blue",
+    "kicker": "MÜLAKAT İNGİLİZCESİ",
+    "heading": "\"Tell me about yourself.\" ==Formül: şimdi → geçmiş → gelecek==",
+    "size": "sm",
+    "items": [
+     {
+      "n": "1",
+      "h": "ŞİMDİ · \"I'm currently …\"",
+      "p": "Rolün + bir güçlü yönün. //I'm currently a junior designer at a startup, where I mainly work on mobile apps.//"
+     },
+     {
+      "n": "2",
+      "h": "GEÇMİŞ · \"Before that, I …\"",
+      "p": "Seni buraya getiren 1–2 deneyim. //Before that, I studied graphic design and did two internships.//"
+     },
+     {
+      "n": "3",
+      "h": "GELECEK · \"What I'm looking for now is …\"",
+      "p": "Neden bu pozisyon. //What I'm looking for now is a team where I can grow into a product role.//"
+     }
+    ],
+    "note": "60–90 saniye. Hayat hikâyesi değil, fragman. Son cümle pozisyona bağlanmalı."
+   }
+  ],
+  "caption": "Mülakatın ilk sorusu: \"Tell me about yourself.\" 💼\n\n3 adımlık formül: şimdi → geçmiş → gelecek\n1. ŞİMDİ → \"I'm currently …\" rolün + bir güçlü yönün\n2. GEÇMİŞ → \"Before that, I …\" seni buraya getiren 1–2 deneyim\n3. GELECEK → \"What I'm looking for now is …\" neden bu pozisyon\n\n\"I'm currently a junior designer at a startup, where I mainly work on mobile apps. Before that, I studied graphic design and did two internships. What I'm looking for now is a team where I can grow into a product role.\"\n\n60–90 saniye. Hayat hikâyesi değil, fragman.\n\nKaydet 🔖, mülakatı olan arkadaşına gönder ↗\n\n\"Tell me about yourself\" in English: the present–past–future formula.",
+  "hashtags": [
+   "#mülakat",
+   "#jobinterview",
+   "#businessenglish",
+   "#işingilizcesi",
+   "#ingilizce",
+   "#interviewtips",
+   "#learnenglish",
+   "#kariyer",
+   "#englishforwork",
+   "#ahkakademi",
+   "#professionalenglish",
+   "#careertips"
+  ],
+  "alt": "Mavi görsel. Başlık: 'Tell me about yourself. Formül: şimdi → geçmiş → gelecek'. Üç numaralı adım: 1 ŞİMDİ 'I'm currently…', 2 GEÇMİŞ 'Before that, I…', 3 GELECEK 'What I'm looking for now is…', her birinde örnek cümle. Altta '60–90 saniye, hayat hikâyesi değil fragman' notu."
+ },
+ {
+  "id": "40",
+  "slug": "ielts-part2-plan",
+  "title": "IELTS Speaking Part 2: 1 dakikalık plan",
+  "format": "single",
+  "pillar": "IELTS Speaking",
+  "series": "IELTS Speaking · Bölüm 4",
+  "hook": "Sınavdan önce kaydet: Part 2'de 1 dakikayı böyle kullan",
+  "theme": "navy",
+  "tag": "SINAV ÖNCESİ",
+  "slides": [
+   {
+    "type": "steps",
+    "kicker": "IELTS SPEAKING PART 2 · KAYDET",
+    "heading": "1 dakika hazırlık, 2 dakika konuşma. ==Plan:==",
+    "size": "sm",
+    "items": [
+     {
+      "n": "0'",
+      "h": "Karttaki 4 maddeye 1'er kelime not al",
+      "p": "Cümle yazma. Kelime yaz: //café · 2019 · Ece · calm//"
+     },
+     {
+      "n": "1",
+      "h": "Giriş · \"I'd like to talk about …\"",
+      "p": "Konuyu 1 cümlede söyle, sonra ne/nerede/ne zaman."
+     },
+     {
+      "n": "2",
+      "h": "Hikâye · geçmiş zaman",
+      "p": "//I first went there when…// Detay ekle: kim vardı, ne oldu."
+     },
+     {
+      "n": "3",
+      "h": "His · \"What made it special was …\"",
+      "p": "Neden önemli? Burası en yüksek puanı getiren kısım."
+     },
+     {
+      "n": "4",
+      "h": "Bitiş · \"So that's why …\"",
+      "p": "Tek cümle. Examiner 2 dakikada keserse sorun değil: planlı konuşan kesilir."
+     }
+    ],
+    "note": "Kartta 4 madde var, sen 5 blokla konuş. Not kâğıdını kullan; bakmak serbest."
+   }
+  ],
+  "caption": "Sınavdan önce kaydet: IELTS Speaking Part 2'de 1 dakikayı böyle kullan ⏱️\n\n0' → Karttaki 4 maddeye 1'er kelime not al (cümle değil, kelime)\n1 → Giriş: \"I'd like to talk about …\" + ne / nerede / ne zaman\n2 → Hikâye, geçmiş zaman: \"I first went there when …\"\n3 → His: \"What made it special was …\" ← en çok puan burada\n4 → Bitiş: \"So that's why …\"\n\nExaminer 2 dakikada keserse sorun değil; planlı konuşan kesilir. Not kâğıdına bakmak serbest.\n\nKaydet 🔖, IELTS'e giren arkadaşına gönder ↗\n\nIELTS Speaking Part 2: how to use your 1-minute preparation time.",
+  "hashtags": [
+   "#ielts",
+   "#ieltsspeaking",
+   "#ieltspart2",
+   "#ieltspreparation",
+   "#ieltstips",
+   "#ingilizce",
+   "#ieltshazırlık",
+   "#speakingtips",
+   "#learnenglish",
+   "#ahkakademi",
+   "#band7",
+   "#cuecard"
+  ],
+  "alt": "Lacivert görsel. Başlık: '1 dakika hazırlık, 2 dakika konuşma. Plan:'. Beş numaralı adım: 0' karttaki 4 maddeye birer kelime not al; 1 giriş 'I'd like to talk about…'; 2 hikâye, geçmiş zaman; 3 his 'What made it special was…'; 4 bitiş 'So that's why…'. Altta not: examiner 2 dakikada keserse sorun değil."
+ }
+]
