@@ -5,6 +5,7 @@ Updates Gurkan's PrivateLesson records with correct start times.
 End time = start + 90 min (2 lessons × 45 min each)
 """
 
+import os
 import psycopg2, re
 from datetime import datetime, timedelta
 from pathlib import Path
@@ -27,7 +28,7 @@ def get_conn():
     return psycopg2.connect(
         host="localhost", port=5432,
         dbname="ahk_academy", user="postgres",
-        password="Wolverine1997@@"
+        password=os.environ["PGPASSWORD"]
     )
 
 def main():

@@ -44,7 +44,7 @@ STUDENT_MAP = {
 def get_conn():
     return psycopg2.connect(
         host="localhost", port=5432, dbname="ahk_academy",
-        user="postgres", password="Wolverine1997@@"
+        user="postgres", password=os.environ["PGPASSWORD"]
     )
 
 def get_env(key, prompt_msg="", url_hint=""):

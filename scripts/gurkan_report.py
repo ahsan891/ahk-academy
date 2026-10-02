@@ -1,7 +1,8 @@
+import os
 import psycopg2
 
 conn = psycopg2.connect(host='localhost', port=5432, dbname='ahk_academy',
-                        user='postgres', password='Wolverine1997@@')
+                        user='postgres', password=os.environ["PGPASSWORD"])
 cur = conn.cursor()
 
 cur.execute('SELECT id, name, email, country, language FROM "User" WHERE email = %s',

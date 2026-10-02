@@ -3,6 +3,7 @@ Updates Phase 2 lesson start times using actual WhatsApp-confirmed times.
 Each time verified from the meeting link sent or agreed time in the chat.
 """
 
+import os
 import psycopg2
 from datetime import datetime, timedelta
 
@@ -33,7 +34,7 @@ def get_conn():
     return psycopg2.connect(
         host="localhost", port=5432,
         dbname="ahk_academy", user="postgres",
-        password="Wolverine1997@@"
+        password=os.environ["PGPASSWORD"]
     )
 
 def main():

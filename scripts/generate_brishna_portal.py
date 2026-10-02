@@ -6,6 +6,7 @@ Run:
     python scripts/generate_brishna_portal.py
 """
 
+import os
 import psycopg2, json, sys, io
 from datetime import datetime, date
 from pathlib import Path
@@ -29,7 +30,7 @@ LESSON_RATE  = 2  # lessons per session
 def get_conn():
     return psycopg2.connect(
         host="localhost", port=5432, dbname="ahk_academy",
-        user="postgres", password="Wolverine1997@@"
+        user="postgres", password=os.environ["PGPASSWORD"]
     )
 
 def fetch_data():

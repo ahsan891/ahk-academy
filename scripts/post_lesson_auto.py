@@ -59,7 +59,7 @@ APP_BASE_URL    = "http://localhost:3000"  # change to Railway URL once deployed
 def get_conn():
     return psycopg2.connect(
         host="localhost", port=5432, dbname="ahk_academy",
-        user="postgres", password="Wolverine1997@@"
+        user="postgres", password=os.environ["PGPASSWORD"]
     )
 
 # ── Env helpers ───────────────────────────────────────────────────────────────

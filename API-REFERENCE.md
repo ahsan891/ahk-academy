@@ -41,9 +41,11 @@ NextAuth.js handler. Manages sign-in, sign-out, session, and CSRF.
 | Description | NextAuth catch-all route for OAuth/credentials sign-in flows |
 
 **Key sign-in credentials (dev seed):**
-- Admin: `ahsan@ahkacademy.com` / `admin123`
-- Teacher: `brishna@ahkacademy.com` / `teacher123`
-- Student: `student@ahkacademy.com` / `student123`
+- Admin: `ahsan@ahkacademy.com`
+- Teacher: `brishna@ahkacademy.com`
+- Student: `student@ahkacademy.com`
+
+Passwords are set from the `SEED_*_PASSWORD` environment variables when seeding.
 
 ---
 

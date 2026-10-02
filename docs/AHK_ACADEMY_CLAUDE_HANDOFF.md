@@ -74,9 +74,7 @@ AHK_Academy\
 | Recording transcripts | Fireflies.ai webhook |
 
 ### Dev Seed Credentials
-- **Admin:** `ahsan@ahkacademy.com` / `admin123`
-- **Teacher:** `brishna@ahkacademy.com` / `teacher123`
-- **Student:** `student@ahkacademy.com` / `student123`
+Seed passwords come from the `SEED_ADMIN_PASSWORD`, `SEED_TEACHER_PASSWORD` and `SEED_STUDENT_PASSWORD` environment variables. Never seed production with weak passwords.
 
 ### Local .env
 ```
@@ -634,7 +632,7 @@ View DB: `npx prisma studio`
 
 8. **AI model to use:** For any new Claude API calls in this project, use `claude-haiku-4-5-20251001` (cheapest) or `claude-sonnet-4-6` (better quality). The existing code references `claude-opus-4-7` in lesson_ai_system — that's fine for that app.
 
-9. **Local database:** PostgreSQL on localhost:5432, database name `ahk_academy`, password `Wolverine1997@@`
+9. **Local database:** PostgreSQL on localhost:5432, database name `ahk_academy`, password from the `PGPASSWORD` environment variable (never commit it)
 
 10. **File-based IELTS materials** are in `IELTS_MATERIALS\` — Cambridge IELTS 3–19, Barrons. These are the source materials for creating practice tests and content.
 

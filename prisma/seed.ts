@@ -3,11 +3,17 @@ import bcrypt from "bcryptjs";
 
 const prisma = new PrismaClient();
 
+function requireEnv(name: string): string {
+  const value = process.env[name];
+  if (!value) throw new Error(`${name} must be set before seeding`);
+  return value;
+}
+
 async function main() {
   console.log("Seeding database...");
 
   // Create Admin (Ahsan - CEO)
-  const adminPassword = await bcrypt.hash("admin123", 10);
+  const adminPassword = await bcrypt.hash(requireEnv("SEED_ADMIN_PASSWORD"), 10);
   const admin = await prisma.user.upsert({
     where: { email: "ahsan@ahkacademy.com" },
     update: {},
@@ -21,7 +27,7 @@ async function main() {
   console.log("Created admin:", admin.name);
 
   // Create Teacher (Brishna - Teaching Head)
-  const teacherPassword = await bcrypt.hash("teacher123", 10);
+  const teacherPassword = await bcrypt.hash(requireEnv("SEED_TEACHER_PASSWORD"), 10);
   const teacher = await prisma.user.upsert({
     where: { email: "brishna@ahkacademy.com" },
     update: {},
@@ -78,7 +84,7 @@ async function main() {
   }
 
   // Create a sample student for testing
-  const studentPassword = await bcrypt.hash("student123", 10);
+  const studentPassword = await bcrypt.hash(requireEnv("SEED_STUDENT_PASSWORD"), 10);
   const student = await prisma.user.upsert({
     where: { email: "student@ahkacademy.com" },
     update: {},
@@ -417,10 +423,10 @@ async function main() {
   console.log("Created chemistry scores");
 
   console.log("\n========= LOGIN CREDENTIALS =========");
-  console.log("Admin:   ahsan@ahkacademy.com / admin123");
-  console.log("Teacher: brishna@ahkacademy.com / teacher123");
-  console.log("Student: student@ahkacademy.com / student123");
-  console.log("Turkish students: elif@students.com, mehmet@students.com, etc. / student123");
+  console.log("Admin:   ahsan@ahkacademy.com / $SEED_ADMIN_PASSWORD");
+  console.log("Teacher: brishna@ahkacademy.com / $SEED_TEACHER_PASSWORD");
+  console.log("Student: student@ahkacademy.com / $SEED_STUDENT_PASSWORD");
+  console.log("Turkish students: elif@students.com, mehmet@students.com, etc. / $SEED_STUDENT_PASSWORD");
   console.log("=====================================\n");
   console.log("Seed complete!");
 }

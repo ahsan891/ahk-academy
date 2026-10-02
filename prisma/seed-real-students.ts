@@ -6,7 +6,9 @@ const prisma = new PrismaClient();
 async function main() {
   console.log("🎓 Seeding REAL student data...\n");
 
-  const hashedPassword = await hash("student123", 10);
+  const studentPassword = process.env.SEED_STUDENT_PASSWORD;
+  if (!studentPassword) throw new Error("SEED_STUDENT_PASSWORD must be set before seeding");
+  const hashedPassword = await hash(studentPassword, 10);
   const teacher = await prisma.user.findFirst({ where: { email: "brishna@ahkacademy.com" } });
   const admin = await prisma.user.findFirst({ where: { email: "ahsan@ahkacademy.com" } });
 
@@ -375,7 +377,7 @@ async function main() {
   console.log("   7 students with full lesson histories");
   console.log("   Payment plans + Gürkan's 40K TRY confirmed");
   console.log("   All attendance records created");
-  console.log("\n   Login with: [email]@... / student123");
+  console.log("\n   Login with: [email]@... / $SEED_STUDENT_PASSWORD");
 }
 
 main()

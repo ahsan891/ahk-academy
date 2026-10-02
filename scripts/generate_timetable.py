@@ -1,5 +1,6 @@
 """Generates Gurkan's timetable as a standalone HTML file and opens it."""
 
+import os
 import psycopg2, json, webbrowser
 from datetime import datetime, timedelta
 from pathlib import Path
@@ -7,7 +8,7 @@ from pathlib import Path
 def get_conn():
     return psycopg2.connect(
         host="localhost", port=5432, dbname="ahk_academy",
-        user="postgres", password="Wolverine1997@@"
+        user="postgres", password=os.environ["PGPASSWORD"]
     )
 
 conn = get_conn()

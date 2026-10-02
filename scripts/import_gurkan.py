@@ -17,7 +17,6 @@ import sys
 
 # ── Config ────────────────────────────────────────────────────────────────────
 
-DB_URL = "postgresql://postgres:Wolverine1997@@localhost:5432/ahk_academy"
 STUDENT_FOLDER = Path(r"C:\Users\ahk79\AHK_Academy\STUDENTS\Gurkan")
 WHATSAPP_FILE  = STUDENT_FOLDER / "WhatsApp Chat with Gurkan" / "WhatsApp Chat with Gurkan.txt"
 
@@ -27,7 +26,7 @@ def get_conn():
     return psycopg2.connect(
         host="localhost", port=5432,
         dbname="ahk_academy", user="postgres",
-        password="Wolverine1997@@"
+        password=os.environ["PGPASSWORD"]
     )
 
 # ── Parse WhatsApp Chat ───────────────────────────────────────────────────────

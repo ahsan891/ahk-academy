@@ -40,7 +40,7 @@ WHISPER_MODEL = "base"  # tiny/base/small — base is good quality, ~150MB
 def get_conn():
     return psycopg2.connect(
         host="localhost", port=5432, dbname="ahk_academy",
-        user="postgres", password="Wolverine1997@@"
+        user="postgres", password=os.environ["PGPASSWORD"]
     )
 
 def get_api_key():

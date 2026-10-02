@@ -12,6 +12,7 @@ Run:
     python scripts/setup_brishna.py
 """
 
+import os
 import psycopg2, sys, uuid, io
 from datetime import datetime, date, timedelta
 
@@ -21,7 +22,7 @@ sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding='utf-8', errors='repla
 def get_conn():
     return psycopg2.connect(
         host="localhost", port=5432, dbname="ahk_academy",
-        user="postgres", password="Wolverine1997@@"
+        user="postgres", password=os.environ["PGPASSWORD"]
     )
 
 def cuid():
