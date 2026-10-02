@@ -5,9 +5,10 @@
 <title>r14 — Daily challenge</title>
 <link rel="stylesheet" href="../../assets/base.css">
 <style>
-  .num { font-family: var(--font-display); font-weight: 900; font-size: 200px; line-height: 1; color: var(--gold); letter-spacing: -.04em; margin-top: 12px; }
-  .num small { font-size: 75px; vertical-align: top; opacity: .8; }
-  .words { display: flex; flex-wrap: wrap; gap: 25px; margin-top: 38px; }
+  .num { font-family: var(--font-display); font-weight: 900; font-size: 110px; line-height: 1; color: var(--gold); letter-spacing: -.04em; }
+  .hdr { display: flex; align-items: center; gap: 30px; }
+  .num small { font-size: 50px; vertical-align: top; opacity: .8; }
+  .words { display: flex; flex-wrap: wrap; gap: 22px; margin-top: 30px; }
   .words span { font-family: var(--font-display); font-weight: 900; font-size: 68px; padding: 25px 42px; border-radius: 30px; background: var(--white); color: var(--navy); box-shadow: var(--shadow-md); white-space: nowrap; }
   .task { margin-top: 50px; font-family: var(--font-body); font-weight: 800; font-size: 60px; line-height: 1.2; max-height: 225px; overflow: hidden; }
   .tm { margin-top: 45px; display: flex; align-items: center; gap: 30px; }
@@ -27,8 +28,7 @@
   <div class="deco-dots"></div>
   <div class="deco-ring" style="width:760px;height:760px;right:-300px;bottom:-200px"></div>
   <div class="content">
-    <div class="label" id="label" data-anim="in-left@0"></div>
-    <div class="num" data-anim="in-pop@0.1"><small>#</small><span id="num"></span></div>
+    <div class="hdr"><div class="label" id="label" data-anim="in-left@0"></div><div class="num" data-anim="in-pop@0.1"><small>#</small><span id="num"></span></div></div>
     <div class="words" id="words"></div>
     <div class="task" id="task" data-fit="40" data-anim="in-up@1.9"></div>
     <div class="slot" style="height:138px">
@@ -50,7 +50,7 @@
 <script src="../../assets/base.js"></script>
 <script>
 AHK.template({
-  format: 'reel', duration: 10, preview: 5.0,
+  format: 'reel', duration: 10, preview: 8.8,
   build(d) {
     AHK.chrome({ tag: 'CHALLENGE' });
     AHK.$('#label').textContent = d.label;

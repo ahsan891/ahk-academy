@@ -1,6 +1,6 @@
 {
   "label": "Öğrenci başarısı",
-  "name": "Elif, 24",
+  "name": "Örnek Öğrenci",
   "goal": "Hedef: Kanada'da yüksek lisans",
   "label_before": "Before",
   "label_after": "After",
@@ -11,9 +11,21 @@
   "quote": "Speaking'de donup kalıyordum. 3 ayda 7.5 aldım, şimdi vize bekliyorum.",
   "cta": "Sırada sen varsın → link bio'da",
   "meta": {
-    "topic": "student success IELTS 5.5 → 7.5",
+    "topic": "PLACEHOLDER — replace with a real student result via --input",
     "caption": "5.5'ten 7.5'e 🎯\n\nElif (24) 3 ay önce speaking'de donup kalıyordu. Hedefi Kanada'da yüksek lisans. Bugün IELTS 7.5 ile vize başvurusunu yaptı 🇨🇦\n\nNe değişti? Her gün 20 dakika konuşma pratiği + examiner gözüyle geri bildirim.\n\nSenin hedefin kaç? Yorumlara yaz 👇\nDetaylar için bio'daki linke tıkla.\n\nStudent win: IELTS 5.5 → 7.5 in 3 months.",
-    "hashtags": ["#ielts", "#ieltsbaşarı", "#ahkakademi", "#ingilizce", "#öğrencibaşarısı", "#ieltsresults", "#learnenglish", "#yurtdışıeğitim", "#ieltsspeaking", "#toefl", "#studentsuccess"],
+    "hashtags": [
+      "#ielts",
+      "#ieltsbaşarı",
+      "#ahkakademi",
+      "#ingilizce",
+      "#öğrencibaşarısı",
+      "#ieltsresults",
+      "#learnenglish",
+      "#yurtdışıeğitim",
+      "#ieltsspeaking",
+      "#toefl",
+      "#studentsuccess"
+    ],
     "audio_mood": "uplifting cinematic build, confetti pop at the result"
   }
 }

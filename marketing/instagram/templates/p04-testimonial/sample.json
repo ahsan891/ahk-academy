@@ -1,14 +1,26 @@
 {
   "label": "Öğrenci yorumu",
   "quote": "Toplantılarda İngilizce konuşmaktan kaçıyordum. 2 ay sonra sunumu ben yaptım ve müdürüm 'nerede öğrendin?' diye sordu.",
-  "name": "Mert K.",
+  "name": "Örnek Ö.",
   "goal": "Hedef: İş İngilizcesi · Yazılım mühendisi",
   "result": "B1 → C1",
   "result_label": "Speaking seviyesi",
   "meta": {
-    "topic": "testimonial business English",
+    "topic": "PLACEHOLDER — replace with a real student quote via --input",
     "caption": "\"Toplantılarda İngilizce konuşmaktan kaçıyordum.\" 🙈\n\nMert, yazılım mühendisi. 2 ay önce toplantılarda sessiz kalıyordu. Geçen hafta sunumu kendisi yaptı 💪\n\nNe yaptık? Haftada 3 gün 30 dakika gerçek iş senaryolarıyla konuşma pratiği + anında düzeltme.\n\nSen hangi ortamda İngilizce konuşurken zorlanıyorsun? Yorumlara yaz 👇\nBilgi için bio'daki link.\n\nStudent win: from silent in meetings to presenting in English.",
-    "hashtags": ["#öğrenciyorumu", "#ahkakademi", "#ingilizce", "#işingilizcesi", "#businessenglish", "#learnenglish", "#ingilizcekonuşma", "#speakenglish", "#studentsuccess", "#kariyer", "#ielts"],
+    "hashtags": [
+      "#öğrenciyorumu",
+      "#ahkakademi",
+      "#ingilizce",
+      "#işingilizcesi",
+      "#businessenglish",
+      "#learnenglish",
+      "#ingilizcekonuşma",
+      "#speakenglish",
+      "#studentsuccess",
+      "#kariyer",
+      "#ielts"
+    ],
     "audio_mood": "n/a (static post)"
   }
 }

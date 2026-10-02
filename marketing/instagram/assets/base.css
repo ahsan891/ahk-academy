@@ -152,13 +152,15 @@ mark { background: none; color: var(--gold); }
 .reel .content { top: 370px; bottom: 470px; right: calc(var(--pad) + 40px); }
 .post .content { top: 190px; bottom: 150px; }
 .content > * { flex-shrink: 0; }
+.content > .flow { display: flex; flex-direction: column; }
+.content > .flow > * { flex-shrink: 0; }
 /* .slot: children stacked on the same spot (for elements that replace each other in time) */
 .slot { position: relative; }
 .slot > * { position: absolute; left: 0; right: 0; top: 0; }
 
 /* Uppercasing is done in base.js (language-aware: Turkish İ vs English I); CSS text-transform is not used */
 /* ---------- Typography ---------- */
-.h-hook { font-family: var(--font-display); font-weight: 900; font-size: 100px; line-height: 1.1; letter-spacing: -.01em; text-wrap: balance; }
+.h-hook { font-family: var(--font-display); font-weight: 900; font-size: 92px; line-height: 1.1; letter-spacing: -.01em; text-wrap: balance; }
 .h-xl { font-family: var(--font-display); font-weight: 900; font-size: 110px; line-height: 1; letter-spacing: -.02em; }
 .h-lg { font-family: var(--font-display); font-weight: 900; font-size: 82px; line-height: 1.12; letter-spacing: -.01em; text-wrap: balance; }
 .h-md { font-family: var(--font-display); font-weight: 700; font-size: 62px; line-height: 1.18; text-wrap: balance; }
@@ -192,7 +194,7 @@ mark { background: none; color: var(--gold); }
 
 .card {
   background: var(--white); color: var(--ink);
-  border-radius: var(--r-lg); padding: 60px 64px;
+  border-radius: var(--r-lg); padding: 44px 52px;
   box-shadow: var(--shadow-lg);
 }
 .card.navy { background: var(--navy); color: var(--white); }

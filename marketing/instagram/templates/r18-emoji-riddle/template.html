@@ -6,7 +6,7 @@
 <link rel="stylesheet" href="../../assets/base.css">
 <style>
   .q { max-height: 188px; overflow: hidden; margin: 25px 0 12px; color: var(--navy); }
-  .emojis { display: flex; justify-content: center; gap: 32px; flex-wrap: wrap; margin: 38px 0; font-size: 212px; line-height: 1.1; }
+  .emojis { display: flex; justify-content: center; gap: 32px; flex-wrap: wrap; margin: 30px 0; font-size: 190px; line-height: 1.1; }
   .emojis span { display: inline-block; }
   .cd { display: flex; justify-content: center; gap: 28px; }
   .cd .star { width: 88px; height: 88px; background: var(--gold); }
@@ -40,7 +40,7 @@
 <script src="../../assets/base.js"></script>
 <script>
 AHK.template({
-  format: 'reel', duration: 10, preview: 4.0,
+  format: 'reel', duration: 10, preview: 9.0,
   build(d) {
     AHK.chrome({ tag: 'RIDDLE' });
     AHK.$('#label').textContent = d.label;
@@ -51,6 +51,10 @@ AHK.template({
     AHK.$('#mean').textContent = d.meaning_tr;
     AHK.$('#ex').innerHTML = AHK.rich(d.example);
     AHK.$('#cta').textContent = d.cta;
+  },
+  afterFit() {
+    const kids = AHK.$$('.slot > *');
+    AHK.$('.slot').style.height = Math.max(...kids.map(k => k.offsetHeight)) + 'px';
   }
 });
 </script>

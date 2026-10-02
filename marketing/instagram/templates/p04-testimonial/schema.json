@@ -1,16 +1,53 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "p04-testimonial — student quote card",
+  "title": "p04-testimonial — student quote card — REAL DATA ONLY: fill only from facts the owner provides (--input); never invent names, scores or quotes",
   "type": "object",
   "additionalProperties": false,
-  "required": ["label", "quote", "name", "goal", "result", "result_label", "meta"],
+  "required": [
+    "label",
+    "quote",
+    "name",
+    "goal",
+    "result",
+    "result_label",
+    "meta"
+  ],
   "properties": {
-    "label": { "type": "string", "minLength": 3, "maxLength": 20 },
-    "quote": { "type": "string", "minLength": 40, "maxLength": 170, "description": "First-person Turkish quote, specific and emotional" },
-    "name": { "type": "string", "minLength": 2, "maxLength": 18, "description": "First name + initial, e.g. 'Mert K.' — only what the user provided" },
-    "goal": { "type": "string", "minLength": 6, "maxLength": 44 },
-    "result": { "type": "string", "minLength": 2, "maxLength": 14, "description": "e.g. 'IELTS 7.5', 'B1 → C1'" },
-    "result_label": { "type": "string", "minLength": 3, "maxLength": 22 },
-    "meta": { "$ref": "../_shared/meta.schema.json" }
+    "label": {
+      "type": "string",
+      "minLength": 3,
+      "maxLength": 20
+    },
+    "quote": {
+      "type": "string",
+      "minLength": 40,
+      "maxLength": 170,
+      "description": "First-person Turkish quote, specific and emotional"
+    },
+    "name": {
+      "type": "string",
+      "minLength": 2,
+      "maxLength": 18,
+      "description": "First name + initial, e.g. 'Mert K.' — only what the user provided"
+    },
+    "goal": {
+      "type": "string",
+      "minLength": 6,
+      "maxLength": 44
+    },
+    "result": {
+      "type": "string",
+      "minLength": 2,
+      "maxLength": 14,
+      "description": "e.g. 'IELTS 7.5', 'B1 → C1'"
+    },
+    "result_label": {
+      "type": "string",
+      "minLength": 3,
+      "maxLength": 22
+    },
+    "meta": {
+      "$ref": "../_shared/meta.schema.json"
+    }
   }
 }

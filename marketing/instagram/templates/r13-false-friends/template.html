@@ -13,7 +13,7 @@
   .ff .m { font-size: 40px; color: var(--ink-2); margin-top: 8px; max-height: 112px; overflow: hidden; }
   .ff .m b { color: var(--blue); }
   .eq { text-align: center; font-family: var(--font-display); font-weight: 900; font-size: 80px; color: var(--navy); line-height: 1; position: relative; height: 88px; }
-  .eq span { position: absolute; left: 0; right: 0; }
+  .eq span { position: absolute; left: 35%; right: 35%; }
   .eq .no { color: var(--red); }
   .ex { margin-top: 0; font-size: 48px; line-height: 1.3; font-weight: 600; color: var(--navy); max-height: 200px; overflow: hidden; }
   .ex mark { color: var(--blue); background: var(--white); border-radius: 10px; padding: 0 10px; }
@@ -47,7 +47,7 @@
 <script src="../../assets/base.js"></script>
 <script>
 AHK.template({
-  format: 'reel', duration: 11, preview: 5.0,
+  format: 'reel', duration: 11, preview: 9.2,
   build(d) {
     AHK.chrome({ tag: 'FALSE FRIEND', dark: false });
     AHK.$('#label').textContent = d.label;

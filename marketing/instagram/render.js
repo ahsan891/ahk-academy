@@ -48,6 +48,7 @@ function parseArgs(argv) {
     else if (v === '--frames') a.frames = argv[++i].split(',').map(Number);
     else if (v === '--no-preview') a.preview = false;
     else if (v === '--preview-only') a.previewOnly = true;
+    else if (v === '--zip') a.zip = true;
     else if (v === '--preview-dir') a.previewDir = argv[++i];
     else if (v === 'all') a.ids = TEMPLATES.map(t => t.id);
     else if (v === 'reels') a.ids = TEMPLATES.filter(t => t.format === 'reel').map(t => t.id);
@@ -159,12 +160,45 @@ async function main() {
   if (!args.ids.length) { console.log('usage: node render.js <templateId|all|reels|posts> [--data file.json] [--out dir] [--fps 30] [--frames 0,1,2]'); process.exit(1); }
   for (const id of args.ids) if (!TEMPLATES.find(t => t.id === id)) { console.error(`unknown template: ${id}`); process.exit(1); }
   const data = args.data ? JSON.parse(fs.readFileSync(args.data, 'utf8')) : null;
+  const results = [];
   await withBrowser(async (browser, port) => {
     for (const id of args.ids) {
-      await renderOne(browser, port, id, { data, outDir: args.out, fps: args.fps, frames: args.frames, preview: args.preview, previewOnly: args.previewOnly, previewDir: args.previewDir });
+      results.push(await renderOne(browser, port, id, { data, outDir: args.out, fps: args.fps, frames: args.frames, preview: args.preview, previewOnly: args.previewOnly, previewDir: args.previewDir }));
     }
   });
+  if (args.zip) bundle(results);
 }
 
-module.exports = { renderOne, withBrowser, TEMPLATES };
+// ---------- bundle: friendly filenames + caption .txt next to each file, zipped ----------
+function bundleName(tpl) {
+  const n = String(TEMPLATES.indexOf(tpl) + 1).padStart(2, '0');
+  return `${n}-${tpl.format === 'reel' ? 'reel' : 'post'}-${tpl.id.replace(/^[rp]\d\d-/, '')}`;
+}
+function captionFor(tpl, data) {
+  const m = (data && data.meta) || {};
+  return `${tpl.title}\n${'='.repeat(tpl.title.length)}\n\n${m.caption || ''}\n\n${(m.hashtags || []).join(' ')}\n\nAudio mood: ${m.audio_mood || '-'}\nTemplate: ${tpl.id}\n`;
+}
+function bundle(results) {
+  const dir = path.join(ROOT, 'out', 'bundle');
+  fs.rmSync(dir, { recursive: true, force: true });
+  fs.mkdirSync(dir, { recursive: true });
+  for (const r of results) {
+    const tpl = TEMPLATES.find(t => t.id === r.id);
+    const base = bundleName(tpl);
+    const data = JSON.parse(fs.readFileSync(path.join(ROOT, 'templates', tpl.id, 'sample.json'), 'utf8'));
+    for (const f of r.files) {
+      const ext = path.extname(f);
+      const slide = (f.match(/slide-(\d+)/) || [])[1];
+      fs.copyFileSync(f, path.join(dir, slide ? `${base}-slide${+slide}${ext}` : `${base}${ext}`));
+    }
+    fs.writeFileSync(path.join(dir, `${base}.txt`), captionFor(tpl, data));
+  }
+  const zip = path.join(ROOT, 'out', 'ahk-instagram-all.zip');
+  fs.rmSync(zip, { force: true });
+  execSync(`cd "${dir}" && zip -q -r "${zip}" .`);
+  const mb = (fs.statSync(zip).size / 1048576).toFixed(1);
+  console.log(`\n📦 ${path.relative(ROOT, zip)} (${mb} MB) — ${results.length} template(s), friendly filenames + caption .txt in out/bundle/`);
+}
+
+module.exports = { renderOne, withBrowser, TEMPLATES, bundleName, captionFor };
 if (require.main === module) main().catch(e => { console.error(e); process.exit(1); });

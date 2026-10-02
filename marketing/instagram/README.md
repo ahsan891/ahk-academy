@@ -9,6 +9,7 @@ marketing/instagram/
 ├── render.js            ← renders a template + JSON into MP4 (reels) or PNG (posts)
 ├── serve.js             ← opens the gallery of all 30 templates in your browser
 ├── check.js             ← checks that every template's sample matches its schema
+├── audit.js             ← layout audit (safe zones, overlaps, clipping, minimum text size)
 ├── calendar.json        ← 30-day posting rotation
 ├── gallery.html         ← preview of all 30 templates side by side
 ├── templates.json       ← index of the 30 templates
@@ -76,8 +77,31 @@ If you don't like the AI's text: open `out/.../data.json`, edit the words, then 
 node render.js r06-idiom-literal --data out/2026-10-05_r06-idiom-literal/data.json --out out/fixed
 ```
 
-For student testimonials (`r15-before-after`, `p04-testimonial`) always pass the real details, e.g.
-`--topic "Elif, 24, IELTS 5.5 → 7.5 in 3 months, goal: master's in Canada, quote: ..."`. The AI is told never to invent names or scores.
+### Templates about real people (student wins)
+
+`r15-before-after` and `p04-testimonial` show a real student's name, score and quote. **The AI is not allowed to invent these**, so `generate.js` refuses to run them without a file of real facts:
+```
+node generate.js --template r15-before-after --input real-student.json
+```
+where `real-student.json` looks like
+```json
+{ "name": "Elif, 24", "before": 5.5, "after": 7.5, "unit": "IELTS", "goal": "Hedef: Kanada'da yüksek lisans", "quote": "Speaking'de donup kalıyordum..." }
+```
+The values you give are copied exactly (the generator checks). The built-in samples for these two templates are clearly fictional placeholders ("Örnek Öğrenci") — never publish them. Always have the student's permission.
+
+## Downloading the finished files
+
+```
+node render.js all --zip
+```
+renders all 30 templates with their sample content and builds **`out/ahk-instagram-all.zip`**. Inside, every file has a clear name and a matching caption file:
+
+```
+01-reel-turkish-mistake.mp4   01-reel-turkish-mistake.txt   (caption + hashtags + audio mood)
+19-post-mini-lesson-slide1.png … 19-post-mini-lesson-slide6.png   19-post-mini-lesson.txt
+20-post-this-or-that.png      20-post-this-or-that.txt
+```
+The same files are also in `out/bundle/`. In the gallery (`node serve.js`) every template has a **Download** button and there is a **Download all (.zip)** button at the top; if something has not been rendered yet the gallery tells you which command to run.
 
 ## Looking at all templates
 
@@ -100,7 +124,8 @@ node render.js r01-turkish-mistake --frames 0,2.5,5,8   # quick PNG stills at gi
 - **Templates** are plain HTML/CSS/JS, no build step. Each calls `AHK.template({...})` from `assets/base.js`, which loads content from `window.TEMPLATE_DATA` (injected by the renderer) or `?data=` in the URL, falling back to `sample.json`.
 - **Animation is deterministic.** Elements declare `data-anim="in-up@0.3 out-fade@9.4"` (name@delay[:duration[:count]]); `base.js` turns these into CSS animations and drives *all* of them from one clock via `window.__setTime(t)`. The renderer steps `t` frame by frame (30 fps), screenshots each frame and pipes them into ffmpeg, so the MP4 is identical every run. JS-driven effects (countdowns, typewriters, counters, slot machine) are pure functions of `t` in `onTime(t)`.
 - **Text never overflows:** schemas cap every field's length, and `data-fit="minPx"` shrinks text to fit its box as a second safety net. Rich text: `**bold**`, `==highlight==`, `~~strike~~`.
-- **Safe zones:** reels keep content between y≈260 and y≈1500 and leave the right 130 px free for Instagram's buttons; the brand chrome sits inside the safe zone.
+- **Safe zones:** reels keep content between y≈230 and y≈1520 and leave the right 110 px free for Instagram's buttons; the brand chrome sits inside the safe zone. Late-phase blocks marked `.tail` (explanation + CTA) are anchored to the bottom of the safe area and the main content settles up as they appear, so the frame is filled top to bottom. If a stack is still too tall for the box, `base.js` scales the column down automatically. `node audit.js` samples every template over time and reports anything outside the safe area, overlapping the logo, clipped or too small.
+- **Uppercase labels** are produced in JavaScript, language-aware (Turkish `i → İ`, English `i → I`), because CSS `text-transform` would turn "PRONUNCIATION" into "PRONUNCİATİON" on a Turkish page.
 - **Loops:** every reel's last 0.6 s fades back to the hook state so the end flows into the start when Instagram loops it.
 - **Validation** (`lib/validate.js`) is a tiny JSON-Schema checker (types, required, lengths, patterns, enums, `$ref` to the shared `meta` schema). `node check.js` validates all samples.
 - **LLM providers** (`lib/llm.js`): Gemini (JSON mode) → Groq (JSON mode) → Anthropic Haiku, chosen by which key exists. Prompts = `prompts/_common.md` + the template's `prompt.md` + its schema + its sample as the example.

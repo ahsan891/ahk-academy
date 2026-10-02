@@ -6,7 +6,7 @@
 <link rel="stylesheet" href="../../assets/base.css">
 <style>
   .stage { }
-  .hookbox { display: flex; flex-direction: column; gap: 32px; margin-bottom: 55px; }
+  .hookbox { display: flex; flex-direction: column; gap: 24px; margin-bottom: 40px; }
   .hook { max-height: 325px; overflow: hidden; }
   .sentence { font-family: var(--font-body); font-weight: 800; font-size: 65px; line-height: 1.22; letter-spacing: -.01em; max-height: 250px; overflow: hidden; }
   .sentence .w { position: relative; display: inline-block; }
@@ -60,7 +60,7 @@
 <script src="../../assets/base.js"></script>
 <script>
 AHK.template({
-  format: 'reel', duration: 11, preview: 6.2,
+  format: 'reel', duration: 11, preview: 9.4,
   build(d, stage) {
     AHK.chrome({ tag: d.tag || 'MISTAKE' });
     AHK.$('#label').textContent = d.label;

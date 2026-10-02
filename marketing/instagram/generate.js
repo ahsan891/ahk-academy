@@ -6,6 +6,7 @@
   node generate.js --today                 # picks today's template from calendar.json
   node generate.js --day 7                 # calendar day 7 (1–30)
   node generate.js --template p05-word-card --dry-run   # no API key needed: uses sample.json
+  node generate.js --template r15-before-after --input real-student.json   # templates about real people need real facts
   Options: --provider gemini|groq|anthropic  --no-render  --out <dir>  --retries 3
 
   Flow: build prompt (common rules + template prompt + schema + example) → call a cheap LLM →
@@ -27,6 +28,7 @@ function parseArgs(argv) {
     const v = argv[i];
     if (v === '--template' || v === '-t') a.template = argv[++i];
     else if (v === '--topic') a.topic = argv[++i];
+    else if (v === '--input') a.input = argv[++i];
     else if (v === '--today') a.day = dayOfCycle();
     else if (v === '--day') a.day = +argv[++i];
     else if (v === '--provider') a.provider = argv[++i];
@@ -46,11 +48,12 @@ function dayOfCycle(date = new Date()) {
   return ((diff % 30) + 30) % 30 + 1;
 }
 
-function buildPrompt(tpl, schema, sample, topic) {
+function buildPrompt(tpl, schema, sample, topic, realInput) {
   const common = fs.readFileSync(path.join(ROOT, 'prompts', '_common.md'), 'utf8');
   const specific = fs.readFileSync(path.join(ROOT, 'templates', tpl.id, 'prompt.md'), 'utf8');
   const system = `${common}\n\n---\n\n## Template: ${tpl.id} (${tpl.format}) — ${tpl.title}\n${tpl.mechanic}. ${tpl.description}\n\n${specific}\n\n## JSON Schema (obey every constraint)\n${JSON.stringify(schema, null, 1)}\n\n## Example output (same shape, DIFFERENT content — never copy it)\n${JSON.stringify(sample, null, 1)}`;
-  const user = topic ? `Topic for this post: ${topic}\nReturn the JSON now.` : 'Pick a fresh, high-engagement topic yourself (not the example). Return the JSON now.';
+  let user = topic ? `Topic for this post: ${topic}\nReturn the JSON now.` : 'Pick a fresh, high-engagement topic yourself (not the example). Return the JSON now.';
+  if (realInput) user = `REAL FACTS provided by the academy owner — use them exactly, do not change names, numbers or quotes, do not add invented details:\n${JSON.stringify(realInput, null, 1)}\n\n${user}`;
   return { system, user };
 }
 
@@ -60,12 +63,17 @@ async function generateData(tpl, opts, log) {
   const sample = JSON.parse(fs.readFileSync(path.join(dir, 'sample.json'), 'utf8'));
   const sampleErrors = validate(schema, sample);
   if (sampleErrors.length) log(`  ⚠ sample.json does not match its own schema: ${sampleErrors.join('; ')}`);
-  if (opts.dryRun) { log('  dry-run: using sample.json'); return { data: sample, provider: 'sample' }; }
+  if (opts.dryRun) { log('  dry-run: using sample.json' + (tpl.requires_real_input ? ' (FICTIONAL placeholder — never publish)' : '')); return { data: sample, provider: 'sample' }; }
+  let realInput = null;
+  if (tpl.requires_real_input) {
+    if (!opts.input) throw new Error(`${tpl.id} is about a real person/result. The AI is not allowed to invent it.\n  Create a small JSON file with the real facts (e.g. {"name":"Elif, 24","before":5.5,"after":7.5,"unit":"IELTS","goal":"...","quote":"..."}) and run again with --input that-file.json`);
+    realInput = JSON.parse(fs.readFileSync(opts.input, 'utf8'));
+  } else if (opts.input) realInput = JSON.parse(fs.readFileSync(opts.input, 'utf8'));
 
   const provider = pickProvider(opts.provider);
   if (!provider) throw new Error('No API key found. Set GEMINI_API_KEY (or GROQ_API_KEY / ANTHROPIC_API_KEY), or use --dry-run.');
   log(`  provider: ${provider}`);
-  const { system, user } = buildPrompt(tpl, schema, sample, opts.topic);
+  const { system, user } = buildPrompt(tpl, schema, sample, opts.topic, realInput);
   let userMsg = user;
   for (let attempt = 1; attempt <= opts.retries; attempt++) {
     let raw;
@@ -75,6 +83,7 @@ async function generateData(tpl, opts, log) {
     try { data = extractJSON(raw); }
     catch (e) { log(`  attempt ${attempt}: invalid JSON (${e.message})`); userMsg = `${user}\n\nYour previous reply was not valid JSON. Reply with ONLY the JSON object.`; continue; }
     const errors = validate(schema, data);
+    if (realInput && tpl.requires_real_input) for (const [k, v] of Object.entries(realInput)) if (k in data && String(data[k]) !== String(v)) errors.push(`$.${k}: must be exactly ${JSON.stringify(v)} (real fact)`);
     if (!errors.length) return { data, provider };
     log(`  attempt ${attempt}: ${errors.length} schema error(s): ${errors.slice(0, 5).join('; ')}`);
     userMsg = `${user}\n\nYour previous JSON had these problems — fix ALL of them and return the full corrected JSON:\n- ${errors.join('\n- ')}\n\nPrevious JSON:\n${JSON.stringify(data)}`;
@@ -105,6 +114,7 @@ async function main() {
   fs.mkdirSync(outDir, { recursive: true });
   console.log(`▶ ${tpl.id} — ${tpl.title}`);
   const { data, provider } = await generateData(tpl, args, console.log);
+  if (tpl.requires_real_input && provider === 'sample') console.log('  ⚠ This output uses FICTIONAL placeholder data. Do not publish it — re-run with --input real-student.json');
   fs.writeFileSync(path.join(outDir, 'data.json'), JSON.stringify(data, null, 2));
   fs.writeFileSync(path.join(outDir, 'caption.txt'), captionText(data, tpl));
   console.log(`  ✔ data.json + caption.txt → ${path.relative(ROOT, outDir)}  (${provider})`);

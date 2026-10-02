@@ -28,6 +28,7 @@
   }
 
   // h('div.card.navy', {style:'...'}, ['text', el, ...])
+  function h_(spec, attrs, children) { return h(spec, attrs, children); }
   function h(spec, attrs, children) {
     if (Array.isArray(attrs) || typeof attrs === 'string' || attrs instanceof Node) { children = attrs; attrs = {}; }
     const parts = spec.split(/(?=[.#])/);
@@ -158,9 +159,23 @@
     $$('.content', root).forEach(c => {
       const tails = [...c.children].filter(k => k.classList.contains('tail'));
       if (!tails.length) return;
-      let h = 0;
-      tails.forEach(t => { Object.assign(t.style, { position: 'absolute', left: '0', right: '0', bottom: '0', margin: '0' }); h = Math.max(h, t.offsetHeight); });
-      c.style.paddingBottom = (h + 36) + 'px';
+      let h = 0, when = Infinity;
+      tails.forEach(t => {
+        Object.assign(t.style, { position: 'absolute', left: '0', right: '0', bottom: '0', margin: '0' });
+        h = Math.max(h, t.offsetHeight);
+        $$('[data-anim]', t).forEach(el => el.dataset.anim.split(/\s+/).forEach(tok => { const m = tok.match(/^in-[a-z-]+@([\d.]+)/); if (m) when = Math.min(when, +m[1]); }));
+      });
+      c.style.paddingBottom = (h + 24) + 'px';
+      // wrap the in-flow children so they can sit lower while the tail is hidden, then settle up as it appears
+      const flow = h_('div.flow');
+      [...c.children].filter(k => !k.classList.contains('tail')).forEach(k => flow.append(k));
+      c.prepend(flow);
+      if (isFinite(when) && META.format === 'reel') {
+        const shift = Math.round((h + 24) / 2);
+        if (!$('#tail-settle-kf')) document.head.append(h_('style#tail-settle-kf', `@keyframes tail-settle { from { transform: translateY(var(--tail-shift)); } to { transform: none; } }`));
+        flow.style.setProperty('--tail-shift', shift + 'px');
+        flow.style.animation = `tail-settle .7s cubic-bezier(.16,1,.3,1) ${Math.max(0, when - 0.4).toFixed(2)}s 1 normal both`;
+      }
     });
   }
   function autoScale(root) {
