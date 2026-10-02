@@ -1,21 +1,21 @@
 <!doctype html>
-<html lang="tr">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <title>r18 — Emoji riddle</title>
 <link rel="stylesheet" href="../../assets/base.css">
 <style>
-  .q { max-height: 150px; overflow: hidden; margin: 20px 0 10px; color: var(--navy); }
-  .emojis { display: flex; justify-content: center; gap: 26px; flex-wrap: wrap; margin: 30px 0; font-size: 170px; line-height: 1.1; }
+  .q { max-height: 188px; overflow: hidden; margin: 25px 0 12px; color: var(--navy); }
+  .emojis { display: flex; justify-content: center; gap: 32px; flex-wrap: wrap; margin: 38px 0; font-size: 212px; line-height: 1.1; }
   .emojis span { display: inline-block; }
-  .cd { display: flex; justify-content: center; gap: 22px; }
-  .cd .star { width: 70px; height: 70px; background: var(--gold); }
-  .ans { margin-top: 10px; text-align: center; }
-  .ans .w { font-family: var(--font-display); font-weight: 900; font-size: 74px; line-height: 1.1; color: var(--navy); max-height: 180px; overflow: hidden; }
-  .ans .m { font-size: 38px; font-weight: 600; color: var(--blue); margin-top: 16px; max-height: 110px; overflow: hidden; }
-  .ex { margin-top: 32px; text-align: center; font-size: 36px; line-height: 1.3; color: var(--ink-2); max-height: 150px; overflow: hidden; }
-  .ex mark { color: var(--blue); background: var(--gold-soft); border-radius: 8px; padding: 0 6px; }
-  .ctaRow { margin-top: 36px; text-align: center; }
+  .cd { display: flex; justify-content: center; gap: 28px; }
+  .cd .star { width: 88px; height: 88px; background: var(--gold); }
+  .ans { margin-top: 12px; text-align: center; }
+  .ans .w { font-family: var(--font-display); font-weight: 900; font-size: 92px; line-height: 1.1; color: var(--navy); max-height: 225px; overflow: hidden; }
+  .ans .m { font-size: 48px; font-weight: 600; color: var(--blue); margin-top: 20px; max-height: 138px; overflow: hidden; }
+  .ex { margin-top: 40px; text-align: center; font-size: 45px; line-height: 1.3; color: var(--ink-2); max-height: 188px; overflow: hidden; }
+  .ex mark { color: var(--blue); background: var(--gold-soft); border-radius: 10px; padding: 0 8px; }
+  .ctaRow { margin-top: 45px; text-align: center; }
 </style>
 </head>
 <body>
@@ -24,12 +24,12 @@
   <div class="star-wm" style="left:-300px; top:1100px; width:860px; height:860px"></div>
   <div class="content">
     <div class="label navy" id="label" data-anim="in-left@0" style="align-self:center"></div>
-    <div class="h-md q center" id="q" data-fit="32" data-anim="in-up@0.15"></div>
+    <div class="h-md q center" id="q" data-fit="40" data-anim="in-up@0.15"></div>
     <div class="emojis emoji" id="emojis"></div>
-    <div class="slot" style="height:420px">
+    <div class="slot tail" style="height:520px">
       <div class="cd" data-anim="in-fade@2.4 out-fade@5.5"><span class="star" data-anim="in-spin@2.6"></span><span class="star" data-anim="in-spin@3.6"></span><span class="star" data-anim="in-spin@4.6"></span></div>
       <div data-anim="in-pop@5.8 out-fade@9.4">
-        <div class="ans"><div class="w" id="ans" data-fit="40"></div><div class="m" id="mean"></div></div>
+        <div class="ans"><div class="w" id="ans" data-fit="50"></div><div class="m" id="mean"></div></div>
         <div class="ex" id="ex" data-anim="in-up@7.2"></div>
         <div class="ctaRow" data-anim="in-pop@8.2"><div class="cta navy" id="cta"></div></div>
       </div>

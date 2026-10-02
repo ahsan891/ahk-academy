@@ -1,20 +1,20 @@
 <!doctype html>
-<html lang="tr">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <title>r17 — Rapid-fire translation</title>
 <link rel="stylesheet" href="../../assets/base.css">
 <style>
-  .intro { position: absolute; left: var(--pad); right: 112px; top: 390px; bottom: 540px; display: flex; flex-direction: column; justify-content: center; gap: 26px; }
-  .pairs { position: absolute; left: var(--pad); right: 112px; top: 390px; bottom: 540px; }
-  .p { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: center; gap: 30px; }
-  .p .idx { font-family: var(--font-display); font-weight: 700; font-size: 34px; color: var(--gold); letter-spacing: .1em; }
-  .p .tr { font-family: var(--font-display); font-weight: 900; font-size: 70px; line-height: 1.12; max-height: 320px; overflow: hidden; }
-  .p .en { background: var(--white); color: var(--navy); border-radius: var(--r-md); padding: 30px 38px; font-family: var(--font-body); font-weight: 800; font-size: 50px; line-height: 1.2; max-height: 200px; overflow: hidden; display: flex; gap: 22px; align-items: center; box-shadow: var(--shadow-lg); }
-  .p .en .mark-ok { width: 64px; height: 64px; font-size: 36px; }
-  .bar { position: absolute; left: var(--pad); right: 112px; top: 1395px; height: 16px; background: rgba(255,255,255,.2); border-radius: 999px; overflow: hidden; }
+  .intro { position: absolute; left: var(--pad); right: 140px; top: 370px; bottom: 470px; display: flex; flex-direction: column; justify-content: center; gap: 32px; }
+  .pairs { position: absolute; left: var(--pad); right: 140px; top: 370px; bottom: 470px; }
+  .p { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: center; gap: 38px; }
+  .p .idx { font-family: var(--font-display); font-weight: 700; font-size: 42px; color: var(--gold); letter-spacing: .1em; }
+  .p .tr { font-family: var(--font-display); font-weight: 900; font-size: 88px; line-height: 1.12; max-height: 320px; overflow: hidden; }
+  .p .en { background: var(--white); color: var(--navy); border-radius: var(--r-md); padding: 38px 48px; font-family: var(--font-body); font-weight: 800; font-size: 62px; line-height: 1.2; max-height: 250px; overflow: hidden; display: flex; gap: 28px; align-items: center; box-shadow: var(--shadow-lg); }
+  .p .en .mark-ok { width: 80px; height: 80px; font-size: 45px; }
+  .bar { position: absolute; left: var(--pad); right: 140px; top: 1400px; height: 20px; background: rgba(255,255,255,.2); border-radius: 999px; overflow: hidden; }
   .bar i { display: block; height: 100%; background: var(--gold); transform-origin: left; }
-  .outro { position: absolute; left: var(--pad); right: 112px; top: 390px; bottom: 540px; display: flex; flex-direction: column; justify-content: center; gap: 34px; }
+  .outro { position: absolute; left: var(--pad); right: 140px; top: 370px; bottom: 470px; display: flex; flex-direction: column; justify-content: center; gap: 42px; }
   .flash { position: absolute; inset: 0; background: var(--white); opacity: 0; z-index: 45; pointer-events: none; }
 </style>
 </head>
@@ -24,12 +24,12 @@
   <div class="star-wm" style="right:-300px; top:1100px; width:860px; height:860px"></div>
   <div class="intro" data-anim="out-zoom@1.5">
     <div class="label" data-anim="in-left@0" id="label"></div>
-    <div class="h-hook" id="intro" data-fit="40" data-anim="in-up@0.15" style="max-height:330px;overflow:hidden"></div>
+    <div class="h-hook" id="intro" data-fit="50" data-anim="in-up@0.15" style="max-height:330px;overflow:hidden"></div>
   </div>
   <div class="pairs" id="pairs"></div>
   <div class="bar" data-anim="in-fade@1.6 out-fade@13.0"><i data-anim="in-grow@1.7:11.3"></i></div>
   <div class="outro" data-anim="in-up@13.1 out-fade@14.4">
-    <div class="h-lg" id="outro" data-fit="36" style="max-height:300px;overflow:hidden"></div>
+    <div class="h-lg" id="outro" data-fit="45" style="max-height:300px;overflow:hidden"></div>
     <div><span class="cta" id="cta"></span></div>
   </div>
   <div class="flash" id="flash"></div>
@@ -48,8 +48,8 @@ AHK.template({
       const s = START + i * SEG;
       box.append(AHK.h('div.p', { 'data-anim': `in-fade@${s.toFixed(2)}:0.15 out-left@${(s + SEG - 0.3).toFixed(2)}:0.25` }, [
         AHK.h('div.idx', `${i + 1} / ${d.pairs.length}`),
-        AHK.h('div.tr', { 'data-fit': '40', 'data-anim': `in-up@${s.toFixed(2)}:0.4` }, p.tr),
-        AHK.h('div.en', { 'data-fit': '30', 'data-anim': `in-pop@${(s + 1.15).toFixed(2)}:0.4` }, [AHK.h('span.mark-ok', '✓'), AHK.h('span', p.en)]),
+        AHK.h('div.tr', { 'data-fit': '50', 'data-anim': `in-up@${s.toFixed(2)}:0.4` }, p.tr),
+        AHK.h('div.en', { 'data-fit': '38', 'data-anim': `in-pop@${(s + 1.15).toFixed(2)}:0.4` }, [AHK.h('span.mark-ok', '✓'), AHK.h('span', p.en)]),
       ]));
     });
     AHK.$('#outro').textContent = d.outro;

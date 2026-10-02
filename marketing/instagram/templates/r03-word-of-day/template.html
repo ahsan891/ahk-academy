@@ -1,24 +1,24 @@
 <!doctype html>
-<html lang="tr">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <title>r03 — Word of the day</title>
 <link rel="stylesheet" href="../../assets/base.css">
 <style>
-  .word { font-family: var(--font-display); font-weight: 900; font-size: 128px; line-height: 1; letter-spacing: -.03em; white-space: nowrap; max-width: 100%; overflow: hidden; margin-top: 30px; }
-  .meta { display: flex; gap: 22px; align-items: center; margin-top: 26px; font-size: 36px; font-weight: 600; opacity: .85; }
+  .word { font-family: var(--font-display); font-weight: 900; font-size: 160px; line-height: 1; letter-spacing: -.03em; white-space: nowrap; max-width: 100%; overflow: hidden; margin-top: 38px; }
+  .meta { display: flex; gap: 28px; align-items: center; margin-top: 32px; font-size: 45px; font-weight: 600; opacity: .85; }
   .meta .pos { font-style: italic; opacity: .8; }
-  .meaning { margin-top: 56px; }
-  .meaning .lbl { font-size: 26px; letter-spacing: .3em; text-transform: uppercase; font-weight: 700; opacity: .7; margin-bottom: 14px; }
-  .meaning .txt { font-family: var(--font-body); font-weight: 800; font-size: 54px; line-height: 1.15; max-height: 190px; overflow: hidden; }
-  .ex { margin-top: 44px; font-size: 40px; line-height: 1.35; min-height: 210px; }
+  .meaning { margin-top: 70px; }
+  .meaning .lbl { font-size: 32px; letter-spacing: .3em; font-weight: 700; opacity: .7; margin-bottom: 18px; }
+  .meaning .txt { font-family: var(--font-body); font-weight: 800; font-size: 68px; line-height: 1.15; max-height: 238px; overflow: hidden; }
+  .ex { margin-top: 55px; font-size: 50px; line-height: 1.35; min-height: 200px; }
   .ex .en { font-weight: 700; }
   .ex .en::after { content: "|"; font-weight: 400; margin-left: 2px; animation: blink 1s step-end infinite; }
   .ex .en.done::after { content: ""; }
-  .ex .tr { margin-top: 14px; font-size: 32px; opacity: .8; }
-  .syn { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 10px; }
-  .syn .label { background: var(--navy); color: var(--white); font-size: 26px; padding: 12px 24px; }
-  .ctaRow { margin-top: 44px; }
+  .ex .tr { margin-top: 18px; font-size: 40px; opacity: .8; }
+  .syn { display: flex; gap: 20px; flex-wrap: wrap; margin-top: 12px; }
+  .syn .label { background: var(--navy); color: var(--white); font-size: 32px; padding: 15px 30px; }
+  .ctaRow { margin-top: 55px; }
 </style>
 </head>
 <body>
@@ -26,18 +26,20 @@
   <div class="star-wm" style="right:-300px; top:-120px; width:900px; height:900px; opacity:.09"></div>
   <div class="content">
     <div class="label navy" id="label" data-anim="in-left@0"></div>
-    <div class="word" id="word" data-fit="56" data-anim="in-pop@0.2"></div>
+    <div class="word" id="word" data-fit="70" data-anim="in-pop@0.2"></div>
     <div class="meta" data-anim="in-fade@0.7"><span id="ipa"></span><span class="pos" id="pos"></span></div>
     <div class="card meaning" data-anim="in-up@1.4 out-fade@9.4">
       <div class="lbl">Türkçesi</div>
-      <div class="txt" id="meaning" data-fit="34"></div>
+      <div class="txt" id="meaning" data-fit="42"></div>
     </div>
     <div class="ex" data-anim="in-fade@2.5 out-fade@9.4">
       <div class="en" id="ex"></div>
       <div class="tr" id="exTr" data-anim="in-fade@6.0"></div>
     </div>
-    <div class="syn" id="syn" data-anim="in-up@6.8 out-fade@9.4"></div>
-    <div class="ctaRow" data-anim="in-pop@8.0 out-fade@9.4"><div class="cta navy" id="cta"></div></div>
+    <div class="tail">
+      <div class="syn" id="syn" data-anim="in-up@6.8 out-fade@9.4"></div>
+      <div class="ctaRow" data-anim="in-pop@8.0 out-fade@9.4"><div class="cta navy" id="cta"></div></div>
+    </div>
   </div>
 </div>
 <script src="../../assets/base.js"></script>
@@ -55,7 +57,7 @@ AHK.template({
     AHK.$('#exTr').textContent = d.example_tr;
     EX = d.example;
     const syn = AHK.$('#syn');
-    syn.append(AHK.h('span.label.ghost', { style: 'font-size:24px' }, 'Synonyms'));
+    syn.append(AHK.h('span.label.ghost', { style: 'font-size:30px' }, 'Synonyms'));
     d.synonyms.forEach(s => syn.append(AHK.h('span.label', s)));
     AHK.$('#cta').textContent = d.cta;
   },

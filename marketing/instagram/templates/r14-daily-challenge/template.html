@@ -1,25 +1,25 @@
 <!doctype html>
-<html lang="tr">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <title>r14 — Daily challenge</title>
 <link rel="stylesheet" href="../../assets/base.css">
 <style>
-  .num { font-family: var(--font-display); font-weight: 900; font-size: 160px; line-height: 1; color: var(--gold); letter-spacing: -.04em; margin-top: 10px; }
-  .num small { font-size: 60px; vertical-align: top; opacity: .8; }
-  .words { display: flex; flex-wrap: wrap; gap: 20px; margin-top: 30px; }
-  .words span { font-family: var(--font-display); font-weight: 900; font-size: 54px; padding: 20px 34px; border-radius: 24px; background: var(--white); color: var(--navy); box-shadow: var(--shadow-md); white-space: nowrap; }
-  .task { margin-top: 40px; font-family: var(--font-body); font-weight: 800; font-size: 48px; line-height: 1.2; max-height: 180px; overflow: hidden; }
-  .tm { margin-top: 36px; display: flex; align-items: center; gap: 24px; }
-  .tm .timer-bar { flex: 1; background: rgba(255,255,255,.18); height: 26px; }
-  .tm .n { font-family: var(--font-display); font-weight: 900; font-size: 56px; min-width: 150px; text-align: right; color: var(--gold); }
+  .num { font-family: var(--font-display); font-weight: 900; font-size: 200px; line-height: 1; color: var(--gold); letter-spacing: -.04em; margin-top: 12px; }
+  .num small { font-size: 75px; vertical-align: top; opacity: .8; }
+  .words { display: flex; flex-wrap: wrap; gap: 25px; margin-top: 38px; }
+  .words span { font-family: var(--font-display); font-weight: 900; font-size: 68px; padding: 25px 42px; border-radius: 30px; background: var(--white); color: var(--navy); box-shadow: var(--shadow-md); white-space: nowrap; }
+  .task { margin-top: 50px; font-family: var(--font-body); font-weight: 800; font-size: 60px; line-height: 1.2; max-height: 225px; overflow: hidden; }
+  .tm { margin-top: 45px; display: flex; align-items: center; gap: 30px; }
+  .tm .timer-bar { flex: 1; background: rgba(255,255,255,.18); height: 32px; }
+  .tm .n { font-family: var(--font-display); font-weight: 900; font-size: 70px; min-width: 188px; text-align: right; color: var(--gold); }
   .exbox { position: relative; }
-  .exbox .card { background: rgba(255,255,255,.1); color: var(--white); border: 3px dashed rgba(255,255,255,.4); box-shadow: none; padding: 30px 38px; }
-  .exbox .lbl { font-size: 24px; letter-spacing: .25em; text-transform: uppercase; opacity: .8; font-weight: 700; }
-  .exbox .ex { font-size: 36px; font-weight: 600; line-height: 1.3; margin-top: 10px; max-height: 140px; overflow: hidden; }
+  .exbox .card { background: rgba(255,255,255,.1); color: var(--white); border: 4px dashed rgba(255,255,255,.4); box-shadow: none; padding: 38px 48px; }
+  .exbox .lbl { font-size: 30px; letter-spacing: .25em; opacity: .8; font-weight: 700; }
+  .exbox .ex { font-size: 45px; font-weight: 600; line-height: 1.3; margin-top: 12px; max-height: 175px; overflow: hidden; }
   .exbox .ex mark { color: var(--gold); }
-  .blur { position: absolute; inset: 0; border-radius: var(--r-lg); backdrop-filter: blur(22px); -webkit-backdrop-filter: blur(22px); background: rgba(14,31,62,.88); display: grid; place-items: center; font-family: var(--font-display); font-weight: 700; font-size: 34px; letter-spacing: .1em; }
-  .ctaRow { margin-top: 30px; }
+  .blur { position: absolute; inset: 0; border-radius: var(--r-lg); backdrop-filter: blur(28px); -webkit-backdrop-filter: blur(28px); background: rgba(14,31,62,.88); display: grid; place-items: center; font-family: var(--font-display); font-weight: 700; font-size: 42px; letter-spacing: .1em; }
+  .ctaRow { margin-top: 38px; }
 </style>
 </head>
 <body>
@@ -30,18 +30,20 @@
     <div class="label" id="label" data-anim="in-left@0"></div>
     <div class="num" data-anim="in-pop@0.1"><small>#</small><span id="num"></span></div>
     <div class="words" id="words"></div>
-    <div class="task" id="task" data-fit="32" data-anim="in-up@1.9"></div>
-    <div class="slot" style="height:110px">
+    <div class="task" id="task" data-fit="40" data-anim="in-up@1.9"></div>
+    <div class="slot" style="height:138px">
       <div class="tm" data-anim="in-fade@2.6 out-fade@7.5">
         <div class="timer-bar"><i data-anim="drain@2.8:4.5"></i></div>
         <div class="n" id="sec"></div>
       </div>
     </div>
+    <div class="tail">
     <div class="exbox" data-anim="in-up@3.2 out-fade@9.4">
       <div class="card"><div class="lbl">Örnek cevap</div><div class="ex" id="ex"></div></div>
       <div class="blur" data-anim="out-fade@7.5:0.5">🔒 önce sen dene</div>
     </div>
     <div class="ctaRow" data-anim="in-pop@8.3 out-fade@9.4"><div class="cta" id="cta"></div></div>
+    </div>
   </div>
   <div class="star-transition" data-anim="star-burst@7.4"></div>
 </div>

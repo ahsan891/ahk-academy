@@ -1,28 +1,28 @@
 <!doctype html>
-<html lang="tr">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <title>r09 — Grammar in 15 seconds</title>
 <link rel="stylesheet" href="../../assets/base.css">
 <style>
-  .top { display: flex; align-items: center; justify-content: space-between; gap: 30px; }
-  .ring { position: relative; width: 170px; height: 170px; flex: none; }
-  .ring svg { position: absolute; inset: 0; width: 170px; height: 170px; transform: rotate(-90deg); }
+  .top { display: flex; align-items: center; justify-content: space-between; gap: 38px; }
+  .ring { position: relative; width: 212px; height: 212px; flex: none; }
+  .ring svg { position: absolute; inset: 0; width: 212px; height: 212px; transform: rotate(-90deg); }
   .ring circle { fill: none; stroke-width: 12; stroke-linecap: round; }
   .ring .bg { stroke: rgba(14,31,62,.12); }
   .ring .fg { stroke: var(--gold); stroke-dasharray: 471; }
-  .ring .n { position: absolute; inset: 0; display: grid; place-items: center; font-family: var(--font-display); font-weight: 900; font-size: 60px; color: var(--navy); }
-  .title { font-family: var(--font-display); font-weight: 900; font-size: 64px; line-height: 1.1; max-height: 220px; overflow: hidden; }
-  .formula { margin-top: 34px; background: var(--navy); color: var(--white); border-radius: var(--r-md); padding: 30px 38px; display: flex; flex-wrap: wrap; gap: 14px; align-items: center; }
-  .formula span { font-family: var(--font-display); font-weight: 700; font-size: 38px; padding: 10px 22px; border-radius: 14px; background: rgba(255,255,255,.12); }
-  .formula span.op { background: none; color: var(--gold); padding: 0 6px; }
-  .rule { margin-top: 28px; font-size: 34px; line-height: 1.35; max-height: 100px; overflow: hidden; color: var(--ink-2); }
-  .exs { display: flex; flex-direction: column; gap: 18px; margin-top: 32px; }
-  .ex { background: var(--white); border-radius: 24px; padding: 24px 32px; font-size: 36px; font-weight: 600; line-height: 1.3; box-shadow: var(--shadow-md); max-height: 140px; overflow: hidden; display: flex; gap: 18px; align-items: center; }
-  .ex .star-bullet { width: 28px; height: 28px; }
-  .ex mark { color: var(--blue); background: var(--gold-soft); border-radius: 8px; padding: 0 6px; }
-  .done { margin-top: 34px; display: flex; align-items: center; gap: 24px; flex-wrap: wrap; }
-  .done .txt { font-family: var(--font-display); font-weight: 700; font-size: 34px; color: var(--green); }
+  .ring .n { position: absolute; inset: 0; display: grid; place-items: center; font-family: var(--font-display); font-weight: 900; font-size: 75px; color: var(--navy); }
+  .title { font-family: var(--font-display); font-weight: 900; font-size: 80px; line-height: 1.1; max-height: 275px; overflow: hidden; }
+  .formula { margin-top: 42px; background: var(--navy); color: var(--white); border-radius: var(--r-md); padding: 38px 48px; display: flex; flex-wrap: wrap; gap: 18px; align-items: center; }
+  .formula span { font-family: var(--font-display); font-weight: 700; font-size: 48px; padding: 12px 28px; border-radius: 18px; background: rgba(255,255,255,.12); }
+  .formula span.op { background: none; color: var(--gold); padding: 0 8px; }
+  .rule { margin-top: 35px; font-size: 42px; line-height: 1.35; max-height: 125px; overflow: hidden; color: var(--ink-2); }
+  .exs { display: flex; flex-direction: column; gap: 22px; margin-top: 40px; }
+  .ex { background: var(--white); border-radius: 30px; padding: 30px 40px; font-size: 45px; font-weight: 600; line-height: 1.3; box-shadow: var(--shadow-md); max-height: 175px; overflow: hidden; display: flex; gap: 22px; align-items: center; }
+  .ex .star-bullet { width: 35px; height: 35px; }
+  .ex mark { color: var(--blue); background: var(--gold-soft); border-radius: 10px; padding: 0 8px; }
+  .done { margin-top: 42px; display: flex; align-items: center; gap: 30px; flex-wrap: wrap; }
+  .done .txt { font-family: var(--font-display); font-weight: 700; font-size: 42px; color: var(--green); }
 </style>
 </head>
 <body>
@@ -33,7 +33,7 @@
     <div class="top">
       <div>
         <div class="label navy" id="label" data-anim="in-left@0"></div>
-        <div class="title" id="title" data-fit="40" data-anim="in-up@0.2" style="margin-top:22px"></div>
+        <div class="title" id="title" data-fit="50" data-anim="in-up@0.2" style="margin-top:22px"></div>
       </div>
       <div class="ring" data-anim="in-pop@0.3">
         <svg viewBox="0 0 170 170"><circle class="bg" cx="85" cy="85" r="75"/><circle class="fg" cx="85" cy="85" r="75" data-anim="ring-drain15@0.5:15"/></svg>
@@ -43,7 +43,7 @@
     <div class="formula" id="formula" data-anim="in-up@1.4"></div>
     <div class="rule" id="rule" data-anim="in-fade@2.4"></div>
     <div class="exs" id="exs"></div>
-    <div class="slot" style="height:120px">
+    <div class="slot tail" style="height:130px">
       <div class="done" data-anim="in-pop@12.4 out-fade@14.4"><span class="txt" id="done"></span><span class="cta navy" id="cta"></span></div>
     </div>
   </div>
@@ -60,7 +60,7 @@ AHK.template({
     d.formula.split('+').map(s => s.trim()).forEach((part, i) => { if (i) f.append(AHK.h('span.op', '+')); f.append(AHK.h('span', part)); });
     AHK.$('#rule').innerHTML = AHK.rich(d.rule_tr);
     const box = AHK.$('#exs');
-    d.examples.forEach((e, i) => box.append(AHK.h('div.ex', { 'data-anim': `in-up@${(4 + i * 2.6).toFixed(1)} out-fade@14.4`, 'data-fit': '26' }, [AHK.h('span.star-bullet'), AHK.h('div', { html: AHK.rich(e) })])));
+    d.examples.forEach((e, i) => box.append(AHK.h('div.ex', { 'data-anim': `in-up@${(4 + i * 2.6).toFixed(1)} out-fade@14.4`, 'data-fit': '32' }, [AHK.h('span.star-bullet'), AHK.h('div', { html: AHK.rich(e) })])));
     AHK.$('#done').textContent = d.done;
     AHK.$('#cta').textContent = d.cta;
     // the ring drains over 15s; the counter counts down in sync

@@ -122,6 +122,20 @@
     });
   }
 
+  // ---------- language-aware uppercase ----------
+  // Turkish needs i→İ and ı→I; English needs i→I. Pages are lang="en" so CSS text-transform would
+  // break Turkish, therefore we uppercase in JS. Heuristic: Turkish letters or common Turkish words → 'tr'.
+  const TR_WORDS = /(^|[^a-z])(ve|bu|bunu|hep|için|ile|mi|mı|mu|mü|günün|kelimesi|saniyelik|haftalık|günlük|boşluğu|doldur|hızlı|çeviri|öğrenci|başarısı|yorumu|plan|ders|hata|hatası|doğru|yanlış|kaydet|yorumla|örnek|cevap|türkçesi|gerçek|anlamı|kelime|çevirirsek|ne|görür|söylüyor|diyor|böyle|hangisi)(?=$|[^a-z])/i;
+  function langOf(s) { return /[çğıİöşüÇĞÖŞÜ]/.test(s) || TR_WORDS.test(s) ? 'tr' : 'en'; }
+  function upper(s, lang) { return String(s).toLocaleUpperCase(lang || langOf(s)); }
+  function upperAll(root) {
+    $$('.label, .chrome-tag, .spaced, .lbl, [data-upper]', root).forEach(el => {
+      const lang = el.getAttribute('lang') || el.closest('[lang]')?.getAttribute('lang');
+      const walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT);
+      let n; while ((n = walker.nextNode())) { if (n.nodeValue.trim()) n.nodeValue = upper(n.nodeValue, lang && lang !== 'en' ? lang : (lang === 'en' ? 'en' : undefined)); }
+    });
+  }
+
   // ---------- auto-fit text ----------
   function fitAll(root) {
     $$('[data-fit]', root).forEach(el => {
@@ -136,11 +150,47 @@
     });
   }
 
+  // ---------- auto-scale a content column that is taller than its box ----------
+  // Phases of a reel stack vertically (hidden ones still take space). If the whole stack is taller than
+  // the safe area, scale the column down (and widen it so text reflows) rather than overflow into the chrome.
+  // .tail children of .content are anchored to the bottom of the safe area; the rest centres above them.
+  function layoutTails(root) {
+    $$('.content', root).forEach(c => {
+      const tails = [...c.children].filter(k => k.classList.contains('tail'));
+      if (!tails.length) return;
+      let h = 0;
+      tails.forEach(t => { Object.assign(t.style, { position: 'absolute', left: '0', right: '0', bottom: '0', margin: '0' }); h = Math.max(h, t.offsetHeight); });
+      c.style.paddingBottom = (h + 36) + 'px';
+    });
+  }
+  function autoScale(root) {
+    $$('.content', root).forEach(c => {
+      const have = c.clientHeight, w0 = c.clientWidth;
+      const pad = parseFloat(getComputedStyle(c).paddingBottom) || 0;
+      const flow = () => Math.max(0, ...[...c.children].filter(k => !k.classList.contains('tail') && getComputedStyle(k).position !== 'absolute').map(k => k.offsetTop + k.offsetHeight));
+      if (!have || flow() + pad <= have + 2) return;
+      let s = 1;
+      for (let i = 0; i < 4; i++) {
+        const need = flow() + pad;
+        if (need <= have / s + 2) break;
+        s = Math.max(0.6, +((have / need) * s * 0.985).toFixed(3));
+        c.style.width = Math.round(w0 / s) + 'px';
+        c.style.right = 'auto';
+        c.style.transformOrigin = '0 0';
+        c.style.transform = `scale(${s})`;
+        c.style.height = Math.round(have / s) + 'px';
+        c.style.bottom = 'auto';
+        fitAll(c);
+      }
+      c.dataset.autoscale = s;
+    });
+  }
+
   // ---------- brand chrome ----------
   function wordmark(dark) {
     return h('div.wordmark', [
       h('div.mark'),
-      h('div.text', [h('div.ahk', 'AHK'), h('div.rule'), h('div.akademi', 'AKADEMİ')]),
+      h('div.text', [h('div.ahk', 'AHK'), h('div.rule'), h('div.akademi', 'AKADEMI')]),
     ]);
   }
   function chrome(opts) {
@@ -215,8 +265,11 @@
       ]);
       await document.fonts.ready;
       if (META.slides > 1) $$('.slide').forEach(s => s.classList.add('active'));
+      upperAll(stage);
       fitAll(stage);
       if (def.afterFit) def.afterFit(data, stage);
+      layoutTails(stage);
+      autoScale(stage);
       applyAnim(stage);
       onTimeFn = def.onTime || null;
       if (META.format === 'reel') setTime(0); else setSlide(+(qs.get('slide') || 0));
@@ -245,5 +298,5 @@
     }
   }
 
-  window.AHK = { template, chrome, confetti, h, $, $$, rich, esc, rng, ease, seg, between, typewriter, countNumber, countdown, clamp, fitAll, applyAnim };
+  window.AHK = { template, chrome, upper, langOf, confetti, h, $, $$, rich, esc, rng, ease, seg, between, typewriter, countNumber, countdown, clamp, fitAll, applyAnim };
 })();

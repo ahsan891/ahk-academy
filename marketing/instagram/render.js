@@ -2,7 +2,7 @@
 /*
   AHK Akademi — template renderer
   ---------------------------------
-  node render.js <templateId|all> [--data file.json] [--out dir] [--fps 30] [--frames 0,1.5,3] [--no-preview]
+  node render.js <templateId|all> [--data file.json] [--out dir] [--fps 30] [--frames 0,1.5,3] [--no-preview] [--preview-only]
 
   Reels  → out/<id>/reel.mp4 (H.264, 30fps, 1080×1920) + preview.png
   Posts  → out/<id>/slide-01.png … (1080×1350) + preview.png
@@ -47,6 +47,7 @@ function parseArgs(argv) {
     else if (v === '--fps') a.fps = +argv[++i];
     else if (v === '--frames') a.frames = argv[++i].split(',').map(Number);
     else if (v === '--no-preview') a.preview = false;
+    else if (v === '--preview-only') a.previewOnly = true;
     else if (v === '--preview-dir') a.previewDir = argv[++i];
     else if (v === 'all') a.ids = TEMPLATES.map(t => t.id);
     else if (v === 'reels') a.ids = TEMPLATES.filter(t => t.format === 'reel').map(t => t.id);
@@ -124,6 +125,8 @@ async function renderOne(browser, port, id, opts) {
         result.files.push(f);
       }
       log(`  ✔ ${result.files.length} frame(s) → ${path.relative(ROOT, outDir)}`);
+    } else if (opts.previewOnly) {
+      /* only the preview still */
     } else if (meta.format === 'reel') {
       result.files.push(await renderReel(page, meta, outDir, opts.fps || 30, log));
     } else {
@@ -158,7 +161,7 @@ async function main() {
   const data = args.data ? JSON.parse(fs.readFileSync(args.data, 'utf8')) : null;
   await withBrowser(async (browser, port) => {
     for (const id of args.ids) {
-      await renderOne(browser, port, id, { data, outDir: args.out, fps: args.fps, frames: args.frames, preview: args.preview, previewDir: args.previewDir });
+      await renderOne(browser, port, id, { data, outDir: args.out, fps: args.fps, frames: args.frames, preview: args.preview, previewOnly: args.previewOnly, previewDir: args.previewDir });
     }
   });
 }

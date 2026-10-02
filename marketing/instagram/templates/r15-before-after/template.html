@@ -1,28 +1,28 @@
 <!doctype html>
-<html lang="tr">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <title>r15 — Student before / after</title>
 <link rel="stylesheet" href="../../assets/base.css">
 <style>
-  .who { margin-top: 24px; }
-  .who .name { font-family: var(--font-display); font-weight: 900; font-size: 62px; line-height: 1.1; white-space: nowrap; overflow: hidden; }
-  .who .goal { font-size: 34px; color: var(--ink-2); margin-top: 8px; }
-  .scores { display: flex; gap: 26px; margin-top: 44px; align-items: stretch; }
-  .tile { flex: 1; border-radius: var(--r-md); padding: 30px 28px; text-align: center; }
-  .tile .lbl { font-size: 24px; letter-spacing: .25em; text-transform: uppercase; font-weight: 700; opacity: .75; }
-  .tile .v { font-family: var(--font-display); font-weight: 900; font-size: 128px; line-height: 1; margin-top: 12px; letter-spacing: -.04em; }
-  .tile .u { font-size: 28px; font-weight: 600; opacity: .75; margin-top: 6px; }
+  .who { margin-top: 30px; }
+  .who .name { font-family: var(--font-display); font-weight: 900; font-size: 78px; line-height: 1.1; white-space: nowrap; overflow: hidden; }
+  .who .goal { font-size: 42px; color: var(--ink-2); margin-top: 10px; }
+  .scores { display: flex; gap: 32px; margin-top: 55px; align-items: stretch; }
+  .tile { flex: 1; border-radius: var(--r-md); padding: 38px 35px; text-align: center; }
+  .tile .lbl { font-size: 30px; letter-spacing: .25em; font-weight: 700; opacity: .75; }
+  .tile .v { font-family: var(--font-display); font-weight: 900; font-size: 160px; line-height: 1; margin-top: 15px; letter-spacing: -.04em; }
+  .tile .u { font-size: 35px; font-weight: 600; opacity: .75; margin-top: 8px; }
   .tile.before { background: #DDE3EE; color: #4B587A; }
   .tile.after { background: var(--navy); color: var(--white); box-shadow: var(--shadow-lg); }
   .tile.after .v { color: var(--gold); }
-  .arrow { align-self: center; font-family: var(--font-display); font-size: 60px; color: var(--gold); }
+  .arrow { align-self: center; font-family: var(--font-display); font-size: 75px; color: var(--gold); }
   .tile.after { position: relative; }
-  .delta { position: absolute; right: -24px; top: -34px; background: var(--green); color: var(--white); font-family: var(--font-display); font-weight: 900; font-size: 42px; padding: 16px 30px; border-radius: 999px; transform: rotate(6deg); box-shadow: var(--shadow-md); z-index: 5; }
-  .quote { margin-top: 44px; font-family: var(--font-hand); font-size: 54px; line-height: 1.15; color: var(--navy); max-height: 200px; overflow: hidden; }
+  .delta { position: absolute; right: -30px; top: -42px; background: var(--green); color: var(--white); font-family: var(--font-display); font-weight: 900; font-size: 52px; padding: 20px 38px; border-radius: 999px; transform: rotate(6deg); box-shadow: var(--shadow-md); z-index: 5; }
+  .quote { margin-top: 0; font-family: var(--font-hand); font-size: 68px; line-height: 1.15; color: var(--navy); max-height: 250px; overflow: hidden; }
   .quote::before { content: "“"; color: var(--gold); }
   .quote::after { content: "”"; color: var(--gold); }
-  .ctaRow { margin-top: 36px; }
+  .ctaRow { margin-top: 45px; }
 </style>
 </head>
 <body>
@@ -33,7 +33,7 @@
   <div class="content">
     <div class="label navy" id="label" data-anim="in-left@0"></div>
     <div class="who" data-anim="in-up@0.2">
-      <div class="name" id="name" data-fit="36"></div>
+      <div class="name" id="name" data-fit="45"></div>
       <div class="goal" id="goal"></div>
     </div>
     <div class="scores" data-anim="in-up@0.8">
@@ -41,8 +41,10 @@
       <div class="arrow" data-anim="in-pop@2.0 pulse@2.6">→</div>
       <div class="tile after" data-anim="pulse@5.0:0.6:2"><div class="lbl" id="la"></div><div class="v" id="va"></div><div class="u" id="ua"></div><div class="delta" id="delta" data-anim="in-slam@5.1"></div></div>
     </div>
-    <div class="quote" id="quote" data-fit="34" data-anim="in-up@6.4 out-fade@10.4"></div>
-    <div class="ctaRow" data-anim="in-pop@8.4 out-fade@10.4"><div class="cta navy" id="cta"></div></div>
+    <div class="tail">
+      <div class="quote" id="quote" data-fit="42" data-anim="in-up@6.4 out-fade@10.4"></div>
+      <div class="ctaRow" data-anim="in-pop@8.4 out-fade@10.4"><div class="cta navy" id="cta"></div></div>
+    </div>
   </div>
 </div>
 <script src="../../assets/base.js"></script>

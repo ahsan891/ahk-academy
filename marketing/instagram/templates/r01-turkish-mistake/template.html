@@ -1,27 +1,27 @@
 <!doctype html>
-<html lang="tr">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <title>r01 — Türkler bunu hep yanlış söylüyor</title>
 <link rel="stylesheet" href="../../assets/base.css">
 <style>
   .stage { }
-  .hookbox { display: flex; flex-direction: column; gap: 26px; margin-bottom: 44px; }
-  .hook { max-height: 260px; overflow: hidden; }
-  .sentence { font-family: var(--font-body); font-weight: 800; font-size: 52px; line-height: 1.22; letter-spacing: -.01em; max-height: 200px; overflow: hidden; }
+  .hookbox { display: flex; flex-direction: column; gap: 32px; margin-bottom: 55px; }
+  .hook { max-height: 325px; overflow: hidden; }
+  .sentence { font-family: var(--font-body); font-weight: 800; font-size: 65px; line-height: 1.22; letter-spacing: -.01em; max-height: 250px; overflow: hidden; }
   .sentence .w { position: relative; display: inline-block; }
-  .sentence .w i { position: absolute; left: -3%; right: -3%; top: 50%; height: 10px; background: var(--red); border-radius: 999px; transform-origin: left center; transform: rotate(-2deg); }
+  .sentence .w i { position: absolute; left: -3%; right: -3%; top: 50%; height: 12px; background: var(--red); border-radius: 999px; transform-origin: left center; transform: rotate(-2deg); }
   .sentence mark { color: var(--blue); background: linear-gradient(transparent 60%, var(--gold-soft) 60%); }
-  .hint { font-size: 38px; margin-top: 22px; color: var(--ink-2); max-height: 90px; overflow: hidden; }
+  .hint { font-size: 48px; margin-top: 28px; color: var(--ink-2); max-height: 112px; overflow: hidden; }
   .cardwrap { position: relative; }
-  .mark-x, .mark-ok { position: absolute; right: -24px; top: -24px; box-shadow: var(--shadow-md); }
-  .cd { position: absolute; right: -10px; bottom: -100px; width: 190px; height: 190px; border-radius: 50%; background: var(--gold); color: var(--navy);
-        display: grid; place-items: center; font-family: var(--font-display); font-weight: 900; font-size: 96px; box-shadow: var(--shadow-md); }
-  .cd svg { position: absolute; inset: -12px; width: 214px; height: 214px; transform: rotate(-90deg); }
+  .mark-x, .mark-ok { position: absolute; right: -30px; top: -30px; box-shadow: var(--shadow-md); }
+  .cd { position: absolute; right: -12px; bottom: -125px; width: 238px; height: 238px; border-radius: 50%; background: var(--gold); color: var(--navy);
+        display: grid; place-items: center; font-family: var(--font-display); font-weight: 900; font-size: 120px; box-shadow: var(--shadow-md); }
+  .cd svg { position: absolute; inset: -15px; width: 268px; height: 268px; transform: rotate(-90deg); }
   .cd circle { fill: none; stroke: var(--navy); stroke-width: 10; stroke-linecap: round; stroke-dasharray: 628; }
-  .why { margin-top: 44px; display: flex; gap: 22px; align-items: flex-start; font-size: 34px; line-height: 1.35; max-height: 150px; overflow: hidden; }
-  .why .star-bullet { margin-top: 8px; width: 34px; height: 34px; }
-  .ctaRow { margin-top: 56px; }
+  .why { margin-top: 0; display: flex; gap: 28px; align-items: flex-start; font-size: 42px; line-height: 1.35; max-height: 188px; overflow: hidden; }
+  .why .star-bullet { margin-top: 10px; width: 42px; height: 42px; }
+  .ctaRow { margin-top: 70px; }
 </style>
 </head>
 <body>
@@ -31,11 +31,11 @@
   <div class="content">
     <div class="hookbox">
       <div class="label" id="label"></div>
-      <div class="h-hook hook" id="hook" data-fit="48"></div>
+      <div class="h-hook hook" id="hook" data-fit="60"></div>
     </div>
     <div class="cardwrap" data-anim="in-up@0.35 shake@4.9:0.5:1">
       <div class="card" id="wrongCard">
-        <div class="sentence" id="wrong" data-fit="34"></div>
+        <div class="sentence" id="wrong" data-fit="42"></div>
         <div class="hint hand" id="hint"></div>
       </div>
       <div class="mark-x" data-anim="in-pop@4.9 out-pop@10.3">✗</div>
@@ -46,12 +46,14 @@
     </div>
     <div class="cardwrap" data-anim="in-up@5.3 out-fade@10.3">
       <div class="card right">
-        <div class="sentence" id="correct" data-fit="34"></div>
+        <div class="sentence" id="correct" data-fit="42"></div>
       </div>
       <div class="mark-ok" data-anim="in-pop@5.7">✓</div>
     </div>
-    <div class="why" id="whyRow" data-anim="in-up@6.6 out-fade@10.3"><span class="star-bullet"></span><div id="why"></div></div>
-    <div class="ctaRow" data-anim="in-pop@8.4 out-fade@10.3"><div class="cta" id="cta"></div></div>
+    <div class="tail">
+      <div class="why" id="whyRow" data-anim="in-up@6.6 out-fade@10.3"><span class="star-bullet"></span><div id="why"></div></div>
+      <div class="ctaRow" data-anim="in-pop@8.4 out-fade@10.3"><div class="cta" id="cta"></div></div>
+    </div>
   </div>
   <div class="star-transition" data-anim="star-burst@4.75"></div>
 </div>

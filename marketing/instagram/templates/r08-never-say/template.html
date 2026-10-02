@@ -1,23 +1,23 @@
 <!doctype html>
-<html lang="tr">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <title>r08 — Never say X, say Y</title>
 <link rel="stylesheet" href="../../assets/base.css">
 <style>
-  .hookwrap { position: absolute; left: var(--pad); right: 112px; top: 390px; bottom: 540px; display: flex; flex-direction: column; justify-content: center; align-items: flex-start; gap: 30px; }
+  .hookwrap { position: absolute; left: var(--pad); right: 140px; top: 370px; bottom: 470px; display: flex; flex-direction: column; justify-content: center; align-items: flex-start; gap: 38px; }
   .big3 { font-family: var(--font-display); font-weight: 900; font-size: 420px; line-height: .9; color: var(--gold); letter-spacing: -.06em; }
-  .pair { position: absolute; left: var(--pad); right: 112px; top: 390px; bottom: 540px; display: flex; flex-direction: column; justify-content: center; gap: 30px; }
+  .pair { position: absolute; left: var(--pad); right: 140px; top: 370px; bottom: 470px; display: flex; flex-direction: column; justify-content: center; gap: 38px; }
   .pair .never { color: #FFB3B0; }
-  .pair .phrase { font-family: var(--font-display); font-weight: 900; font-size: 70px; line-height: 1.1; max-height: 240px; overflow: hidden; }
+  .pair .phrase { font-family: var(--font-display); font-weight: 900; font-size: 88px; line-height: 1.1; max-height: 300px; overflow: hidden; }
   .pair .phrase.bad { color: rgba(255,255,255,.7); position: relative; display: inline-block; }
-  .pair .phrase.bad i { position: absolute; left: -2%; right: -2%; top: 50%; height: 12px; background: var(--red); border-radius: 999px; transform-origin: left center; }
+  .pair .phrase.bad i { position: absolute; left: -2%; right: -2%; top: 50%; height: 15px; background: var(--red); border-radius: 999px; transform-origin: left center; }
   .pair .phrase.good { color: var(--gold); }
-  .pair .note { font-size: 34px; opacity: .85; max-height: 100px; overflow: hidden; }
-  .pair .arrow { font-family: var(--font-display); font-size: 70px; color: var(--gold); line-height: 1; }
-  .counter { position: absolute; right: 130px; top: 390px; font-family: var(--font-display); font-weight: 700; font-size: 34px; opacity: .7; }
+  .pair .note { font-size: 42px; opacity: .85; max-height: 125px; overflow: hidden; }
+  .pair .arrow { font-family: var(--font-display); font-size: 88px; color: var(--gold); line-height: 1; }
+  .counter { position: absolute; right: 162px; top: 390px; font-family: var(--font-display); font-weight: 700; font-size: 42px; opacity: .7; }
   .flash { position: absolute; inset: 0; background: var(--white); opacity: 0; z-index: 45; pointer-events: none; }
-  .outro { position: absolute; left: var(--pad); right: 112px; top: 390px; bottom: 540px; display: flex; flex-direction: column; justify-content: center; gap: 36px; }
+  .outro { position: absolute; left: var(--pad); right: 140px; top: 370px; bottom: 470px; display: flex; flex-direction: column; justify-content: center; gap: 45px; }
 </style>
 </head>
 <body>
@@ -26,12 +26,12 @@
   <div class="deco-ring" style="width:900px;height:900px;left:-380px;bottom:-200px"></div>
   <div class="hookwrap" data-anim="out-zoom@1.4">
     <div class="big3" data-anim="in-slam@0:0.5">3</div>
-    <div class="h-lg" id="hook" data-fit="40" data-anim="in-up@0.3" style="max-height:220px;overflow:hidden"></div>
+    <div class="h-lg" id="hook" data-fit="50" data-anim="in-up@0.3" style="max-height:220px;overflow:hidden"></div>
   </div>
   <div id="pairs"></div>
   <div class="counter" id="counter"></div>
   <div class="outro" data-anim="in-up@10.4 out-fade@11.5">
-    <div class="h-md" id="outro" data-fit="36" style="max-height:260px;overflow:hidden"></div>
+    <div class="h-md" id="outro" data-fit="45" style="max-height:260px;overflow:hidden"></div>
     <div><span class="cta" id="cta"></span></div>
   </div>
   <div class="flash" id="flash"></div>
@@ -41,7 +41,7 @@
 <script>
 const SEG = 3.1, START = 1.6;
 AHK.template({
-  format: 'reel', duration: 12, preview: 2.9,
+  format: 'reel', duration: 12, preview: 4.3,
   build(d) {
     AHK.chrome({ tag: 'UPGRADE' });
     AHK.$('#hook').textContent = d.hook;
@@ -50,10 +50,10 @@ AHK.template({
       const s = START + i * SEG;
       box.append(AHK.h('div.pair', { 'data-anim': `in-fade@${s}:0.2 out-left@${(s + SEG - 0.35).toFixed(2)}:0.3` }, [
         AHK.h('div.label.red.never', { 'data-anim': `in-left@${s}` }, 'Never say'),
-        AHK.h('div', [AHK.h('div.phrase.bad', { 'data-fit': '40', 'data-anim': `in-up@${(s + 0.1).toFixed(2)}` }, [p.never, AHK.h('i', { 'data-anim': `in-grow@${(s + 0.9).toFixed(2)}:0.3` })])]),
+        AHK.h('div', [AHK.h('div.phrase.bad', { 'data-fit': '50', 'data-anim': `in-up@${(s + 0.1).toFixed(2)}` }, [p.never, AHK.h('i', { 'data-anim': `in-grow@${(s + 0.9).toFixed(2)}:0.3` })])]),
         AHK.h('div.arrow', { 'data-anim': `in-pop@${(s + 1.2).toFixed(2)}` }, '↓'),
         AHK.h('div.label.green', { 'data-anim': `in-left@${(s + 1.3).toFixed(2)}` }, 'Say'),
-        AHK.h('div.phrase.good', { 'data-fit': '40', 'data-anim': `in-pop@${(s + 1.4).toFixed(2)}` }, p.say),
+        AHK.h('div.phrase.good', { 'data-fit': '50', 'data-anim': `in-pop@${(s + 1.4).toFixed(2)}` }, p.say),
         AHK.h('div.note', { 'data-anim': `in-fade@${(s + 1.9).toFixed(2)}` }, p.note),
       ]));
     });
