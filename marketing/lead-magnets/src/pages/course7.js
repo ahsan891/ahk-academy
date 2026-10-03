@@ -44,7 +44,7 @@ module.exports = {
 </div></div></section>
 
 <section class="section" id="program"><div class="container">
-  <div class="section-head"><div class="kicker"><i class="star"></i>PROGRAM</div><h2>7 gün, 7 görev</h2><p class="muted">Her ders 3–4 dakikada okunur, görev 10 dakika sürer. Hepsi Instagram'da en çok paylaşılan AHK içeriklerinden damıtıldı.</p></div>
+  <div class="section-head"><div class="kicker"><i class="star"></i>PROGRAM</div><h2>7 gün, 7 görev</h2><p class="muted">Her ders 3–4 dakikada okunur, görev 10 dakika sürer.</p></div>
   <div class="grid grid-2">${DAYS.map((d, i) => `<div class="card" data-reveal="${i % 2}"><div class="icon">${i + 1}</div><h3>Gün ${i + 1}: ${d[0]}</h3><p>${d[1]}</p></div>`).join('')}</div>
 </div></section>
 

@@ -27,7 +27,7 @@ module.exports = {
     L.faqLd(FAQ)
   ],
   body: ({ root }) => {
-    const row = (t) => t.map(([min, b]) => `<tr><td>${b.toFixed(1)}</td><td>${min}${min < 40 ? '–' + (t[t.indexOf(t.find(x => x[1] === b)) - 1] ? t[t.indexOf(t.find(x => x[1] === b)) - 1][0] - 1 : 40) : ''}</td></tr>`).join('');
+    const row = (t) => t.map(([min, b], i) => { const max = i ? t[i - 1][0] - 1 : 40; return `<tr><td>${b.toFixed(1)}</td><td>${max > min ? min + '–' + max : min}</td></tr>`; }).join('');
     const bandOpts = [4, 4.5, 5, 5.5, 6, 6.5, 7, 7.5, 8, 8.5, 9].map(b => `<option value="${b}"${b === 6 ? ' selected' : ''}>${b.toFixed(1)}</option>`).join('');
     const targetOpts = [5.5, 6, 6.5, 7, 7.5, 8].map(b => `<option value="${b}"${b === 6.5 ? ' selected' : ''}>${b.toFixed(1)}</option>`).join('');
     return `
