@@ -1,7 +1,7 @@
 import { auth } from "@/lib/auth";
 import { redirect } from "next/navigation";
 import Link from "next/link";
-import { LayoutDashboard, Calendar, BookOpen, DollarSign, Settings } from "lucide-react";
+import { LayoutDashboard, Calendar, BookOpen, DollarSign, Settings, Briefcase, ShieldCheck } from "lucide-react";
 
 export default async function TutorLayout({ children }: { children: React.ReactNode }) {
   const session = await auth();
@@ -9,6 +9,8 @@ export default async function TutorLayout({ children }: { children: React.ReactN
 
   const links = [
     { href: "/tutor/dashboard", label: "Dashboard", icon: LayoutDashboard },
+    { href: "/tutor/jobs", label: "Cover Jobs", icon: Briefcase },
+    { href: "/tutor/verification", label: "Verification", icon: ShieldCheck },
     { href: "/tutor/bookings", label: "Bookings", icon: BookOpen },
     { href: "/tutor/availability", label: "Availability", icon: Calendar },
     { href: "/tutor/earnings", label: "Earnings", icon: DollarSign },

@@ -20,6 +20,7 @@ export function Navbar() {
         <div className="hidden items-center gap-6 md:flex">
           <Link href="/tutors" className="text-sm font-medium text-gray-600 hover:text-indigo-600 transition-colors">Find Tutors</Link>
           <Link href="/pricing" className="text-sm font-medium text-gray-600 hover:text-indigo-600 transition-colors">Pricing</Link>
+          <Link href="/for-courses" className="text-sm font-medium text-gray-600 hover:text-indigo-600 transition-colors">For Courses</Link>
           {session ? (
             <div className="flex items-center gap-3">
               <Link href="/dashboard">
@@ -47,6 +48,7 @@ export function Navbar() {
           <div className="flex flex-col gap-3">
             <Link href="/tutors" className="text-sm font-medium text-gray-600" onClick={() => setMenuOpen(false)}>Find Tutors</Link>
             <Link href="/pricing" className="text-sm font-medium text-gray-600" onClick={() => setMenuOpen(false)}>Pricing</Link>
+            <Link href="/for-courses" className="text-sm font-medium text-gray-600" onClick={() => setMenuOpen(false)}>For Courses</Link>
             {session ? (
               <>
                 <Link href="/dashboard" className="text-sm font-medium text-gray-600" onClick={() => setMenuOpen(false)}>Dashboard</Link>

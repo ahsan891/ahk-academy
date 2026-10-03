@@ -71,6 +71,15 @@ model User {
   homeworks               Homework[]               @relation("HomeworkStudent")
   teacherResources        TeacherResource[]        @relation("ResourceTeacher")
   grammarLessonLogs       GrammarLessonLog[]       @relation("GrammarLessonTeacher")
+
+  // Cover network (head teachers <-> vetted teachers)
+  institutions            Institution[]            @relation("InstitutionOwner")
+  coverRequestsCreated    CoverRequest[]           @relation("CoverRequestCreator")
+  coverRequestsAssigned   CoverRequest[]           @relation("CoverRequestTeacher")
+  coverApplications       CoverApplication[]       @relation("CoverApplicant")
+  coverRatingsGiven       CoverRating[]            @relation("CoverRater")
+  coverRatingsReceived    CoverRating[]            @relation("CoverRatee")
+  verificationsReviewed   VerificationCheck[]      @relation("VerificationReviewer")
 }
 
 model Department {
@@ -238,10 +247,20 @@ model TutorProfile {
   stripeAccountId     String?
   bio                 String?
   country             String?
+  // Cover network: where and how the teacher can cover classes
+  city                String?
+  district            String?
+  teachesOnline       Boolean  @default(true)
+  teachesInPerson     Boolean  @default(false)
+  levels              String?
+  ageGroups           String?
+  openToCover         Boolean  @default(true)
+  verifiedAt          DateTime?
   createdAt           DateTime @default(now())
   updatedAt           DateTime @updatedAt
 
-  availability TutorAvailability[]
+  availability       TutorAvailability[]
+  verificationChecks VerificationCheck[]
 }
 
 model StudentMarketProfile {
@@ -740,4 +759,105 @@ model GrammarLessonLog {
   studentsTargeted String?
   relatedSessionId String?
   createdAt        DateTime @default(now())
+}
+
+// ==========================================
+// COVER NETWORK (head teachers find vetted cover teachers)
+// ==========================================
+
+model Institution {
+  id        String   @id @default(cuid())
+  ownerId   String
+  owner     User     @relation("InstitutionOwner", fields: [ownerId], references: [id])
+  name      String
+  type      String   @default("LANGUAGE_COURSE")
+  city      String
+  district  String?
+  address   String?
+  phone     String?
+  website   String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  coverRequests CoverRequest[]
+}
+
+model VerificationCheck {
+  id             String       @id @default(cuid())
+  tutorProfileId String
+  tutorProfile   TutorProfile @relation(fields: [tutorProfileId], references: [id])
+  type           String
+  status         String       @default("NOT_SUBMITTED")
+  documentUrl    String?
+  reference      String?
+  teacherNote    String?
+  reviewerNote   String?
+  reviewedById   String?
+  reviewedBy     User?        @relation("VerificationReviewer", fields: [reviewedById], references: [id])
+  submittedAt    DateTime?
+  reviewedAt     DateTime?
+  createdAt      DateTime     @default(now())
+  updatedAt      DateTime     @updatedAt
+
+  @@unique([tutorProfileId, type])
+}
+
+model CoverRequest {
+  id              String   @id @default(cuid())
+  institutionId   String
+  institution     Institution @relation(fields: [institutionId], references: [id])
+  createdById     String
+  createdBy       User     @relation("CoverRequestCreator", fields: [createdById], references: [id])
+  kind            String   @default("SUBSTITUTE")
+  subject         String   @default("English")
+  level           String?
+  ageGroup        String?
+  mode            String   @default("IN_PERSON")
+  city            String?
+  district        String?
+  startsAt        DateTime
+  durationMinutes Int      @default(90)
+  sessionsCount   Int      @default(1)
+  payPerSession   Float
+  currency        String   @default("TRY")
+  notes           String?
+  status          String   @default("OPEN")
+  assignedTeacherId String?
+  assignedTeacher User?    @relation("CoverRequestTeacher", fields: [assignedTeacherId], references: [id])
+  filledAt        DateTime?
+  completedAt     DateTime?
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  applications CoverApplication[]
+  ratings      CoverRating[]
+}
+
+model CoverApplication {
+  id             String   @id @default(cuid())
+  coverRequestId String
+  coverRequest   CoverRequest @relation(fields: [coverRequestId], references: [id])
+  teacherId      String
+  teacher        User     @relation("CoverApplicant", fields: [teacherId], references: [id])
+  message        String?
+  status         String   @default("APPLIED")
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  @@unique([coverRequestId, teacherId])
+}
+
+model CoverRating {
+  id             String   @id @default(cuid())
+  coverRequestId String
+  coverRequest   CoverRequest @relation(fields: [coverRequestId], references: [id])
+  raterId        String
+  rater          User     @relation("CoverRater", fields: [raterId], references: [id])
+  rateeId        String
+  ratee          User     @relation("CoverRatee", fields: [rateeId], references: [id])
+  rating         Int
+  comment        String?
+  createdAt      DateTime @default(now())
+
+  @@unique([coverRequestId, raterId])
 }

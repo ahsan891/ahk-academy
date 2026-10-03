@@ -1,11 +1,14 @@
 import { auth } from "@/lib/auth";
 import { redirect } from "next/navigation";
+import { homeForRole } from "@/lib/cover";
 import Link from "next/link";
 import { LayoutDashboard, BookOpen, Wallet, MessageSquare, Search } from "lucide-react";
 
 export default async function DashboardLayout({ children }: { children: React.ReactNode }) {
   const session = await auth();
   if (!session?.user) redirect("/login");
+  // Login lands everyone here; send non-students to their own portal.
+  if (["TUTOR", "HEAD_TEACHER", "ADMIN"].includes(session.user.role)) redirect(homeForRole(session.user.role));
 
   const links = [
     { href: "/dashboard", label: "Overview", icon: LayoutDashboard },

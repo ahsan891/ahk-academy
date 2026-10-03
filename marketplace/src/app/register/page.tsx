@@ -8,13 +8,14 @@ import { signIn } from "@/lib/auth";
 import { db } from "@/lib/db";
 import { redirect } from "next/navigation";
 import bcrypt from "bcryptjs";
+import { homeForRole } from "@/lib/cover";
 
 export const metadata = { title: "Sign Up - AHK Marketplace" };
 
 export default function RegisterPage({
   searchParams,
 }: {
-  searchParams: Promise<{ error?: string }>;
+  searchParams: Promise<{ error?: string; role?: string }>;
 }) {
   async function register(formData: FormData) {
     "use server";
@@ -22,7 +23,9 @@ export default function RegisterPage({
     const name = formData.get("name") as string;
     const email = formData.get("email") as string;
     const password = formData.get("password") as string;
-    const role = (formData.get("role") as string) || "STUDENT";
+    // Never trust the submitted role: only these can self-register.
+    const submittedRole = String(formData.get("role") ?? "STUDENT").toUpperCase();
+    const role = ["STUDENT", "TUTOR", "HEAD_TEACHER"].includes(submittedRole) ? submittedRole : "STUDENT";
 
     if (!name || !email || !password) {
       redirect("/register?error=All fields are required");
@@ -42,12 +45,12 @@ export default function RegisterPage({
         name,
         email,
         password: hashedPassword,
-        role: role.toUpperCase(),
+        role,
       },
     });
 
     // Create associated profile based on role
-    if (role.toUpperCase() === "TUTOR") {
+    if (role === "TUTOR") {
       await db.tutorProfile.create({
         data: {
           userId: user.id,
@@ -55,7 +58,7 @@ export default function RegisterPage({
           teachingLanguages: "English",
         },
       });
-    } else {
+    } else if (role === "STUDENT") {
       await db.studentMarketProfile.create({
         data: {
           userId: user.id,
@@ -76,7 +79,7 @@ export default function RegisterPage({
       redirect("/login?error=Account created. Please sign in.");
     }
 
-    redirect("/dashboard");
+    redirect(role === "HEAD_TEACHER" ? "/institution/settings" : homeForRole(role));
   }
 
   return <RegisterPageInner registerAction={register} searchParams={searchParams} />;
@@ -87,7 +90,7 @@ async function RegisterPageInner({
   searchParams,
 }: {
   registerAction: (fd: FormData) => Promise<void>;
-  searchParams: Promise<{ error?: string }>;
+  searchParams: Promise<{ error?: string; role?: string }>;
 }) {
   const params = await searchParams;
 
@@ -150,9 +153,10 @@ async function RegisterPageInner({
                 <label className="mb-1.5 block text-sm font-medium text-gray-700">
                   I want to
                 </label>
-                <Select name="role" required>
+                <Select name="role" required defaultValue={params.role ?? "STUDENT"}>
                   <option value="STUDENT">Learn English (Student)</option>
                   <option value="TUTOR">Teach English (Tutor)</option>
+                  <option value="HEAD_TEACHER">Find cover teachers (Head teacher / course)</option>
                 </Select>
               </div>
               <Button type="submit" className="w-full">
