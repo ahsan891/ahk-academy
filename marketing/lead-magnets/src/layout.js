@@ -2,6 +2,10 @@
 'use strict';
 const cfg = require('./config.json');
 
+const fs = require('fs');
+const path = require('path');
+let _css = null;
+function inlineCss(root) { if (_css === null) _css = fs.readFileSync(path.join(__dirname, '../site/assets/css/main.css'), 'utf8').replace(/\/\*[\s\S]*?\*\//g, '').replace(/\n+/g, '\n'); return _css.replace(/url\(\.\.\//g, 'url(' + root + 'assets/'); }
 const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 const attr = esc;
 
@@ -17,7 +21,7 @@ const SITE_ID = cfg.baseUrl.replace(/\/$/, '') + '/#website';
 function organization(root) {
   return {
     '@type': 'Organization', '@id': ORG_ID, name: 'AHK Akademi', alternateName: 'AHK Academy', url: cfg.mainSite,
-    logo: { '@type': 'ImageObject', url: cfg.baseUrl + 'assets/img/star-mark.png', width: 995, height: 1149 },
+    logo: { '@type': 'ImageObject', url: cfg.baseUrl + 'assets/img/star-mark.png', width: 400, height: 462 },
     sameAs: [cfg.instagram], description: 'Türkçe konuşanlar için online İngilizce ve Arapça akademisi: IELTS/TOEFL hazırlık, konuşma pratiği, iş İngilizcesi, Kur\'an Arapçası, Modern Standart Arapça ve lehçeler.'
   };
 }
@@ -28,7 +32,7 @@ function navHtml(root, lang) {
     : [['ingilizce-seviye-testi/', 'İngilizce Seviye Testi'], ['arapca-alfabe/', 'Arapça Alfabe'], ['arapca-hedef-bulucu/', 'Arapça Hedef Bulucu'], ['ielts-puan-hesaplama/', 'IELTS Hesaplama'], ['ingilizce-kac-ayda-ogrenilir/', 'Kaç Ayda?'], ['kopya-kagitlari/', 'PDF\'ler']];
   const link = (i) => `<a href="${root}${i[2] ? i[2] + i[0] : i[0]}">${i[1]}</a>`;
   return `<header class="site-header"><div class="container nav">
-  <a class="brand" href="${root}${lang === 'en' ? 'en/' : ''}" aria-label="AHK Akademi — ana sayfa"><img src="${root}assets/img/ahk-akademi-horizontal.webp" alt="AHK Akademi" width="150" height="36" fetchpriority="high"></a>
+  <a class="brand" href="${root}" aria-label="AHK Akademi — ana sayfa"><img src="${root}assets/img/ahk-akademi-horizontal.webp" alt="AHK Akademi" width="150" height="36" fetchpriority="high"></a>
   <nav aria-label="${lang === 'en' ? 'Main' : 'Ana menü'}"><ul class="nav-links">${items.map(i => `<li>${link(i)}</li>`).join('')}</ul></nav>
   <div class="nav-cta"><a class="btn btn-gold btn-sm" href="${cfg.mainSite}" data-trial>${lang === 'en' ? 'Free trial lesson' : 'Ücretsiz deneme dersi'}</a>
   <button class="nav-toggle" aria-expanded="false" aria-controls="mobile-menu" aria-label="Menü"><span></span></button></div>
@@ -38,16 +42,16 @@ function navHtml(root, lang) {
 function footerHtml(root, lang) {
   const tr = lang !== 'en';
   return `<footer class="footer"><div class="container"><div class="footer-grid">
-  <div><a class="wordmark" href="${cfg.mainSite}"><img src="${root}assets/img/star-mark-outlined.png" alt="" width="40" height="46"><span class="wm"><b>AHK</b><i></i><small>AKADEMI</small></span></a>
+  <div><a class="wordmark" href="${cfg.mainSite}"><img src="${root}assets/img/star-mark-outlined.webp" alt="" width="40" height="38"><span class="wm"><b>AHK</b><i></i><small>AKADEMI</small></span></a>
     <p style="margin-top:14px;max-width:38ch">${tr ? 'Türkçe konuşanlar için online İngilizce ve Arapça akademisi. Öğrencilerin başarısına odaklı.' : 'Online English and Arabic academy for Turkish speakers. Focused on student success.'}</p>
     <p><a href="${cfg.instagram}" rel="me noopener" target="_blank">Instagram @ahkacademy</a><br><a href="${cfg.mainSite}">ahkademy.com</a></p></div>
-  <div><h4>${tr ? 'İngilizce araçları' : 'English tools'}</h4><ul>
+  <div><h3>${tr ? 'İngilizce araçları' : 'English tools'}</h3><ul>
     <li><a href="${root}ingilizce-seviye-testi/">İngilizce Seviye Testi</a></li>
     <li><a href="${root}ielts-puan-hesaplama/">IELTS Puan Hesaplama</a></li>
     <li><a href="${root}ingilizce-kac-ayda-ogrenilir/">İngilizce Kaç Ayda Öğrenilir?</a></li>
     <li><a href="${root}7-gunluk-ingilizce-konusma/">7 Günlük Konuşma Kursu</a></li>
     <li><a href="${root}en/english-level-test/">English level test (EN)</a></li></ul></div>
-  <div><h4>${tr ? 'Arapça araçları' : 'Arabic tools'}</h4><ul>
+  <div><h3>${tr ? 'Arapça araçları' : 'Arabic tools'}</h3><ul>
     <li><a href="${root}arapca-alfabe/">Arapça Alfabe Eğitmeni</a></li>
     <li><a href="${root}arapca-hedef-bulucu/">Arapça Hedef Bulucu</a></li>
     <li><a href="${root}kopya-kagitlari/">Ücretsiz PDF Kopya Kâğıtları</a></li>
@@ -129,7 +133,7 @@ function page(p) {
   const root = relRoot(p.path);
   const url = cfg.baseUrl + p.path;
   const lang = p.lang || 'tr';
-  const og = cfg.baseUrl + 'assets/og/' + (p.og || p.path.replace(/\/$/, '').replace(/\//g, '-') || 'index') + '.png';
+  const og = cfg.baseUrl + 'assets/og/' + (p.og || p.path.replace(/\/$/, '').replace(/\//g, '-') || 'index') + '.jpg';
   const alternates = (p.alternates || []).map(a => `<link rel="alternate" hreflang="${a.lang}" href="${cfg.baseUrl}${a.path}">`).join('\n  ');
   const ld = { '@context': 'https://schema.org', '@graph': [organization(root), { '@type': 'WebSite', '@id': SITE_ID, url: cfg.baseUrl, name: 'AHK Akademi — Ücretsiz Araçlar', inLanguage: 'tr', publisher: { '@id': ORG_ID } }, { '@type': p.webPageType || 'WebPage', '@id': url + '#webpage', url, name: p.title, description: p.description, inLanguage: lang, isPartOf: { '@id': SITE_ID }, about: { '@id': ORG_ID }, primaryImageOfPage: { '@type': 'ImageObject', url: og, width: 1200, height: 630 }, datePublished: cfg.datePublished, dateModified: cfg.buildDate }].concat(p.jsonld || []) };
   const scripts = ['config.js', 'app.js'].concat(p.scripts || []).map(s => `<script src="${root}assets/js/${s}" defer></script>`).join('\n  ');
@@ -160,10 +164,12 @@ function page(p) {
   <meta name="theme-color" content="#0E1F3E">
   <link rel="icon" href="${root}favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="${root}assets/img/apple-touch-icon.png">
-  <link rel="preload" href="${root}assets/fonts/Unbounded-900-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="${root}assets/fonts/Inter-400-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="${root}assets/fonts/Unbounded-900-tr.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="${root}assets/fonts/Inter-400-tr.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="${root}assets/fonts/Inter-600-tr.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="${root}assets/fonts/Inter-800-tr.woff2" as="font" type="font/woff2" crossorigin>
   ${p.preloadArabic ? `<link rel="preload" href="${root}assets/fonts/NotoNaskhArabic-400-arabic.woff2" as="font" type="font/woff2" crossorigin>` : ''}
-  <link rel="stylesheet" href="${root}assets/css/main.css">
+  <style>${inlineCss(root)}</style>
   <script type="application/ld+json">${JSON.stringify(ld)}</script>
 </head>
 <body>

@@ -1,0 +1,13 @@
+Fonts in this folder are licensed under the SIL Open Font License, Version 1.1 (OFL-1.1),
+and were obtained from Google Fonts. They have been subset (Latin + Turkish characters;
+Arabic block for Noto Naskh Arabic) and converted to WOFF2 for web delivery, which the OFL permits
+(the subset files are "Modified Versions" and keep their original family names only for CSS matching
+inside this site; they are not redistributed as standalone fonts).
+
+- Unbounded — Copyright 2022 The Unbounded Project Authors (https://github.com/weiweihuanghuang/Unbounded)
+- Inter — Copyright 2016 The Inter Project Authors (https://github.com/rsms/inter)
+- Caveat — Copyright 2014 The Caveat Project Authors (https://github.com/googlefonts/caveat)
+- Noto Naskh Arabic — Copyright 2022 The Noto Project Authors (https://github.com/notofonts/arabic)
+
+Full license text: https://openfontlicense.org/open-font-license-official-text/
+Regenerate the Latin subsets with marketing/lead-magnets/src/subset-fonts.py (needs `pip install fonttools brotli`).

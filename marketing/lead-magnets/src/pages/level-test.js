@@ -24,7 +24,7 @@ module.exports = {
   scripts: ['level-test.js'],
   jsonld: [
     L.breadcrumbLd([['Ücretsiz Araçlar', ''], ['İngilizce Seviye Testi', 'ingilizce-seviye-testi/']]),
-    { '@type': 'Quiz', name: 'İngilizce Seviye Testi (CEFR A1–C1)', description: 'Dil bilgisi, kelime ve kullanım sorularıyla CEFR seviyeni tahmin eden 25 soruluk ücretsiz test.', inLanguage: 'en', educationalLevel: 'A1–C1 (CEFR)', numberOfQuestions: 25, typicalAgeRange: '16-', educationalAlignment: { '@type': 'AlignmentObject', alignmentType: 'educationalLevel', educationalFramework: 'CEFR', targetName: 'A1, A2, B1, B2, C1' }, about: { '@type': 'Thing', name: 'English as a foreign language' }, provider: { '@id': L.ORG_ID }, isAccessibleForFree: true,
+    { '@type': 'Quiz', name: 'İngilizce Seviye Testi (CEFR A1–C1)', description: 'Dil bilgisi, kelime ve kullanım sorularıyla CEFR seviyeni tahmin eden 25 soruluk ücretsiz test.', inLanguage: 'en', educationalLevel: 'A1–C1 (CEFR)', typicalAgeRange: '16-', educationalAlignment: { '@type': 'AlignmentObject', alignmentType: 'educationalLevel', educationalFramework: 'CEFR', targetName: 'A1, A2, B1, B2, C1' }, about: { '@type': 'Thing', name: 'English as a foreign language' }, provider: { '@id': L.ORG_ID }, isAccessibleForFree: true,
       hasPart: data.Q.slice(0, 3).map(q => ({ '@type': 'Question', name: q.q, eduQuestionType: 'Multiple choice', suggestedAnswer: q.o.map(o => ({ '@type': 'Answer', text: o })), acceptedAnswer: { '@type': 'Answer', text: q.o[q.a] } })) },
     L.faqLd(FAQ)
   ],

@@ -82,7 +82,7 @@
     t.textContent = msg; requestAnimationFrame(function () { t.classList.add('show'); });
     clearTimeout(t._h); t._h = setTimeout(function () { t.classList.remove('show'); }, 2600);
   }
-  function scrollTo(el) { if (el) el.scrollIntoView({ behavior: reduced ? 'auto' : 'smooth', block: 'start' }); }
+  function scrollTo(el) { if (!el) return; requestAnimationFrame(function () { var y = el.getBoundingClientRect().top + window.pageYOffset - 84; window.scrollTo({ top: Math.max(0, y), behavior: reduced ? 'auto' : 'smooth' }); }); }
   function share(title, text, url) {
     if (navigator.share) { navigator.share({ title: title, text: text, url: url }).catch(function () {}); return; }
     if (navigator.clipboard) navigator.clipboard.writeText(text + ' ' + url).then(function () { toast('Bağlantı kopyalandı'); });

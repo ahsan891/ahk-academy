@@ -1,18 +1,44 @@
-/* ============================================================
-   AHK Akademi — Lead magnet site design system
-   Navy #0E1F3E · Gold #F5A61F · Off-white #F9FAFD · Royal blue #1F5FAE
-   Display: Unbounded · Body: Inter · Hand: Caveat · Arabic: Noto Naskh Arabic
-   No text-transform anywhere (Turkish dotted-İ bug on English words).
-   ============================================================ */
-@font-face{font-family:'Unbounded';font-weight:700;font-display:swap;src:url(../fonts/Unbounded-700-tr.woff2) format('woff2')}
-@font-face{font-family:'Unbounded';font-weight:900;font-display:swap;src:url(../fonts/Unbounded-900-tr.woff2) format('woff2')}
-@font-face{font-family:'Inter';font-weight:400;font-display:swap;src:url(../fonts/Inter-400-tr.woff2) format('woff2')}
-@font-face{font-family:'Inter';font-weight:600;font-display:swap;src:url(../fonts/Inter-600-tr.woff2) format('woff2')}
-@font-face{font-family:'Inter';font-weight:800;font-display:swap;src:url(../fonts/Inter-800-tr.woff2) format('woff2')}
-@font-face{font-family:'Caveat';font-weight:700;font-display:optional;src:url(../fonts/Caveat-700-tr.woff2) format('woff2')}
-@font-face{font-family:'Noto Naskh Arabic';font-weight:400;font-display:swap;src:url(../fonts/NotoNaskhArabic-400-arabic.woff2) format('woff2');unicode-range:U+0600-06FF,U+0750-077F,U+FB50-FDFF,U+FE70-FEFC}
-@font-face{font-family:'Noto Naskh Arabic';font-weight:700;font-display:swap;src:url(../fonts/NotoNaskhArabic-700-arabic.woff2) format('woff2');unicode-range:U+0600-06FF,U+0750-077F,U+FB50-FDFF,U+FE70-FEFC}
-/* metric-compatible fallbacks to minimise layout shift while fonts load */
+<!doctype html>
+<html lang="tr" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>7 Günlük Ücretsiz İngilizce Konuşma Kursu (WhatsApp / E-posta)</title>
+  <meta name="description" content="Ücretsiz 7 günlük İngilizce konuşma mini kursu: her gün WhatsApp veya e-postayla 10 dakikalık görev, Türkçe düşünme hataları ve 7. gün kişisel geri bildirim.">
+  <link rel="canonical" href="https://ahkademy.com/7-gunluk-ingilizce-konusma/">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="AHK Akademi">
+  <meta property="og:locale" content="tr_TR">
+  <meta property="og:title" content="7 günde Türkçe düşünmeyi bırak — ücretsiz mini kurs">
+  <meta property="og:description" content="Ücretsiz 7 günlük İngilizce konuşma mini kursu: her gün WhatsApp veya e-postayla 10 dakikalık görev, Türkçe düşünme hataları ve 7. gün kişisel geri bildirim.">
+  <meta property="og:url" content="https://ahkademy.com/7-gunluk-ingilizce-konusma/">
+  <meta property="og:image" content="https://ahkademy.com/assets/og/7-gunluk-ingilizce-konusma.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="7 günde Türkçe düşünmeyi bırak — ücretsiz mini kurs">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="7 günde Türkçe düşünmeyi bırak — ücretsiz mini kurs">
+  <meta name="twitter:description" content="Ücretsiz 7 günlük İngilizce konuşma mini kursu: her gün WhatsApp veya e-postayla 10 dakikalık görev, Türkçe düşünme hataları ve 7. gün kişisel geri bildirim.">
+  <meta name="twitter:image" content="https://ahkademy.com/assets/og/7-gunluk-ingilizce-konusma.jpg">
+  <meta name="theme-color" content="#0E1F3E">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png">
+  <link rel="preload" href="../assets/fonts/Unbounded-900-tr.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../assets/fonts/Inter-400-tr.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../assets/fonts/Inter-600-tr.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../assets/fonts/Inter-800-tr.woff2" as="font" type="font/woff2" crossorigin>
+  
+  <style>
+@font-face{font-family:'Unbounded';font-weight:700;font-display:swap;src:url(../assets/fonts/Unbounded-700-tr.woff2) format('woff2')}
+@font-face{font-family:'Unbounded';font-weight:900;font-display:swap;src:url(../assets/fonts/Unbounded-900-tr.woff2) format('woff2')}
+@font-face{font-family:'Inter';font-weight:400;font-display:swap;src:url(../assets/fonts/Inter-400-tr.woff2) format('woff2')}
+@font-face{font-family:'Inter';font-weight:600;font-display:swap;src:url(../assets/fonts/Inter-600-tr.woff2) format('woff2')}
+@font-face{font-family:'Inter';font-weight:800;font-display:swap;src:url(../assets/fonts/Inter-800-tr.woff2) format('woff2')}
+@font-face{font-family:'Caveat';font-weight:700;font-display:optional;src:url(../assets/fonts/Caveat-700-tr.woff2) format('woff2')}
+@font-face{font-family:'Noto Naskh Arabic';font-weight:400;font-display:swap;src:url(../assets/fonts/NotoNaskhArabic-400-arabic.woff2) format('woff2');unicode-range:U+0600-06FF,U+0750-077F,U+FB50-FDFF,U+FE70-FEFC}
+@font-face{font-family:'Noto Naskh Arabic';font-weight:700;font-display:swap;src:url(../assets/fonts/NotoNaskhArabic-700-arabic.woff2) format('woff2');unicode-range:U+0600-06FF,U+0750-077F,U+FB50-FDFF,U+FE70-FEFC}
 @font-face{font-family:'Unbounded Fallback';src:local('Arial Bold'),local('Arial'),local('Helvetica');size-adjust:130%;ascent-override:95%;descent-override:25%}
 @font-face{font-family:'Inter Fallback';src:local('Arial'),local('Helvetica');size-adjust:107%;ascent-override:90%;descent-override:22%}
 :root{
@@ -51,8 +77,6 @@ strong{font-weight:800}
 :focus-visible{outline:3px solid var(--gold);outline-offset:3px}
 [id]{scroll-margin-top:84px}
 [lang=ar],.ar{font-family:var(--font-ar);direction:rtl;unicode-bidi:isolate}
-
-/* ---------- Header ---------- */
 .site-header{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.88);backdrop-filter:saturate(1.4) blur(10px);-webkit-backdrop-filter:saturate(1.4) blur(10px);border-bottom:1px solid var(--line)}
 .nav{display:flex;align-items:center;justify-content:space-between;gap:12px;height:66px}
 .brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--navy)}
@@ -72,8 +96,6 @@ strong{font-weight:800}
 .mobile-menu.open{display:block}
 .mobile-menu a{display:block;padding:12px 8px;font-weight:600;color:var(--navy);text-decoration:none;border-bottom:1px solid var(--line)}
 @media(min-width:900px){.nav-links{display:flex}.nav-toggle,.mobile-menu{display:none!important}}
-
-/* ---------- Buttons ---------- */
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:14px 24px;border-radius:999px;font-weight:800;font-size:1rem;text-decoration:none;border:2px solid transparent;cursor:pointer;line-height:1.2;transition:transform .25s var(--ease-spring),box-shadow .25s,background .2s,color .2s;font-family:var(--font-body);min-height:48px}
 .btn:hover{transform:translateY(-2px)}
 .btn:active{transform:translateY(0) scale(.98)}
@@ -90,11 +112,9 @@ strong{font-weight:800}
 .btn[disabled]{opacity:.5;cursor:not-allowed;transform:none!important}
 .btn .arrow{display:inline-block;transition:transform .25s var(--ease-out)}
 .btn:hover .arrow{transform:translateX(4px)}
-
-/* ---------- Hero ---------- */
 .hero{position:relative;overflow:hidden;color:#fff;background:radial-gradient(130% 90% at 80% -10%,#1F3B6E 0%,var(--navy) 45%,var(--navy-deep) 100%);padding:clamp(56px,9vw,120px) 0 clamp(64px,9vw,120px);isolation:isolate}
 .hero::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.13) 1.5px,transparent 1.5px);background-size:28px 28px;-webkit-mask-image:linear-gradient(180deg,rgba(0,0,0,.9),rgba(0,0,0,0) 75%);mask-image:linear-gradient(180deg,rgba(0,0,0,.9),rgba(0,0,0,0) 75%);pointer-events:none}
-.hero-wm{position:absolute;right:-10%;top:-12%;width:min(62vw,560px);aspect-ratio:1;opacity:.07;background:url(../img/star-mark-outlined.webp) center/contain no-repeat;pointer-events:none;animation:floaty 14s ease-in-out infinite}
+.hero-wm{position:absolute;right:-10%;top:-12%;width:min(62vw,560px);aspect-ratio:1;opacity:.07;background:url(../assets/img/star-mark-outlined.webp) center/contain no-repeat;pointer-events:none;animation:floaty 14s ease-in-out infinite}
 .hero-grid{display:grid;gap:36px;align-items:center}
 @media(min-width:900px){.hero-grid{grid-template-columns:1.15fr .85fr}}
 .eyebrow{display:inline-flex;align-items:center;gap:8px;background:var(--gold);color:var(--navy);border-radius:999px;padding:6px 14px;font-weight:800;font-size:.8rem;letter-spacing:.06em;margin-bottom:18px}
@@ -121,8 +141,6 @@ strong{font-weight:800}
 .hero-demo .bar i{display:block;height:100%;width:0;border-radius:999px;background:linear-gradient(90deg,var(--gold),#FFC14F);animation:grow 1.6s var(--ease-out) forwards}
 .hero-demo .bar:nth-child(2) i{animation-delay:.25s}.hero-demo .bar:nth-child(3) i{animation-delay:.5s}
 @keyframes grow{to{width:var(--w,70%)}}
-
-/* ---------- Sections ---------- */
 .section{padding:clamp(48px,7vw,88px) 0}
 .section.alt{background:#fff}
 .section-head{max-width:720px;margin-bottom:34px}
@@ -145,8 +163,6 @@ a.card{text-decoration:none;color:inherit;display:block}
 .steps{counter-reset:s;list-style:none;padding:0;margin:0;display:grid;gap:14px}
 .steps li{counter-increment:s;display:flex;gap:14px;align-items:flex-start}
 .steps li::before{content:counter(s);flex:none;width:38px;height:38px;border-radius:50%;background:var(--navy);color:var(--gold);display:grid;place-items:center;font-family:var(--font-display);font-weight:900}
-
-/* ---------- Quiz ---------- */
 .tool{background:#fff;border:1px solid var(--line);border-radius:var(--r-lg);box-shadow:var(--shadow-md);padding:clamp(20px,4vw,40px);position:relative;overflow:hidden}
 .tool-top{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:14px;font-weight:700;color:var(--ink-2);font-size:.9rem}
 .progress{height:10px;background:var(--navy-soft);border-radius:999px;overflow:hidden;margin-bottom:26px}
@@ -170,13 +186,11 @@ a.card{text-decoration:none;color:inherit;display:block}
 @keyframes qOut{to{opacity:0;transform:translateX(-26px)}}
 .shake{animation:shake .4s}
 @keyframes shake{20%,60%{transform:translateX(-5px)}40%,80%{transform:translateX(5px)}}
-
-/* ---------- Result ---------- */
 .result{display:none}
 .result.show{display:block}
 .result-hero{background:radial-gradient(120% 100% at 100% 0%,#1F3B6E 0%,var(--navy) 50%,var(--navy-deep) 100%);color:#fff;border-radius:var(--r-lg);padding:clamp(22px,4vw,40px);position:relative;overflow:hidden;display:grid;gap:24px;align-items:center}
 @media(min-width:760px){.result-hero{grid-template-columns:auto 1fr}}
-.result-hero::after{content:"";position:absolute;right:-60px;top:-60px;width:260px;height:260px;background:url(../img/star-mark-outlined.webp) center/contain no-repeat;opacity:.08;pointer-events:none}
+.result-hero::after{content:"";position:absolute;right:-60px;top:-60px;width:260px;height:260px;background:url(../assets/img/star-mark-outlined.webp) center/contain no-repeat;opacity:.08;pointer-events:none}
 .ring{position:relative;width:190px;height:190px;margin:0 auto}
 .ring svg{width:100%;height:100%;transform:rotate(-90deg)}
 .ring circle{fill:none;stroke-width:14;stroke-linecap:round}
@@ -204,8 +218,6 @@ a.card{text-decoration:none;color:inherit;display:block}
 .plan ul{padding-left:1.2em}
 .plan li{margin-bottom:.5em}
 .share-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
-
-/* ---------- Lead form ---------- */
 .lead-box{background:linear-gradient(180deg,#fff,var(--off));border:2px solid var(--gold);border-radius:var(--r-lg);padding:clamp(20px,4vw,34px);margin-top:28px;position:relative}
 .lead-box .tag{position:absolute;top:-14px;left:22px;background:var(--gold);color:var(--navy);font-weight:800;font-size:.8rem;padding:4px 12px;border-radius:999px}
 .lead-box h3{margin-bottom:.3em}
@@ -226,8 +238,6 @@ a.card{text-decoration:none;color:inherit;display:block}
 .unlock{display:none;margin-top:18px;padding:18px;border-radius:var(--r-md);background:var(--navy);color:#fff}
 .unlock.show{display:block;animation:pop .6s var(--ease-spring)}
 .unlock a{color:var(--gold)}
-
-/* ---------- FAQ ---------- */
 .faq{display:grid;gap:10px}
 .faq details{background:#fff;border:1px solid var(--line);border-radius:14px;padding:0 18px;transition:box-shadow .2s}
 .faq details[open]{box-shadow:var(--shadow-sm)}
@@ -236,14 +246,10 @@ a.card{text-decoration:none;color:inherit;display:block}
 .faq summary::after{content:"+";flex:none;width:28px;height:28px;border-radius:50%;background:var(--navy-soft);display:grid;place-items:center;font-weight:800;transition:transform .3s var(--ease-spring)}
 .faq details[open] summary::after{transform:rotate(45deg)}
 .faq .a{padding:0 0 16px;color:var(--ink-2)}
-
-/* ---------- CTA band ---------- */
 .cta-band{background:linear-gradient(135deg,var(--blue),var(--navy));color:#fff;border-radius:var(--r-lg);padding:clamp(26px,5vw,48px);display:grid;gap:18px;align-items:center;position:relative;overflow:hidden}
 @media(min-width:800px){.cta-band{grid-template-columns:1fr auto}}
 .cta-band h2{color:#fff}
 .cta-band p{color:rgba(255,255,255,.85);margin:0}
-
-/* ---------- Footer ---------- */
 .footer{background:var(--navy-deep);color:rgba(255,255,255,.75);padding:48px 0 28px;margin-top:40px}
 .footer-grid{display:grid;gap:28px}
 @media(min-width:800px){.footer-grid{grid-template-columns:1.2fr 1fr 1fr}}
@@ -258,18 +264,12 @@ a.card{text-decoration:none;color:inherit;display:block}
 .footer a{color:rgba(255,255,255,.75);text-decoration:none}
 .footer a:hover{color:var(--gold)}
 .footer .legal{border-top:1px solid rgba(255,255,255,.12);margin-top:30px;padding-top:18px;font-size:.82rem;display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:space-between}
-
-/* ---------- Breadcrumb ---------- */
 .crumbs{font-size:.85rem;color:rgba(255,255,255,.7);margin-bottom:18px}
 .crumbs a{color:rgba(255,255,255,.85);text-decoration:none}
 .crumbs span{margin:0 6px}
-
-/* ---------- Reveal on scroll ---------- */
 [data-reveal]{opacity:0;transform:translateY(22px);transition:opacity .7s var(--ease-out),transform .7s var(--ease-out)}
 [data-reveal].in{opacity:1;transform:none}
 [data-reveal="1"]{transition-delay:.1s}[data-reveal="2"]{transition-delay:.2s}[data-reveal="3"]{transition-delay:.3s}
-
-/* ---------- Arabic alphabet trainer ---------- */
 .letter-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(96px,1fr));gap:10px}
 .letter-tile{background:#fff;border:2px solid var(--line);border-radius:16px;padding:10px 6px;text-align:center;cursor:pointer;font:inherit;transition:transform .25s var(--ease-spring),border-color .2s,box-shadow .2s;color:var(--ink)}
 .letter-tile:hover,.letter-tile.active{border-color:var(--gold);transform:translateY(-3px);box-shadow:var(--shadow-sm)}
@@ -298,8 +298,6 @@ a.card{text-decoration:none;color:inherit;display:block}
 .tab{border:2px solid var(--line);background:#fff;border-radius:999px;padding:9px 16px;font:inherit;font-weight:700;cursor:pointer;color:var(--ink-2);min-height:44px}
 .tab[aria-selected=true]{background:var(--navy);border-color:var(--navy);color:#fff}
 .panel{display:none}.panel.show{display:block;animation:qIn .4s var(--ease-out)}
-
-/* ---------- Calculators ---------- */
 .calc{display:grid;gap:22px}
 @media(min-width:860px){.calc{grid-template-columns:1fr 1fr}}
 .range{display:grid;gap:6px}
@@ -317,27 +315,102 @@ table.t{width:100%;border-collapse:collapse;font-size:.92rem;background:#fff;bor
 table.t th,table.t td{padding:10px 12px;border-bottom:1px solid var(--line);text-align:left}
 table.t th{background:var(--navy-soft);font-weight:800}
 .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
-
-/* ---------- Confetti canvas ---------- */
 .confetti{position:fixed;inset:0;pointer-events:none;z-index:80}
-
-/* ---------- Toast ---------- */
 .toast{position:fixed;left:50%;bottom:20px;transform:translate(-50%,120%);background:var(--navy);color:#fff;padding:12px 18px;border-radius:999px;font-weight:700;box-shadow:var(--shadow-lg);transition:transform .4s var(--ease-spring);z-index:90;max-width:calc(100% - 32px)}
 .toast.show{transform:translate(-50%,0)}
-
-/* ---------- Prose ---------- */
 .prose h2{margin-top:1.6em}
 .prose ul,.prose ol{padding-left:1.3em}
 .prose li{margin-bottom:.4em}
 .notice{background:var(--gold-soft);border-left:4px solid var(--gold);padding:12px 16px;border-radius:0 12px 12px 0;font-size:.95rem}
-
-/* ---------- Reduced motion ---------- */
 @media(prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}
   [data-reveal]{opacity:1;transform:none}
   .rise{opacity:1;transform:none}
   .hero-demo .bar i{width:var(--w,70%)}
 }
-
-/* ---------- Small-screen header ---------- */
 @media(max-width:560px){.nav-cta .btn{padding:8px 12px;font-size:.8rem;min-height:36px;white-space:nowrap}.brand img{height:30px}}
+</style>
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://ahkademy.com/#organization","name":"AHK Akademi","alternateName":"AHK Academy","url":"https://ahkademy.com","logo":{"@type":"ImageObject","url":"https://ahkademy.com/assets/img/star-mark.png","width":400,"height":462},"sameAs":["https://www.instagram.com/ahkacademy"],"description":"Türkçe konuşanlar için online İngilizce ve Arapça akademisi: IELTS/TOEFL hazırlık, konuşma pratiği, iş İngilizcesi, Kur'an Arapçası, Modern Standart Arapça ve lehçeler."},{"@type":"WebSite","@id":"https://ahkademy.com/#website","url":"https://ahkademy.com/","name":"AHK Akademi — Ücretsiz Araçlar","inLanguage":"tr","publisher":{"@id":"https://ahkademy.com/#organization"}},{"@type":"WebPage","@id":"https://ahkademy.com/7-gunluk-ingilizce-konusma/#webpage","url":"https://ahkademy.com/7-gunluk-ingilizce-konusma/","name":"7 Günlük Ücretsiz İngilizce Konuşma Kursu (WhatsApp / E-posta)","description":"Ücretsiz 7 günlük İngilizce konuşma mini kursu: her gün WhatsApp veya e-postayla 10 dakikalık görev, Türkçe düşünme hataları ve 7. gün kişisel geri bildirim.","inLanguage":"tr","isPartOf":{"@id":"https://ahkademy.com/#website"},"about":{"@id":"https://ahkademy.com/#organization"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://ahkademy.com/assets/og/7-gunluk-ingilizce-konusma.jpg","width":1200,"height":630},"datePublished":"2026-10-03","dateModified":"2026-10-03"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Ücretsiz Araçlar","item":"https://ahkademy.com/"},{"@type":"ListItem","position":2,"name":"7 Günlük İngilizce Konuşma Kursu","item":"https://ahkademy.com/7-gunluk-ingilizce-konusma/"}]},{"@type":"Course","name":"7 Günlük İngilizce Konuşma Kursu","description":"Türkçe düşünme hatalarını ve konuşma özgüvenini hedefleyen 7 günlük ücretsiz mini kurs; her gün e-posta/WhatsApp ile bir ders ve görev.","provider":{"@id":"https://ahkademy.com/#organization"},"inLanguage":"tr","teaches":"English speaking confidence; common Turkish-to-English transfer errors","educationalLevel":"A2–B2 (CEFR)","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"TRY","category":"Free"},"hasCourseInstance":{"@type":"CourseInstance","courseMode":"online","courseWorkload":"PT10M","courseSchedule":{"@type":"Schedule","repeatFrequency":"Daily","repeatCount":7}},"syllabusSections":[{"@type":"Syllabus","name":"Gün 1: Türkçe düşünme tuzağı","description":"\"I am agree\", \"I have 25 years\", \"open the light\"… birebir çeviriden gelen 7 hata ve 10 saniyelik düzeltmeleri. Görev: kendi cümlelerinden 3 tanesini düzelt."},{"@type":"Syllabus","name":"Gün 2: Kendini 60 saniyede tanıt","description":"İsim, şehir, iş, hobi, hedef — doğal sırayla, \"I am working as\" tuzağına düşmeden. Görev: sesli kayıt al, bize gönder."},{"@type":"Syllabus","name":"Gün 3: Present perfect'i gerçekten kullan","description":"\"Since / for / just / already / yet\" ile deneyim anlatma. Görev: bugün yaptığın 5 şeyi present perfect ile yaz."},{"@type":"Syllabus","name":"Gün 4: Düşünme kalıpları","description":"Cevap ararken sessiz kalma: \"Let me think…\", \"That's a good question\", \"Off the top of my head…\". Görev: 3 kalıbı bir soruya cevapta kullan."},{"@type":"Syllabus","name":"Gün 5: \"Very\" yerine güçlü sıfat","description":"very tired → exhausted, very good → excellent, very big → enormous. Görev: 10 \"very\" cümlesini güçlendir."},{"@type":"Syllabus","name":"Gün 6: Phrasal verb günü","description":"Günlük hayatın 8 phrasal verb'ü: get up, give up, look for, run out of, put off, pick up, turn down, come across. Görev: hikâye yaz."},{"@type":"Syllabus","name":"Gün 7: Mini konuşma sınavı","description":"2 dakikalık konuşma görevi + öğretmenden kişisel geri bildirim. Görev: kaydı gönder, seviyene göre sonraki adımı al."}]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"7 günlük kurs tam olarak ne?","acceptedAnswer":{"@type":"Answer","text":"Yedi gün boyunca her sabah e-posta veya WhatsApp'tan kısa bir ders (okuma 3–4 dakika) ve 10 dakikalık bir görev gelir. Konu: Türkçe düşünerek yapılan hatalar ve konuşma özgüveni. Yedinci gün bir konuşma görevi ve kişisel geri bildirim var. Tamamen ücretsiz."}},{"@type":"Question","name":"Hangi seviye için uygun?","acceptedAnswer":{"@type":"Answer","text":"A2–B2 arası için tasarlandı: temel cümle kurabilen ama konuşurken takılan, \"Türkçe düşünen\" herkes. Seviyenden emin değilsen önce seviye testini çöz."}},{"@type":"Question","name":"WhatsApp mı, e-posta mı?","acceptedAnswer":{"@type":"Answer","text":"İkisi de olur; Türkiye'de çoğu öğrenci WhatsApp'ı tercih ediyor çünkü ses kaydı göndermek kolay. İstersen ikisini de bırakabilirsin."}},{"@type":"Question","name":"Kayıt olunca ne oluyor, spam gelir mi?","acceptedAnswer":{"@type":"Answer","text":"Yalnızca 7 günlük dersler ve 7. gün geri bildirimi gelir. Kampanya ve duyuru mesajlarını ancak ayrı \"ticari ileti\" kutusunu işaretlersen gönderiyoruz; her mesajda vazgeçme seçeneği var. Ayrıntılar Aydınlatma Metni'nde."}},{"@type":"Question","name":"7 gün sonra ne olacak?","acceptedAnswer":{"@type":"Answer","text":"Konuşma görevinin geri bildirimiyle birlikte seviyene uygun bir sonraki adımı öneririz: kendi başına devam planı ya da ücretsiz deneme dersi. Karar senin."}}]}]}</script>
+</head>
+<body>
+<a class="skip" href="#main">İçeriğe atla</a>
+<header class="site-header"><div class="container nav">
+  <a class="brand" href="../" aria-label="AHK Akademi — ana sayfa"><img src="../assets/img/ahk-akademi-horizontal.webp" alt="AHK Akademi" width="150" height="36" fetchpriority="high"></a>
+  <nav aria-label="Ana menü"><ul class="nav-links"><li><a href="../ingilizce-seviye-testi/">İngilizce Seviye Testi</a></li><li><a href="../arapca-alfabe/">Arapça Alfabe</a></li><li><a href="../arapca-hedef-bulucu/">Arapça Hedef Bulucu</a></li><li><a href="../ielts-puan-hesaplama/">IELTS Hesaplama</a></li><li><a href="../ingilizce-kac-ayda-ogrenilir/">Kaç Ayda?</a></li><li><a href="../kopya-kagitlari/">PDF'ler</a></li></ul></nav>
+  <div class="nav-cta"><a class="btn btn-gold btn-sm" href="https://ahkademy.com" data-trial>Ücretsiz deneme dersi</a>
+  <button class="nav-toggle" aria-expanded="false" aria-controls="mobile-menu" aria-label="Menü"><span></span></button></div>
+</div><div class="mobile-menu" id="mobile-menu"><a href="../ingilizce-seviye-testi/">İngilizce Seviye Testi</a><a href="../arapca-alfabe/">Arapça Alfabe</a><a href="../arapca-hedef-bulucu/">Arapça Hedef Bulucu</a><a href="../ielts-puan-hesaplama/">IELTS Hesaplama</a><a href="../ingilizce-kac-ayda-ogrenilir/">Kaç Ayda?</a><a href="../kopya-kagitlari/">PDF'ler</a></div></header>
+<main id="main">
+
+<section class="hero"><div class="hero-wm"></div><div class="container"><div class="hero-grid">
+  <div>
+    <div class="crumbs"><a href="../">Ücretsiz Araçlar</a><span>›</span>7 Günlük Konuşma Kursu</div>
+    <span class="eyebrow"><i class="star"></i> ÜCRETSİZ MİNİ KURS</span>
+    <h1>7 günde <mark>Türkçe düşünmeyi</mark> bırak</h1>
+    <p class="lead">Her sabah WhatsApp'a ya da e-postana 10 dakikalık bir görev gelir: en sık yapılan çeviri hataları, düşünme kalıpları, güçlü sıfatlar, phrasal verb'ler. Yedinci gün 2 dakikalık konuşma kaydı ve öğretmenden kişisel geri bildirim.</p>
+    <div class="hero-actions"><a class="btn btn-gold btn-lg" href="#kayit">Ücretsiz katıl <span class="arrow">→</span></a><a class="btn btn-ghost" href="#program">7 günün programı</a></div>
+    <ul class="hero-facts"><li><i class="star"></i>Günde 10 dakika</li><li><i class="star"></i>WhatsApp veya e-posta</li><li><i class="star"></i>7. gün geri bildirim</li></ul>
+  </div>
+  <div class="hero-art"><div class="hero-card float d1"><span class="hand">Gün 1</span><p style="font-family:var(--font-display);font-weight:700;font-size:1.3rem;margin:6px 0 10px;color:#fff">"I am agree with you."</p><p style="margin:0;color:rgba(255,255,255,.85)">Türkçe: "katılıyorum" → fiil. İngilizce: <b style="color:var(--gold)">I agree</b> with you. "Am" yok.</p></div></div>
+</div></div></section>
+
+<section class="section" id="program"><div class="container">
+  <div class="section-head"><div class="kicker"><i class="star"></i>PROGRAM</div><h2>7 gün, 7 görev</h2><p class="muted">Her ders 3–4 dakikada okunur, görev 10 dakika sürer. Hepsi Instagram'da en çok paylaşılan AHK içeriklerinden damıtıldı.</p></div>
+  <div class="grid grid-2"><div class="card" data-reveal="0"><div class="icon">1</div><h3>Gün 1: Türkçe düşünme tuzağı</h3><p>"I am agree", "I have 25 years", "open the light"… birebir çeviriden gelen 7 hata ve 10 saniyelik düzeltmeleri. Görev: kendi cümlelerinden 3 tanesini düzelt.</p></div><div class="card" data-reveal="1"><div class="icon">2</div><h3>Gün 2: Kendini 60 saniyede tanıt</h3><p>İsim, şehir, iş, hobi, hedef — doğal sırayla, "I am working as" tuzağına düşmeden. Görev: sesli kayıt al, bize gönder.</p></div><div class="card" data-reveal="0"><div class="icon">3</div><h3>Gün 3: Present perfect'i gerçekten kullan</h3><p>"Since / for / just / already / yet" ile deneyim anlatma. Görev: bugün yaptığın 5 şeyi present perfect ile yaz.</p></div><div class="card" data-reveal="1"><div class="icon">4</div><h3>Gün 4: Düşünme kalıpları</h3><p>Cevap ararken sessiz kalma: "Let me think…", "That's a good question", "Off the top of my head…". Görev: 3 kalıbı bir soruya cevapta kullan.</p></div><div class="card" data-reveal="0"><div class="icon">5</div><h3>Gün 5: "Very" yerine güçlü sıfat</h3><p>very tired → exhausted, very good → excellent, very big → enormous. Görev: 10 "very" cümlesini güçlendir.</p></div><div class="card" data-reveal="1"><div class="icon">6</div><h3>Gün 6: Phrasal verb günü</h3><p>Günlük hayatın 8 phrasal verb'ü: get up, give up, look for, run out of, put off, pick up, turn down, come across. Görev: hikâye yaz.</p></div><div class="card" data-reveal="0"><div class="icon">7</div><h3>Gün 7: Mini konuşma sınavı</h3><p>2 dakikalık konuşma görevi + öğretmenden kişisel geri bildirim. Görev: kaydı gönder, seviyene göre sonraki adımı al.</p></div></div>
+</div></section>
+
+<section class="section alt" id="kayit"><div class="container narrow">
+  <div class="lead-box" id="lead"><span class="tag">Ücretsiz ekstra</span>
+  <h3>7 günlük kursa ücretsiz katıl</h3><p class="muted">Dersleri nereye gönderelim? E-posta veya WhatsApp numarandan en az birini bırak. İlk ders 24 saat içinde gelir.</p>
+  <form class="lead-form" data-magnet="7-gunluk-kurs" novalidate>
+    <input type="hidden" name="result" value="">
+    <div class="form-grid">
+      <div class="field"><label for="7-gunluk-kurs-name">Adın</label><input id="7-gunluk-kurs-name" name="name" type="text" autocomplete="given-name" required><span class="err">Lütfen adını yaz.</span></div>
+      <div class="field"><label for="7-gunluk-kurs-language">İlgilendiğin dil</label><select id="7-gunluk-kurs-language" name="language"><option value="english" selected>İngilizce</option><option value="arabic">Arapça</option><option value="both">İkisi de</option></select></div>
+      <div class="field"><label for="7-gunluk-kurs-email">E-posta</label><input id="7-gunluk-kurs-email" name="email" type="email" inputmode="email" autocomplete="email" placeholder="ornek@eposta.com"><span class="err">Geçerli bir e-posta yaz (veya WhatsApp numaranı).</span></div>
+      <div class="field"><label for="7-gunluk-kurs-phone">WhatsApp numaran</label><input id="7-gunluk-kurs-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="05xx xxx xx xx"><span class="err">Geçerli bir numara yaz (veya e-postanı).</span></div>
+      <div class="field full"><label for="7-gunluk-kurs-goal">Hedefin</label><select id="7-gunluk-kurs-goal" name="goal"><option value="speaking">Konuşma pratiği / özgüven</option><option value="ielts">IELTS / TOEFL</option><option value="business">İş İngilizcesi</option><option value="abroad">Yurt dışında eğitim / iş</option><option value="general">Genel ilerleme</option></select></div>
+      <label class="check full"><input type="checkbox" name="kvkk" required><span><a href="../gizlilik/" target="_blank" rel="noopener">Aydınlatma Metni</a>'ni okudum; adımın, e-postamın ve/veya telefon numaramın <strong>istediğim sonucu/kaynağı bana iletmek ve dersler hakkında benimle iletişime geçmek</strong> amacıyla AHK Akademi tarafından işlenmesine açık rıza veriyorum. (Zorunlu)</span></label>
+      <label class="check full"><input type="checkbox" name="marketing"><span>Kampanya, yeni ücretsiz kaynak ve ders duyurularını e-posta / SMS / WhatsApp ile almak istiyorum (ticari elektronik ileti onayı, isteğe bağlı; istediğin zaman vazgeçebilirsin).</span></label>
+      <div class="full"><button type="submit" class="btn btn-gold btn-lg" style="width:100%">Ekstra kaynakları aç <span class="arrow">→</span></button></div>
+    </div>
+    <div class="form-msg" role="alert" aria-live="polite"></div>
+  </form>
+  <div class="unlock" aria-live="polite"><b>Kaydın alındı.</b> İlk ders yarın sabah geliyor. Beklerken: <a href="../assets/pdf/ahk-turkce-dusunme-hatalari.pdf" download>“Türkçe Düşünme Hataları” kopya kâğıdını (PDF) indir</a> · <a href="../ingilizce-seviye-testi/">Seviyeni ölç</a></div>
+</div>
+</div></section>
+
+<section class="section" id="sss"><div class="container narrow">
+  <div class="section-head"><div class="kicker"><i class="star"></i>SIK SORULANLAR</div><h2>Kurs hakkında</h2></div>
+  <div class="faq"><details><summary>7 günlük kurs tam olarak ne?</summary><div class="a">Yedi gün boyunca her sabah e-posta veya WhatsApp'tan kısa bir ders (okuma 3–4 dakika) ve 10 dakikalık bir görev gelir. Konu: Türkçe düşünerek yapılan hatalar ve konuşma özgüveni. Yedinci gün bir konuşma görevi ve kişisel geri bildirim var. Tamamen ücretsiz.</div></details><details><summary>Hangi seviye için uygun?</summary><div class="a">A2–B2 arası için tasarlandı: temel cümle kurabilen ama konuşurken takılan, "Türkçe düşünen" herkes. Seviyenden emin değilsen önce <a href="../ingilizce-seviye-testi/">seviye testini</a> çöz.</div></details><details><summary>WhatsApp mı, e-posta mı?</summary><div class="a">İkisi de olur; Türkiye'de çoğu öğrenci WhatsApp'ı tercih ediyor çünkü ses kaydı göndermek kolay. İstersen ikisini de bırakabilirsin.</div></details><details><summary>Kayıt olunca ne oluyor, spam gelir mi?</summary><div class="a">Yalnızca 7 günlük dersler ve 7. gün geri bildirimi gelir. Kampanya ve duyuru mesajlarını ancak ayrı "ticari ileti" kutusunu işaretlersen gönderiyoruz; her mesajda vazgeçme seçeneği var. Ayrıntılar <a href="../gizlilik/">Aydınlatma Metni</a>'nde.</div></details><details><summary>7 gün sonra ne olacak?</summary><div class="a">Konuşma görevinin geri bildirimiyle birlikte seviyene uygun bir sonraki adımı öneririz: kendi başına devam planı ya da ücretsiz deneme dersi. Karar senin.</div></details></div>
+</div></section>
+
+<section class="section alt"><div class="container">
+  <div class="section-head"><div class="kicker"><i class="star"></i>DİĞER ÜCRETSİZ ARAÇLAR</div><h2>Bugün başlamak için</h2></div>
+  <div class="grid grid-3"><a class="card" href="../ingilizce-seviye-testi/" data-reveal="0"><div class="icon">A→C</div><h3>İngilizce Seviye Testi</h3><p>25 soru, 8 dakika: CEFR A1–C1 seviyeni ve kişisel planını gör.</p><span class="more">Aç →</span></a><a class="card ar-card" href="../arapca-alfabe/" data-reveal="1"><div class="icon" lang="ar">ع</div><h3>Arapça Alfabe Eğitmeni</h3><p>28 harf, 4 yazılış şekli, Türkçe ses ipuçları ve tanıma testi.</p><span class="more">Aç →</span></a><a class="card" href="../arapca-hedef-bulucu/" data-reveal="2"><div class="icon">🧭</div><h3>Arapça Hedef Bulucu</h3><p>Kur'an, MSA, Körfez ya da Levanten: 6 soruda sana uygun yol.</p><span class="more">Aç →</span></a><a class="card" href="../ielts-puan-hesaplama/" data-reveal="0"><div class="icon">7.5</div><h3>IELTS Puan Hesaplama</h3><p>Doğru sayından band puanına, hedef puana ne kadar var?</p><span class="more">Aç →</span></a><a class="card" href="../ingilizce-kac-ayda-ogrenilir/" data-reveal="1"><div class="icon">⏱</div><h3>İngilizce Kaç Ayda Öğrenilir?</h3><p>Haftalık saatine göre B1, B2, C1 için gerçekçi takvim.</p><span class="more">Aç →</span></a><a class="card" href="../kopya-kagitlari/" data-reveal="2"><div class="icon">PDF</div><h3>Kopya Kâğıtları (PDF)</h3><p>Türkçe düşünme hataları, IELTS Speaking kalıpları, Arapça alfabe tablosu.</p><span class="more">Aç →</span></a></div>
+</div></section>
+<section class="section"><div class="container"><div class="cta-band" data-reveal>
+    <div><h2>Seviyeni biliyorsun. Şimdi ilerleme zamanı.</h2><p>AHK Akademi'de birebir online dersler: İngilizce (IELTS/TOEFL, konuşma, iş İngilizcesi) ve Arapça (Kur'an, MSA, lehçeler). İlk ders ücretsiz deneme.</p></div>
+    <div style="display:grid;gap:10px"><a class="btn btn-gold btn-lg" href="https://ahkademy.com" data-trial>Ücretsiz deneme dersi <span class="arrow">→</span></a><a class="btn btn-wa" href="#" data-wa="Merhaba AHK Akademi, ücretsiz deneme dersi hakkında bilgi almak istiyorum." hidden>WhatsApp'tan yaz</a></div>
+  </div></div></section>
+</main>
+<footer class="footer"><div class="container"><div class="footer-grid">
+  <div><a class="wordmark" href="https://ahkademy.com"><img src="../assets/img/star-mark-outlined.webp" alt="" width="40" height="38"><span class="wm"><b>AHK</b><i></i><small>AKADEMI</small></span></a>
+    <p style="margin-top:14px;max-width:38ch">Türkçe konuşanlar için online İngilizce ve Arapça akademisi. Öğrencilerin başarısına odaklı.</p>
+    <p><a href="https://www.instagram.com/ahkacademy" rel="me noopener" target="_blank">Instagram @ahkacademy</a><br><a href="https://ahkademy.com">ahkademy.com</a></p></div>
+  <div><h3>İngilizce araçları</h3><ul>
+    <li><a href="../ingilizce-seviye-testi/">İngilizce Seviye Testi</a></li>
+    <li><a href="../ielts-puan-hesaplama/">IELTS Puan Hesaplama</a></li>
+    <li><a href="../ingilizce-kac-ayda-ogrenilir/">İngilizce Kaç Ayda Öğrenilir?</a></li>
+    <li><a href="../7-gunluk-ingilizce-konusma/">7 Günlük Konuşma Kursu</a></li>
+    <li><a href="../en/english-level-test/">English level test (EN)</a></li></ul></div>
+  <div><h3>Arapça araçları</h3><ul>
+    <li><a href="../arapca-alfabe/">Arapça Alfabe Eğitmeni</a></li>
+    <li><a href="../arapca-hedef-bulucu/">Arapça Hedef Bulucu</a></li>
+    <li><a href="../kopya-kagitlari/">Ücretsiz PDF Kopya Kâğıtları</a></li>
+    <li><a href="../gizlilik/">Gizlilik ve KVKK</a></li></ul></div>
+</div><div class="legal"><span>© 2026 AHK Akademi</span><span>Bu araçlar ücretsizdir ve resmî bir sertifika yerine geçmez.</span></div></div></footer>
+<script src="../assets/js/config.js" defer></script>
+  <script src="../assets/js/app.js" defer></script>
+</body>
+</html>

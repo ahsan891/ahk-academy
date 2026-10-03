@@ -20,12 +20,12 @@ module.exports = {
   preloadArabic: true,
   title: 'Arapça Alfabe Öğren: 28 Harf, Yazılışları ve Sesleri (Ücretsiz)',
   ogTitle: 'Arapça Alfabe Eğitmeni — 28 harf, 4 şekil, Türkçe ses ipuçları',
-  description: 'Arap alfabesini interaktif öğren: 28 harfin başta, ortada, sonda yazılışı, Türkçe okunuşu, örnek kelimeler, kart çalışması ve tanıma testi. Ücretsiz, kayıt gerektirmez.',
+  description: 'Arap alfabesini interaktif öğren: 28 harfin başta, ortada, sonda yazılışı, Türkçe okunuşu, örnek kelimeler, kartlar ve tanıma testi. Ücretsiz, kayıt yok.',
   scripts: ['alphabet.js'],
   jsonld: [
     L.breadcrumbLd([['Ücretsiz Araçlar', ''], ['Arapça Alfabe Eğitmeni', 'arapca-alfabe/']]),
     { '@type': 'LearningResource', name: 'Arapça Alfabe Eğitmeni', description: '28 Arap harfinin dört yazılış şekli, Türkçe adları, sesleri ve örnek kelimeleriyle interaktif alfabe çalışması ve tanıma testi.', learningResourceType: 'Interactive resource', educationalLevel: 'Beginner', inLanguage: ['tr', 'ar'], teaches: 'Arabic alphabet (28 letters, positional forms)', isAccessibleForFree: true, provider: { '@id': L.ORG_ID } },
-    { '@type': 'Quiz', name: 'Arapça Harf Tanıma Testi', description: '10 soruluk harf tanıma testi: harfin adını ve kelime içindeki şeklini tanı.', numberOfQuestions: 10, inLanguage: 'tr', isAccessibleForFree: true, provider: { '@id': L.ORG_ID } },
+    { '@type': 'Quiz', name: 'Arapça Harf Tanıma Testi', description: '10 soruluk harf tanıma testi: harfin adını ve kelime içindeki şeklini tanı.', inLanguage: 'tr', isAccessibleForFree: true, provider: { '@id': L.ORG_ID } },
     L.faqLd(FAQ)
   ],
   body: ({ root }) => {
@@ -58,7 +58,7 @@ module.exports = {
       <h3>${x0.tr} <span lang="ar" class="ar" style="font-weight:400">${x0.name}</span></h3>
       <p style="margin:0 0 6px;color:rgba(255,255,255,.75);font-weight:700">Transliterasyon: <span class="lat" style="color:var(--gold)">${x0.lat}</span></p>
       <p class="hint">${x0.sound}</p>
-      <div class="forms" dir="rtl" aria-label="Yazılış şekilleri"><div><span class="f f-iso" lang="ar">${f0.isolated}</span><small>Tek başına</small></div><div><span class="f f-ini" lang="ar">${f0.initial}</span><small>Başta</small></div><div><span class="f f-med" lang="ar">${f0.medial}</span><small>Ortada</small></div><div><span class="f f-fin" lang="ar">${f0.final}</span><small>Sonda</small></div></div>
+      <div class="forms" aria-label="Yazılış şekilleri"><div><span class="f f-iso" lang="ar">${f0.isolated}</span><small>Tek başına</small></div><div><span class="f f-ini" lang="ar">${f0.initial}</span><small>Başta</small></div><div><span class="f f-med" lang="ar">${f0.medial}</span><small>Ortada</small></div><div><span class="f f-fin" lang="ar">${f0.final}</span><small>Sonda</small></div></div>
       <p class="nc-note" style="font-size:.85rem;color:var(--gold);margin:8px 0 0"${x0.nc ? '' : ' hidden'}>Bu harf kendinden sonraki harfe bağlanmaz; bu yüzden başta ve ortada da aynı görünür.</p>
       <div class="example"><span class="ar ex-ar" lang="ar">${x0.ex}</span><span><b class="ex-lat">${x0.exlat}</b> — <span class="ex-tr">${x0.extr}</span></span></div>
     </div>

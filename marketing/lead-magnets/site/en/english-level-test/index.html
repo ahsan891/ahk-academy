@@ -1,18 +1,46 @@
-/* ============================================================
-   AHK Akademi — Lead magnet site design system
-   Navy #0E1F3E · Gold #F5A61F · Off-white #F9FAFD · Royal blue #1F5FAE
-   Display: Unbounded · Body: Inter · Hand: Caveat · Arabic: Noto Naskh Arabic
-   No text-transform anywhere (Turkish dotted-İ bug on English words).
-   ============================================================ */
-@font-face{font-family:'Unbounded';font-weight:700;font-display:swap;src:url(../fonts/Unbounded-700-tr.woff2) format('woff2')}
-@font-face{font-family:'Unbounded';font-weight:900;font-display:swap;src:url(../fonts/Unbounded-900-tr.woff2) format('woff2')}
-@font-face{font-family:'Inter';font-weight:400;font-display:swap;src:url(../fonts/Inter-400-tr.woff2) format('woff2')}
-@font-face{font-family:'Inter';font-weight:600;font-display:swap;src:url(../fonts/Inter-600-tr.woff2) format('woff2')}
-@font-face{font-family:'Inter';font-weight:800;font-display:swap;src:url(../fonts/Inter-800-tr.woff2) format('woff2')}
-@font-face{font-family:'Caveat';font-weight:700;font-display:optional;src:url(../fonts/Caveat-700-tr.woff2) format('woff2')}
-@font-face{font-family:'Noto Naskh Arabic';font-weight:400;font-display:swap;src:url(../fonts/NotoNaskhArabic-400-arabic.woff2) format('woff2');unicode-range:U+0600-06FF,U+0750-077F,U+FB50-FDFF,U+FE70-FEFC}
-@font-face{font-family:'Noto Naskh Arabic';font-weight:700;font-display:swap;src:url(../fonts/NotoNaskhArabic-700-arabic.woff2) format('woff2');unicode-range:U+0600-06FF,U+0750-077F,U+FB50-FDFF,U+FE70-FEFC}
-/* metric-compatible fallbacks to minimise layout shift while fonts load */
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Free English Level Test (8 Minutes, CEFR A1–C1) | AHK Akademi</title>
+  <meta name="description" content="Free online English placement test: 25 questions, instant CEFR result (A1, A2, B1, B2, C1) and a personal study plan. No sign-up required. By AHK Akademi.">
+  <link rel="canonical" href="https://ahkademy.com/en/english-level-test/">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <link rel="alternate" hreflang="tr" href="https://ahkademy.com/ingilizce-seviye-testi/">
+  <link rel="alternate" hreflang="en" href="https://ahkademy.com/en/english-level-test/">
+  <link rel="alternate" hreflang="x-default" href="https://ahkademy.com/ingilizce-seviye-testi/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="AHK Akademi">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:title" content="Free English level test — your CEFR level in 8 minutes">
+  <meta property="og:description" content="Free online English placement test: 25 questions, instant CEFR result (A1, A2, B1, B2, C1) and a personal study plan. No sign-up required. By AHK Akademi.">
+  <meta property="og:url" content="https://ahkademy.com/en/english-level-test/">
+  <meta property="og:image" content="https://ahkademy.com/assets/og/en-english-level-test.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Free English level test — your CEFR level in 8 minutes">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Free English level test — your CEFR level in 8 minutes">
+  <meta name="twitter:description" content="Free online English placement test: 25 questions, instant CEFR result (A1, A2, B1, B2, C1) and a personal study plan. No sign-up required. By AHK Akademi.">
+  <meta name="twitter:image" content="https://ahkademy.com/assets/og/en-english-level-test.jpg">
+  <meta name="theme-color" content="#0E1F3E">
+  <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="../../assets/img/apple-touch-icon.png">
+  <link rel="preload" href="../../assets/fonts/Unbounded-900-tr.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../../assets/fonts/Inter-400-tr.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../../assets/fonts/Inter-600-tr.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../../assets/fonts/Inter-800-tr.woff2" as="font" type="font/woff2" crossorigin>
+  
+  <style>
+@font-face{font-family:'Unbounded';font-weight:700;font-display:swap;src:url(../../assets/fonts/Unbounded-700-tr.woff2) format('woff2')}
+@font-face{font-family:'Unbounded';font-weight:900;font-display:swap;src:url(../../assets/fonts/Unbounded-900-tr.woff2) format('woff2')}
+@font-face{font-family:'Inter';font-weight:400;font-display:swap;src:url(../../assets/fonts/Inter-400-tr.woff2) format('woff2')}
+@font-face{font-family:'Inter';font-weight:600;font-display:swap;src:url(../../assets/fonts/Inter-600-tr.woff2) format('woff2')}
+@font-face{font-family:'Inter';font-weight:800;font-display:swap;src:url(../../assets/fonts/Inter-800-tr.woff2) format('woff2')}
+@font-face{font-family:'Caveat';font-weight:700;font-display:optional;src:url(../../assets/fonts/Caveat-700-tr.woff2) format('woff2')}
+@font-face{font-family:'Noto Naskh Arabic';font-weight:400;font-display:swap;src:url(../../assets/fonts/NotoNaskhArabic-400-arabic.woff2) format('woff2');unicode-range:U+0600-06FF,U+0750-077F,U+FB50-FDFF,U+FE70-FEFC}
+@font-face{font-family:'Noto Naskh Arabic';font-weight:700;font-display:swap;src:url(../../assets/fonts/NotoNaskhArabic-700-arabic.woff2) format('woff2');unicode-range:U+0600-06FF,U+0750-077F,U+FB50-FDFF,U+FE70-FEFC}
 @font-face{font-family:'Unbounded Fallback';src:local('Arial Bold'),local('Arial'),local('Helvetica');size-adjust:130%;ascent-override:95%;descent-override:25%}
 @font-face{font-family:'Inter Fallback';src:local('Arial'),local('Helvetica');size-adjust:107%;ascent-override:90%;descent-override:22%}
 :root{
@@ -51,8 +79,6 @@ strong{font-weight:800}
 :focus-visible{outline:3px solid var(--gold);outline-offset:3px}
 [id]{scroll-margin-top:84px}
 [lang=ar],.ar{font-family:var(--font-ar);direction:rtl;unicode-bidi:isolate}
-
-/* ---------- Header ---------- */
 .site-header{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.88);backdrop-filter:saturate(1.4) blur(10px);-webkit-backdrop-filter:saturate(1.4) blur(10px);border-bottom:1px solid var(--line)}
 .nav{display:flex;align-items:center;justify-content:space-between;gap:12px;height:66px}
 .brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--navy)}
@@ -72,8 +98,6 @@ strong{font-weight:800}
 .mobile-menu.open{display:block}
 .mobile-menu a{display:block;padding:12px 8px;font-weight:600;color:var(--navy);text-decoration:none;border-bottom:1px solid var(--line)}
 @media(min-width:900px){.nav-links{display:flex}.nav-toggle,.mobile-menu{display:none!important}}
-
-/* ---------- Buttons ---------- */
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:14px 24px;border-radius:999px;font-weight:800;font-size:1rem;text-decoration:none;border:2px solid transparent;cursor:pointer;line-height:1.2;transition:transform .25s var(--ease-spring),box-shadow .25s,background .2s,color .2s;font-family:var(--font-body);min-height:48px}
 .btn:hover{transform:translateY(-2px)}
 .btn:active{transform:translateY(0) scale(.98)}
@@ -90,11 +114,9 @@ strong{font-weight:800}
 .btn[disabled]{opacity:.5;cursor:not-allowed;transform:none!important}
 .btn .arrow{display:inline-block;transition:transform .25s var(--ease-out)}
 .btn:hover .arrow{transform:translateX(4px)}
-
-/* ---------- Hero ---------- */
 .hero{position:relative;overflow:hidden;color:#fff;background:radial-gradient(130% 90% at 80% -10%,#1F3B6E 0%,var(--navy) 45%,var(--navy-deep) 100%);padding:clamp(56px,9vw,120px) 0 clamp(64px,9vw,120px);isolation:isolate}
 .hero::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.13) 1.5px,transparent 1.5px);background-size:28px 28px;-webkit-mask-image:linear-gradient(180deg,rgba(0,0,0,.9),rgba(0,0,0,0) 75%);mask-image:linear-gradient(180deg,rgba(0,0,0,.9),rgba(0,0,0,0) 75%);pointer-events:none}
-.hero-wm{position:absolute;right:-10%;top:-12%;width:min(62vw,560px);aspect-ratio:1;opacity:.07;background:url(../img/star-mark-outlined.webp) center/contain no-repeat;pointer-events:none;animation:floaty 14s ease-in-out infinite}
+.hero-wm{position:absolute;right:-10%;top:-12%;width:min(62vw,560px);aspect-ratio:1;opacity:.07;background:url(../../assets/img/star-mark-outlined.webp) center/contain no-repeat;pointer-events:none;animation:floaty 14s ease-in-out infinite}
 .hero-grid{display:grid;gap:36px;align-items:center}
 @media(min-width:900px){.hero-grid{grid-template-columns:1.15fr .85fr}}
 .eyebrow{display:inline-flex;align-items:center;gap:8px;background:var(--gold);color:var(--navy);border-radius:999px;padding:6px 14px;font-weight:800;font-size:.8rem;letter-spacing:.06em;margin-bottom:18px}
@@ -121,8 +143,6 @@ strong{font-weight:800}
 .hero-demo .bar i{display:block;height:100%;width:0;border-radius:999px;background:linear-gradient(90deg,var(--gold),#FFC14F);animation:grow 1.6s var(--ease-out) forwards}
 .hero-demo .bar:nth-child(2) i{animation-delay:.25s}.hero-demo .bar:nth-child(3) i{animation-delay:.5s}
 @keyframes grow{to{width:var(--w,70%)}}
-
-/* ---------- Sections ---------- */
 .section{padding:clamp(48px,7vw,88px) 0}
 .section.alt{background:#fff}
 .section-head{max-width:720px;margin-bottom:34px}
@@ -145,8 +165,6 @@ a.card{text-decoration:none;color:inherit;display:block}
 .steps{counter-reset:s;list-style:none;padding:0;margin:0;display:grid;gap:14px}
 .steps li{counter-increment:s;display:flex;gap:14px;align-items:flex-start}
 .steps li::before{content:counter(s);flex:none;width:38px;height:38px;border-radius:50%;background:var(--navy);color:var(--gold);display:grid;place-items:center;font-family:var(--font-display);font-weight:900}
-
-/* ---------- Quiz ---------- */
 .tool{background:#fff;border:1px solid var(--line);border-radius:var(--r-lg);box-shadow:var(--shadow-md);padding:clamp(20px,4vw,40px);position:relative;overflow:hidden}
 .tool-top{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:14px;font-weight:700;color:var(--ink-2);font-size:.9rem}
 .progress{height:10px;background:var(--navy-soft);border-radius:999px;overflow:hidden;margin-bottom:26px}
@@ -170,13 +188,11 @@ a.card{text-decoration:none;color:inherit;display:block}
 @keyframes qOut{to{opacity:0;transform:translateX(-26px)}}
 .shake{animation:shake .4s}
 @keyframes shake{20%,60%{transform:translateX(-5px)}40%,80%{transform:translateX(5px)}}
-
-/* ---------- Result ---------- */
 .result{display:none}
 .result.show{display:block}
 .result-hero{background:radial-gradient(120% 100% at 100% 0%,#1F3B6E 0%,var(--navy) 50%,var(--navy-deep) 100%);color:#fff;border-radius:var(--r-lg);padding:clamp(22px,4vw,40px);position:relative;overflow:hidden;display:grid;gap:24px;align-items:center}
 @media(min-width:760px){.result-hero{grid-template-columns:auto 1fr}}
-.result-hero::after{content:"";position:absolute;right:-60px;top:-60px;width:260px;height:260px;background:url(../img/star-mark-outlined.webp) center/contain no-repeat;opacity:.08;pointer-events:none}
+.result-hero::after{content:"";position:absolute;right:-60px;top:-60px;width:260px;height:260px;background:url(../../assets/img/star-mark-outlined.webp) center/contain no-repeat;opacity:.08;pointer-events:none}
 .ring{position:relative;width:190px;height:190px;margin:0 auto}
 .ring svg{width:100%;height:100%;transform:rotate(-90deg)}
 .ring circle{fill:none;stroke-width:14;stroke-linecap:round}
@@ -204,8 +220,6 @@ a.card{text-decoration:none;color:inherit;display:block}
 .plan ul{padding-left:1.2em}
 .plan li{margin-bottom:.5em}
 .share-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
-
-/* ---------- Lead form ---------- */
 .lead-box{background:linear-gradient(180deg,#fff,var(--off));border:2px solid var(--gold);border-radius:var(--r-lg);padding:clamp(20px,4vw,34px);margin-top:28px;position:relative}
 .lead-box .tag{position:absolute;top:-14px;left:22px;background:var(--gold);color:var(--navy);font-weight:800;font-size:.8rem;padding:4px 12px;border-radius:999px}
 .lead-box h3{margin-bottom:.3em}
@@ -226,8 +240,6 @@ a.card{text-decoration:none;color:inherit;display:block}
 .unlock{display:none;margin-top:18px;padding:18px;border-radius:var(--r-md);background:var(--navy);color:#fff}
 .unlock.show{display:block;animation:pop .6s var(--ease-spring)}
 .unlock a{color:var(--gold)}
-
-/* ---------- FAQ ---------- */
 .faq{display:grid;gap:10px}
 .faq details{background:#fff;border:1px solid var(--line);border-radius:14px;padding:0 18px;transition:box-shadow .2s}
 .faq details[open]{box-shadow:var(--shadow-sm)}
@@ -236,14 +248,10 @@ a.card{text-decoration:none;color:inherit;display:block}
 .faq summary::after{content:"+";flex:none;width:28px;height:28px;border-radius:50%;background:var(--navy-soft);display:grid;place-items:center;font-weight:800;transition:transform .3s var(--ease-spring)}
 .faq details[open] summary::after{transform:rotate(45deg)}
 .faq .a{padding:0 0 16px;color:var(--ink-2)}
-
-/* ---------- CTA band ---------- */
 .cta-band{background:linear-gradient(135deg,var(--blue),var(--navy));color:#fff;border-radius:var(--r-lg);padding:clamp(26px,5vw,48px);display:grid;gap:18px;align-items:center;position:relative;overflow:hidden}
 @media(min-width:800px){.cta-band{grid-template-columns:1fr auto}}
 .cta-band h2{color:#fff}
 .cta-band p{color:rgba(255,255,255,.85);margin:0}
-
-/* ---------- Footer ---------- */
 .footer{background:var(--navy-deep);color:rgba(255,255,255,.75);padding:48px 0 28px;margin-top:40px}
 .footer-grid{display:grid;gap:28px}
 @media(min-width:800px){.footer-grid{grid-template-columns:1.2fr 1fr 1fr}}
@@ -258,18 +266,12 @@ a.card{text-decoration:none;color:inherit;display:block}
 .footer a{color:rgba(255,255,255,.75);text-decoration:none}
 .footer a:hover{color:var(--gold)}
 .footer .legal{border-top:1px solid rgba(255,255,255,.12);margin-top:30px;padding-top:18px;font-size:.82rem;display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:space-between}
-
-/* ---------- Breadcrumb ---------- */
 .crumbs{font-size:.85rem;color:rgba(255,255,255,.7);margin-bottom:18px}
 .crumbs a{color:rgba(255,255,255,.85);text-decoration:none}
 .crumbs span{margin:0 6px}
-
-/* ---------- Reveal on scroll ---------- */
 [data-reveal]{opacity:0;transform:translateY(22px);transition:opacity .7s var(--ease-out),transform .7s var(--ease-out)}
 [data-reveal].in{opacity:1;transform:none}
 [data-reveal="1"]{transition-delay:.1s}[data-reveal="2"]{transition-delay:.2s}[data-reveal="3"]{transition-delay:.3s}
-
-/* ---------- Arabic alphabet trainer ---------- */
 .letter-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(96px,1fr));gap:10px}
 .letter-tile{background:#fff;border:2px solid var(--line);border-radius:16px;padding:10px 6px;text-align:center;cursor:pointer;font:inherit;transition:transform .25s var(--ease-spring),border-color .2s,box-shadow .2s;color:var(--ink)}
 .letter-tile:hover,.letter-tile.active{border-color:var(--gold);transform:translateY(-3px);box-shadow:var(--shadow-sm)}
@@ -298,8 +300,6 @@ a.card{text-decoration:none;color:inherit;display:block}
 .tab{border:2px solid var(--line);background:#fff;border-radius:999px;padding:9px 16px;font:inherit;font-weight:700;cursor:pointer;color:var(--ink-2);min-height:44px}
 .tab[aria-selected=true]{background:var(--navy);border-color:var(--navy);color:#fff}
 .panel{display:none}.panel.show{display:block;animation:qIn .4s var(--ease-out)}
-
-/* ---------- Calculators ---------- */
 .calc{display:grid;gap:22px}
 @media(min-width:860px){.calc{grid-template-columns:1fr 1fr}}
 .range{display:grid;gap:6px}
@@ -317,27 +317,115 @@ table.t{width:100%;border-collapse:collapse;font-size:.92rem;background:#fff;bor
 table.t th,table.t td{padding:10px 12px;border-bottom:1px solid var(--line);text-align:left}
 table.t th{background:var(--navy-soft);font-weight:800}
 .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
-
-/* ---------- Confetti canvas ---------- */
 .confetti{position:fixed;inset:0;pointer-events:none;z-index:80}
-
-/* ---------- Toast ---------- */
 .toast{position:fixed;left:50%;bottom:20px;transform:translate(-50%,120%);background:var(--navy);color:#fff;padding:12px 18px;border-radius:999px;font-weight:700;box-shadow:var(--shadow-lg);transition:transform .4s var(--ease-spring);z-index:90;max-width:calc(100% - 32px)}
 .toast.show{transform:translate(-50%,0)}
-
-/* ---------- Prose ---------- */
 .prose h2{margin-top:1.6em}
 .prose ul,.prose ol{padding-left:1.3em}
 .prose li{margin-bottom:.4em}
 .notice{background:var(--gold-soft);border-left:4px solid var(--gold);padding:12px 16px;border-radius:0 12px 12px 0;font-size:.95rem}
-
-/* ---------- Reduced motion ---------- */
 @media(prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}
   [data-reveal]{opacity:1;transform:none}
   .rise{opacity:1;transform:none}
   .hero-demo .bar i{width:var(--w,70%)}
 }
-
-/* ---------- Small-screen header ---------- */
 @media(max-width:560px){.nav-cta .btn{padding:8px 12px;font-size:.8rem;min-height:36px;white-space:nowrap}.brand img{height:30px}}
+</style>
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://ahkademy.com/#organization","name":"AHK Akademi","alternateName":"AHK Academy","url":"https://ahkademy.com","logo":{"@type":"ImageObject","url":"https://ahkademy.com/assets/img/star-mark.png","width":400,"height":462},"sameAs":["https://www.instagram.com/ahkacademy"],"description":"Türkçe konuşanlar için online İngilizce ve Arapça akademisi: IELTS/TOEFL hazırlık, konuşma pratiği, iş İngilizcesi, Kur'an Arapçası, Modern Standart Arapça ve lehçeler."},{"@type":"WebSite","@id":"https://ahkademy.com/#website","url":"https://ahkademy.com/","name":"AHK Akademi — Ücretsiz Araçlar","inLanguage":"tr","publisher":{"@id":"https://ahkademy.com/#organization"}},{"@type":"WebPage","@id":"https://ahkademy.com/en/english-level-test/#webpage","url":"https://ahkademy.com/en/english-level-test/","name":"Free English Level Test (8 Minutes, CEFR A1–C1) | AHK Akademi","description":"Free online English placement test: 25 questions, instant CEFR result (A1, A2, B1, B2, C1) and a personal study plan. No sign-up required. By AHK Akademi.","inLanguage":"en","isPartOf":{"@id":"https://ahkademy.com/#website"},"about":{"@id":"https://ahkademy.com/#organization"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://ahkademy.com/assets/og/en-english-level-test.jpg","width":1200,"height":630},"datePublished":"2026-10-03","dateModified":"2026-10-03"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Free tools","item":"https://ahkademy.com/"},{"@type":"ListItem","position":2,"name":"English level test","item":"https://ahkademy.com/en/english-level-test/"}]},{"@type":"Quiz","name":"English Level Test (CEFR A1–C1)","description":"A free 25-question test estimating your CEFR level from grammar, vocabulary and usage questions.","inLanguage":"en","educationalAlignment":{"@type":"AlignmentObject","alignmentType":"educationalLevel","educationalFramework":"CEFR","targetName":"A1, A2, B1, B2, C1"},"provider":{"@id":"https://ahkademy.com/#organization"},"isAccessibleForFree":true},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How does the English level test work?","acceptedAnswer":{"@type":"Answer","text":"The test has 25 questions arranged by CEFR level: five each for A1, A2, B1, B2 and C1, covering grammar, vocabulary and usage. The system looks at the highest level you answer consistently and estimates your level. No time limit; it takes about 8 minutes."}},{"@type":"Question","name":"Is the result an official certificate?","acceptedAnswer":{"@type":"Answer","text":"No. This is a free placement estimate, not a substitute for IELTS, TOEFL or Cambridge exams. Its purpose is to show where to start and what to focus on."}},{"@type":"Question","name":"Do I need to sign up to see my result?","acceptedAnswer":{"@type":"Answer","text":"No. Your level and personal plan appear immediately. Only if you want the detailed PDF report and 7-day plan by e-mail or WhatsApp do you leave your details."}},{"@type":"Question","name":"Does it test speaking and listening?","acceptedAnswer":{"@type":"Answer","text":"This short test measures reading, grammar and vocabulary. For speaking and listening the most accurate measure is a 20-minute conversation with a teacher, which we do in the free trial lesson."}}]}]}</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header"><div class="container nav">
+  <a class="brand" href="../../" aria-label="AHK Akademi — ana sayfa"><img src="../../assets/img/ahk-akademi-horizontal.webp" alt="AHK Akademi" width="150" height="36" fetchpriority="high"></a>
+  <nav aria-label="Main"><ul class="nav-links"><li><a href="../../en/english-level-test/">English level test</a></li><li><a href="../../arapca-alfabe/">Arabic alphabet</a></li><li><a href="../../ielts-puan-hesaplama/">IELTS calculator</a></li><li><a href="../../7-gunluk-ingilizce-konusma/">7-day course</a></li></ul></nav>
+  <div class="nav-cta"><a class="btn btn-gold btn-sm" href="https://ahkademy.com" data-trial>Free trial lesson</a>
+  <button class="nav-toggle" aria-expanded="false" aria-controls="mobile-menu" aria-label="Menü"><span></span></button></div>
+</div><div class="mobile-menu" id="mobile-menu"><a href="../../en/english-level-test/">English level test</a><a href="../../arapca-alfabe/">Arabic alphabet</a><a href="../../ielts-puan-hesaplama/">IELTS calculator</a><a href="../../7-gunluk-ingilizce-konusma/">7-day course</a></div></header>
+<main id="main">
+<script>window.AHK_I18N={levelTest:{"question":"Question","next":"Next","finish":"See my result","options":"Options","skillG":"Grammar","skillV":"Vocabulary","skillU":"Usage","shareText":"My English level: ","shareCta":"find yours in 8 minutes:","waText":"Hello AHK Akademi, my level test result is ","waText2":". Could I get information about a free trial lesson?","lv_Pre-A1":"Beginner (Pre-A1)","lv_A1":"A1 — Beginner","lv_A2":"A2 — Elementary","lv_B1":"B1 — Intermediate","lv_B2":"B2 — Upper-intermediate","lv_C1":"C1 — Advanced","head_Pre-A1":"You are starting from zero, which also means no bad habits.","head_A1":"The basics are in place. Time to start joining simple sentences.","head_A2":"You can get by in daily life. B1, the \"independence level\", is close.","head_B1":"You are an independent user. B2 opens doors to work and study abroad.","head_B2":"Fluent and confident. C1 makes you sound almost native.","head_C1":"Advanced. The question is no longer \"correct\" but \"impressive\".","desc_Pre-A1":"You recognise basic words and the verb \"to be\", but building sentences is still hard. First goal: A1 within 2–3 months.","desc_A1":"You can introduce yourself and understand simple questions. Next big step: past tense and everyday dialogues.","desc_A2":"You use the past tense and comparisons. For B1 you need conditionals, present perfect and a wider vocabulary.","desc_B1":"You can handle travel and work situations. For B2: passive structures, reported speech, phrasal verbs and fluency.","desc_B2":"You understand complex texts and join discussions. For C1: inversion, advanced linkers, nuanced word choice and naturalness.","desc_C1":"You used nuanced structures and advanced vocabulary correctly. Next: C2 subtleties, academic/professional style and presentation skills.","plan_Pre-A1":["15 minutes a day: \"to be\", \"have got\" and the 100 most common words.","Memorise 5 sentences about yourself aloud (I am…, I live in…, I work as…).","One speaking lesson a week to get used to talking from day one."],"plan_A1":["Past simple + the 50 most common irregular verbs.","10 minutes of reading aloud daily to build a pronunciation reflex.","One speaking session a week: restaurant, directions, shopping."],"plan_A2":["Present perfect vs past simple — the most confused topic for Turkish speakers.","20 minutes a day shadowing short scenes from series.","Two speaking lessons a week: explain an idea for one minute."],"plan_B1":["One phrasal verb + one collocation a day, used in a sentence.","Record a 5-minute monologue twice a week; listen and correct.","If IELTS/TOEFL is your goal, start now: B1 to band 6.0–6.5 typically takes 4–6 months."],"plan_B2":["One long article a week (The Economist, BBC Future) + 10 new words used actively.","Replace \"very + adjective\" with strong adjectives (exhausted, furious, fascinating).","Aiming for IELTS 7.0+? Two Writing Task 2 essays a week."],"plan_C1":["Prepare a 3-minute presentation, record it and vary your phrasing.","Idioms and tone: switch between formal and informal deliberately.","IELTS 7.5–8.0 or Cambridge C1 Advanced can be a clear target."]}};</script>
+<section class="hero"><div class="hero-wm"></div><div class="container"><div class="hero-grid">
+  <div>
+    <div class="crumbs"><a href="../../">Free tools</a><span>›</span>English level test</div>
+    <span class="eyebrow"><i class="star"></i> FREE · NO SIGN-UP</span>
+    <h1>What is your English level, <mark>really</mark>?</h1>
+    <p class="lead">25 questions, about 8 minutes. At the end: your CEFR level (A1–C1), your strengths and weaknesses, and a concrete plan for the next level — instantly on screen.</p>
+    <div class="hero-actions"><a class="btn btn-gold btn-lg" href="#test">Start the test <span class="arrow">→</span></a><a class="btn btn-ghost" href="../../ingilizce-seviye-testi/" hreflang="tr" lang="tr">Türkçe sürüm</a></div>
+    <ul class="hero-facts"><li><i class="star"></i>CEFR-aligned</li><li><i class="star"></i>Instant result</li><li><i class="star"></i>Personal plan</li></ul>
+  </div>
+  <div class="hero-art"><div class="orb gold float" style="width:90px;height:90px;right:4%;top:-20px"></div><div class="hero-card float d1"><span class="hand">Your level:</span><div class="big">B1<span style="font-size:.4em">+</span></div><p style="margin:6px 0 0;color:rgba(255,255,255,.85)">Intermediate — close to B2</p><div class="hero-demo" aria-hidden="true"><div class="bar"><i style="--w:88%"></i></div><div class="bar"><i style="--w:64%"></i></div><div class="bar"><i style="--w:52%"></i></div></div></div></div>
+</div></div></section>
+
+<section class="section" id="test"><div class="container narrow"><div class="tool">
+  <div id="intro"><span class="pill gold">Before you start</span><h2 style="margin-top:10px">3 rules, 8 minutes</h2>
+    <ol class="steps"><li><span><strong>No dictionary, guessing is fine.</strong> If you don't know, pick the most logical option; that is exactly what the test measures.</span></li><li><span><strong>Questions get harder.</strong> Struggling near the end is normal; C1 questions are hard for everyone.</span></li><li><span><strong>Result is instant.</strong> No sign-up; the PDF report is optional at the end.</span></li></ol>
+    <div class="q-nav" style="margin-top:26px"><span class="muted">25 questions · A1 to C1 · keys A/B/C/D work</span><button type="button" class="btn btn-gold btn-lg" id="start">Start the test <span class="arrow">→</span></button></div></div>
+  <div id="quiz" hidden>
+    <div class="tool-top"><span class="q-level">Question 1</span><span class="q-counter">1 / 25</span></div>
+    <div class="progress" role="progressbar" aria-label="Progress"><i></i></div>
+    <div class="q-card"><p class="q-text">I <span class="blank">___</span> a student.</p><div class="options"><button type="button" class="opt" data-i="0"><span class="key">A</span><span>am</span></button><button type="button" class="opt" data-i="1"><span class="key">B</span><span>is</span></button><button type="button" class="opt" data-i="2"><span class="key">C</span><span>are</span></button><button type="button" class="opt" data-i="3"><span class="key">D</span><span>be</span></button></div></div>
+    <div class="q-nav"><button type="button" class="btn btn-outline q-back" disabled>← Back</button><button type="button" class="btn btn-navy q-next" disabled>Next</button></div>
+  </div>
+  <div class="result" id="result" aria-live="polite">
+    <div class="result-hero">
+      <div class="ring pop"><svg viewBox="0 0 180 180" aria-hidden="true"><circle class="track" cx="90" cy="90" r="80"></circle><circle class="fill" cx="90" cy="90" r="80"></circle></svg><div class="center"><b class="r-level">B1</b><small><span class="r-pct">0%</span> correct</small></div></div>
+      <div><span class="pill gold rise">Estimated CEFR level</span><h2 class="r-title rise d1" style="margin-top:10px"></h2><p class="r-head rise d2" style="font-weight:600;font-size:1.1rem"></p><p class="r-desc rise d2"></p>
+        <div class="level-scale rise d3" aria-hidden="true"><span>A1</span><span>A2</span><span>B1</span><span>B2</span><span>C1</span></div><div class="share-row rise d3">
+    <a class="btn btn-gold" href="https://ahkademy.com" data-trial>Book a free trial lesson <span class="arrow">→</span></a>
+    <a class="btn btn-wa" href="#" data-wa-result hidden>Send result on WhatsApp</a>
+    <button type="button" class="btn btn-ghost share">Share</button>
+    <button type="button" class="btn btn-ghost retry">Try again</button>
+  </div></div>
+    </div>
+    <div class="grid grid-2" style="margin-top:22px">
+      <div class="card"><h3>Skill breakdown</h3><p class="muted"><b class="r-score">0 / 25</b> correct in total. Area to work on most: <b class="r-weak">vocabulary</b>.</p><div class="skills"></div></div>
+      <div class="card plan"><h3>Next level: <span class="r-next">B2</span></h3><p class="muted">Roughly <b class="r-hours">180</b> guided hours (approximation derived from Cambridge guided learning hours). Priorities for the first 30 days:</p><ul></ul></div>
+    </div>
+    <div class="lead-box" id="lead"><span class="tag">Free extra</span>
+  <h3>Get the detailed PDF report and your 7-day plan</h3><p class="muted">Your result stays on screen. If you want the level-specific study plan, word list and a free trial lesson link, we can send them by e-mail or WhatsApp.</p>
+  <form class="lead-form" data-magnet="english-level-test-en" novalidate>
+    <input type="hidden" name="result" value="">
+    <div class="form-grid">
+      <div class="field"><label for="english-level-test-en-name">Your name</label><input id="english-level-test-en-name" name="name" type="text" autocomplete="given-name" required><span class="err">Please enter your name.</span></div>
+      <div class="field"><label for="english-level-test-en-language">Language</label><select id="english-level-test-en-language" name="language"><option value="english" selected>English</option><option value="arabic">Arabic</option><option value="both">Both</option></select></div>
+      <div class="field"><label for="english-level-test-en-email">E-mail</label><input id="english-level-test-en-email" name="email" type="email" inputmode="email" autocomplete="email" placeholder="ornek@eposta.com"><span class="err">Enter a valid e-mail (or your WhatsApp number).</span></div>
+      <div class="field"><label for="english-level-test-en-phone">WhatsApp number</label><input id="english-level-test-en-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="05xx xxx xx xx"><span class="err">Enter a valid number (or your e-mail).</span></div>
+      <div class="field full"><label for="english-level-test-en-goal">Your goal</label><select id="english-level-test-en-goal" name="goal"><option value="speaking">Speaking confidence</option><option value="ielts">IELTS / TOEFL</option><option value="business">Business English</option><option value="abroad">Study / work abroad</option><option value="general">General progress</option></select></div>
+      <label class="check full"><input type="checkbox" name="kvkk" required><span>I have read the <a href="../../gizlilik/" target="_blank" rel="noopener">Privacy Notice (KVKK)</a> and give explicit consent to AHK Akademi processing my name, e-mail and/or phone number <strong>to deliver the resource I requested and contact me about lessons</strong>. (Required)</span></label>
+      <label class="check full"><input type="checkbox" name="marketing"><span>I would like to receive news about free resources and lessons by e-mail / SMS / WhatsApp (optional marketing consent; you can opt out any time).</span></label>
+      <div class="full"><button type="submit" class="btn btn-gold btn-lg" style="width:100%">Unlock the extras <span class="arrow">→</span></button></div>
+    </div>
+    <div class="form-msg" role="alert" aria-live="polite"></div>
+  </form>
+  <div class="unlock" aria-live="polite"><b>Unlocked:</b> <a href="../../assets/pdf/ahk-ielts-speaking-kaliplari.pdf" download>IELTS Speaking phrases (PDF)</a> · Your level-specific plan will arrive within 24 hours.</div>
+</div>
+  </div>
+</div></div></section>
+
+<section class="section alt" id="faq"><div class="container narrow"><div class="section-head"><div class="kicker"><i class="star"></i>FAQ</div><h2>About the English level test</h2></div><div class="faq"><details><summary>How does the English level test work?</summary><div class="a">The test has 25 questions arranged by CEFR level: five each for A1, A2, B1, B2 and C1, covering grammar, vocabulary and usage. The system looks at the highest level you answer consistently and estimates your level. No time limit; it takes about 8 minutes.</div></details><details><summary>Is the result an official certificate?</summary><div class="a">No. This is a free placement estimate, not a substitute for IELTS, TOEFL or Cambridge exams. Its purpose is to show where to start and what to focus on.</div></details><details><summary>Do I need to sign up to see my result?</summary><div class="a">No. Your level and personal plan appear immediately. Only if you want the detailed PDF report and 7-day plan by e-mail or WhatsApp do you leave your details.</div></details><details><summary>Does it test speaking and listening?</summary><div class="a">This short test measures reading, grammar and vocabulary. For speaking and listening the most accurate measure is a 20-minute conversation with a teacher, which we do in the free trial lesson.</div></details></div></div></section>
+<section class="section"><div class="container"><div class="cta-band" data-reveal>
+    <div><h2>You know your level. Time to move.</h2><p>One-to-one online lessons at AHK Akademi: English (IELTS/TOEFL, speaking, business) and Arabic (Qur'anic, MSA, dialects). First lesson is a free trial.</p></div>
+    <div style="display:grid;gap:10px"><a class="btn btn-gold btn-lg" href="https://ahkademy.com" data-trial>Free trial lesson <span class="arrow">→</span></a><a class="btn btn-wa" href="#" data-wa="Merhaba AHK Akademi, ücretsiz deneme dersi hakkında bilgi almak istiyorum." hidden>WhatsApp'tan yaz</a></div>
+  </div></div></section>
+</main>
+<footer class="footer"><div class="container"><div class="footer-grid">
+  <div><a class="wordmark" href="https://ahkademy.com"><img src="../../assets/img/star-mark-outlined.webp" alt="" width="40" height="38"><span class="wm"><b>AHK</b><i></i><small>AKADEMI</small></span></a>
+    <p style="margin-top:14px;max-width:38ch">Online English and Arabic academy for Turkish speakers. Focused on student success.</p>
+    <p><a href="https://www.instagram.com/ahkacademy" rel="me noopener" target="_blank">Instagram @ahkacademy</a><br><a href="https://ahkademy.com">ahkademy.com</a></p></div>
+  <div><h3>English tools</h3><ul>
+    <li><a href="../../ingilizce-seviye-testi/">İngilizce Seviye Testi</a></li>
+    <li><a href="../../ielts-puan-hesaplama/">IELTS Puan Hesaplama</a></li>
+    <li><a href="../../ingilizce-kac-ayda-ogrenilir/">İngilizce Kaç Ayda Öğrenilir?</a></li>
+    <li><a href="../../7-gunluk-ingilizce-konusma/">7 Günlük Konuşma Kursu</a></li>
+    <li><a href="../../en/english-level-test/">English level test (EN)</a></li></ul></div>
+  <div><h3>Arabic tools</h3><ul>
+    <li><a href="../../arapca-alfabe/">Arapça Alfabe Eğitmeni</a></li>
+    <li><a href="../../arapca-hedef-bulucu/">Arapça Hedef Bulucu</a></li>
+    <li><a href="../../kopya-kagitlari/">Ücretsiz PDF Kopya Kâğıtları</a></li>
+    <li><a href="../../gizlilik/">Privacy (KVKK)</a></li></ul></div>
+</div><div class="legal"><span>© 2026 AHK Akademi</span><span>These tools are free and are not official certificates.</span></div></div></footer>
+<script src="../../assets/js/config.js" defer></script>
+  <script src="../../assets/js/app.js" defer></script>
+  <script src="../../assets/js/level-test.js" defer></script>
+</body>
+</html>

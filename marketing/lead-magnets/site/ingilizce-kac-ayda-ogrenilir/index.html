@@ -1,18 +1,44 @@
-/* ============================================================
-   AHK Akademi — Lead magnet site design system
-   Navy #0E1F3E · Gold #F5A61F · Off-white #F9FAFD · Royal blue #1F5FAE
-   Display: Unbounded · Body: Inter · Hand: Caveat · Arabic: Noto Naskh Arabic
-   No text-transform anywhere (Turkish dotted-İ bug on English words).
-   ============================================================ */
-@font-face{font-family:'Unbounded';font-weight:700;font-display:swap;src:url(../fonts/Unbounded-700-tr.woff2) format('woff2')}
-@font-face{font-family:'Unbounded';font-weight:900;font-display:swap;src:url(../fonts/Unbounded-900-tr.woff2) format('woff2')}
-@font-face{font-family:'Inter';font-weight:400;font-display:swap;src:url(../fonts/Inter-400-tr.woff2) format('woff2')}
-@font-face{font-family:'Inter';font-weight:600;font-display:swap;src:url(../fonts/Inter-600-tr.woff2) format('woff2')}
-@font-face{font-family:'Inter';font-weight:800;font-display:swap;src:url(../fonts/Inter-800-tr.woff2) format('woff2')}
-@font-face{font-family:'Caveat';font-weight:700;font-display:optional;src:url(../fonts/Caveat-700-tr.woff2) format('woff2')}
-@font-face{font-family:'Noto Naskh Arabic';font-weight:400;font-display:swap;src:url(../fonts/NotoNaskhArabic-400-arabic.woff2) format('woff2');unicode-range:U+0600-06FF,U+0750-077F,U+FB50-FDFF,U+FE70-FEFC}
-@font-face{font-family:'Noto Naskh Arabic';font-weight:700;font-display:swap;src:url(../fonts/NotoNaskhArabic-700-arabic.woff2) format('woff2');unicode-range:U+0600-06FF,U+0750-077F,U+FB50-FDFF,U+FE70-FEFC}
-/* metric-compatible fallbacks to minimise layout shift while fonts load */
+<!doctype html>
+<html lang="tr" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>İngilizce Kaç Ayda Öğrenilir? B1, B2, C1 Süre Hesaplayıcı</title>
+  <meta name="description" content="Haftada kaç saat çalışıyorsun? Cambridge rehberli öğrenme saati tablosuna göre B1, B2 veya C1 seviyesine kaç ayda ulaşacağını ve bitiş tarihini hesapla.">
+  <link rel="canonical" href="https://ahkademy.com/ingilizce-kac-ayda-ogrenilir/">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="AHK Akademi">
+  <meta property="og:locale" content="tr_TR">
+  <meta property="og:title" content="İngilizce kaç ayda öğrenilir? Haftalık saatine göre hesapla">
+  <meta property="og:description" content="Haftada kaç saat çalışıyorsun? Cambridge rehberli öğrenme saati tablosuna göre B1, B2 veya C1 seviyesine kaç ayda ulaşacağını ve bitiş tarihini hesapla.">
+  <meta property="og:url" content="https://ahkademy.com/ingilizce-kac-ayda-ogrenilir/">
+  <meta property="og:image" content="https://ahkademy.com/assets/og/ingilizce-kac-ayda-ogrenilir.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="İngilizce kaç ayda öğrenilir? Haftalık saatine göre hesapla">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="İngilizce kaç ayda öğrenilir? Haftalık saatine göre hesapla">
+  <meta name="twitter:description" content="Haftada kaç saat çalışıyorsun? Cambridge rehberli öğrenme saati tablosuna göre B1, B2 veya C1 seviyesine kaç ayda ulaşacağını ve bitiş tarihini hesapla.">
+  <meta name="twitter:image" content="https://ahkademy.com/assets/og/ingilizce-kac-ayda-ogrenilir.jpg">
+  <meta name="theme-color" content="#0E1F3E">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png">
+  <link rel="preload" href="../assets/fonts/Unbounded-900-tr.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../assets/fonts/Inter-400-tr.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../assets/fonts/Inter-600-tr.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../assets/fonts/Inter-800-tr.woff2" as="font" type="font/woff2" crossorigin>
+  
+  <style>
+@font-face{font-family:'Unbounded';font-weight:700;font-display:swap;src:url(../assets/fonts/Unbounded-700-tr.woff2) format('woff2')}
+@font-face{font-family:'Unbounded';font-weight:900;font-display:swap;src:url(../assets/fonts/Unbounded-900-tr.woff2) format('woff2')}
+@font-face{font-family:'Inter';font-weight:400;font-display:swap;src:url(../assets/fonts/Inter-400-tr.woff2) format('woff2')}
+@font-face{font-family:'Inter';font-weight:600;font-display:swap;src:url(../assets/fonts/Inter-600-tr.woff2) format('woff2')}
+@font-face{font-family:'Inter';font-weight:800;font-display:swap;src:url(../assets/fonts/Inter-800-tr.woff2) format('woff2')}
+@font-face{font-family:'Caveat';font-weight:700;font-display:optional;src:url(../assets/fonts/Caveat-700-tr.woff2) format('woff2')}
+@font-face{font-family:'Noto Naskh Arabic';font-weight:400;font-display:swap;src:url(../assets/fonts/NotoNaskhArabic-400-arabic.woff2) format('woff2');unicode-range:U+0600-06FF,U+0750-077F,U+FB50-FDFF,U+FE70-FEFC}
+@font-face{font-family:'Noto Naskh Arabic';font-weight:700;font-display:swap;src:url(../assets/fonts/NotoNaskhArabic-700-arabic.woff2) format('woff2');unicode-range:U+0600-06FF,U+0750-077F,U+FB50-FDFF,U+FE70-FEFC}
 @font-face{font-family:'Unbounded Fallback';src:local('Arial Bold'),local('Arial'),local('Helvetica');size-adjust:130%;ascent-override:95%;descent-override:25%}
 @font-face{font-family:'Inter Fallback';src:local('Arial'),local('Helvetica');size-adjust:107%;ascent-override:90%;descent-override:22%}
 :root{
@@ -51,8 +77,6 @@ strong{font-weight:800}
 :focus-visible{outline:3px solid var(--gold);outline-offset:3px}
 [id]{scroll-margin-top:84px}
 [lang=ar],.ar{font-family:var(--font-ar);direction:rtl;unicode-bidi:isolate}
-
-/* ---------- Header ---------- */
 .site-header{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.88);backdrop-filter:saturate(1.4) blur(10px);-webkit-backdrop-filter:saturate(1.4) blur(10px);border-bottom:1px solid var(--line)}
 .nav{display:flex;align-items:center;justify-content:space-between;gap:12px;height:66px}
 .brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--navy)}
@@ -72,8 +96,6 @@ strong{font-weight:800}
 .mobile-menu.open{display:block}
 .mobile-menu a{display:block;padding:12px 8px;font-weight:600;color:var(--navy);text-decoration:none;border-bottom:1px solid var(--line)}
 @media(min-width:900px){.nav-links{display:flex}.nav-toggle,.mobile-menu{display:none!important}}
-
-/* ---------- Buttons ---------- */
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:14px 24px;border-radius:999px;font-weight:800;font-size:1rem;text-decoration:none;border:2px solid transparent;cursor:pointer;line-height:1.2;transition:transform .25s var(--ease-spring),box-shadow .25s,background .2s,color .2s;font-family:var(--font-body);min-height:48px}
 .btn:hover{transform:translateY(-2px)}
 .btn:active{transform:translateY(0) scale(.98)}
@@ -90,11 +112,9 @@ strong{font-weight:800}
 .btn[disabled]{opacity:.5;cursor:not-allowed;transform:none!important}
 .btn .arrow{display:inline-block;transition:transform .25s var(--ease-out)}
 .btn:hover .arrow{transform:translateX(4px)}
-
-/* ---------- Hero ---------- */
 .hero{position:relative;overflow:hidden;color:#fff;background:radial-gradient(130% 90% at 80% -10%,#1F3B6E 0%,var(--navy) 45%,var(--navy-deep) 100%);padding:clamp(56px,9vw,120px) 0 clamp(64px,9vw,120px);isolation:isolate}
 .hero::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.13) 1.5px,transparent 1.5px);background-size:28px 28px;-webkit-mask-image:linear-gradient(180deg,rgba(0,0,0,.9),rgba(0,0,0,0) 75%);mask-image:linear-gradient(180deg,rgba(0,0,0,.9),rgba(0,0,0,0) 75%);pointer-events:none}
-.hero-wm{position:absolute;right:-10%;top:-12%;width:min(62vw,560px);aspect-ratio:1;opacity:.07;background:url(../img/star-mark-outlined.webp) center/contain no-repeat;pointer-events:none;animation:floaty 14s ease-in-out infinite}
+.hero-wm{position:absolute;right:-10%;top:-12%;width:min(62vw,560px);aspect-ratio:1;opacity:.07;background:url(../assets/img/star-mark-outlined.webp) center/contain no-repeat;pointer-events:none;animation:floaty 14s ease-in-out infinite}
 .hero-grid{display:grid;gap:36px;align-items:center}
 @media(min-width:900px){.hero-grid{grid-template-columns:1.15fr .85fr}}
 .eyebrow{display:inline-flex;align-items:center;gap:8px;background:var(--gold);color:var(--navy);border-radius:999px;padding:6px 14px;font-weight:800;font-size:.8rem;letter-spacing:.06em;margin-bottom:18px}
@@ -121,8 +141,6 @@ strong{font-weight:800}
 .hero-demo .bar i{display:block;height:100%;width:0;border-radius:999px;background:linear-gradient(90deg,var(--gold),#FFC14F);animation:grow 1.6s var(--ease-out) forwards}
 .hero-demo .bar:nth-child(2) i{animation-delay:.25s}.hero-demo .bar:nth-child(3) i{animation-delay:.5s}
 @keyframes grow{to{width:var(--w,70%)}}
-
-/* ---------- Sections ---------- */
 .section{padding:clamp(48px,7vw,88px) 0}
 .section.alt{background:#fff}
 .section-head{max-width:720px;margin-bottom:34px}
@@ -145,8 +163,6 @@ a.card{text-decoration:none;color:inherit;display:block}
 .steps{counter-reset:s;list-style:none;padding:0;margin:0;display:grid;gap:14px}
 .steps li{counter-increment:s;display:flex;gap:14px;align-items:flex-start}
 .steps li::before{content:counter(s);flex:none;width:38px;height:38px;border-radius:50%;background:var(--navy);color:var(--gold);display:grid;place-items:center;font-family:var(--font-display);font-weight:900}
-
-/* ---------- Quiz ---------- */
 .tool{background:#fff;border:1px solid var(--line);border-radius:var(--r-lg);box-shadow:var(--shadow-md);padding:clamp(20px,4vw,40px);position:relative;overflow:hidden}
 .tool-top{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:14px;font-weight:700;color:var(--ink-2);font-size:.9rem}
 .progress{height:10px;background:var(--navy-soft);border-radius:999px;overflow:hidden;margin-bottom:26px}
@@ -170,13 +186,11 @@ a.card{text-decoration:none;color:inherit;display:block}
 @keyframes qOut{to{opacity:0;transform:translateX(-26px)}}
 .shake{animation:shake .4s}
 @keyframes shake{20%,60%{transform:translateX(-5px)}40%,80%{transform:translateX(5px)}}
-
-/* ---------- Result ---------- */
 .result{display:none}
 .result.show{display:block}
 .result-hero{background:radial-gradient(120% 100% at 100% 0%,#1F3B6E 0%,var(--navy) 50%,var(--navy-deep) 100%);color:#fff;border-radius:var(--r-lg);padding:clamp(22px,4vw,40px);position:relative;overflow:hidden;display:grid;gap:24px;align-items:center}
 @media(min-width:760px){.result-hero{grid-template-columns:auto 1fr}}
-.result-hero::after{content:"";position:absolute;right:-60px;top:-60px;width:260px;height:260px;background:url(../img/star-mark-outlined.webp) center/contain no-repeat;opacity:.08;pointer-events:none}
+.result-hero::after{content:"";position:absolute;right:-60px;top:-60px;width:260px;height:260px;background:url(../assets/img/star-mark-outlined.webp) center/contain no-repeat;opacity:.08;pointer-events:none}
 .ring{position:relative;width:190px;height:190px;margin:0 auto}
 .ring svg{width:100%;height:100%;transform:rotate(-90deg)}
 .ring circle{fill:none;stroke-width:14;stroke-linecap:round}
@@ -204,8 +218,6 @@ a.card{text-decoration:none;color:inherit;display:block}
 .plan ul{padding-left:1.2em}
 .plan li{margin-bottom:.5em}
 .share-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
-
-/* ---------- Lead form ---------- */
 .lead-box{background:linear-gradient(180deg,#fff,var(--off));border:2px solid var(--gold);border-radius:var(--r-lg);padding:clamp(20px,4vw,34px);margin-top:28px;position:relative}
 .lead-box .tag{position:absolute;top:-14px;left:22px;background:var(--gold);color:var(--navy);font-weight:800;font-size:.8rem;padding:4px 12px;border-radius:999px}
 .lead-box h3{margin-bottom:.3em}
@@ -226,8 +238,6 @@ a.card{text-decoration:none;color:inherit;display:block}
 .unlock{display:none;margin-top:18px;padding:18px;border-radius:var(--r-md);background:var(--navy);color:#fff}
 .unlock.show{display:block;animation:pop .6s var(--ease-spring)}
 .unlock a{color:var(--gold)}
-
-/* ---------- FAQ ---------- */
 .faq{display:grid;gap:10px}
 .faq details{background:#fff;border:1px solid var(--line);border-radius:14px;padding:0 18px;transition:box-shadow .2s}
 .faq details[open]{box-shadow:var(--shadow-sm)}
@@ -236,14 +246,10 @@ a.card{text-decoration:none;color:inherit;display:block}
 .faq summary::after{content:"+";flex:none;width:28px;height:28px;border-radius:50%;background:var(--navy-soft);display:grid;place-items:center;font-weight:800;transition:transform .3s var(--ease-spring)}
 .faq details[open] summary::after{transform:rotate(45deg)}
 .faq .a{padding:0 0 16px;color:var(--ink-2)}
-
-/* ---------- CTA band ---------- */
 .cta-band{background:linear-gradient(135deg,var(--blue),var(--navy));color:#fff;border-radius:var(--r-lg);padding:clamp(26px,5vw,48px);display:grid;gap:18px;align-items:center;position:relative;overflow:hidden}
 @media(min-width:800px){.cta-band{grid-template-columns:1fr auto}}
 .cta-band h2{color:#fff}
 .cta-band p{color:rgba(255,255,255,.85);margin:0}
-
-/* ---------- Footer ---------- */
 .footer{background:var(--navy-deep);color:rgba(255,255,255,.75);padding:48px 0 28px;margin-top:40px}
 .footer-grid{display:grid;gap:28px}
 @media(min-width:800px){.footer-grid{grid-template-columns:1.2fr 1fr 1fr}}
@@ -258,18 +264,12 @@ a.card{text-decoration:none;color:inherit;display:block}
 .footer a{color:rgba(255,255,255,.75);text-decoration:none}
 .footer a:hover{color:var(--gold)}
 .footer .legal{border-top:1px solid rgba(255,255,255,.12);margin-top:30px;padding-top:18px;font-size:.82rem;display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:space-between}
-
-/* ---------- Breadcrumb ---------- */
 .crumbs{font-size:.85rem;color:rgba(255,255,255,.7);margin-bottom:18px}
 .crumbs a{color:rgba(255,255,255,.85);text-decoration:none}
 .crumbs span{margin:0 6px}
-
-/* ---------- Reveal on scroll ---------- */
 [data-reveal]{opacity:0;transform:translateY(22px);transition:opacity .7s var(--ease-out),transform .7s var(--ease-out)}
 [data-reveal].in{opacity:1;transform:none}
 [data-reveal="1"]{transition-delay:.1s}[data-reveal="2"]{transition-delay:.2s}[data-reveal="3"]{transition-delay:.3s}
-
-/* ---------- Arabic alphabet trainer ---------- */
 .letter-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(96px,1fr));gap:10px}
 .letter-tile{background:#fff;border:2px solid var(--line);border-radius:16px;padding:10px 6px;text-align:center;cursor:pointer;font:inherit;transition:transform .25s var(--ease-spring),border-color .2s,box-shadow .2s;color:var(--ink)}
 .letter-tile:hover,.letter-tile.active{border-color:var(--gold);transform:translateY(-3px);box-shadow:var(--shadow-sm)}
@@ -298,8 +298,6 @@ a.card{text-decoration:none;color:inherit;display:block}
 .tab{border:2px solid var(--line);background:#fff;border-radius:999px;padding:9px 16px;font:inherit;font-weight:700;cursor:pointer;color:var(--ink-2);min-height:44px}
 .tab[aria-selected=true]{background:var(--navy);border-color:var(--navy);color:#fff}
 .panel{display:none}.panel.show{display:block;animation:qIn .4s var(--ease-out)}
-
-/* ---------- Calculators ---------- */
 .calc{display:grid;gap:22px}
 @media(min-width:860px){.calc{grid-template-columns:1fr 1fr}}
 .range{display:grid;gap:6px}
@@ -317,27 +315,133 @@ table.t{width:100%;border-collapse:collapse;font-size:.92rem;background:#fff;bor
 table.t th,table.t td{padding:10px 12px;border-bottom:1px solid var(--line);text-align:left}
 table.t th{background:var(--navy-soft);font-weight:800}
 .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
-
-/* ---------- Confetti canvas ---------- */
 .confetti{position:fixed;inset:0;pointer-events:none;z-index:80}
-
-/* ---------- Toast ---------- */
 .toast{position:fixed;left:50%;bottom:20px;transform:translate(-50%,120%);background:var(--navy);color:#fff;padding:12px 18px;border-radius:999px;font-weight:700;box-shadow:var(--shadow-lg);transition:transform .4s var(--ease-spring);z-index:90;max-width:calc(100% - 32px)}
 .toast.show{transform:translate(-50%,0)}
-
-/* ---------- Prose ---------- */
 .prose h2{margin-top:1.6em}
 .prose ul,.prose ol{padding-left:1.3em}
 .prose li{margin-bottom:.4em}
 .notice{background:var(--gold-soft);border-left:4px solid var(--gold);padding:12px 16px;border-radius:0 12px 12px 0;font-size:.95rem}
-
-/* ---------- Reduced motion ---------- */
 @media(prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}
   [data-reveal]{opacity:1;transform:none}
   .rise{opacity:1;transform:none}
   .hero-demo .bar i{width:var(--w,70%)}
 }
-
-/* ---------- Small-screen header ---------- */
 @media(max-width:560px){.nav-cta .btn{padding:8px 12px;font-size:.8rem;min-height:36px;white-space:nowrap}.brand img{height:30px}}
+</style>
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://ahkademy.com/#organization","name":"AHK Akademi","alternateName":"AHK Academy","url":"https://ahkademy.com","logo":{"@type":"ImageObject","url":"https://ahkademy.com/assets/img/star-mark.png","width":400,"height":462},"sameAs":["https://www.instagram.com/ahkacademy"],"description":"Türkçe konuşanlar için online İngilizce ve Arapça akademisi: IELTS/TOEFL hazırlık, konuşma pratiği, iş İngilizcesi, Kur'an Arapçası, Modern Standart Arapça ve lehçeler."},{"@type":"WebSite","@id":"https://ahkademy.com/#website","url":"https://ahkademy.com/","name":"AHK Akademi — Ücretsiz Araçlar","inLanguage":"tr","publisher":{"@id":"https://ahkademy.com/#organization"}},{"@type":"WebPage","@id":"https://ahkademy.com/ingilizce-kac-ayda-ogrenilir/#webpage","url":"https://ahkademy.com/ingilizce-kac-ayda-ogrenilir/","name":"İngilizce Kaç Ayda Öğrenilir? B1, B2, C1 Süre Hesaplayıcı","description":"Haftada kaç saat çalışıyorsun? Cambridge rehberli öğrenme saati tablosuna göre B1, B2 veya C1 seviyesine kaç ayda ulaşacağını ve bitiş tarihini hesapla.","inLanguage":"tr","isPartOf":{"@id":"https://ahkademy.com/#website"},"about":{"@id":"https://ahkademy.com/#organization"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://ahkademy.com/assets/og/ingilizce-kac-ayda-ogrenilir.jpg","width":1200,"height":630},"datePublished":"2026-10-03","dateModified":"2026-10-03"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Ücretsiz Araçlar","item":"https://ahkademy.com/"},{"@type":"ListItem","position":2,"name":"İngilizce Kaç Ayda Öğrenilir?","item":"https://ahkademy.com/ingilizce-kac-ayda-ogrenilir/"}]},{"@type":"WebApplication","name":"İngilizce Kaç Ayda Öğrenilir? Hesaplayıcı","applicationCategory":"EducationalApplication","operatingSystem":"Web","browserRequirements":"Requires JavaScript","offers":{"@type":"Offer","price":"0","priceCurrency":"TRY"},"inLanguage":"tr","provider":{"@id":"https://ahkademy.com/#organization"},"description":"Mevcut seviye, hedef seviye ve haftalık çalışma saatine göre CEFR seviyesine ulaşma süresini hesaplayan araç."},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"İngilizce kaç ayda öğrenilir?","acceptedAnswer":{"@type":"Answer","text":"Hedef seviyeye ve haftalık çalışma süresine bağlı. Cambridge'in rehberli öğrenme saati tablosuna göre sıfırdan B1 için yaklaşık 350–400 saat, B2 için 500–600 saat, C1 için 700–800 saat gerekir. Haftada 5 saatle B2 yaklaşık 2 yıl, haftada 10 saatle yaklaşık 1 yıl sürer. Hesaplayıcı bu tabloyu senin tempona uyarlar."}},{"@type":"Question","name":"Günde 1 saat İngilizce çalışırsam ne olur?","acceptedAnswer":{"@type":"Answer","text":"Günde 1 saat, haftada 7 saat demektir: sıfırdan B1 yaklaşık 12–13 ay, B1'den B2 yaklaşık 5–6 ay. Düzenlilik süreden daha önemli; her gün 30 dakika, haftada bir 4 saatten daha etkilidir."}},{"@type":"Question","name":"Rehberli öğrenme saati (guided learning hours) ne demek?","acceptedAnswer":{"@type":"Answer","text":"Bir öğretmen eşliğinde ya da yapılandırılmış bir programda geçirilen ders saati. Cambridge English'in verdiği sayılar sıfırdan o seviyeye ulaşmak için gereken toplam saattir; seviyeden seviyeye geçiş için aradaki fark alınır. Kendi başına yapılan çalışma da sayılır ama genellikle rehberli saate göre daha az verimlidir."}},{"@type":"Question","name":"Türkçe konuşanlar için İngilizce zor mu?","acceptedAnswer":{"@type":"Answer","text":"ABD Dışişleri Bakanlığı'nın dil enstitüsü (FSI) Türkçeyi İngilizce konuşanlar için \"zor\" (Kategori IV) saydığı gibi, tersine Türkçe konuşanlar için de İngilizce yapısal olarak uzaktır: kelime dizilişi, artikeller, zamanlar. Buna karşılık İngilizce öğrenme kaynaklarının bolluğu ve Türkçedeki binlerce ödünç kelime bu farkı kapatır."}},{"@type":"Question","name":"Hesaplayıcı sonucu kesin mi?","acceptedAnswer":{"@type":"Answer","text":"Hayır; bu bir tahmindir. Yaş, önceki dil deneyimi, ders dışı maruz kalma (dizi, oyun, iş) ve motivasyon sonucu ciddi şekilde değiştirir. Gerçek seviyeni seviye testiyle ölçüp başlangıç noktanı doğru seçersen tahmin daha isabetli olur."}}]}]}</script>
+</head>
+<body>
+<a class="skip" href="#main">İçeriğe atla</a>
+<header class="site-header"><div class="container nav">
+  <a class="brand" href="../" aria-label="AHK Akademi — ana sayfa"><img src="../assets/img/ahk-akademi-horizontal.webp" alt="AHK Akademi" width="150" height="36" fetchpriority="high"></a>
+  <nav aria-label="Ana menü"><ul class="nav-links"><li><a href="../ingilizce-seviye-testi/">İngilizce Seviye Testi</a></li><li><a href="../arapca-alfabe/">Arapça Alfabe</a></li><li><a href="../arapca-hedef-bulucu/">Arapça Hedef Bulucu</a></li><li><a href="../ielts-puan-hesaplama/">IELTS Hesaplama</a></li><li><a href="../ingilizce-kac-ayda-ogrenilir/">Kaç Ayda?</a></li><li><a href="../kopya-kagitlari/">PDF'ler</a></li></ul></nav>
+  <div class="nav-cta"><a class="btn btn-gold btn-sm" href="https://ahkademy.com" data-trial>Ücretsiz deneme dersi</a>
+  <button class="nav-toggle" aria-expanded="false" aria-controls="mobile-menu" aria-label="Menü"><span></span></button></div>
+</div><div class="mobile-menu" id="mobile-menu"><a href="../ingilizce-seviye-testi/">İngilizce Seviye Testi</a><a href="../arapca-alfabe/">Arapça Alfabe</a><a href="../arapca-hedef-bulucu/">Arapça Hedef Bulucu</a><a href="../ielts-puan-hesaplama/">IELTS Hesaplama</a><a href="../ingilizce-kac-ayda-ogrenilir/">Kaç Ayda?</a><a href="../kopya-kagitlari/">PDF'ler</a></div></header>
+<main id="main">
+
+<section class="hero"><div class="hero-wm"></div><div class="container"><div class="hero-grid">
+  <div>
+    <div class="crumbs"><a href="../">Ücretsiz Araçlar</a><span>›</span>İngilizce Kaç Ayda Öğrenilir?</div>
+    <span class="eyebrow"><i class="star"></i> ÜCRETSİZ HESAPLAYICI</span>
+    <h1>İngilizce <mark>kaç ayda</mark> öğrenilir?</h1>
+    <p class="lead">"Altı ayda İngilizce" vaatlerine inanma; sayılara bak. Cambridge'in rehberli öğrenme saati tablosunu haftalık tempona uyarla: B1, B2 ya da C1'e hangi ay ulaşırsın, takvimde hangi tarihe denk gelir?</p>
+    <div class="hero-actions"><a class="btn btn-gold btn-lg" href="#hesapla">Hesapla <span class="arrow">→</span></a><a class="btn btn-ghost" href="#tablo">Saat tablosu</a></div>
+  </div>
+  <div class="hero-art"><div class="orb blue float" style="width:60px;height:60px;left:4%;top:-10px"></div><div class="hero-card float d1" style="text-align:center"><span class="hand">Sıfırdan B2</span><div class="big">11<span style="font-size:.35em"> ay</span></div><p style="margin:6px 0 0;color:rgba(255,255,255,.85)">haftada 12 saat ile</p></div></div>
+</div></div></section>
+
+<section class="section" id="hesapla"><div class="container"><div class="tool"><div class="calc">
+  <div>
+    <h2 style="font-size:1.4rem">Senin temponla</h2>
+    <p style="font-weight:700;margin-bottom:6px">Şu anki seviyen</p>
+    <div class="seg" data-group="from" role="group" aria-label="Şu anki seviye"><button type="button" data-v="A0">Sıfır</button><button type="button" data-v="A1">A1</button><button type="button" data-v="A2">A2</button><button type="button" data-v="B1">B1</button><button type="button" data-v="B2">B2</button></div>
+    <p class="muted" style="font-size:.85rem;margin:6px 0 16px">Emin değil misin? <a href="../ingilizce-seviye-testi/">8 dakikalık seviye testi</a></p>
+    <p style="font-weight:700;margin-bottom:6px">Hedef seviyen</p>
+    <div class="seg" data-group="to" role="group" aria-label="Hedef seviye"><button type="button" data-v="A2">A2</button><button type="button" data-v="B1">B1</button><button type="button" data-v="B2">B2</button><button type="button" data-v="C1">C1</button><button type="button" data-v="C2">C2</button></div>
+    <div class="range" style="margin-top:18px"><label for="weekly">Haftada kaç saat? — <output id="weekly-out">5 saat</output></label><input type="range" id="weekly" min="1" max="20" value="5"></div>
+    <p style="font-weight:700;margin:16px 0 6px">Nasıl çalışıyorsun?</p>
+    <div class="seg" data-group="int" role="group" aria-label="Çalışma şekli"><button type="button" data-v="1">Ders + günlük pratik</button><button type="button" data-v="1.4">Sadece kendi başıma</button><button type="button" data-v="0.85">Yoğun program</button></div>
+    <p class="muted" style="font-size:.82rem;margin-top:8px">"Sadece kendi başıma" seçeneği saatleri 1,4 ile, "yoğun program" (ders + ödev + konuşma kulübü) 0,85 ile çarpar — bunlar deneyime dayalı katsayılardır, Cambridge verisi değildir.</p>
+    <input type="hidden" name="result" value="">
+  </div>
+  <div class="result-hero" style="grid-template-columns:1fr;align-content:start">
+    <div><span class="pill gold"><span id="from-lbl">Sıfır</span> → <span id="to-lbl">B2</span></span>
+      <div style="display:flex;align-items:baseline;gap:10px;margin:8px 0"><span class="big-num" id="months">22</span><span style="font-family:var(--font-display);font-size:1.3rem">ay</span></div>
+      <div class="stats"><div class="stat"><small>TOPLAM SAAT</small><b id="hours">550</b></div><div class="stat"><small>HAFTA</small><b id="weeks">110</b></div><div class="stat"><small>TAHMİNİ BİTİŞ</small><b id="date" style="font-size:1rem">—</b></div></div>
+      <p id="tip" style="margin:16px 0 0;color:rgba(255,255,255,.85)"></p>
+      <p class="notice" style="margin-top:14px;color:var(--navy)">Haftada <b id="faster-weekly">8</b> saate çıkarsan: yaklaşık <b id="faster">14</b> ay.</p>
+      <div class="share-row"><a class="btn btn-gold" href="https://ahkademy.com" data-trial>Planı bir öğretmenle yap <span class="arrow">→</span></a><a class="btn btn-wa" href="#" data-wa="Merhaba AHK Akademi, İngilizce dersleri ve çalışma planı hakkında bilgi almak istiyorum." hidden>WhatsApp'tan sor</a></div>
+    </div>
+  </div>
+</div>
+<div class="lead-box" id="lead"><span class="tag">Ücretsiz ekstra</span>
+  <h3>Kişisel haftalık çalışma planı (PDF)</h3><p class="muted">Seviyen, hedefin ve haftalık saatine göre hazırlanmış 12 haftalık plan + "Türkçe Düşünme Hataları" kopya kâğıdı. E-posta veya WhatsApp'a gönderelim.</p>
+  <form class="lead-form" data-magnet="ingilizce-kac-ayda" novalidate>
+    <input type="hidden" name="result" value="">
+    <div class="form-grid">
+      <div class="field"><label for="ingilizce-kac-ayda-name">Adın</label><input id="ingilizce-kac-ayda-name" name="name" type="text" autocomplete="given-name" required><span class="err">Lütfen adını yaz.</span></div>
+      <div class="field"><label for="ingilizce-kac-ayda-language">İlgilendiğin dil</label><select id="ingilizce-kac-ayda-language" name="language"><option value="english" selected>İngilizce</option><option value="arabic">Arapça</option><option value="both">İkisi de</option></select></div>
+      <div class="field"><label for="ingilizce-kac-ayda-email">E-posta</label><input id="ingilizce-kac-ayda-email" name="email" type="email" inputmode="email" autocomplete="email" placeholder="ornek@eposta.com"><span class="err">Geçerli bir e-posta yaz (veya WhatsApp numaranı).</span></div>
+      <div class="field"><label for="ingilizce-kac-ayda-phone">WhatsApp numaran</label><input id="ingilizce-kac-ayda-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="05xx xxx xx xx"><span class="err">Geçerli bir numara yaz (veya e-postanı).</span></div>
+      <div class="field full"><label for="ingilizce-kac-ayda-goal">Hedefin</label><select id="ingilizce-kac-ayda-goal" name="goal"><option value="speaking">Konuşma pratiği / özgüven</option><option value="ielts">IELTS / TOEFL</option><option value="business">İş İngilizcesi</option><option value="abroad">Yurt dışında eğitim / iş</option><option value="general">Genel ilerleme</option></select></div>
+      <label class="check full"><input type="checkbox" name="kvkk" required><span><a href="../gizlilik/" target="_blank" rel="noopener">Aydınlatma Metni</a>'ni okudum; adımın, e-postamın ve/veya telefon numaramın <strong>istediğim sonucu/kaynağı bana iletmek ve dersler hakkında benimle iletişime geçmek</strong> amacıyla AHK Akademi tarafından işlenmesine açık rıza veriyorum. (Zorunlu)</span></label>
+      <label class="check full"><input type="checkbox" name="marketing"><span>Kampanya, yeni ücretsiz kaynak ve ders duyurularını e-posta / SMS / WhatsApp ile almak istiyorum (ticari elektronik ileti onayı, isteğe bağlı; istediğin zaman vazgeçebilirsin).</span></label>
+      <div class="full"><button type="submit" class="btn btn-gold btn-lg" style="width:100%">Ekstra kaynakları aç <span class="arrow">→</span></button></div>
+    </div>
+    <div class="form-msg" role="alert" aria-live="polite"></div>
+  </form>
+  <div class="unlock" aria-live="polite"><b>Açıldı:</b> <a href="../assets/pdf/ahk-turkce-dusunme-hatalari.pdf" download>“Türkçe Düşünme Hataları” PDF'ini indir</a> · <a href="../7-gunluk-ingilizce-konusma/">7 günlük konuşma kursuna katıl</a> · 12 haftalık planın 24 saat içinde gelecek.</div>
+</div>
+</div></div></section>
+
+<section class="section alt" id="tablo"><div class="container">
+  <div class="section-head"><div class="kicker"><i class="star"></i>KAYNAK</div><h2>Cambridge rehberli öğrenme saati tablosu</h2><p class="muted">Sıfırdan ilgili seviyeye ulaşmak için gereken toplam saat (kümülatif). Hesaplayıcı her aralığın orta değerini kullanır.</p></div>
+  <div class="table-wrap"><table class="t"><thead><tr><th>Seviye</th><th>Cambridge sınavı</th><th>Toplam saat</th><th>Haftada 5 saat</th><th>Haftada 10 saat</th></tr></thead><tbody>
+    <tr><td>A1</td><td>—</td><td>≈ 90–100*</td><td>≈ 4–5 ay</td><td>≈ 2–3 ay</td></tr>
+    <tr><td>A2</td><td>A2 Key</td><td>180–200</td><td>≈ 9 ay</td><td>≈ 4–5 ay</td></tr>
+    <tr><td>B1</td><td>B1 Preliminary</td><td>350–400</td><td>≈ 1,5 yıl</td><td>≈ 9 ay</td></tr>
+    <tr><td>B2</td><td>B2 First</td><td>500–600</td><td>≈ 2–2,5 yıl</td><td>≈ 1 yıl</td></tr>
+    <tr><td>C1</td><td>C1 Advanced</td><td>700–800</td><td>≈ 3 yıl</td><td>≈ 1,5 yıl</td></tr>
+    <tr><td>C2</td><td>C2 Proficiency</td><td>1.000–1.200</td><td>≈ 4,5 yıl</td><td>≈ 2–2,5 yıl</td></tr>
+  </tbody></table></div>
+  <p class="muted" style="font-size:.85rem;margin-top:10px">Kaynak: Cambridge English, "Guided learning hours". * A1 satırı yaygın bir tahmindir; Cambridge'in resmî tablosu A2'den başlar.</p>
+</div></section>
+
+<section class="section" id="sss"><div class="container narrow">
+  <div class="section-head"><div class="kicker"><i class="star"></i>SIK SORULANLAR</div><h2>Süre ve tempo hakkında</h2></div>
+  <div class="faq"><details><summary>İngilizce kaç ayda öğrenilir?</summary><div class="a">Hedef seviyeye ve haftalık çalışma süresine bağlı. Cambridge'in rehberli öğrenme saati tablosuna göre sıfırdan B1 için yaklaşık 350–400 saat, B2 için 500–600 saat, C1 için 700–800 saat gerekir. Haftada 5 saatle B2 yaklaşık 2 yıl, haftada 10 saatle yaklaşık 1 yıl sürer. Hesaplayıcı bu tabloyu senin tempona uyarlar.</div></details><details><summary>Günde 1 saat İngilizce çalışırsam ne olur?</summary><div class="a">Günde 1 saat, haftada 7 saat demektir: sıfırdan B1 yaklaşık 12–13 ay, B1'den B2 yaklaşık 5–6 ay. Düzenlilik süreden daha önemli; her gün 30 dakika, haftada bir 4 saatten daha etkilidir.</div></details><details><summary>Rehberli öğrenme saati (guided learning hours) ne demek?</summary><div class="a">Bir öğretmen eşliğinde ya da yapılandırılmış bir programda geçirilen ders saati. Cambridge English'in verdiği sayılar sıfırdan o seviyeye ulaşmak için gereken toplam saattir; seviyeden seviyeye geçiş için aradaki fark alınır. Kendi başına yapılan çalışma da sayılır ama genellikle rehberli saate göre daha az verimlidir.</div></details><details><summary>Türkçe konuşanlar için İngilizce zor mu?</summary><div class="a">ABD Dışişleri Bakanlığı'nın dil enstitüsü (FSI) Türkçeyi İngilizce konuşanlar için "zor" (Kategori IV) saydığı gibi, tersine Türkçe konuşanlar için de İngilizce yapısal olarak uzaktır: kelime dizilişi, artikeller, zamanlar. Buna karşılık İngilizce öğrenme kaynaklarının bolluğu ve Türkçedeki binlerce ödünç kelime bu farkı kapatır.</div></details><details><summary>Hesaplayıcı sonucu kesin mi?</summary><div class="a">Hayır; bu bir tahmindir. Yaş, önceki dil deneyimi, ders dışı maruz kalma (dizi, oyun, iş) ve motivasyon sonucu ciddi şekilde değiştirir. Gerçek seviyeni <a href="../ingilizce-seviye-testi/">seviye testiyle</a> ölçüp başlangıç noktanı doğru seçersen tahmin daha isabetli olur.</div></details></div>
+</div></section>
+
+<section class="section alt"><div class="container">
+  <div class="section-head"><div class="kicker"><i class="star"></i>DİĞER ÜCRETSİZ ARAÇLAR</div><h2>Takvimi plana çevir</h2></div>
+  <div class="grid grid-3"><a class="card" href="../ingilizce-seviye-testi/" data-reveal="0"><div class="icon">A→C</div><h3>İngilizce Seviye Testi</h3><p>25 soru, 8 dakika: CEFR A1–C1 seviyeni ve kişisel planını gör.</p><span class="more">Aç →</span></a><a class="card ar-card" href="../arapca-alfabe/" data-reveal="1"><div class="icon" lang="ar">ع</div><h3>Arapça Alfabe Eğitmeni</h3><p>28 harf, 4 yazılış şekli, Türkçe ses ipuçları ve tanıma testi.</p><span class="more">Aç →</span></a><a class="card" href="../arapca-hedef-bulucu/" data-reveal="2"><div class="icon">🧭</div><h3>Arapça Hedef Bulucu</h3><p>Kur'an, MSA, Körfez ya da Levanten: 6 soruda sana uygun yol.</p><span class="more">Aç →</span></a><a class="card" href="../ielts-puan-hesaplama/" data-reveal="0"><div class="icon">7.5</div><h3>IELTS Puan Hesaplama</h3><p>Doğru sayından band puanına, hedef puana ne kadar var?</p><span class="more">Aç →</span></a><a class="card" href="../7-gunluk-ingilizce-konusma/" data-reveal="1"><div class="icon">7</div><h3>7 Günlük Konuşma Kursu</h3><p>WhatsApp veya e-postayla günde 1 görev: Türkçe düşünmeyi bırak.</p><span class="more">Aç →</span></a><a class="card" href="../kopya-kagitlari/" data-reveal="2"><div class="icon">PDF</div><h3>Kopya Kâğıtları (PDF)</h3><p>Türkçe düşünme hataları, IELTS Speaking kalıpları, Arapça alfabe tablosu.</p><span class="more">Aç →</span></a></div>
+</div></section>
+<section class="section"><div class="container"><div class="cta-band" data-reveal>
+    <div><h2>Seviyeni biliyorsun. Şimdi ilerleme zamanı.</h2><p>AHK Akademi'de birebir online dersler: İngilizce (IELTS/TOEFL, konuşma, iş İngilizcesi) ve Arapça (Kur'an, MSA, lehçeler). İlk ders ücretsiz deneme.</p></div>
+    <div style="display:grid;gap:10px"><a class="btn btn-gold btn-lg" href="https://ahkademy.com" data-trial>Ücretsiz deneme dersi <span class="arrow">→</span></a><a class="btn btn-wa" href="#" data-wa="Merhaba AHK Akademi, ücretsiz deneme dersi hakkında bilgi almak istiyorum." hidden>WhatsApp'tan yaz</a></div>
+  </div></div></section>
+</main>
+<footer class="footer"><div class="container"><div class="footer-grid">
+  <div><a class="wordmark" href="https://ahkademy.com"><img src="../assets/img/star-mark-outlined.webp" alt="" width="40" height="38"><span class="wm"><b>AHK</b><i></i><small>AKADEMI</small></span></a>
+    <p style="margin-top:14px;max-width:38ch">Türkçe konuşanlar için online İngilizce ve Arapça akademisi. Öğrencilerin başarısına odaklı.</p>
+    <p><a href="https://www.instagram.com/ahkacademy" rel="me noopener" target="_blank">Instagram @ahkacademy</a><br><a href="https://ahkademy.com">ahkademy.com</a></p></div>
+  <div><h3>İngilizce araçları</h3><ul>
+    <li><a href="../ingilizce-seviye-testi/">İngilizce Seviye Testi</a></li>
+    <li><a href="../ielts-puan-hesaplama/">IELTS Puan Hesaplama</a></li>
+    <li><a href="../ingilizce-kac-ayda-ogrenilir/">İngilizce Kaç Ayda Öğrenilir?</a></li>
+    <li><a href="../7-gunluk-ingilizce-konusma/">7 Günlük Konuşma Kursu</a></li>
+    <li><a href="../en/english-level-test/">English level test (EN)</a></li></ul></div>
+  <div><h3>Arapça araçları</h3><ul>
+    <li><a href="../arapca-alfabe/">Arapça Alfabe Eğitmeni</a></li>
+    <li><a href="../arapca-hedef-bulucu/">Arapça Hedef Bulucu</a></li>
+    <li><a href="../kopya-kagitlari/">Ücretsiz PDF Kopya Kâğıtları</a></li>
+    <li><a href="../gizlilik/">Gizlilik ve KVKK</a></li></ul></div>
+</div><div class="legal"><span>© 2026 AHK Akademi</span><span>Bu araçlar ücretsizdir ve resmî bir sertifika yerine geçmez.</span></div></div></footer>
+<script src="../assets/js/config.js" defer></script>
+  <script src="../assets/js/app.js" defer></script>
+  <script src="../assets/js/hours.js" defer></script>
+</body>
+</html>
